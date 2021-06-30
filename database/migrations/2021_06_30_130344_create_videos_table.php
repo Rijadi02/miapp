@@ -15,6 +15,10 @@ class CreateVideosTable extends Migration
     {
         Schema::create('videos', function (Blueprint $table) {
             $table->id();
+            $table->string('link')->nullable();
+            $table->string('title')->nullable();
+            $table->date('date')->nullable();
+            $table->string('thumbnail')->nullable();
             $table->timestamps();
         });
     }

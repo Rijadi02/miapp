@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Content extends Model
 {
     use HasFactory;
+
+    public function chapter()
+    {
+        return $this->belongsTo(Chapter::class);
+    }
 }
