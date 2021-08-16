@@ -21,23 +21,15 @@ class CreateContentsTable extends Migration
             $table->longText('transliteration')->nullable();
             $table->longText('arabic')->nullable();
             $table->string('reference')->nullable();
-
             $table->integer('chapter_id')->unsigned()->nullable();
             $table->foreign('chapter_id')->references('id')->on("chapters")->onDelete("cascade");
-
-
-
-
-
-
-
             $table->timestamps();
         });
     }
 
     /**
      * Reverse the migrations.
-     * 
+     *
      *
      * @return void
      */

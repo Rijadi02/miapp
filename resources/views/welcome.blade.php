@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -129,4 +129,92 @@
             </div>
         </div>
     </body>
-</html>
+</html> --}}
+
+
+<x-admin-master>
+    @section('content')
+
+
+
+        <h1>TABLEEEEEEEEEEEE</h1>
+
+        <table class="table table-bordered table-hover overflow-auto" style="overflow: auto;" id="dataTable" width="100%"
+            cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Question</th>
+                    <th>Answer</th>
+                    <th>Wrong Answer</th>
+                    <th>Explanation</th>
+                    <th>Category</th>
+                    <th>Article</th>
+                    <th>Actions</th>
+
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Question</th>
+                    <th>Answer</th>
+                    <th>Wrong Answer</th>
+                    <th>Explanation</th>
+                    <th>Category</th>
+                    <th>Article</th>
+                    <th>Actions</th>
+
+                </tr>
+            </tfoot>
+            <tbody>
+
+
+
+            </tbody>
+        </table>
+
+    @endsection
+
+</x-admin-master>
+<x-admin-master>
+    @section('contenti')
+
+
+
+        <h1>TABLEEEEEEEEEEEE</h1>
+
+        <table class="table table-bordered table-hover overflow-auto" style="overflow: auto;" id="dataTable" width="100%"
+            cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Question</th>
+                    <th>Answer</th>
+                    <th>Wrong Answer</th>
+                    <th>Explanation</th>
+                    <th>Category</th>
+                    <th>Article</th>
+                    <th>Actions</th>
+
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th>Question</th>
+                    <th>Answer</th>
+                    <th>Wrong Answer</th>
+                    <th>Explanation</th>
+                    <th>Category</th>
+                    <th>Article</th>
+                    <th>Actions</th>
+
+                </tr>
+            </tfoot>
+            <tbody>
+
+
+
+            </tbody>
+        </table>
+
+    @endsection
+
+</x-admin-master>
