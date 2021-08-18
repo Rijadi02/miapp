@@ -16,10 +16,8 @@ class CreateChaptersTable extends Migration
         Schema::create('chapters', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->nullable();
-
             $table->integer('book_id')->unsigned()->nullable();
             $table->foreign('book_id')->references('id')->on("books")->onDelete("cascade");
-
             $table->timestamps();
         });
     }

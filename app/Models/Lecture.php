@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Recitation extends Model
+class Lecture extends Model
 {
     use HasFactory;
 
-    public function reciter()
+    public function lecturer()
     {
-        return $this->belongsTo(Reciter::class);
+        return $this->belongsTo(Lecturer::class);
     }
 }

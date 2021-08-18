@@ -17,8 +17,13 @@ class CreateAdsTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('photo')->nullable();
+            $table->string('gallery')->nullable();
             $table->string('description')->nullable();
             $table->string('link')->nullable();
+            $table->string('tags')->nullable();
+            $table->string('city')->nullable();
+            $table->string('map')->nullable();
+            $table->string('media')->nullable();
             $table->timestamps();
         });
     }

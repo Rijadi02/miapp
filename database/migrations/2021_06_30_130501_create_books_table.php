@@ -17,10 +17,8 @@ class CreateBooksTable extends Migration
             $table->increments('id');
             $table->string('name')->nullable();
             $table->string('icon')->nullable();
-
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on("categories")->onDelete("cascade");
-
             $table->timestamps();
         });
     }
