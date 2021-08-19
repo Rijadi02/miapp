@@ -19,7 +19,7 @@ class CreateBlogsTable extends Migration
             $table->string('author');
             $table->longText('content');
             $table->string('image');
-            $table->string('tags');
+            $table->string('tags')->nullable();
             $table->timestamps();
         });
     }

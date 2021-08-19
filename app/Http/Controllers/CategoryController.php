@@ -14,7 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+        return view('admin/category', compact('categories'));
     }
 
     /**
@@ -35,7 +36,36 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $data = request()->validate(
+            [
+                'name' => 'required',
+                'image' => 'required|image',
+
+            ]
+        );
+
+        $category = new \App\Models\Category();
+
+
+        $category->name = $data['name'];
+
+        if (request('image')) {
+            $inputs['image'] = request('image')->store('uploads', 'public');
+            $category->image = $inputs['image'];
+        } else {
+            $category->image = 'null';
+        }
+
+
+        if ($category->isDirty('name')) {
+            session()->flash('category-add', 'Category added: ' . request('name'));
+            $category->save();
+        } else {
+            session()->flash('category-add', 'Nothing to add: ' . request('name'));
+        }
+
+        return redirect('/admin/categories');
     }
 
     /**
@@ -57,7 +87,8 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        $categories = Category::all();
+        return view('admin/category', compact('categories', 'category'));
     }
 
     /**
@@ -69,7 +100,31 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $data = request()->validate(
+            [
+                'name' => 'required',
+                'image' => 'image',
+
+            ]
+        );
+
+
+        $category->name = $data['name'];
+
+        if (request('image')) {
+            $inputs['image'] = request('image')->store('uploads', 'public');
+            $category->image = $inputs['image'];
+        }
+
+
+        if ($category->isDirty('name')) {
+            session()->flash('category-add', 'Category added: ' . request('name'));
+            $category->save();
+        } else {
+            session()->flash('category-add', 'Nothing to add: ' . request('name'));
+        }
+
+        return redirect('/admin/categories');
     }
 
     /**
@@ -80,6 +135,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        session()->flash('category-deleted', 'Category deleted: ' . $category->name);
+        return back();
     }
 }
