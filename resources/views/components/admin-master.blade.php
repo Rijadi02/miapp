@@ -95,16 +95,12 @@
                 <div class="sidenav-menu">
                     <div class="nav accordion" id="accordionSidenav">
                         <div class="sidenav-menu-heading">Nav</div>
-                        {{-- <a class="nav-link" href="{{ route('home.index') }}">
+                        <a class="nav-link" href="{{ route('category.index') }}">
                             <div class="nav-link-icon"><i class="fa fa-chart-line"></i></div>
-                            Dashboard
-                        </a>
-                        <a class="nav-link" href="{{ route('users.index') }}">
-                            <div class="nav-link-icon"><i class="fas fa-user"></i></div>
-                            Users
+                            Categories
                         </a>
 
-                        <a class="nav-link" href="{{ route('brands.index') }}">
+                        {{-- <a class="nav-link" href="{{ route('brands.index') }}">
                             <div class="nav-link-icon"><i class="fas fa-copyright"></i></div>
                             Brands
                         </a>
@@ -120,8 +116,7 @@
                         {{-- <a class="nav-link" href="{{ route('clients.index') }}">
                             <div class="nav-link-icon"><i class="fas fa-users"></i></div>
                             Clients
-                        </a>
- --}}
+                        </a> --}}
 
 
 

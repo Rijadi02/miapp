@@ -2,10 +2,10 @@
     @section('content')
         <div class="container">
             <div class="card mb-5 mt-5">
-                <div class="card-header">Add category</div>
+                <div class="card-header">Add books</div>
                 <div class="card-body">
-                    @if (isset($category))
-                        <form method="POST" action="{{ route('category.update', $category->id) }}"
+                    @if (isset($book))
+                        <form method="POST" action="{{ route('category.books.update', $book->id) }}"
                             enctype="multipart/form-data">
                             @csrf
                             @method('PATCH')
@@ -14,7 +14,7 @@
                                 <label for="name" class="col-md-12 col-form-label">Add name</label>
                                 <input id="name" type="text" name="name"
                                     class="form-control @error('name') is-invalid @enderror"
-                                    value="{{ old('name') ?? $category->name }}" autocomplete="name">
+                                    value="{{ old('name') ?? $book->name }}" autocomplete="name">
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -26,7 +26,7 @@
                                 <label for="image" class="col-md-12 col-form-label">Add image</label>
                                 <input id="image" type="file" name="image"
                                     class="form-control @error('image') is-invalid @enderror"
-                                    value="{{ old('image') ?? $category->image }}" autocomplete="image">
+                                    value="{{ old('image') ?? $book->image }}" autocomplete="image">
                                 @error('image')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -39,7 +39,8 @@
 
                     @else
 
-                        <form method="POST" action="{{ route('category.store') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('category.books.store', $category->id) }}"
+                            enctype="multipart/form-data">
                             @csrf
 
                             <div class="col-lg-12">
@@ -76,7 +77,7 @@
         </div>
 
         <div class="card">
-            <div class="card-header">All Categories</div>
+            <div class="card-header">All Books</div>
             <div class="card-body">
                 <div class="datatable" style="overflow-x:auto;">
 
@@ -100,37 +101,34 @@
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($categories as $category)
+                            @foreach ($books as $book)
 
                                 <tr>
-                                    <td>{{ $category->id }}</td>
-                                    <td>{{ $category->name }}</td>
-                                    <td><a href="{{ route('category.books', $category->id) }}" class=" btn
-                                            btn-primary">Add Book</a></td>
+                                    <td>{{ $book->id }}</td>
+                                    <td>{{ $book->name }}</td>
+                                    <td><button class="btn btn-secondary">Add Chapters</button></td>
 
                                     <td>
                                         <a class="btn btn-datatable btn-icon btn-transparent-dark mr-2"
-                                            href="{{ route('category.edit', $category->id) }}"><i
+                                            href="{{ route('category.books.edit', $book->id) }}"><i
                                                 data-feather="edit"></i></a>
 
-
-
-                                        <div class="modal fade" id="exampleModal{{ $category->id }}" tabindex="-1"
+                                        <div class="modal fade" id="exampleModal{{ $book->id }}" tabindex="-1"
                                             role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Delete Category</h5>
+                                                        <h5 class="modal-title" id="exampleModalLabel">Delete Book</h5>
                                                         <button class="close" type="button" data-dismiss="modal"
                                                             aria-label="Close"><span aria-hidden="true">×</span></button>
                                                     </div>
-                                                    <div class="modal-body">This will delete the selected Category and all
+                                                    <div class="modal-body">This will delete the selected book and all
                                                         the
                                                         data associated with it!</div>
                                                     <div class="modal-footer"><button class="btn btn-secondary"
                                                             type="button" data-dismiss="modal">Close</button>
                                                         <form method="POST"
-                                                            action="{{ route('category.destroy', $category->id) }}">
+                                                            action="{{ route('category.books.destroy', $book->id) }}">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button class="btn btn-danger" type="submit">Delete</button>
@@ -141,7 +139,7 @@
                                         </div>
 
                                         <button class="btn btn-datatable btn-icon btn-transparent-dark" type="submit"
-                                            data-toggle="modal" data-target="#exampleModal{{ $category->id }}"><i
+                                            data-toggle="modal" data-target="#exampleModal{{ $book->id }}"><i
                                                 data-feather="trash-2"></i></button>
 
 
