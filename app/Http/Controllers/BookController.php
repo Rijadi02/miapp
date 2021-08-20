@@ -15,7 +15,8 @@ class BookController extends Controller
      */
     public function index(Category $category)
     {
-        $books = Book::all()->where('category_id', '=', $category->id);
+
+        $books = $category->books;
         return view('admin.book', compact('books', 'category'));
     }
 

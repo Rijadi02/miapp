@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\Chapter;
 use Illuminate\Http\Request;
 
@@ -12,10 +13,12 @@ class ChapterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Book $book)
     {
-        //
+        $chapters = $book->chapters;
+        return view('admin.chapter', compact('chapters', 'book'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -33,9 +36,33 @@ class ChapterController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$book)
     {
-        //
+        $data = request()->validate(
+            [
+                'name' => 'required',
+                'number' => 'required|unique:chapters',
+            ]
+        );
+
+        $chapter = new \App\Models\Chapter();
+
+
+        $chapter->name = $data['name'];
+        $chapter->number = $data['number'];
+        $chapter->book_id = $book;
+
+
+
+
+        if ($chapter->isDirty('name')) {
+            session()->flash('chapter-add', 'Chapter added: ' . request('name'));
+            $chapter->save();
+        } else {
+            session()->flash('chapter-add', 'Nothing to add: ' . request('name'));
+        }
+
+        return back();
     }
 
     /**
@@ -57,7 +84,8 @@ class ChapterController extends Controller
      */
     public function edit(Chapter $chapter)
     {
-        //
+        $chapters = Chapter::all()->where('book_id', '=', $chapter->book_id);
+        return view('admin/chapter', compact('chapters', 'chapter'));
     }
 
     /**
@@ -69,7 +97,24 @@ class ChapterController extends Controller
      */
     public function update(Request $request, Chapter $chapter)
     {
-        //
+        $data = request()->validate(
+            [
+                'name' => 'required',
+                'number' => 'required',
+            ]
+        );
+
+        $chapter->name = $data['name'];
+        $chapter->number = $data['number'];
+
+        if ($chapter->isDirty('name')) {
+            session()->flash('chapter-add', 'Chapter added: ' . request('name'));
+            $chapter->save();
+        } else {
+            session()->flash('chapter-add', 'Nothing to add: ' . request('name'));
+        }
+
+        return back();
     }
 
     /**
@@ -80,6 +125,8 @@ class ChapterController extends Controller
      */
     public function destroy(Chapter $chapter)
     {
-        //
+        $chapter->delete();
+        session()->flash('chapter-deleted', 'Chapter deleted: ' . $chapter->name);
+        return back();
     }
 }
