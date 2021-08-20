@@ -42,11 +42,11 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
     Route::patch('chapters/{chapter}/update', [App\Http\Controllers\ChapterController::class, 'update'])->name('book.chapters.update');
     Route::get('chapters/{chapter}/edit',  [App\Http\Controllers\ChapterController::class, 'edit'])->name('book.chapters.edit');
 
-    Route::get('chapter/{chapter}/contents', [App\Http\Controllers\ChapterController::class, 'index'])->name('book.chapters');
-    Route::post('contents/{chapter}/store', [App\Http\Controllers\ChapterController::class, 'store'])->name('book.chapters.store');
-    Route::delete('contents/{content}', [App\Http\Controllers\ChapterController::class, 'destroy'])->name('book.chapters.destroy');
-    Route::patch('contents/{content}/update', [App\Http\Controllers\ChapterController::class, 'update'])->name('book.chapters.update');
-    Route::get('contents/{content}/edit',  [App\Http\Controllers\ChapterController::class, 'edit'])->name('book.chapters.edit');
+    Route::get('chapter/{chapter}/contents', [App\Http\Controllers\ContentController::class, 'index'])->name('chapter.contents');
+    Route::post('contents/{chapter}/store', [App\Http\Controllers\ContentController::class, 'store'])->name('chapter.contents.store');
+    Route::delete('contents/{content}', [App\Http\Controllers\ContentController::class, 'destroy'])->name('chapter.contents.destroy');
+    Route::patch('contents/{content}/update', [App\Http\Controllers\ContentController::class, 'update'])->name('chapter.contents.update');
+    Route::get('contents/{content}/edit',  [App\Http\Controllers\ContentController::class, 'edit'])->name('chapter.contents.edit');
 
 
 
