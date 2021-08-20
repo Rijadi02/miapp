@@ -15,12 +15,10 @@ class CreateBooksTable extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->nullable();
-            $table->string('icon')->nullable();
-
+            $table->string('name');
+            $table->string('image')->nullable();
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on("categories")->onDelete("cascade");
-
             $table->timestamps();
         });
     }

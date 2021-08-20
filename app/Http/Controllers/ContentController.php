@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chapter;
 use App\Models\Content;
 use Illuminate\Http\Request;
 
@@ -12,9 +13,10 @@ class ContentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Chapter $chapter)
     {
-        //
+        $contents = $chapter->contents;
+        return view('admin.content', compact('contents', 'chapter'));
     }
 
     /**
@@ -33,9 +35,41 @@ class ContentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,  $chapter)
     {
-        //
+        $data = request()->validate(
+            [
+                'title' => 'required',
+                'number' => 'required|unique:contents',
+                'content' => 'required',
+                'transliteration' => '',
+                'arabic' => '',
+                'reference' => '',
+                'hadith' => '',
+            ]
+        );
+
+        $content = new \App\Models\Content();
+
+
+        $content->title = $data['title'];
+        $content->number = $data['number'];
+        $content->content = $data['content'];
+        $content->transliteration = $data['transliteration'];
+        $content->hadith = $data['hadith'];
+        $content->reference = $data['reference'];
+        $content->arabic = $data['arabic'];
+        $content->chapter_id = $chapter;
+
+
+        if ($content->isDirty('title')) {
+            session()->flash('content-add', 'Content added: ' . request('title'));
+            $content->save();
+        } else {
+            session()->flash('title-add', 'Nothing to add: ' . request('title'));
+        }
+
+        return back();
     }
 
     /**
@@ -57,7 +91,9 @@ class ContentController extends Controller
      */
     public function edit(Content $content)
     {
-        //
+        $contents = Content::all()->where('chapter_id', '=', $content->chapter_id);
+
+        return view('admin.content', compact('contents', 'content'));
     }
 
     /**
@@ -69,7 +105,36 @@ class ContentController extends Controller
      */
     public function update(Request $request, Content $content)
     {
-        //
+        $data = request()->validate(
+            [
+                'title' => 'required',
+                'number' => 'required',
+                'content' => 'required',
+                'transliteration' => '',
+                'arabic' => '',
+                'reference' => '',
+                'hadith' => '',
+            ]
+        );
+
+
+        $content->title = $data['title'];
+        $content->number = $data['number'];
+        $content->content = $data['content'];
+        $content->transliteration = $data['transliteration'];
+        $content->hadith = $data['hadith'];
+        $content->reference = $data['reference'];
+        $content->arabic = $data['arabic'];
+
+
+        if ($content->isDirty('title')) {
+            session()->flash('content-add', 'Content added: ' . request('title'));
+            $content->save();
+        } else {
+            session()->flash('title-add', 'Nothing to add: ' . request('title'));
+        }
+
+        return back();
     }
 
     /**
@@ -80,6 +145,8 @@ class ContentController extends Controller
      */
     public function destroy(Content $content)
     {
-        //
+        $content->delete();
+        session()->flash('content-deleted', 'Content deleted: ' . $content->title);
+        return back();
     }
 }

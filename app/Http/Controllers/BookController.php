@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -12,9 +13,11 @@ class BookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Category $category)
     {
-        //
+
+        $books = $category->books;
+        return view('admin.book', compact('books', 'category'));
     }
 
     /**
@@ -33,9 +36,38 @@ class BookController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $category)
     {
-        //
+
+        $data = request()->validate(
+            [
+                'name' => 'required',
+                'image' => 'required|image',
+            ]
+        );
+
+        $book = new \App\Models\Book();
+
+
+        $book->name = $data['name'];
+        $book->category_id = $category;
+
+        if (request('image')) {
+            $inputs['image'] = request('image')->store('uploads', 'public');
+            $book->image = $inputs['image'];
+        } else {
+            $book->image = 'null';
+        }
+
+
+        if ($book->isDirty('name')) {
+            session()->flash('book-add', 'Book added: ' . request('name'));
+            $book->save();
+        } else {
+            session()->flash('book-add', 'Nothing to add: ' . request('name'));
+        }
+
+        return back();
     }
 
     /**
@@ -57,7 +89,8 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        //
+        $books = Book::all()->where('category_id', '=', $book->category_id);
+        return view('admin/book', compact('books', 'book'));
     }
 
     /**
@@ -69,7 +102,31 @@ class BookController extends Controller
      */
     public function update(Request $request, Book $book)
     {
-        //
+        $data = request()->validate(
+            [
+                'name' => 'required',
+                'image' => 'image',
+
+            ]
+        );
+
+
+        $book->name = $data['name'];
+
+        if (request('image')) {
+            $inputs['image'] = request('image')->store('uploads', 'public');
+            $book->image = $inputs['image'];
+        }
+
+
+        if ($book->isDirty('name')) {
+            session()->flash('book-add', 'Category added: ' . request('name'));
+            $book->save();
+        } else {
+            session()->flash('book-add', 'Nothing to add: ' . request('name'));
+        }
+
+        return back();
     }
 
     /**
@@ -80,6 +137,8 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-        //
+        $book->delete();
+        session()->flash('book-deleted', 'Book deleted: ' . $book->name);
+        return back();
     }
 }
