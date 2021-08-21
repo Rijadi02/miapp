@@ -58,14 +58,14 @@ class BookController extends Controller
         } else {
             $book->image = 'null';
         }
+        $book->save();
 
 
-        if ($book->isDirty('name')) {
-            session()->flash('book-add', 'Book added: ' . request('name'));
-            $book->save();
-        } else {
-            session()->flash('book-add', 'Nothing to add: ' . request('name'));
-        }
+        // if ($book->isDirty('name')) {
+        //     session()->flash('book-add', 'Book added: ' . request('name'));
+        // } else {
+        //     session()->flash('book-add', 'Nothing to add: ' . request('name'));
+        // }
 
         return back();
     }
@@ -118,13 +118,14 @@ class BookController extends Controller
             $book->image = $inputs['image'];
         }
 
+        $book->save();
 
-        if ($book->isDirty('name')) {
-            session()->flash('book-add', 'Category added: ' . request('name'));
-            $book->save();
-        } else {
-            session()->flash('book-add', 'Nothing to add: ' . request('name'));
-        }
+
+        // if ($book->isDirty('name')) {
+        //     session()->flash('book-add', 'Category added: ' . request('name'));
+        // } else {
+        //     session()->flash('book-add', 'Nothing to add: ' . request('name'));
+        // }
 
         return back();
     }

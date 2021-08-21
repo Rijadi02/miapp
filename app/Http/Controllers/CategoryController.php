@@ -57,13 +57,14 @@ class CategoryController extends Controller
             $category->image = 'null';
         }
 
+        $category->save();
 
-        if ($category->isDirty('name')) {
-            session()->flash('category-add', 'Category added: ' . request('name'));
-            $category->save();
-        } else {
-            session()->flash('category-add', 'Nothing to add: ' . request('name'));
-        }
+
+        // if ($category->isDirty('name')) {
+        //     session()->flash('category-add', 'Category added: ' . request('name'));
+        // } else {
+        //     session()->flash('category-add', 'Nothing to add: ' . request('name'));
+        // }
 
         return redirect('/admin/categories');
     }
@@ -104,7 +105,6 @@ class CategoryController extends Controller
             [
                 'name' => 'required',
                 'image' => 'image',
-
             ]
         );
 
@@ -116,13 +116,14 @@ class CategoryController extends Controller
             $category->image = $inputs['image'];
         }
 
+        #TODO FIX UPDATE SVED ONLY IF NAME IS DIRTY
+        // if ($category->isDirty('name')) {
+        //     session()->flash('category-add', 'Category added: ' . request('name'));
+        // } else {
+        //     session()->flash('category-add', 'Nothing to add: ' . request('name'));
+        // }
 
-        if ($category->isDirty('name')) {
-            session()->flash('category-add', 'Category added: ' . request('name'));
-            $category->save();
-        } else {
-            session()->flash('category-add', 'Nothing to add: ' . request('name'));
-        }
+        $category->save();
 
         return redirect('/admin/categories');
     }

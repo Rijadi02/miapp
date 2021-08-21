@@ -7,7 +7,11 @@
                     <div class="col-auto mt-4">
                         <h1 class="page-header-title">
                             <div class="page-header-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layout"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg></div>
-                            Overlap Header
+                             @if(isset($chapter))
+                             Kontenti për kapitullin :&nbsp; <b>{{$chapter->name}}</b>
+                             @else
+                             Editimi i kontentit : &nbsp; <b>{{$content->title}}</b>
+                             @endif
                         </h1>
                         <div class="page-header-subtitle">The default page header layout with main content that overlaps the background of the page header</div>
                     </div>
@@ -17,7 +21,7 @@
     </header>
         <div class="container">
             <div class="card mb-5 mt-5">
-                <div class="card-header">Add Contents</div>
+                <div class="card-header">Shto Kontentin</div>
                 <div class="card-body">
                     @if (isset($content))
                     <form method="POST" action="{{ route('chapter.contents.update', $content->id) }}"
@@ -26,7 +30,7 @@
                         @method('PATCH')
 
                         <div class="col-lg-12">
-                            <label for="number" class="col-md-12 col-form-label">Add number</label>
+                            <label for="number" class="col-md-12 col-form-label">Numri i renditjes</label>
                             <input id="number" type="number" name="number"
                                 class="form-control @error('number') is-invalid @enderror"
                                 value="{{ old('number') ?? $content->number }}" autocomplete="number">
@@ -38,7 +42,7 @@
                         </div>
 
                         <div class="col-lg-12">
-                            <label for="title" class="col-md-12 col-form-label">Add title</label>
+                            <label for="title" class="col-md-12 col-form-label">Titulli</label>
                             <input id="title" type="text" name="title"
                                 class="form-control @error('title') is-invalid @enderror"
                                 value="{{ old('title') ?? $content->title }}" autocomplete="title">
@@ -50,7 +54,7 @@
                         </div>
 
                         <div class="col-lg-12">
-                            <label for="content" class="col-md-12 col-form-label">Add content</label>
+                            <label for="content" class="col-md-12 col-form-label">Kontenti ne Shqip</label>
                             <textarea class="form-control" id="content" name="content"  @error("content") is-invalid @enderror">{{$content->content}}</textarea>
                             @error('content')
                                 <span class="invalid-feedback" role="alert">
@@ -60,7 +64,7 @@
                         </div>
 
                         <div class="col-lg-12">
-                            <label for="transliteration" class="col-md-12 col-form-label">Add transliteration</label>
+                            <label for="transliteration" class="col-md-12 col-form-label">Transliterimi</label>
                             <textarea class="form-control" id="transliteration" name="transliteration"  @error("transliteration") is-invalid @enderror">{{$content->transliteration}}</textarea>
                             @error('transliteration')
                                 <span class="invalid-feedback" role="alert">
@@ -70,7 +74,7 @@
                         </div>
 
                         <div class="col-lg-12">
-                            <label for="arabic" class="col-md-12 col-form-label">Add arabic</label>
+                            <label for="arabic" class="col-md-12 col-form-label">Kontenti Arabisht</label>
                             <textarea class="form-control" id="arabic" name="arabic"  @error("arabic") is-invalid @enderror">{{$content->arabic}}</textarea>
                             @error('arabic')
                                 <span class="invalid-feedback" role="alert">
@@ -83,7 +87,7 @@
 
 
                         <div class="col-lg-12">
-                            <label for="reference" class="col-md-12 col-form-label">Add reference</label>
+                            <label for="reference" class="col-md-12 col-form-label">Referenca</label>
                             <input id="reference" type="text" name="reference"
                                 class="form-control @error('reference') is-invalid @enderror"
                                 value="{{ old('reference') ?? $content->reference }}" autocomplete="reference">
@@ -95,7 +99,7 @@
                         </div>
 
                         <div class="col-lg-12">
-                            <label for="hadith" class="col-md-12 col-form-label">Add hadith</label>
+                            <label for="hadith" class="col-md-12 col-form-label">Hadithi</label>
                             <textarea class="form-control" id="hadith" name="hadith"  @error("hadith") is-invalid @enderror">{{$content->hadith}}</textarea>
                             @error('hadith')
                                 <span class="invalid-feedback" role="alert">
@@ -106,7 +110,7 @@
 
 
                         <div class="form-group mt-3">
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            <button type="submit" class="btn btn-primary">Përditëso Kontentin</button>
                     </form>
 
                 @else
@@ -116,7 +120,7 @@
                         @csrf
 
                         <div class="col-lg-12">
-                            <label for="number" class="col-md-12 col-form-label">Add number</label>
+                            <label for="number" class="col-md-12 col-form-label">Numri i renditjes</label>
                             <input id="number" type="number" name="number"
                                 class="form-control @error('number') is-invalid @enderror"
                                 value="{{ old('number') }}" autocomplete="number">
@@ -128,7 +132,7 @@
                         </div>
 
                         <div class="col-lg-12">
-                            <label for="title" class="col-md-12 col-form-label">Add title</label>
+                            <label for="title" class="col-md-12 col-form-label">Titulli</label>
                             <input id="title" type="text" name="title"
                                 class="form-control @error('title') is-invalid @enderror" value="{{ old('title') }}"
                                 autocomplete="title">
@@ -140,7 +144,7 @@
                         </div>
 
                         <div class="col-lg-12">
-                            <label for="content" class="col-md-12 col-form-label">Add content</label>
+                            <label for="content" class="col-md-12 col-form-label">Kontenti Shqip</label>
                             <textarea class="form-control" id="content" name="content"  @error("content") is-invalid @enderror">{{ old('content')}}</textarea>
                             @error('content')
                                 <span class="invalid-feedback" role="alert">
@@ -150,7 +154,7 @@
                         </div>
 
                         <div class="col-lg-12">
-                            <label for="transliteration" class="col-md-12 col-form-label">Add transliteration</label>
+                            <label for="transliteration" class="col-md-12 col-form-label">Transliterimi</label>
                             <textarea class="form-control" id="transliteration" name="transliteration"  @error("transliteration") is-invalid @enderror">{{ old('transliteration')}}</textarea>
                             @error('transliteration')
                                 <span class="invalid-feedback" role="alert">
@@ -160,7 +164,7 @@
                         </div>
 
                         <div class="col-lg-12">
-                            <label for="arabic" class="col-md-12 col-form-label">Add arabic</label>
+                            <label for="arabic" class="col-md-12 col-form-label">Arabisht</label>
                             <textarea class="form-control" id="arabic" name="arabic"  @error("arabic") is-invalid @enderror">{{ old('arabic')}}</textarea>
                             @error('arabic')
                                 <span class="invalid-feedback" role="alert">
@@ -170,7 +174,7 @@
                         </div>
 
                         <div class="col-lg-12">
-                            <label for="reference" class="col-md-12 col-form-label">Add reference</label>
+                            <label for="reference" class="col-md-12 col-form-label">Referenca</label>
                             <input id="reference" type="text" name="reference"
                                 class="form-control @error('reference') is-invalid @enderror"
                                 value="{{ old('reference') }}" autocomplete="reference">
@@ -182,7 +186,7 @@
                         </div>
 
                         <div class="col-lg-12">
-                            <label for="hadith" class="col-md-12 col-form-label">Add hadith</label>
+                            <label for="hadith" class="col-md-12 col-form-label">Hadithi</label>
                             <textarea class="form-control" id="hadith" name="hadith"  @error("hadith") is-invalid @enderror">{{ old('hadith')}}</textarea>
                             @error('hadith')
                                 <span class="invalid-feedback" role="alert">
@@ -193,7 +197,7 @@
 
 
                         <div class="form-group mt-3">
-                            <button type="submit" class="btn btn-primary">Add</button>
+                            <button type="submit" class="btn btn-primary">Shto Kontentin</button>
                     </form>
                 @endif
 
@@ -202,7 +206,7 @@
         </div>
 
         <div class="card">
-            <div class="card-header">All Contents</div>
+            <div class="card-header">Të gjitë kontenti</div>
             <div class="card-body">
                 <div class="datatable" style="overflow-x:auto;">
 
@@ -210,9 +214,9 @@
                         width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Actions</th>
+                                <th>Renditja</th>
+                                <th>Titulli</th>
+                                <th>Modifikimet</th>
 
                             </tr>
                         </thead>
@@ -220,14 +224,14 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Name</th>
-                                <th>Actions</th>
+                                <th>Modifikimet</th>
                             </tr>
                         </tfoot>
                         <tbody>
                             @foreach ($contents as $content)
 
                                 <tr>
-                                    <td>{{ $content->id }}</td>
+                                    <td>{{ $content->number }}</td>
                                     <td>{{ $content->title }}</td>
 
 
@@ -241,20 +245,18 @@
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Delete Content</h5>
+                                                        <h5 class="modal-title" id="exampleModalLabel">Shylej Kontentin</h5>
                                                         <button class="close" type="button" data-dismiss="modal"
                                                             aria-label="Close"><span aria-hidden="true">×</span></button>
                                                     </div>
-                                                    <div class="modal-body">This will delete the selected content and all
-                                                        the
-                                                        data associated with it!</div>
+                                                    <div class="modal-body">Kjo do ta shlyej kontentin, te cilin so mund ta riktheni më</div>
                                                     <div class="modal-footer"><button class="btn btn-secondary"
-                                                            type="button" data-dismiss="modal">Close</button>
+                                                            type="button" data-dismiss="modal">Mbyll</button>
                                                         <form method="POST"
                                                             action="{{ route('chapter.contents.destroy', $content->id) }}">
                                                             @csrf
                                                             @method('DELETE')
-                                                            <button class="btn btn-danger" type="submit">Delete</button>
+                                                            <button class="btn btn-danger" type="submit">Shlyej</button>
                                                     </div>
                                                     </form>
                                                 </div>

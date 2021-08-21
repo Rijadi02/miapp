@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>{{ config('app.name', 'autoservice') }}</title>
+    <title>{{ config('app.name', 'miapp') }}</title>
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/scroll.css') }}" rel="stylesheet" />
 
@@ -27,7 +27,7 @@
 
 <body class="nav-fixed">
     <nav class="topnav navbar navbar-expand shadow navbar-light bg-white" id="sidenavAccordion">
-        <a class="navbar-brand" href="index.html">Autoservice Panel</a>
+        <a class="navbar-brand" href="index.html">Muslimani Ideal Panel</a>
         <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle" href="#"><i
                 data-feather="menu"></i></button>
         {{-- <form class="form-inline mr-auto d-none d-md-block">
@@ -68,21 +68,21 @@
                         <img class="dropdown-user-img"
                             src="https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png" />
                         <div class="dropdown-user-details">
-                            {{-- <div class="dropdown-user-details-name"><a href="#">{{ Auth::user()->name }}</a></div>
-                                <div class="dropdown-user-details-email">{{ Auth::user()->email }}</div> --}}
+                            <div class="dropdown-user-details-name">{{ Auth::user()->name }}</div>
+                                <div class="dropdown-user-details-email">{{ Auth::user()->email }}</div>
                         </div>
                     </h6>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="{{ route('register') }}">
                         <div class="dropdown-item-icon"><i data-feather="settings"></i></div>
-                        Register
+                        Regjistro
                     </a>
 
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
                         <button style="outline: none" class="dropdown-item" type="submit">
                             <div class="dropdown-item-icon"><i data-feather="log-out"></i></div>
-                            Logout
+                            Çkyqu
                         </button>
                     </form>
                 </div>
@@ -97,7 +97,7 @@
                         <div class="sidenav-menu-heading">Nav</div>
                         <a class="nav-link" href="{{ route('category.index') }}">
                             <div class="nav-link-icon"><i class="fa fa-chart-line"></i></div>
-                            Categories
+                            Kategoritë
                         </a>
 
                         {{-- <a class="nav-link" href="{{ route('brands.index') }}">
@@ -213,8 +213,8 @@
                 </div>
                 <div class="sidenav-footer">
                     <div class="sidenav-footer-content">
-                        <div class="sidenav-footer-subtitle">Logged in as:</div>
-                        {{-- <div class="sidenav-footer-title">{{ Auth::user()->name }}</div> --}}
+                        <div class="sidenav-footer-subtitle">I kyqur si:</div>
+                        <div class="sidenav-footer-title">{{ Auth::user()->name }}</div>
                     </div>
                 </div>
             </nav>

@@ -54,13 +54,13 @@ class ChapterController extends Controller
 
 
 
+        $chapter->save();
 
-        if ($chapter->isDirty('name')) {
-            session()->flash('chapter-add', 'Chapter added: ' . request('name'));
-            $chapter->save();
-        } else {
-            session()->flash('chapter-add', 'Nothing to add: ' . request('name'));
-        }
+        // if ($chapter->isDirty('name')) {
+        //     session()->flash('chapter-add', 'Chapter added: ' . request('name'));
+        // } else {
+        //     session()->flash('chapter-add', 'Nothing to add: ' . request('name'));
+        // }
 
         return back();
     }
@@ -106,13 +106,13 @@ class ChapterController extends Controller
 
         $chapter->name = $data['name'];
         $chapter->number = $data['number'];
+        $chapter->save();
 
-        if ($chapter->isDirty('name')) {
-            session()->flash('chapter-add', 'Chapter added: ' . request('name'));
-            $chapter->save();
-        } else {
-            session()->flash('chapter-add', 'Nothing to add: ' . request('name'));
-        }
+        // if ($chapter->isDirty('name')) {
+        //     session()->flash('chapter-add', 'Chapter added: ' . request('name'));
+        // } else {
+        //     session()->flash('chapter-add', 'Nothing to add: ' . request('name'));
+        // }
 
         return back();
     }

@@ -61,13 +61,13 @@ class ContentController extends Controller
         $content->arabic = $data['arabic'];
         $content->chapter_id = $chapter;
 
+        $content->save();
 
-        if ($content->isDirty('title')) {
-            session()->flash('content-add', 'Content added: ' . request('title'));
-            $content->save();
-        } else {
-            session()->flash('title-add', 'Nothing to add: ' . request('title'));
-        }
+        // if ($content->isDirty('title')) {
+        //     session()->flash('content-add', 'Content added: ' . request('title'));
+        // } else {
+        //     session()->flash('title-add', 'Nothing to add: ' . request('title'));
+        // }
 
         return back();
     }
@@ -126,13 +126,13 @@ class ContentController extends Controller
         $content->reference = $data['reference'];
         $content->arabic = $data['arabic'];
 
+        $content->save();
 
-        if ($content->isDirty('title')) {
-            session()->flash('content-add', 'Content added: ' . request('title'));
-            $content->save();
-        } else {
-            session()->flash('title-add', 'Nothing to add: ' . request('title'));
-        }
+        // if ($content->isDirty('title')) {
+        //     session()->flash('content-add', 'Content added: ' . request('title'));
+        // } else {
+        //     session()->flash('title-add', 'Nothing to add: ' . request('title'));
+        // }
 
         return back();
     }
