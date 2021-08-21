@@ -48,6 +48,23 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
     Route::patch('contents/{content}/update', [App\Http\Controllers\ContentController::class, 'update'])->name('chapter.contents.update');
     Route::get('contents/{content}/edit',  [App\Http\Controllers\ContentController::class, 'edit'])->name('chapter.contents.edit');
 
+    Route::get('videos', [App\Http\Controllers\VideoController::class, 'index'])->name('video.index');
+    Route::post('videos/store', [App\Http\Controllers\VideoController::class, 'store'])->name('video.store');
+    Route::delete('videos/{video}', [App\Http\Controllers\VideoController::class, 'destroy'])->name('video.destroy');
+    Route::patch('videos/{video}/update', [App\Http\Controllers\VideoController::class, 'update'])->name('video.update');
+    Route::get('videos/{video}/edit',  [App\Http\Controllers\VideoController::class, 'edit'])->name('video.edit');
+
+    Route::get('reciters', [App\Http\Controllers\ReciterController::class, 'index'])->name('reciter.index');
+    Route::post('reciters/store', [App\Http\Controllers\ReciterController::class, 'store'])->name('reciter.store');
+    Route::delete('reciters/{reciter}', [App\Http\Controllers\ReciterController::class, 'destroy'])->name('reciter.destroy');
+    Route::patch('reciters/{reciter}/update', [App\Http\Controllers\ReciterController::class, 'update'])->name('reciter.update');
+    Route::get('reciters/{reciter}/edit',  [App\Http\Controllers\ReciterController::class, 'edit'])->name('reciter.edit');
+
+    Route::get('lecturers', [App\Http\Controllers\LecturerController::class, 'index'])->name('lecturer.index');
+    Route::post('lecturers/store', [App\Http\Controllers\LecturerController::class, 'store'])->name('lecturer.store');
+    Route::delete('lecturers/{lecturer}', [App\Http\Controllers\LecturerController::class, 'destroy'])->name('lecturer.destroy');
+    Route::patch('lecturers/{lecturer}/update', [App\Http\Controllers\LecturerController::class, 'update'])->name('lecturer.update');
+    Route::get('lecturers/{lecturer}/edit',  [App\Http\Controllers\LecturerController::class, 'edit'])->name('lecturer.edit');
 
 
 });

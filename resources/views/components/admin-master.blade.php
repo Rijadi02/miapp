@@ -27,7 +27,7 @@
 
 <body class="nav-fixed">
     <nav class="topnav navbar navbar-expand shadow navbar-light bg-white" id="sidenavAccordion">
-        <a class="navbar-brand" href="index.html">Muslimani Ideal Panel</a>
+        <a class="navbar-brand" href="index.html">Autoservice Panel</a>
         <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle" href="#"><i
                 data-feather="menu"></i></button>
         {{-- <form class="form-inline mr-auto d-none d-md-block">
@@ -99,6 +99,22 @@
                             <div class="nav-link-icon"><i class="fa fa-chart-line"></i></div>
                             Kategoritë
                         </a>
+
+                        <a class="nav-link" href="{{ route('video.index') }}">
+                            <div class="nav-link-icon"><i class="fa fa-video"></i></div>
+                            Videot
+                        </a>
+
+                        <a class="nav-link" href="{{ route('reciter.index') }}">
+                            <div class="nav-link-icon"><i class="fa fa-volume-up"></i></div>
+                            Recituesit
+                        </a>
+
+                        <a class="nav-link" href="{{ route('lecturer.index') }}">
+                            <div class="nav-link-icon"><i class="fa fa-microphone-alt"></i></div>
+                            Hoxhallaret
+                        </a>
+
 
                         {{-- <a class="nav-link" href="{{ route('brands.index') }}">
                             <div class="nav-link-icon"><i class="fas fa-copyright"></i></div>

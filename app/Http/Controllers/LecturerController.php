@@ -1,4 +1,3 @@
-$table->string('title');
 <?php
 
 namespace App\Http\Controllers;
@@ -15,7 +14,8 @@ class LecturerController extends Controller
      */
     public function index()
     {
-        //
+        $lecturers = Lecturer::all();
+        return view('admin/lecturer', compact('lecturers'));
     }
 
     /**
@@ -36,7 +36,36 @@ class LecturerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate(
+            [
+                'name' => 'required',
+                'image' => 'required|image',
+
+            ]
+        );
+
+        $lecturer = new \App\Models\Lecturer();
+
+
+        $lecturer->name = $data['name'];
+
+        if (request('image')) {
+            $inputs['image'] = request('image')->store('uploads', 'public');
+            $lecturer->image = $inputs['image'];
+        } else {
+            $lecturer->image = 'null';
+        }
+
+        $lecturer->save();
+
+
+        // if ($category->isDirty('name')) {
+        //     session()->flash('category-add', 'Category added: ' . request('name'));
+        // } else {
+        //     session()->flash('category-add', 'Nothing to add: ' . request('name'));
+        // }
+
+        return redirect('/admin/lecturers');
     }
 
     /**
@@ -58,7 +87,9 @@ class LecturerController extends Controller
      */
     public function edit(Lecturer $lecturer)
     {
-        //
+        $lecturers = Lecturer::all();
+        return view('admin/lecturer', compact('lecturers', 'lecturer'));
+
     }
 
     /**
@@ -70,7 +101,30 @@ class LecturerController extends Controller
      */
     public function update(Request $request, Lecturer $lecturer)
     {
-        //
+        $data = request()->validate(
+            [
+                'name' => 'required',
+                'image' => 'image',
+
+            ]
+        );
+
+        $lecturer->name = $data['name'];
+
+        if (request('image')) {
+            $inputs['image'] = request('image')->store('uploads', 'public');
+            $lecturer->image = $inputs['image'];
+        }
+        $lecturer->save();
+
+
+        // if ($category->isDirty('name')) {
+        //     session()->flash('category-add', 'Category added: ' . request('name'));
+        // } else {
+        //     session()->flash('category-add', 'Nothing to add: ' . request('name'));
+        // }
+
+        return redirect('/admin/lecturers');
     }
 
     /**
@@ -81,6 +135,8 @@ class LecturerController extends Controller
      */
     public function destroy(Lecturer $lecturer)
     {
-        //
+        $lecturer->delete();
+        session()->flash('lecturer-deleted', 'Lecturer deleted: ' . $lecturer->name);
+        return back();
     }
 }

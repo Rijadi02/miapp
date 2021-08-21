@@ -14,7 +14,8 @@ class VideoController extends Controller
      */
     public function index()
     {
-        //
+        $videos = Video::all();
+        return view('admin.video', compact('videos'));
     }
 
     /**
@@ -35,8 +36,36 @@ class VideoController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $data = request()->validate(
+            [
+                'title' => 'required',
+                'link' => 'required',
+                'date' => '',
+                'thumbnail' => 'required',
+            ]
+        );
+
+        $video = new \App\Models\Video();
+
+
+        $video->title = $data['title'];
+        $video->link = $data['link'];
+        if (request('thumbnail')) {
+            $inputs['thumbnail'] = request('thumbnail')->store('uploads', 'public');
+            $video->thumbnail = $inputs['thumbnail'];
+        }
+        $video->date = $data['date'];
+
+        $video->save();
+
+        // if ($content->isDirty('title')) {
+        //     session()->flash('content-add', 'Content added: ' . request('title'));
+        // } else {
+        //     session()->flash('title-add', 'Nothing to add: ' . request('title'));
+        // }
+
+        return back();
+        }
 
     /**
      * Display the specified resource.
@@ -57,7 +86,8 @@ class VideoController extends Controller
      */
     public function edit(Video $video)
     {
-        //
+        $videos = Video::all();
+        return view('admin/video', compact('videos', 'video'));
     }
 
     /**
@@ -69,7 +99,32 @@ class VideoController extends Controller
      */
     public function update(Request $request, Video $video)
     {
-        //
+        $data = request()->validate(
+            [
+                'title' => 'required',
+                'link' => 'required',
+                'date' => '',
+                'thumbnail' => '',
+            ]
+        );
+
+        $video->title = $data['title'];
+        $video->link = $data['link'];
+        if (request('thumbnail')) {
+            $inputs['thumbnail'] = request('thumbnail')->store('uploads', 'public');
+            $video->thumbnail = $inputs['thumbnail'];
+        }
+        $video->date = $data['date'];
+
+        $video->save();
+
+        // if ($content->isDirty('title')) {
+        //     session()->flash('content-add', 'Content added: ' . request('title'));
+        // } else {
+        //     session()->flash('title-add', 'Nothing to add: ' . request('title'));
+        // }
+
+        return back();
     }
 
     /**
@@ -80,6 +135,8 @@ class VideoController extends Controller
      */
     public function destroy(Video $video)
     {
-        //
+        $video->delete();
+        session()->flash('video-deleted', 'Video deleted: ' . $video->name);
+        return back();
     }
 }

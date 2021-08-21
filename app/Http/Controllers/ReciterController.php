@@ -14,7 +14,8 @@ class ReciterController extends Controller
      */
     public function index()
     {
-        //
+        $reciters = Reciter::all();
+        return view('admin/reciter', compact('reciters'));
     }
 
     /**
@@ -35,7 +36,36 @@ class ReciterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate(
+            [
+                'name' => 'required',
+                'image' => 'required|image',
+
+            ]
+        );
+
+        $reciter = new \App\Models\Reciter();
+
+
+        $reciter->name = $data['name'];
+
+        if (request('image')) {
+            $inputs['image'] = request('image')->store('uploads', 'public');
+            $reciter->image = $inputs['image'];
+        } else {
+            $reciter->image = 'null';
+        }
+
+        $reciter->save();
+
+
+        // if ($category->isDirty('name')) {
+        //     session()->flash('category-add', 'Category added: ' . request('name'));
+        // } else {
+        //     session()->flash('category-add', 'Nothing to add: ' . request('name'));
+        // }
+
+        return redirect('/admin/reciters');
     }
 
     /**
@@ -57,7 +87,8 @@ class ReciterController extends Controller
      */
     public function edit(Reciter $reciter)
     {
-        //
+        $reciters = Reciter::all();
+        return view('admin/reciter', compact('reciters', 'reciter'));
     }
 
     /**
@@ -69,7 +100,32 @@ class ReciterController extends Controller
      */
     public function update(Request $request, Reciter $reciter)
     {
-        //
+        $data = request()->validate(
+            [
+                'name' => 'required',
+                'image' => 'image',
+
+            ]
+        );
+
+
+        $reciter->name = $data['name'];
+
+        if (request('image')) {
+            $inputs['image'] = request('image')->store('uploads', 'public');
+            $reciter->image = $inputs['image'];
+        }
+
+        $reciter->save();
+
+
+        // if ($category->isDirty('name')) {
+        //     session()->flash('category-add', 'Category added: ' . request('name'));
+        // } else {
+        //     session()->flash('category-add', 'Nothing to add: ' . request('name'));
+        // }
+
+        return redirect('/admin/reciters');
     }
 
     /**
@@ -80,6 +136,8 @@ class ReciterController extends Controller
      */
     public function destroy(Reciter $reciter)
     {
-        //
+        $reciter->delete();
+        session()->flash('reciter-deleted', 'Reciter deleted: ' . $reciter->name);
+        return back();
     }
 }
