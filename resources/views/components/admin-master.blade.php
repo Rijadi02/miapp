@@ -112,7 +112,7 @@
 
                         <a class="nav-link" href="{{ route('lecturer.index') }}">
                             <div class="nav-link-icon"><i class="fa fa-microphone-alt"></i></div>
-                            Hoxhallaret
+                            Hoxhallarët
                         </a>
 
 

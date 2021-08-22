@@ -107,9 +107,9 @@
                             <div class="col-lg-4 mb-3 mb-lg-5">
                                 <div class="card">
                                     <div class="card-body text-center p-lg-5">
-                                        {{-- <a href="{{ route('reciter.recitations', $reciter->id) }}"> --}}
+                                        <a href="{{ route('reciter.recitations', $reciter->id) }}">
                                             <img class="img-fluid mb-4" src="/storage/{{ $reciter->image }}" alt="">
-                                        {{-- </a> --}}
+                                        </a>
                                         <h5>{{ $reciter->name }}</h5>
 
                                         <a class="btn btn-primary btn-sm"

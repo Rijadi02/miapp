@@ -60,6 +60,13 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
     Route::patch('reciters/{reciter}/update', [App\Http\Controllers\ReciterController::class, 'update'])->name('reciter.update');
     Route::get('reciters/{reciter}/edit',  [App\Http\Controllers\ReciterController::class, 'edit'])->name('reciter.edit');
 
+    Route::get('reciter/{reciter}/recitations', [App\Http\Controllers\RecitationController::class, 'index'])->name('reciter.recitations');
+    Route::post('recitation/{reciter}/store', [App\Http\Controllers\RecitationController::class, 'store'])->name('reciter.recitations.store');
+    Route::delete('recitations/{recitation}', [App\Http\Controllers\RecitationController::class, 'destroy'])->name('reciter.recitations.destroy');
+    Route::patch('recitations/{recitation}/update', [App\Http\Controllers\RecitationController::class, 'update'])->name('reciter.recitations.update');
+    Route::get('recitations/{recitation}/edit',  [App\Http\Controllers\RecitationController::class, 'edit'])->name('reciter.recitations.edit');
+
+
     Route::get('lecturers', [App\Http\Controllers\LecturerController::class, 'index'])->name('lecturer.index');
     Route::post('lecturers/store', [App\Http\Controllers\LecturerController::class, 'store'])->name('lecturer.store');
     Route::delete('lecturers/{lecturer}', [App\Http\Controllers\LecturerController::class, 'destroy'])->name('lecturer.destroy');

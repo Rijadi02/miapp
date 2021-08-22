@@ -18,6 +18,8 @@ class CreateRecitationsTable extends Migration
             $table->string('title');
             $table->string('surah');
             $table->string('ayahs');
+            $table->string('link')->nullable();
+            $table->string('audio')->nullable();
             $table->integer('reciter_id')->unsigned();
             $table->foreign('reciter_id')->references('id')->on("reciters")->onDelete("cascade");
             $table->timestamps();
