@@ -17,11 +17,13 @@ class CreateLecturesTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->date('date')->nullable();
+            $table->string('day');
             $table->string('time');
             $table->string('map')->nullable();
+            $table->string('link')->nullable();
+            $table->integer('status');
             $table->integer('lecturer_id')->unsigned();
             $table->foreign('lecturer_id')->references('id')->on("lecturers")->onDelete("cascade");
-            $table->string('link');
             $table->timestamps();
         });
     }

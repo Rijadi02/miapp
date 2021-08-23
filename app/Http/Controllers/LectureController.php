@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Lecture;
+use App\Models\Lecturer;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class LectureController extends Controller
@@ -12,9 +14,10 @@ class LectureController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Lecturer $lecturer)
     {
-        //
+        $lectures = $lecturer->lectures;
+        return view('admin.lecture', compact('lectures', 'lecturer'));
     }
 
     /**
@@ -33,9 +36,39 @@ class LectureController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$lecturer)
     {
-        //
+        $data = request()->validate(
+            [
+                'title' => 'required',
+                'date' => '',
+                'day' => 'required',
+                'time' => 'required',
+                'map' => '',
+                'link' => '',
+                'status' => 'required'
+            ]
+        );
+
+        $lecture = new \App\Models\Lecture();
+        $lecture->date = Carbon::parse($data['date'])->format('Y-m-d');
+        $lecture->title = $data['title'];
+        $lecture->day = $data['day'];
+        $lecture->time = $data['time'];
+        $lecture->map = $data['map'];
+        $lecture->link = $data['link'];
+        $lecture->status = $data['status'];
+        $lecture->lecturer_id = $lecturer;
+
+        $lecture->save();
+
+        // if ($chapter->isDirty('name')) {
+        //     session()->flash('chapter-add', 'Chapter added: ' . request('name'));
+        // } else {
+        //     session()->flash('chapter-add', 'Nothing to add: ' . request('name'));
+        // }
+
+        return back();
     }
 
     /**
@@ -57,7 +90,8 @@ class LectureController extends Controller
      */
     public function edit(Lecture $lecture)
     {
-        //
+        $lectures = Lecture::all()->where('lecturer_id', '=', $lecture->lecturer_id);
+        return view('admin/lecture', compact('lectures', 'lecture'));
     }
 
     /**
@@ -69,7 +103,36 @@ class LectureController extends Controller
      */
     public function update(Request $request, Lecture $lecture)
     {
-        //
+        $data = request()->validate(
+            [
+                'title' => 'required',
+                'date' => '',
+                'day' => 'required',
+                'time' => 'required',
+                'map' => '',
+                'link' => '',
+                'status' => 'required'
+            ]
+        );
+
+        $lecture->title = $data['title'];
+        $lecture->date = $data['date'];
+        $lecture->day = $data['day'];
+        $lecture->time = $data['time'];
+        $lecture->map = $data['map'];
+        $lecture->link = $data['link'];
+        $lecture->status = $data['status'];
+
+
+        $lecture->save();
+
+        // if ($chapter->isDirty('name')) {
+        //     session()->flash('chapter-add', 'Chapter added: ' . request('name'));
+        // } else {
+        //     session()->flash('chapter-add', 'Nothing to add: ' . request('name'));
+        // }
+
+        return back();
     }
 
     /**
@@ -80,6 +143,8 @@ class LectureController extends Controller
      */
     public function destroy(Lecture $lecture)
     {
-        //
+        $lecture->delete();
+        session()->flash('lecture-deleted', 'Lecture deleted: ' . $lecture->name);
+        return back();
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+//ds
 use App\Models\Recitation;
 use App\Models\Reciter;
 use Illuminate\Http\Request;
@@ -118,8 +118,6 @@ class RecitationController extends Controller
 
             ]
         );
-
-
 
         $recitation->title = $data['title'];
         $recitation->surah = $data['surah'];

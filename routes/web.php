@@ -73,5 +73,11 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
     Route::patch('lecturers/{lecturer}/update', [App\Http\Controllers\LecturerController::class, 'update'])->name('lecturer.update');
     Route::get('lecturers/{lecturer}/edit',  [App\Http\Controllers\LecturerController::class, 'edit'])->name('lecturer.edit');
 
+    Route::get('lecturer/{lecturer}/lectures', [App\Http\Controllers\LectureController::class, 'index'])->name('lecturer.lectures');
+    Route::post('lecture/{lecturer}/store', [App\Http\Controllers\LectureController::class, 'store'])->name('lecturer.lectures.store');
+    Route::delete('lectures/{lecture}', [App\Http\Controllers\LectureController::class, 'destroy'])->name('lecturer.lectures.destroy');
+    Route::patch('lectures/{lecture}/update', [App\Http\Controllers\LectureController::class, 'update'])->name('lecturer.lectures.update');
+    Route::get('lectures/{lecture}/edit',  [App\Http\Controllers\LectureController::class, 'edit'])->name('lecturer.lectures.edit');
+
 
 });

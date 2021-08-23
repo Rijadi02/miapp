@@ -107,9 +107,9 @@
                             <div class="col-lg-4 mb-3 mb-lg-5">
                                 <div class="card">
                                     <div class="card-body text-center p-lg-5">
-                                        {{-- <a href="{{ route('lecturer.lectures', $lecturer->id) }}"> --}}
+                                        <a href="{{ route('lecturer.lectures', $lecturer->id) }}">
                                             <img class="img-fluid mb-4" src="/storage/{{ $lecturer->image }}" alt="">
-                                        {{-- </a> --}}
+                                        </a>
                                         <h5>{{ $lecturer->name }}</h5>
 
                                         <a class="btn btn-primary btn-sm"
