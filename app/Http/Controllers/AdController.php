@@ -147,6 +147,8 @@ class AdController extends Controller
      */
     public function destroy(Ad $ad)
     {
-        //
+        $ad->delete();
+        session()->flash('ad-deleted', 'Ad deleted: ' . $ad->name);
+        return back();
     }
 }
