@@ -79,5 +79,11 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
     Route::patch('lectures/{lecture}/update', [App\Http\Controllers\LectureController::class, 'update'])->name('lecturer.lectures.update');
     Route::get('lectures/{lecture}/edit',  [App\Http\Controllers\LectureController::class, 'edit'])->name('lecturer.lectures.edit');
 
+    Route::get('ads', [App\Http\Controllers\AdController::class, 'index'])->name('ad.index');
+    Route::post('ads/store', [App\Http\Controllers\AdController::class, 'store'])->name('ad.store');
+    Route::delete('ads/{ad}', [App\Http\Controllers\AdController::class, 'destroy'])->name('ad.destroy');
+    Route::patch('ads/{ad}/update', [App\Http\Controllers\AdController::class, 'update'])->name('ad.update');
+    Route::get('ads/{ad}/edit',  [App\Http\Controllers\AdController::class, 'edit'])->name('ad.edit');
+
 
 });

@@ -24,6 +24,8 @@ class CreateAdsTable extends Migration
             $table->string('city')->nullable();
             $table->string('map')->nullable();
             $table->string('media')->nullable();
+            $table->string('status')->nullable();
+            $table->string('contact_details')->nullable();
             $table->timestamps();
         });
     }

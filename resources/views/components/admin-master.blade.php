@@ -115,6 +115,11 @@
                             Hoxhallarët
                         </a>
 
+                        <a class="nav-link" href="{{ route('ad.index') }}">
+                            <div class="nav-link-icon"><i class="fa fa-poll"></i></div>
+                            Bizneset
+                        </a>
+
 
                         {{-- <a class="nav-link" href="{{ route('brands.index') }}">
                             <div class="nav-link-icon"><i class="fas fa-copyright"></i></div>
