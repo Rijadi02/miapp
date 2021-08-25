@@ -46,7 +46,7 @@
 
                             <div class="col-lg-12">
                                 <label for="link" class="col-md-12 col-form-label">Linku</label>
-                                <input id="link" type="date" name="link"
+                                <input id="link" type="text" name="link"
                                     class="form-control @error('link') is-invalid @enderror"
                                     value="{{ old('link') ?? $video->link }}" autocomplete="link">
                                 @error('link')
@@ -58,7 +58,7 @@
 
                             <div class="col-lg-12">
                                 <label for="date" class="col-md-12 col-form-label">Data e publikimit</label>
-                                <input id="date" type="text" name="date"
+                                <input id="date" type="date" name="date"
                                     class="form-control @error('date') is-invalid @enderror"
                                     value="{{ old('date') ?? $video->date }}" autocomplete="date">
                                 @error('date')
@@ -103,7 +103,7 @@
 
                             <div class="col-lg-12">
                                 <label for="link" class="col-md-12 col-form-label">Linku i videos</label>
-                                <input id="link" type="date" name="link"
+                                <input id="link" type="text" name="link"
                                     class="form-control @error('link') is-invalid @enderror" value="{{ old('link') }}"
                                     autocomplete="link">
                                 @error('link')
@@ -115,7 +115,7 @@
 
                             <div class="col-lg-12">
                                 <label for="date" class="col-md-12 col-form-label">Data e publikimit</label>
-                                <input id="date" type="text" name="date"
+                                <input id="date" type="date" name="date"
                                     class="form-control @error('date') is-invalid @enderror" value="{{ old('date') }}"
                                     autocomplete="date">
                                 @error('date')

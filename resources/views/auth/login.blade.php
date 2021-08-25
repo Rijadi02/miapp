@@ -27,7 +27,7 @@
                             <!-- Social login form-->
                             <div class="card my-5">
                                 <div class="card-body p-5 text-center">
-                                    <div class="h3 font-weight-light mb-3">Sign In</div>
+                                    <div class="h3 font-weight-light mb-3">Kyçuni</div>
                                     <!-- Social login links-->
                                     <!-- <a class="btn btn-icon btn-facebook mx-1" href="#!"><i class="fab fa-facebook-f fa-fw fa-sm"></i></a>
                                         <a class="btn btn-icon btn-github mx-1" href="#!"><i class="fab fa-github fa-fw fa-sm"></i></a>
@@ -41,7 +41,7 @@
                                         @csrf
                                         <!-- Form Group (email address)-->
                                         <div class="form-group">
-                                            <label class="text-gray-600 small" for="emailExample">Email address</label>
+                                            <label class="text-gray-600 small" for="emailExample">Email addresa</label>
                                             <input id="email" type="email"
                                                 class=" form-control form-control-solid py-4 @error('email') is-invalid @enderror"
                                                 name="email" value="{{ old('email') }}" required autocomplete="email"
@@ -56,7 +56,7 @@
 
                                         <!-- Form Group (password)-->
                                         <div class="form-group">
-                                            <label class="text-gray-600 small" for="passwordExample">Password</label>
+                                            <label class="text-gray-600 small" for="passwordExample">Fjalëkalimi</label>
                                             <input id="password" type="password"
                                                 class="form-control form-control-solid py-4 @error('password') is-invalid @enderror"
                                                 name="password" required autocomplete="current-password" />
@@ -74,10 +74,9 @@
                                             <div class="custom-control custom-control-solid custom-checkbox">
                                                 <input class="custom-control-input small" id="customCheck1"
                                                     type="checkbox" />
-                                                <label class="custom-control-label" for="customCheck1">Remember
-                                                    password</label>
+                                                <label class="custom-control-label" for="customCheck1">Mbaj mend fjalëkalimin</label>
                                             </div>
-                                            <button class="btn btn-primary" type="submit">Login</button>
+                                            <button class="btn btn-primary" type="submit">Kyçu</button>
                                         </div>
                                     </form>
                                 </div>
@@ -98,11 +97,11 @@
             <footer class="footer mt-auto footer-dark">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-6 small">Copyright &copy; Your Website 2020</div>
+                        <div class="col-md-6 small">Copyright &copy; Muslimani Ideal 2021</div>
                         <div class="col-md-6 text-md-right small">
-                            <a href="#!">Privacy Policy</a>
+                            <a href="#!">Politikat e Privatësisë</a>
                             &middot;
-                            <a href="#!">Terms &amp; Conditions</a>
+                            <a href="#!">Termet &amp; Kushtet</a>
                         </div>
                     </div>
                 </div>

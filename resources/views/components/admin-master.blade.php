@@ -27,7 +27,7 @@
 
 <body class="nav-fixed">
     <nav class="topnav navbar navbar-expand shadow navbar-light bg-white" id="sidenavAccordion">
-        <a class="navbar-brand" href="index.html">Autoservice Panel</a>
+        <a class="navbar-brand" href="index.html">Muslimani Ideal</a>
         <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle" href="#"><i
                 data-feather="menu"></i></button>
         {{-- <form class="form-inline mr-auto d-none d-md-block">
@@ -249,12 +249,12 @@
             <footer class="footer mt-auto footer-light">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-6 small">Copyright &copy; <a href="http://tachyondev.tech/"> Tachyon Dev </a>
+                        <div class="col-md-6 small">Copyright &copy; <a href="http://tachyondev.tech/"> Muslimani Ideal </a>
                             <?php echo date('Y'); ?></div>
                         <div class="col-md-6 text-md-right small">
-                            <a href="#!">Privacy Policy</a>
+                            <a href="#!">Politikat e privatësisë</a>
                             &middot;
-                            <a href="#!">Terms &amp; Conditions</a>
+                            <a href="#!">Termet &amp; Kushtet</a>
                         </div>
                     </div>
                 </div>
