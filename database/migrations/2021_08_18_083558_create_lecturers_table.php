@@ -15,6 +15,7 @@ class CreateLecturersTable extends Migration
     {
         Schema::create('lecturers', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('slug');
             $table->string('name');
             $table->string('image');
             $table->string('bio')->nullable();

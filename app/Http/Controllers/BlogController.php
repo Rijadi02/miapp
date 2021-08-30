@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
@@ -47,7 +48,8 @@ class BlogController extends Controller
 
         $blog = new \App\Models\Blog();
 
-
+        $slug = Str::slug($data['title'], '-');
+        $blog->slug = $slug;
         $blog->title = $data['title'];
         $blog->author = $data['author'];
         $blog->tags = $data['tags'];
@@ -111,7 +113,8 @@ class BlogController extends Controller
             ]
         );
 
-
+        $slug = Str::slug($data['title'], '-');
+        $blog->slug = $slug;
         $blog->title = $data['title'];
         $blog->author = $data['author'];
         $blog->tags = $data['tags'];

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Ad;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class AdController extends Controller
 {
@@ -56,6 +57,8 @@ class AdController extends Controller
 
         $ad = new \App\Models\Ad();
 
+        $slug = Str::slug($data['name'], '-');
+        $ad->slug = $slug;
 
         $ad->name = $data['name'];
         $ad->description = $data['description'];

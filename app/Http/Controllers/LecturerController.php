@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Lecturer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class LecturerController extends Controller
 {
@@ -45,6 +46,9 @@ class LecturerController extends Controller
         );
 
         $lecturer = new \App\Models\Lecturer();
+        $slug = Str::slug($data['name'], '-');
+        $lecturer->slug = $slug;
+
 
 
         $lecturer->name = $data['name'];
@@ -110,6 +114,8 @@ class LecturerController extends Controller
         );
 
         $lecturer->name = $data['name'];
+        $slug = Str::slug($data['name'], '-');
+        $lecturer->slug = $slug;
 
         if (request('image')) {
             $inputs['image'] = request('image')->store('uploads', 'public');
