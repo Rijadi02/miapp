@@ -57,9 +57,7 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <div class="user-image mb-3 text-center">
-                                    <div class="imgPreview"> </div>
-                                </div>
+
 
                                 <div class="custom-file">
                                     <input type="file" name="gallery[]" class="custom-file-input" id="images"
@@ -72,7 +70,7 @@
 
                             <div class="col-lg-12">
                                 <label for="description" class="col-md-12 col-form-label">Përshkrimi</label>
-                                <textarea class="form-control" id="description" name="description"  @error("description") is-invalid @enderror">{{$ad->description}}</textarea>
+                                <textarea  id="description" name="description" class="form-control @error("description") is-invalid @enderror">{{$ad->description}}</textarea>
 
                                 @error('description')
                                     <span class="invalid-feedback" role="alert">
@@ -231,9 +229,7 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <div class="user-image mb-3 text-center">
-                                    <div class="imgPreview"> </div>
-                                </div>
+                                
 
                                 <div class="custom-file">
                                     <input type="file" name="gallery[]" class="custom-file-input" id="images"
@@ -245,7 +241,7 @@
 
                             <div class="col-lg-12">
                                 <label for="description" class="col-md-12 col-form-label">Përshkrimi</label>
-                                <textarea class="form-control" id="description" name="description"  @error("description") is-invalid @enderror">{{ old('description')}}</textarea>
+                                <textarea  id="description" name="description" class="form-control @error("description") is-invalid @enderror">{{ old('description')}}</textarea>
 
                                 @error('description')
                                     <span class="invalid-feedback" role="alert">

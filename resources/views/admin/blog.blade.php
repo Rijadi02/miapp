@@ -54,7 +54,7 @@
 
                     <div class="col-lg-12">
                     <label for="content" class="col-md-12 col-form-label">Shkrimi i Blogut</label>
-                    <textarea class="form-control" id="content" name="content"  @error("content") is-invalid @enderror">{{$post->content}}</textarea>
+                    <textarea  id="content" name="content"  class="form-control @error("content") is-invalid @enderror">{{$blog->content}}</textarea>
                     @error("content")
                     <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>

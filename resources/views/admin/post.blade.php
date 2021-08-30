@@ -13,9 +13,9 @@
                                         <line x1="3" y1="9" x2="21" y2="9"></line>
                                         <line x1="9" y1="21" x2="9" y2="9"></line>
                                     </svg></div>
-                                Artikujt
+                                Postimet
                             </h1>
-                            <div class="page-header-subtitle">Këtu shtohen artikujt qe do të vendosen në webfaqe dhe në
+                            <div class="page-header-subtitle">Këtu shtohen postimet e Instagramit qe do të vendosen në webfaqe dhe në
                                 applikacion.</div>
                         </div>
                     </div>

@@ -122,7 +122,7 @@
 
                         <a class="nav-link" href="{{ route('blog.index') }}">
                             <div class="nav-link-icon"><i class="fa fa-newspaper"></i></div>
-                            Artikujt
+                            Blogjet
                         </a>
 
                         <a class="nav-link" href="{{ route('post.index') }}">
