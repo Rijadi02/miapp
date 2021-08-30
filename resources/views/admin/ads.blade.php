@@ -13,10 +13,10 @@
                                         <line x1="3" y1="9" x2="21" y2="9"></line>
                                         <line x1="9" y1="21" x2="9" y2="9"></line>
                                     </svg></div>
-                                Kategoritë
+                                Bizneset
                             </h1>
-                            <div class="page-header-subtitle">Këtu shtohen kategoritë qe do të vendosen në webfaqe dhe në
-                                applikacion. Si kategori mund të jetë "Mburoja e Muslimanit", "Historia Islame" etj.</div>
+                            <div class="page-header-subtitle">Këtu shtohen bizneset qe do të vendosen në webfaqe dhe në
+                                applikacion.</div>
                         </div>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
 
         <div class="container">
             <div class="card mb-5 mt-5">
-                <div class="card-header">Shto kategori</div>
+                <div class="card-header">Shto Biznes</div>
                 <div class="card-body">
                     @if (isset($ad))
                         <form method="POST" action="{{ route('ad.update', $ad->id) }}" enctype="multipart/form-data">
@@ -33,7 +33,7 @@
                             @method('PATCH')
 
                             <div class="col-lg-12">
-                                <label for="name" class="col-md-12 col-form-label">Add name</label>
+                                <label for="name" class="col-md-12 col-form-label">Emri i Biznesit</label>
                                 <input id="name" type="text" name="name"
                                     class="form-control @error('name') is-invalid @enderror"
                                     value="{{ old('name') ?? $ad->name }}" autocomplete="name">
@@ -45,7 +45,7 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <label for="photo" class="col-md-12 col-form-label">Add photo</label>
+                                <label for="photo" class="col-md-12 col-form-label">Fotoja</label>
                                 <input id="photo" type="file" name="photo"
                                     class="form-control @error('photo') is-invalid @enderror"
                                     value="{{ old('photo') ?? $ad->photo }}" autocomplete="photo">
@@ -64,14 +64,14 @@
                                 <div class="custom-file">
                                     <input type="file" name="gallery[]" class="custom-file-input" id="images"
                                         multiple="multiple">
-                                    <label class="custom-file-label" for="images">Choose image</label>
+                                    <label class="custom-file-label" for="images">Galerija</label>
                                 </div>
 
                             </div>
 
 
                             <div class="col-lg-12">
-                                <label for="description" class="col-md-12 col-form-label">Add description</label>
+                                <label for="description" class="col-md-12 col-form-label">Përshkrimi</label>
                                 <textarea class="form-control" id="description" name="description"  @error("description") is-invalid @enderror">{{$ad->description}}</textarea>
 
                                 @error('description')
@@ -82,7 +82,7 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <label for="link" class="col-md-12 col-form-label">Add link</label>
+                                <label for="link" class="col-md-12 col-form-label">Linku</label>
                                 <input id="link" type="text" name="link"
                                     class="form-control @error('link') is-invalid @enderror"
                                     value="{{ old('link') ?? $ad->link }}" autocomplete="link">
@@ -94,7 +94,7 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <label for="tags" class="col-md-12 col-form-label">Add tags</label>
+                                <label for="tags" class="col-md-12 col-form-label">Tiketat</label>
                                 <input id="tags" type="text" name="tags"
                                     class="form-control @error('tags') is-invalid @enderror"
                                     value="{{ old('tags') ?? $ad->tags }}" autocomplete="tags">
@@ -106,7 +106,7 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <label for="city" class="col-md-12 col-form-label">Add city</label>
+                                <label for="city" class="col-md-12 col-form-label">Qyteti</label>
                                 <input id="city" type="text" name="city"
                                     class="form-control @error('city') is-invalid @enderror"
                                     value="{{ old('city') ?? $ad->city }}" autocomplete="city">
@@ -118,7 +118,7 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <label for="map" class="col-md-12 col-form-label">Add map</label>
+                                <label for="map" class="col-md-12 col-form-label">Vend-ndodhja(me link)</label>
                                 <input id="map" type="text" name="map"
                                     class="form-control @error('map') is-invalid @enderror"
                                     value="{{ old('map') ?? $ad->map }}" autocomplete="map">
@@ -130,7 +130,7 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <label for="facebook" class="col-md-12 col-form-label">Add facebook</label>
+                                <label for="facebook" class="col-md-12 col-form-label">Linku i Facebook </label>
                                 <input id="facebook" type="text" name="facebook"
                                     class="form-control @error('facebook') is-invalid @enderror"
                                     value="{{ old('facebook') ?? $ad->facebook }}" autocomplete="facebook">
@@ -142,7 +142,7 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <label for="twitter" class="col-md-12 col-form-label">Add twitter</label>
+                                <label for="twitter" class="col-md-12 col-form-label">Linku i Twitter</label>
                                 <input id="twitter" type="text" name="twitter"
                                     class="form-control @error('twitter') is-invalid @enderror"
                                     value="{{ old('twitter') ?? $ad->twitter }}" autocomplete="twitter">
@@ -154,7 +154,7 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <label for="instagram" class="col-md-12 col-form-label">Add instagram</label>
+                                <label for="instagram" class="col-md-12 col-form-label">Linku i Instagram</label>
                                 <input id="instagram" type="text" name="instagram"
                                     class="form-control @error('instagram') is-invalid @enderror"
                                     value="{{ old('instagram') ?? $ad->instagram }}" autocomplete="instagram">
@@ -166,7 +166,7 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <label for="contact_details" class="col-md-12 col-form-label">Add contact_details</label>
+                                <label for="contact_details" class="col-md-12 col-form-label">Detajet e Kontaktit</label>
                                 <input id="contact_details" type="text" name="contact_details"
                                     class="form-control @error('contact_details') is-invalid @enderror"
                                     value="{{ old('contact_details') ?? $ad->contact_details }}"
@@ -198,7 +198,7 @@
                             </div>
 
                             <div class="form-group mt-3">
-                                <button type="submit" class="btn btn-primary">Update</button>
+                                <button type="submit" class="btn btn-primary">Përditëso</button>
                         </form>
 
                     @else
@@ -207,7 +207,7 @@
                             @csrf
 
                             <div class="col-lg-12">
-                                <label for="name" class="col-md-12 col-form-label">Add name</label>
+                                <label for="name" class="col-md-12 col-form-label">Emri i biznesit</label>
                                 <input id="name" type="text" name="name"
                                     class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}"
                                     autocomplete="name">
@@ -219,7 +219,7 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <label for="photo" class="col-md-12 col-form-label">Add photo</label>
+                                <label for="photo" class="col-md-12 col-form-label">Fotoja</label>
                                 <input id="photo" type="file" name="photo"
                                     class="form-control @error('photo') is-invalid @enderror" value="{{ old('photo') }}"
                                     autocomplete="photo">
@@ -238,13 +238,13 @@
                                 <div class="custom-file">
                                     <input type="file" name="gallery[]" class="custom-file-input" id="images"
                                         multiple="multiple">
-                                    <label class="custom-file-label" for="images">Choose image</label>
+                                    <label class="custom-file-label" for="images">Galerija</label>
                                 </div>
 
                             </div>
 
                             <div class="col-lg-12">
-                                <label for="description" class="col-md-12 col-form-label">Add description</label>
+                                <label for="description" class="col-md-12 col-form-label">Përshkrimi</label>
                                 <textarea class="form-control" id="description" name="description"  @error("description") is-invalid @enderror">{{ old('description')}}</textarea>
 
                                 @error('description')
@@ -255,7 +255,7 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <label for="link" class="col-md-12 col-form-label">Add link</label>
+                                <label for="link" class="col-md-12 col-form-label">Linku</label>
                                 <input id="link" type="text" name="link"
                                     class="form-control @error('link') is-invalid @enderror" value="{{ old('link') }}"
                                     autocomplete="link">
@@ -267,7 +267,7 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <label for="tags" class="col-md-12 col-form-label">Add tags</label>
+                                <label for="tags" class="col-md-12 col-form-label">Tiketat</label>
                                 <input id="tags" type="text" name="tags"
                                     class="form-control @error('tags') is-invalid @enderror" value="{{ old('tags') }}"
                                     autocomplete="tags">
@@ -279,7 +279,7 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <label for="city" class="col-md-12 col-form-label">Add city</label>
+                                <label for="city" class="col-md-12 col-form-label">Qyteti</label>
                                 <input id="city" type="text" name="city"
                                     class="form-control @error('city') is-invalid @enderror" value="{{ old('city') }}"
                                     autocomplete="city">
@@ -291,7 +291,7 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <label for="map" class="col-md-12 col-form-label">Add map</label>
+                                <label for="map" class="col-md-12 col-form-label">Vend-ndodhja(me link)</label>
                                 <input id="map" type="text" name="map"
                                     class="form-control @error('map') is-invalid @enderror" value="{{ old('map') }}"
                                     autocomplete="map">
@@ -303,7 +303,7 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <label for="facebook" class="col-md-12 col-form-label">Add facebook</label>
+                                <label for="facebook" class="col-md-12 col-form-label">Linku i Facebook</label>
                                 <input id="facebook" type="text" name="facebook"
                                     class="form-control @error('facebook') is-invalid @enderror"
                                     value="{{ old('facebook') }}" autocomplete="facebook">
@@ -315,7 +315,7 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <label for="twitter" class="col-md-12 col-form-label">Add twitter</label>
+                                <label for="twitter" class="col-md-12 col-form-label">Linku i Twitter</label>
                                 <input id="twitter" type="text" name="twitter"
                                     class="form-control @error('twitter') is-invalid @enderror"
                                     value="{{ old('twitter') }}" autocomplete="twitter">
@@ -327,7 +327,7 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <label for="instagram" class="col-md-12 col-form-label">Add instagram</label>
+                                <label for="instagram" class="col-md-12 col-form-label">Linku i Instagram</label>
                                 <input id="instagram" type="text" name="instagram"
                                     class="form-control @error('instagram') is-invalid @enderror"
                                     value="{{ old('instagram') }}" autocomplete="instagram">
@@ -339,7 +339,7 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <label for="contact_details" class="col-md-12 col-form-label">Add contact_details</label>
+                                <label for="contact_details" class="col-md-12 col-form-label">Detajet e kontaktit</label>
                                 <input id="contact_details" type="text" name="contact_details"
                                     class="form-control @error('contact_details') is-invalid @enderror"
                                     value="{{ old('contact_details') }}" autocomplete="contact_details">
@@ -368,7 +368,7 @@
                             </div>
 
                             <div class="form-group mt-3">
-                                <button type="submit" class="btn btn-primary">Add</button>
+                                <button type="submit" class="btn btn-primary">Shto Biznes</button>
                         </form>
                     @endif
 
@@ -407,12 +407,12 @@
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Shylej kategorinë</h5>
+                                            <h5 class="modal-title" id="exampleModalLabel">Shylej biznesin</h5>
                                             <button class="close" type="button" data-dismiss="modal"
                                                 aria-label="Close"><span aria-hidden="true">×</span></button>
                                         </div>
-                                        <div class="modal-body">Kjo to ta shlyej kategorinë dhe të gjitha të dhënat të
-                                            asocuara me të si : Librat, Kapitujt e atyre librave dhe Konetenti</div>
+                                        <div class="modal-body">Kjo to ta shlyej biznesin dhe të gjitha të dhënat të
+                                            asocuara me të.</div>
                                         <div class="modal-footer"><button class="btn btn-secondary" type="button"
                                                 data-dismiss="modal">Mbyll</button>
                                             <form method="POST" action="{{ route('ad.destroy', $ad->id) }}">

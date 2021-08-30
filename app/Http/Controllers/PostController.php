@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Blog;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
-class BlogController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blogs = Blog::all();
-        return view('admin/blog', compact('blogs'));
+        $posts = Post::all();
+        return view('admin/post', compact('posts'));
     }
 
     /**
@@ -25,6 +25,7 @@ class BlogController extends Controller
      */
     public function create()
     {
+        //
     }
 
     /**
@@ -38,27 +39,23 @@ class BlogController extends Controller
         $data = request()->validate(
             [
                 'title' => 'required',
-                'author' => 'required',
-                'content' => 'required',
+                'link' => 'required',
                 'image' => 'required',
-                'tags' => 'required',
             ]
         );
 
-        $blog = new \App\Models\Blog();
+        $post = new \App\Models\Post();
 
+        $post->title = $data['title'];
+        $post->link = $data['link'];
 
-        $blog->title = $data['title'];
-        $blog->author = $data['author'];
-        $blog->tags = $data['tags'];
-        $blog->content = $data['content'];
 
         if (request('image')) {
             $inputs['image'] = request('image')->store('uploads', 'public');
-            $blog->image = $inputs['image'];
+            $post->image = $inputs['image'];
         }
 
-        $blog->save();
+        $post->save();
 
         // if ($category->isDirty('name')) {
         //     session()->flash('category-add', 'Category added: ' . request('name'));
@@ -66,16 +63,16 @@ class BlogController extends Controller
         //     session()->flash('category-add', 'Nothing to add: ' . request('name'));
         // }
 
-        return redirect('/admin/blogs');
+        return redirect('/admin/posts');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Blog  $blog
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Blog $blog)
+    public function show(Post $post)
     {
         //
     }
@@ -83,46 +80,43 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Blog  $blog
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Blog $blog)
+    public function edit(Post $post)
     {
-        $blogs = Blog::all();
-        return view('admin.blog', compact('blogs', 'blog'));
+        $posts = Post::all();
+        return view('admin.post', compact('posts', 'post'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Blog  $blog
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Blog $blog)
+    public function update(Request $request, Post $post)
     {
         $data = request()->validate(
             [
                 'title' => 'required',
-                'author' => 'required',
-                'content' => 'required',
+                'link' => 'required',
                 'image' => '',
-                'tags' => 'required',
             ]
         );
 
 
-        $blog->title = $data['title'];
-        $blog->author = $data['author'];
-        $blog->tags = $data['tags'];
-        $blog->content = $data['content'];
+        $post->title = $data['title'];
+        $post->link = $data['link'];
+
 
         if (request('image')) {
             $inputs['image'] = request('image')->store('uploads', 'public');
-            $blog->image = $inputs['image'];
+            $post->image = $inputs['image'];
         }
 
-        $blog->save();
+        $post->save();
 
         // if ($category->isDirty('name')) {
         //     session()->flash('category-add', 'Category added: ' . request('name'));
@@ -130,19 +124,19 @@ class BlogController extends Controller
         //     session()->flash('category-add', 'Nothing to add: ' . request('name'));
         // }
 
-        return redirect('/admin/blogs');
+        return redirect('/admin/posts');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Blog  $blog
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Blog $blog)
+    public function destroy(Post $post)
     {
-        $blog->delete();
-        session()->flash('blog-deleted', 'Blog deleted: ' . $blog->name);
+        $post->delete();
+        session()->flash('post-deleted', 'Post deleted: ' . $post->name);
         return back();
     }
 }
