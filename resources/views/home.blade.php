@@ -449,11 +449,11 @@
                     <div class="col-xl-12">
                         <div class="book-now__inner">
                             <div class="book-now__left">
-                                <p>Plan your trip with us</p>
-                                <h2>Ready for an unforgetable tour?</h2>
+                                <p>Thënie, përkujtime, video</p>
+                                <h2>Bashkohu me ne në Telegram</h2>
                             </div>
                             <div class="book-now__right">
-                                <a href="#" class="thm-btn book-now__btn">Book tour now</a>
+                                <a href="https://t.me/muslimani_ideal" class="thm-btn book-now__btn">Kanali në Telegram</a>
                             </div>
                         </div>
                     </div>
