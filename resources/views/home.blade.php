@@ -28,8 +28,8 @@
                             <div class="swiper-slide-inner">
                                 <div class="row">
                                     <div class="col-xl-12">
-                                        <h2> Travel & Adventures</h2>
-                                        <p>Where Would You Like To Go?</p>
+                                        <h2>Muslimani Ideal</h2>
+                                        <p>Medium me përmbajtje fetare</p>
                                     </div>
                                 </div>
                             </div>
@@ -44,8 +44,8 @@
                             <div class="swiper-slide-inner">
                                 <div class="row">
                                     <div class="col-xl-12">
-                                        <h2> Travel & Adventures</h2>
-                                        <p>Where Would You Like To Go?</p>
+                                        <h2>Muslimani Ideal</h2>
+                                        <p>Medium me përmbajtje fetare</p>
                                     </div>
                                 </div>
                             </div>
@@ -60,8 +60,8 @@
                             <div class="swiper-slide-inner">
                                 <div class="row">
                                     <div class="col-xl-12">
-                                        <h2> Travel & Adventures</h2>
-                                        <p>Where Would You Like To Go?</p>
+                                        <h2>Muslimani Ideal</h2>
+                                        <p>Medium me përmbajtje fetare</p>
                                     </div>
                                 </div>
                             </div>

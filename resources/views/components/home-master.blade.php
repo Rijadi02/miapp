@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home One || Tevily || Tevily HTML Template For Tour</title>
+    <title>Muslimani Ideal</title>
     <!-- favicons Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{asset('assetsFront/images/favicons/apple-touch-icon.png')}}" />
     <link rel="icon" type="image/png" sizes="32x32" href="{{asset('assetsFront/images/favicons/favicon-32x32.png')}}" />
@@ -99,7 +99,7 @@
                         <div class="main-menu-wrapper-inner clearfix">
                             <div class="main-menu-wrapper__left clearfix">
                                 <div class="main-menu-wrapper__logo">
-                                    <a href="index.html"><img src="{{asset('assetsFront/images/resources/logo-1.png')}}" alt=""></a>
+                                    <a href="index.html"><img style="width: 115px" src="{{asset('assetsFront/images/resources/logo.png')}}" alt=""></a>
                                 </div>
                                 <div class="main-menu-wrapper__main-menu">
                                     <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
@@ -297,7 +297,7 @@
                 <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
 
                 <div class="logo-box">
-                    <a href="index.html" aria-label="logo image"><img src="{{asset('assetsFront/images/resources/logo-2.png')}}" width="155"
+                    <a href="index.html" aria-label="logo image"><img style="width: 115px" src="{{asset('assetsFront/images/resources/logo.png')}}" width="155"
                             alt="" /></a>
                 </div>
                 <!-- /.logo-box -->
