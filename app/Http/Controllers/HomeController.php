@@ -32,4 +32,11 @@ class HomeController extends Controller
         $blogs = Blog::latest()->paginate(5);
         return view('blogs', compact('blogs') );
     }
+
+    public function blog($slug)
+    {
+        $blog = Blog::where('slug', '=', $slug)->firstOrFail();
+        $blogs = Blog::latest()->take(3)->get();
+        return view('blog', compact('blog','blogs') );
+    }
 }

@@ -21,7 +21,7 @@
             <div class="container">
                 <div class="page-header__bottom-inner">
                     <ul class="thm-breadcrumb list-unstyled">
-                        <li><a href="{{ route('home') }}"">Ballina</a></li>
+                        <li><a href="{{ route('home') }}">Ballina</a></li>
                         <li><span>.</span></li>
                         <li class="active">Artikujt</li>
                     </ul>
@@ -41,8 +41,8 @@
                     <!--News One Single-->
                      <div class="news-one__single">
                          <div class="news-one__img">
-                             <img  src="/storage/{{ $blog->image }}" alt="">
-                             <a href="news-details.html">
+                             <img src="/storage/{{ $blog->image }}" alt="">
+                             <a href="{{route('blog',$blog->slug)}}">
                                  <span class="news-one__plus"></span>
                              </a>
                              <div class="news-one__date">
@@ -51,11 +51,11 @@
                          </div>
                          <div class="news-one__content">
                              <ul class="list-unstyled news-one__meta">
-                                 <li><a href="news-details.html"><i class="far fa-user-circle"></i>{{ $blog->author}}</a></li>
+                                 <li><a href="{{route('blog',$blog->slug)}}"><i class="far fa-user-circle"></i>{{ $blog->author}}</a></li>
 
                              </ul>
                              <h3 class="news-one__title">
-                                 <a href="news-details.html">{{ $blog->title}}</a>
+                                 <a href="{{route('blog',$blog->slug)}}">{{ $blog->title}}</a>
                              </h3>
                          </div>
                      </div>
