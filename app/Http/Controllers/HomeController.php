@@ -26,4 +26,10 @@ class HomeController extends Controller
         $blogs = Blog::orderBy('id', 'desc')->take(5)->get();
         return view('home', compact('posts','blogs') );
     }
+
+    public function blogs()
+    {
+        $blogs = Blog::latest()->paginate(5);
+        return view('blogs', compact('blogs') );
+    }
 }

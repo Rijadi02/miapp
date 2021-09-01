@@ -320,7 +320,7 @@
                     <div class="col-xl-4">
                         <div class="news-two_left">
                             <div class="section-title text-left">
-                                <span class="section-title__tagline">Artikujt & lajmet e fundit</span>
+                                <span class="section-title__tagline">Artikujt & lajmet e fundit —></span>
                                 <h2 class="section-title__title">Artikujt e fundit</h2>
                             </div>
                             <p class="news-two__text">Muslimani Ideal poston artikuj si dhe lajme nga më bashkohorët. Artikujt janë të përgaditur nga vetë stafi i Muslimanit Ideal, ose nga hoxhallarët.
