@@ -72,7 +72,7 @@
                                         <span class="icon-at"></span>
                                     </div>
                                     <div class="text">
-                                        <a href= "mailto:needhelp@company.com">info@muslimani-ideal.com</a>
+                                        <a href= "mailto:info@muslimani-ideal.com">info@muslimani-ideal.com</a>
                                     </div>
                                 </li>
                             </ul>
@@ -155,7 +155,7 @@
                                                     <i class="fas fa-envelope"></i>
                                                 </div>
                                                 <div class="text">
-                                                    <a href="mailto:needhelp@company.com">needhelp@company.com</a>
+                                                    <a href="mailto:info@muslimani-ideal.com">info@muslimani-ideal.com</a>
                                                 </div>
                                             </li>
                                             <li>
@@ -163,7 +163,7 @@
                                                     <i class="fas fa-map-marker-alt"></i>
                                                 </div>
                                                 <div class="text">
-                                                    <p>666 road, broklyn street new york</p>
+                                                    <p>Kosovë, Prishtinë</p>
                                                 </div>
                                             </li>
                                         </ul>
@@ -181,18 +181,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="col-xl-2 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
-                                    <div class="footer-widget__column footer-widget__explore">
-                                        <h3 class="footer-widget__title">Explore</h3>
-                                        <ul class="list-unstyled footer-widget__explore-list">
-                                            <li><a href="#">Account</a></li>
-                                            <li><a href="#">Legal</a></li>
-                                            <li><a href="#">Contact</a></li>
-                                            <li><a href="#">Affilitate Program</a></li>
-                                            <li><a href="#">Privacy Policy</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
+
                                 <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
                                     <div class="footer-widget__column footer-widget__newsletter">
                                         <h3 class="footer-widget__title">Newsletter</h3>
