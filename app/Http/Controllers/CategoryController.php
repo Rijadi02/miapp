@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -39,6 +40,7 @@ class CategoryController extends Controller
 
         $data = request()->validate(
             [
+                'slug' => 'required',
                 'name' => 'required',
                 'image' => 'required|image',
 
@@ -46,8 +48,8 @@ class CategoryController extends Controller
         );
 
         $category = new \App\Models\Category();
-
-
+        $slug = Str::slug($data['slug'], '-');
+        $category->slug = $slug;
         $category->name = $data['name'];
 
         if (request('image')) {

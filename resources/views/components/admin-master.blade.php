@@ -120,6 +120,15 @@
                             Bizneset
                         </a>
 
+                        <a class="nav-link" href="{{ route('blog.index') }}">
+                            <div class="nav-link-icon"><i class="fa fa-newspaper"></i></div>
+                            Blogjet
+                        </a>
+
+                        <a class="nav-link" href="{{ route('post.index') }}">
+                            <div class="nav-link-icon"><i class="fab fa-instagram"></i></div>
+                            Instagram
+                        </a>
 
                         {{-- <a class="nav-link" href="{{ route('brands.index') }}">
                             <div class="nav-link-icon"><i class="fas fa-copyright"></i></div>

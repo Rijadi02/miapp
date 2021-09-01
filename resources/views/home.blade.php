@@ -3,20 +3,20 @@
 
         <section class="main-slider">
             <div class="swiper-container thm-swiper__slider" data-swiper-options='{"slidesPerView": 1, "loop": true,
-        "effect": "fade",
-        "pagination": {
-            "el": "#main-slider-pagination",
-            "type": "bullets",
-            "clickable": true
-          },
-        "navigation": {
-            "nextEl": ".main-slider-button-next",
-            "prevEl": ".main-slider-button-prev",
-            "clickable": true
-        },
-        "autoplay": {
-            "delay": 5000
-        }}'>
+                                "effect": "fade",
+                                "pagination": {
+                                    "el": "#main-slider-pagination",
+                                    "type": "bullets",
+                                    "clickable": true
+                                  },
+                                "navigation": {
+                                    "nextEl": ".main-slider-button-next",
+                                    "prevEl": ".main-slider-button-prev",
+                                    "clickable": true
+                                },
+                                "autoplay": {
+                                    "delay": 5000
+                                }}'>
 
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
@@ -28,8 +28,8 @@
                             <div class="swiper-slide-inner">
                                 <div class="row">
                                     <div class="col-xl-12">
-                                        <h2> Travel & Adventures</h2>
-                                        <p>Where Would You Like To Go?</p>
+                                        <h2>Muslimani Ideal</h2>
+                                        <p>Medium me përmbajtje fetare</p>
                                     </div>
                                 </div>
                             </div>
@@ -44,8 +44,8 @@
                             <div class="swiper-slide-inner">
                                 <div class="row">
                                     <div class="col-xl-12">
-                                        <h2> Travel & Adventures</h2>
-                                        <p>Where Would You Like To Go?</p>
+                                        <h2>Muslimani Ideal</h2>
+                                        <p>Medium me përmbajtje fetare</p>
                                     </div>
                                 </div>
                             </div>
@@ -60,8 +60,8 @@
                             <div class="swiper-slide-inner">
                                 <div class="row">
                                     <div class="col-xl-12">
-                                        <h2> Travel & Adventures</h2>
-                                        <p>Where Would You Like To Go?</p>
+                                        <h2>Muslimani Ideal</h2>
+                                        <p>Medium me përmbajtje fetare</p>
                                     </div>
                                 </div>
                             </div>
@@ -83,19 +83,19 @@
                 <ul class="list-unstyled counters-one__box">
                     <li class="counter-one__single wow fadeInUp" data-wow-delay="100ms">
                         <h3 class="odometer" data-count="7864">00</h3>
-                        <p class="counter-one__text">Total Donations</p>
+                        <p class="counter-one__text">Instagram</p>
                     </li>
                     <li class="counter-one__single wow fadeInUp" data-wow-delay="200ms">
                         <h3 class="odometer" data-count="16321">00</h3>
-                        <p class="counter-one__text">Campaigns Closed</p>
+                        <p class="counter-one__text">Youtube</p>
                     </li>
                     <li class="counter-one__single wow fadeInUp" data-wow-delay="300ms">
                         <h3 class="odometer" data-count="4561">00</h3>
-                        <p class="counter-one__text">Happy People</p>
+                        <p class="counter-one__text">Telegram</p>
                     </li>
                     <li class="counter-one__single wow fadeInUp" data-wow-delay="400ms">
                         <h3 class="odometer" data-count="1267">00</h3>
-                        <p class="counter-one__text">Our Volunteers</p>
+                        <p class="counter-one__text">Facebook</p>
                     </li>
                 </ul>
             </div>
@@ -135,19 +135,17 @@
                     <div class="col-xl-6">
                         <div class="about-one__right">
                             <div class="section-title text-left">
-                                <span class="section-title__tagline">Get to know us</span>
-                                <h2 class="section-title__title">Plan Your Trip with Trevily</h2>
+                                <span class="section-title__tagline">Kush jemi ne?</span>
+                                <h2 class="section-title__title">Organizata Muslimani Ideal</h2>
                             </div>
-                            <p class="about-one__right-text">There are many variations of passages of available but the
-                                majority have suffered alteration in some form, by injected hum randomised words which
-                                don't look even slightly.</p>
+                            <p class="about-one__right-text">Muslimani Ideal është medium islam, i cili synim kryesor e ka përhapjen e fesë së Allahut në të gjitha rrjetet sociale. Përmes këti mediumi tentojmë të hapim pakëz dritë në këtë errësirë të madhe. </p>
                             <ul class="list-unstyled about-one__points">
                                 <li>
                                     <div class="icon">
                                         <i class="fa fa-check"></i>
                                     </div>
                                     <div class="text">
-                                        <p>Invest in your simply neighborhood</p>
+                                        <p>Video me përmbajtje këshilluese Youtube</p>
                                     </div>
                                 </li>
                                 <li>
@@ -155,7 +153,7 @@
                                         <i class="fa fa-check"></i>
                                     </div>
                                     <div class="text">
-                                        <p>Support people in free text extreme need</p>
+                                        <p>Përkujtime në Facebook, Instagram dhe Telegram</p>
                                     </div>
                                 </li>
                                 <li>
@@ -163,62 +161,28 @@
                                         <i class="fa fa-check"></i>
                                     </div>
                                     <div class="text">
-                                        <p>Largest global industrial business community</p>
+                                        <p>Davet fizik përmes librave dhe fletushkave</p>
                                     </div>
                                 </li>
                             </ul>
-                            <a href="#" class="about-one__btn thm-btn">Book with us now</a>
+                            <a href="https://www.youtube.com/c/MuslimaniIdeal" class="about-one__btn thm-btn">Na ndiqni në Youtube</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="gallery-one__container-box clearfix pt-5">
                 <ul class="list-unstyled gallery-one__content clearfix pt-5">
-                    <li class="wow fadeInUp" data-wow-delay="100ms">
-                        <div class="gallery-one__img-box">
-                            <img src="{{asset('assetsFront/images/gallery/gallery-one-img-1.jpg')}}" alt="">
-                            <div class="gallery-one__iocn">
-                                <a class="img-popup" href="assets/images/gallery/gallery-one-img-1.jpg"><i
-                                        class="fab fa-instagram"></i></a>
+
+                    @foreach ($posts as $post)
+                        <li class="wow fadeInUp" data-wow-delay="100ms">
+                            <div class="gallery-one__img-box">
+                                <img src="/storage/{{ $post->image }}" alt="">
+                                <div class="gallery-one__iocn">
+                                    <a href="{{ $post->link }}"><i class="fab fa-instagram"></i></a>
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                    <li class="wow fadeInUp" data-wow-delay="200ms">
-                        <div class="gallery-one__img-box">
-                            <img src="{{asset('assetsFront/images/gallery/gallery-one-img-2.jpg')}}" alt="">
-                            <div class="gallery-one__iocn">
-                                <a class="img-popup" href="assets/images/gallery/gallery-one-img-2.jpg"><i
-                                        class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="wow fadeInUp" data-wow-delay="300ms">
-                        <div class="gallery-one__img-box">
-                            <img src="{{asset('assetsFront/images/gallery/gallery-one-img-3.jpg')}}" alt="">
-                            <div class="gallery-one__iocn">
-                                <a class="img-popup" href="assets/images/gallery/gallery-one-img-3.jpg"><i
-                                        class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="wow fadeInUp" data-wow-delay="400ms">
-                        <div class="gallery-one__img-box">
-                            <img src="{{asset('assetsFront/images/gallery/gallery-one-img-4.jpg')}}" alt="">
-                            <div class="gallery-one__iocn">
-                                <a class="img-popup" href="assets/images/gallery/gallery-one-img-4.jpg"><i
-                                        class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="wow fadeInUp" data-wow-delay="500ms">
-                        <div class="gallery-one__img-box">
-                            <img src="{{asset('assetsFront/images/gallery/gallery-one-img-5.jpg')}}" alt="">
-                            <div class="gallery-one__iocn">
-                                <a class="img-popup" href="assets/images/gallery/gallery-one-img-5.jpg"><i
-                                        class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </li>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </section>
@@ -234,15 +198,15 @@
                     <div class="col-xl-6 col-lg-6">
                         <div class="video-one__left">
                             <div class="video-one__video-link">
-                                <a href="https://www.youtube.com/watch?v=Get7rqXYrbQ" class="video-popup">
+                                <a href="https://www.youtube.com/watch?v=gRxS-LWT96M" class="video-popup">
                                     <div class="video-one__video-icon">
                                         <span class="icon-play-button"></span>
                                         <i class="ripple"></i>
                                     </div>
                                 </a>
                             </div>
-                            <p class="video-one__tagline">Are you ready to travel?</p>
-                            <h2 class="video-one__title">Tevily is a World Leading Online Tour Booking Platform</h2>
+                            <p class="video-one__tagline">Videot e muslimanit ideal</p>
+                            <h2 class="video-one__title">Muslimanit Ideal poston video në Youtube në baza javore</h2>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6">
@@ -252,25 +216,25 @@
                                     <div class="video-one__icon-box">
                                         <span class="icon-deer"></span>
                                     </div>
-                                    <h4 class="video-one__icon-box-title"><a href="#">Wildlife <br> Tours</a></h4>
+                                    <h4 class="video-one__icon-box-title"><a href="#">Video <br> Këshilluese</a></h4>
                                 </li>
                                 <li>
                                     <div class="video-one__icon-box">
                                         <span class="icon-paragliding"></span>
                                     </div>
-                                    <h4 class="video-one__icon-box-title"><a href="#">Paragliding <br> Tours</a></h4>
+                                    <h4 class="video-one__icon-box-title"><a href="#">Video <br> Motivuese</a></h4>
                                 </li>
                                 <li>
                                     <div class="video-one__icon-box">
                                         <span class="icon-flag"></span>
                                     </div>
-                                    <h4 class="video-one__icon-box-title"><a href="#">Adventure <br> Tours</a></h4>
+                                    <h4 class="video-one__icon-box-title"><a href="#">Video <br> Edukative</a></h4>
                                 </li>
                                 <li>
                                     <div class="video-one__icon-box">
                                         <span class="icon-hang-gliding"></span>
                                     </div>
-                                    <h4 class="video-one__icon-box-title"><a href="#">Hang Gliding <br> Tours</a></h4>
+                                    <h4 class="video-one__icon-box-title"><a href="#">Bazat e <br> Besimit</a></h4>
                                 </li>
                             </ul>
                         </div>
@@ -287,50 +251,64 @@
                 <div class="tour-types-map">
                 </div>
                 <div class="section-title text-center">
-                    <span class="section-title__tagline text-light">Find the best tour</span>
-                    <h2 class="section-title__title text-white">Choose Tour Types</h2>
+                    <span class="section-title__tagline text-light">Dëgjo në udhëtim</span>
+                    <h2 class="section-title__title text-white">Playlist të Muslimanit Ideal</h2>
                 </div>
                 <ul class="list-unstyled tour-types_list">
-                    <li class="tour-types__single wow fadeInUp" data-wow-delay="100ms">
-                        <div class="tour-types__content">
-                            <div class="tour-types__icon">
-                                <span class="icon-deer"></span>
+                    <a href="https://www.youtube.com/playlist?list=PLhPi5JZLh8yoBQyFtTaynTykCVwAKMy1D">
+                        <li class="tour-types__single wow fadeInUp" data-wow-delay="100ms">
+                            <div class="tour-types__content">
+                                <div class="tour-types__icon">
+                                    <span class="icon-deer"></span>
+                                </div>
+                                <h4 class="tour-types__title">Tregime</h4>
                             </div>
-                            <h4 class="tour-types__title">Wildlife</h4>
-                        </div>
-                    </li>
-                    <li class="tour-types__single wow fadeInUp" data-wow-delay="200ms">
-                        <div class="tour-types__content">
-                            <div class="tour-types__icon">
-                                <span class="icon-paragliding"></span>
+                        </li>
+                    </a>
+
+                    <a href="https://www.youtube.com/playlist?list=PLhPi5JZLh8ypzRXJEWxJMXP0YKgYbGei5">
+                        <li class="tour-types__single wow fadeInUp" data-wow-delay="200ms">
+                            <div class="tour-types__content">
+                                <div class="tour-types__icon">
+                                    <span class="icon-paragliding"></span>
+                                </div>
+                                <h4 class="tour-types__title">Këshilluese</h4>
                             </div>
-                            <h4 class="tour-types__title">Paragliding</h4>
-                        </div>
-                    </li>
-                    <li class="tour-types__single wow fadeInUp" data-wow-delay="300ms">
-                        <div class="tour-types__content">
-                            <div class="tour-types__icon">
-                                <span class="icon-flag"></span>
+                        </li>
+                    </a>
+
+                    <a href="https://www.youtube.com/playlist?list=PLhPi5JZLh8yoxsN0hMBIOsuhn0tOuXPLj">
+                        <li class="tour-types__single wow fadeInUp" data-wow-delay="300ms">
+                            <div class="tour-types__content">
+                                <div class="tour-types__icon">
+                                    <span class="icon-flag"></span>
+                                </div>
+                                <h4 class="tour-types__title">Emocionale</h4>
                             </div>
-                            <h4 class="tour-types__title">Adventure</h4>
-                        </div>
-                    </li>
-                    <li class="tour-types__single wow fadeInUp" data-wow-delay="400ms">
-                        <div class="tour-types__content">
-                            <div class="tour-types__icon">
-                                <span class="icon-hang-gliding"></span>
+                        </li>
+                    </a>
+
+                    <a href="https://www.youtube.com/playlist?list=PLhPi5JZLh8yqDRKnPn6WMdJYgaazMP9Ls">
+                        <li class="tour-types__single wow fadeInUp" data-wow-delay="400ms">
+                            <div class="tour-types__content">
+                                <div class="tour-types__icon">
+                                    <span class="icon-hang-gliding"></span>
+                                </div>
+                                <h4 class="tour-types__title">Motivuese</h4>
                             </div>
-                            <h4 class="tour-types__title">Hang Gliding</h4>
-                        </div>
-                    </li>
-                    <li class="tour-types__single wow fadeInUp" data-wow-delay="500ms">
-                        <div class="tour-types__content">
-                            <div class="tour-types__icon">
-                                <span class="icon-booking"></span>
+                        </li>
+                    </a>
+
+                    <a href="https://www.youtube.com/playlist?list=PLhPi5JZLh8yq718YAV47kyCyMxMMV02kb">
+                        <li class="tour-types__single wow fadeInUp" data-wow-delay="500ms">
+                            <div class="tour-types__content">
+                                <div class="tour-types__icon">
+                                    <span class="icon-booking"></span>
+                                </div>
+                                <h4 class="tour-types__title">Sfidat</h4>
                             </div>
-                            <h4 class="tour-types__title">Sightseeing</h4>
-                        </div>
-                    </li>
+                        </li>
+                    </a>
                 </ul>
             </div>
         </section>
@@ -342,11 +320,10 @@
                     <div class="col-xl-4">
                         <div class="news-two_left">
                             <div class="section-title text-left">
-                                <span class="section-title__tagline">From the blog post</span>
-                                <h2 class="section-title__title">Latest News & Articles</h2>
+                                <span class="section-title__tagline">Artikujt & lajmet e fundit —></span>
+                                <h2 class="section-title__title">Artikujt e fundit</h2>
                             </div>
-                            <p class="news-two__text">There are many latest variations of passages don’t do available
-                                but the majority have suffered alteration in some form, by injected humou or randomised.
+                            <p class="news-two__text">Muslimani Ideal poston artikuj si dhe lajme nga më bashkohorët. Artikujt janë të përgaditur nga vetë stafi i Muslimanit Ideal, ose nga hoxhallarët.
                             </p>
                         </div>
                     </div>
@@ -354,78 +331,35 @@
                         <div class="news-two__right">
                             <div class="news-two__carousel owl-theme owl-carousel">
                                 <!--News One Single-->
-                                <div class="news-one__single wow fadeInUp" data-wow-delay="100ms">
-                                    <div class="news-one__img">
-                                        <img src="{{asset('assetsFront/images/blog/news-one-img-1.jpg')}}" alt="">
-                                        <a href="news-details.html">
-                                            <span class="news-one__plus"></span>
-                                        </a>
-                                        <div class="news-one__date">
-                                            <p>28 <br> <span>Aug</span></p>
+                                @foreach ($blogs as $blog)
+                                    <div class="news-one__single wow fadeInUp" data-wow-delay="100ms">
+                                        <div class="news-one__img">
+                                            <img src="/storage/{{ $blog->image }}" alt="">
+                                            <a href="news-details.html">
+                                                <span class="news-one__plus"></span>
+                                            </a>
+                                            <div class="news-one__date">
+                                                <p>{{ $blog->created_at->format('d') }} <br>
+                                                    <span>{{ $blog->created_at->format('M') }}</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="news-one__content">
+                                            <ul class="list-unstyled news-one__meta">
+                                                <li><a href="news-details.html"><i
+                                                            class="far fa-user-circle"></i>{{ $blog->author }}</a>
+                                                </li>
+                                                {{-- <li><a href="news-details.html"><i class="far fa-comments"></i>2
+                                                    Comments</a>
+                                            </li> --}}
+                                            </ul>
+                                            <h3 class="news-one__title">
+                                                <a href="news-details.html">{{ $blog->title }}</a>
+                                            </h3>
                                         </div>
                                     </div>
-                                    <div class="news-one__content">
-                                        <ul class="list-unstyled news-one__meta">
-                                            <li><a href="news-details.html"><i class="far fa-user-circle"></i>Admin</a>
-                                            </li>
-                                            <li><a href="news-details.html"><i class="far fa-comments"></i>2
-                                                    Comments</a>
-                                            </li>
-                                        </ul>
-                                        <h3 class="news-one__title">
-                                            <a href="news-details.html">Things to See and Do When Visiting Japan</a>
-                                        </h3>
-                                    </div>
-                                </div>
-                                <!--News One Single-->
-                                <div class="news-one__single wow fadeInUp" data-wow-delay="200ms">
-                                    <div class="news-one__img">
-                                        <img src="{{asset('assetsFront/images/blog/news-one-img-2.jpg')}}" alt="">
-                                        <a href="news-details.html">
-                                            <span class="news-one__plus"></span>
-                                        </a>
-                                        <div class="news-one__date">
-                                            <p>28 <br> <span>Aug</span></p>
-                                        </div>
-                                    </div>
-                                    <div class="news-one__content">
-                                        <ul class="list-unstyled news-one__meta">
-                                            <li><a href="news-details.html"><i class="far fa-user-circle"></i>Admin</a>
-                                            </li>
-                                            <li><a href="news-details.html"><i class="far fa-comments"></i>2
-                                                    Comments</a>
-                                            </li>
-                                        </ul>
-                                        <h3 class="news-one__title">
-                                            <a href="news-details.html">Journeys are Best Measured in New Friends</a>
-                                        </h3>
-                                    </div>
-                                </div>
-                                <!--News One Single-->
-                                <div class="news-one__single wow fadeInUp" data-wow-delay="300ms">
-                                    <div class="news-one__img">
-                                        <img src="{{asset('assetsFront/images/blog/news-one-img-3.jpg')}}" alt="">
-                                        <a href="news-details.html">
-                                            <span class="news-one__plus"></span>
-                                        </a>
-                                        <div class="news-one__date">
-                                            <p>28 <br> <span>Aug</span></p>
-                                        </div>
-                                    </div>
-                                    <div class="news-one__content">
-                                        <ul class="list-unstyled news-one__meta">
-                                            <li><a href="news-details.html"><i class="far fa-user-circle"></i>Admin</a>
-                                            </li>
-                                            <li><a href="news-details.html"><i class="far fa-comments"></i>2
-                                                    Comments</a>
-                                            </li>
-                                        </ul>
-                                        <h3 class="news-one__title">
-                                            <a href="news-details.html">Travel the Most Beautiful Places in the
-                                                World</a>
-                                        </h3>
-                                    </div>
-                                </div>
+                                @endforeach
+
                             </div>
                         </div>
                     </div>
@@ -436,7 +370,7 @@
 
         <section class="about-two pt-5">
             <div class="about-two-shape float-bob-y pt-5">
-                <img src="{{asset('assetsFront/images/shapes/about-two-shape.png')}}" alt="">
+                <img src="{{ asset('assetsFront/images/shapes/about-two-shape.png') }}" alt="">
             </div>
             <div class="container">
                 <div class="row">
@@ -444,7 +378,7 @@
                         <div class="about-two__left">
                             <div class="about-tow__left-img wow slideInLeft" data-wow-delay="100ms"
                                 data-wow-duration="2500ms">
-                                <img src="{{asset('assetsFront/images/resources/about-two-img.jpg')}}" alt="">
+                                <img src="{{ asset('assetsFront/images/resources/about-two-img.jpg') }}" alt="">
                                 <a href="https://www.youtube.com/watch?v=Get7rqXYrbQ" class="video-popup">
                                     <div class="about-two__video-btn">
                                         <span class="icon-play-button"></span>
@@ -456,8 +390,8 @@
                     <div class="col-xl-6">
                         <div class="about-two__right">
                             <div class="section-title text-left">
-                                <span class="section-title__tagline">Get to know us</span>
-                                <h2 class="section-title__title">We’re Travel Agency</h2>
+                                <span class="section-title__tagline">Kontribo per Muslimanin Ideal</span>
+                                <h2 class="section-title__title">Përkrah davetin</h2>
                             </div>
                             <div class="about-two__tour-points">
                                 <ul class="list-unstyled about-two__list">
@@ -466,7 +400,7 @@
                                             <i class="fa fa-check"></i>
                                         </div>
                                         <div class="text">
-                                            <p>Trust and Safety</p>
+                                            <p>Ndihmo ne perhapjen e fesë</p>
                                         </div>
                                     </li>
                                     <li>
@@ -474,7 +408,7 @@
                                             <i class="fa fa-check"></i>
                                         </div>
                                         <div class="text">
-                                            <p>Best Price Guarantee</p>
+                                            <p>Bëju hisedar në shpërblime</p>
                                         </div>
                                     </li>
                                 </ul>
@@ -484,7 +418,7 @@
                                             <i class="fa fa-check"></i>
                                         </div>
                                         <div class="text">
-                                            <p>Easy & Quick Booking</p>
+                                            <p>Sadaka rrjedhëse</p>
                                         </div>
                                     </li>
                                     <li>
@@ -492,16 +426,14 @@
                                             <i class="fa fa-check"></i>
                                         </div>
                                         <div class="text">
-                                            <p>Best Travel Agents</p>
+                                            <p>Depono për ahiret</p>
                                         </div>
                                     </li>
                                 </ul>
                             </div>
-                            <p class="about-two__right-text-1">Change your Place to get Fresh Air</p>
-                            <p class="about-two__right-text-2">There are many variations of passages of available but
-                                the majority have suffered alteration in some form, by injected hum randomised words
-                                which don't look even slightly.</p>
-                            <a href="#" class="thm-btn about-two__btn">Book with us now</a>
+                            <p class="about-two__right-text-1">Allahu në Kuran thotë:</p>
+                            <p class="about-two__right-text-2">Kush do t’i japë Allahut një hua të bukur, që Ai t’ia kthejë shpërblimin shumëfish? Allahu e shtrëngon (riskun) dhe e liron; tek Ai do të ktheheni. <a class="text-decoration-none" href="https://quran.com/2/245"> <br> [2:245] </a></p>
+                            <a href="#" class="thm-btn about-two__btn">Dhuro Sadakë</a>
                         </div>
                     </div>
                 </div>
@@ -510,17 +442,18 @@
 
         <!--Book Now Start-->
         <section class="book-now">
-            <div class="book-now-shape" style="background-image: url({{asset('assetsFront/images/shapes/book-now-shape.png')}})"></div>
+            <div class="book-now-shape"
+                style="background-image: url({{ asset('assetsFront/images/shapes/book-now-shape.png') }})"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="book-now__inner">
                             <div class="book-now__left">
-                                <p>Plan your trip with us</p>
-                                <h2>Ready for an unforgetable tour?</h2>
+                                <p>Thënie, përkujtime, video</p>
+                                <h2>Bashkohu me ne në Telegram</h2>
                             </div>
                             <div class="book-now__right">
-                                <a href="#" class="thm-btn book-now__btn">Book tour now</a>
+                                <a href="https://t.me/muslimani_ideal" class="thm-btn book-now__btn">Kanali në Telegram</a>
                             </div>
                         </div>
                     </div>

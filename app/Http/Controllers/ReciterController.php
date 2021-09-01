@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Reciter;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Str;
 class ReciterController extends Controller
 {
     /**
@@ -45,7 +45,8 @@ class ReciterController extends Controller
         );
 
         $reciter = new \App\Models\Reciter();
-
+        $slug = Str::slug($data['name'], '-');
+        $reciter->slug = $slug;
 
         $reciter->name = $data['name'];
 
@@ -108,6 +109,8 @@ class ReciterController extends Controller
             ]
         );
 
+        $slug = Str::slug($data['name'], '-');
+        $reciter->slug = $slug;
 
         $reciter->name = $data['name'];
 

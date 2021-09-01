@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class BlogController extends Controller
 {
@@ -14,7 +15,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+        $blogs = Blog::all();
+        return view('admin/blog', compact('blogs'));
     }
 
     /**
@@ -24,7 +26,6 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -35,7 +36,39 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = request()->validate(
+            [
+                'title' => 'required',
+                'author' => 'required',
+                'content' => 'required',
+                'image' => 'required',
+                'tags' => 'required',
+            ]
+        );
+
+        $blog = new \App\Models\Blog();
+
+        $slug = Str::slug($data['title'], '-');
+        $blog->slug = $slug;
+        $blog->title = $data['title'];
+        $blog->author = $data['author'];
+        $blog->tags = $data['tags'];
+        $blog->content = $data['content'];
+
+        if (request('image')) {
+            $inputs['image'] = request('image')->store('uploads', 'public');
+            $blog->image = $inputs['image'];
+        }
+
+        $blog->save();
+
+        // if ($category->isDirty('name')) {
+        //     session()->flash('category-add', 'Category added: ' . request('name'));
+        // } else {
+        //     session()->flash('category-add', 'Nothing to add: ' . request('name'));
+        // }
+
+        return redirect('/admin/blogs');
     }
 
     /**
@@ -57,7 +90,8 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        $blogs = Blog::all();
+        return view('admin.blog', compact('blogs', 'blog'));
     }
 
     /**
@@ -69,7 +103,37 @@ class BlogController extends Controller
      */
     public function update(Request $request, Blog $blog)
     {
-        //
+        $data = request()->validate(
+            [
+                'title' => 'required',
+                'author' => 'required',
+                'content' => 'required',
+                'image' => '',
+                'tags' => 'required',
+            ]
+        );
+
+        $slug = Str::slug($data['title'], '-');
+        $blog->slug = $slug;
+        $blog->title = $data['title'];
+        $blog->author = $data['author'];
+        $blog->tags = $data['tags'];
+        $blog->content = $data['content'];
+
+        if (request('image')) {
+            $inputs['image'] = request('image')->store('uploads', 'public');
+            $blog->image = $inputs['image'];
+        }
+
+        $blog->save();
+
+        // if ($category->isDirty('name')) {
+        //     session()->flash('category-add', 'Category added: ' . request('name'));
+        // } else {
+        //     session()->flash('category-add', 'Nothing to add: ' . request('name'));
+        // }
+
+        return redirect('/admin/blogs');
     }
 
     /**
@@ -80,6 +144,8 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        //
+        $blog->delete();
+        session()->flash('blog-deleted', 'Blog deleted: ' . $blog->name);
+        return back();
     }
 }

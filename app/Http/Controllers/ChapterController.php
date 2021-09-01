@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Chapter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ChapterController extends Controller
 {
@@ -46,7 +47,8 @@ class ChapterController extends Controller
         );
 
         $chapter = new \App\Models\Chapter();
-
+        $slug = Str::slug($data['name'], '-');
+        $chapter->slug = $slug;
 
         $chapter->name = $data['name'];
         $chapter->number = $data['number'];
@@ -103,6 +105,9 @@ class ChapterController extends Controller
                 'number' => 'required',
             ]
         );
+
+        $slug = Str::slug($data['name'], '-');
+        $chapter->slug = $slug;
 
         $chapter->name = $data['name'];
         $chapter->number = $data['number'];

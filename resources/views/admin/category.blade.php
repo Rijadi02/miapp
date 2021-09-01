@@ -33,6 +33,19 @@
                             @csrf
                             @method('PATCH')
 
+
+                            <div class="col-lg-12">
+                                <label for="slug" class="col-md-12 col-form-label">Emri i Slugut</label>
+                                <input id="slug" type="text" name="slug"
+                                    class="form-control @error('slug') is-invalid @enderror"
+                                    value="{{ old('slug') ?? $category->slug }}" autocomplete="slug">
+                                @error('slug')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
                             <div class="col-lg-12">
                                 <label for="name" class="col-md-12 col-form-label">Emri i kategorisë</label>
                                 <input id="name" type="text" name="name"
@@ -64,6 +77,18 @@
 
                         <form method="POST" action="{{ route('category.store') }}" enctype="multipart/form-data">
                             @csrf
+
+                            <div class="col-lg-12">
+                                <label for="slug" class="col-md-12 col-form-label">Emri i Slugut</label>
+                                <input id="slug" type="text" name="slug"
+                                    class="form-control @error('slug') is-invalid @enderror" value="{{ old('slug') }}"
+                                    autocomplete="slug">
+                                @error('slug')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
 
                             <div class="col-lg-12">
                                 <label for="name" class="col-md-12 col-form-label">Emri i kategorisë</label>

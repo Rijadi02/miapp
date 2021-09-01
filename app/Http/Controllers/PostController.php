@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Lecturer;
+use App\Models\Post;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 
-class LecturerController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class LecturerController extends Controller
      */
     public function index()
     {
-        $lecturers = Lecturer::all();
-        return view('admin/lecturer', compact('lecturers'));
+        $posts = Post::all();
+        return view('admin/post', compact('posts'));
     }
 
     /**
@@ -39,29 +38,24 @@ class LecturerController extends Controller
     {
         $data = request()->validate(
             [
-                'name' => 'required',
-                'image' => 'required|image',
-
+                'title' => 'required',
+                'link' => 'required',
+                'image' => 'required',
             ]
         );
 
-        $lecturer = new \App\Models\Lecturer();
-        $slug = Str::slug($data['name'], '-');
-        $lecturer->slug = $slug;
+        $post = new \App\Models\Post();
 
+        $post->title = $data['title'];
+        $post->link = $data['link'];
 
-
-        $lecturer->name = $data['name'];
 
         if (request('image')) {
             $inputs['image'] = request('image')->store('uploads', 'public');
-            $lecturer->image = $inputs['image'];
-        } else {
-            $lecturer->image = 'null';
+            $post->image = $inputs['image'];
         }
 
-        $lecturer->save();
-
+        $post->save();
 
         // if ($category->isDirty('name')) {
         //     session()->flash('category-add', 'Category added: ' . request('name'));
@@ -69,16 +63,16 @@ class LecturerController extends Controller
         //     session()->flash('category-add', 'Nothing to add: ' . request('name'));
         // }
 
-        return redirect('/admin/lecturers');
+        return redirect('/admin/posts');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Lecturer  $lecturer
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Lecturer $lecturer)
+    public function show(Post $post)
     {
         //
     }
@@ -86,43 +80,43 @@ class LecturerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Lecturer  $lecturer
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Lecturer $lecturer)
+    public function edit(Post $post)
     {
-        $lecturers = Lecturer::all();
-        return view('admin/lecturer', compact('lecturers', 'lecturer'));
-
+        $posts = Post::all();
+        return view('admin.post', compact('posts', 'post'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Lecturer  $lecturer
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Lecturer $lecturer)
+    public function update(Request $request, Post $post)
     {
         $data = request()->validate(
             [
-                'name' => 'required',
-                'image' => 'image',
-
+                'title' => 'required',
+                'link' => 'required',
+                'image' => '',
             ]
         );
 
-        $lecturer->name = $data['name'];
-        $slug = Str::slug($data['name'], '-');
-        $lecturer->slug = $slug;
+
+        $post->title = $data['title'];
+        $post->link = $data['link'];
+
 
         if (request('image')) {
             $inputs['image'] = request('image')->store('uploads', 'public');
-            $lecturer->image = $inputs['image'];
+            $post->image = $inputs['image'];
         }
-        $lecturer->save();
 
+        $post->save();
 
         // if ($category->isDirty('name')) {
         //     session()->flash('category-add', 'Category added: ' . request('name'));
@@ -130,19 +124,19 @@ class LecturerController extends Controller
         //     session()->flash('category-add', 'Nothing to add: ' . request('name'));
         // }
 
-        return redirect('/admin/lecturers');
+        return redirect('/admin/posts');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Lecturer  $lecturer
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Lecturer $lecturer)
+    public function destroy(Post $post)
     {
-        $lecturer->delete();
-        session()->flash('lecturer-deleted', 'Lecturer deleted: ' . $lecturer->name);
+        $post->delete();
+        session()->flash('post-deleted', 'Post deleted: ' . $post->name);
         return back();
     }
 }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home One || Tevily || Tevily HTML Template For Tour</title>
+    <title>Muslimani Ideal</title>
     <!-- favicons Icons -->
     <link rel="apple-touch-icon" sizes="180x180" href="{{asset('assetsFront/images/favicons/apple-touch-icon.png')}}" />
     <link rel="icon" type="image/png" sizes="32x32" href="{{asset('assetsFront/images/favicons/favicon-32x32.png')}}" />
@@ -49,7 +49,7 @@
 
 <body>
     <div class="preloader">
-        <img class="preloader__image" width="60" src="{{asset('assetsFront/images/loader.png')}}" alt="" />
+        <img class="preloader__image" width="60" src="{{asset('assetsFront/images/resources/logo-single.png')}}" alt="" />
     </div>
     <!-- /.preloader -->
     <div class="page-wrapper">
@@ -72,7 +72,7 @@
                                         <span class="icon-at"></span>
                                     </div>
                                     <div class="text">
-                                        <a href= "mailto:needhelp@company.com">needhelp@company.com</a>
+                                        <a href= "mailto:info@muslimani-ideal.com">info@muslimani-ideal.com</a>
                                     </div>
                                 </li>
                             </ul>
@@ -80,13 +80,13 @@
                         <div class="main-header__top-right">
                             <div class="main-header__top-right-inner">
                                 <div class="main-header__top-right-social">
-                                    <a href="#"><i class="fab fa-facebook"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                    <a href="#"><i class="fab fa-dribbble"></i></a>
+                                    <a href="https://www.youtube.com/c/MuslimaniIdeal"><i class="fab fa-youtube"></i></a>
+                                    <a href="https://www.facebook.com/MuslimaniIdealM/"><i class="fab fa-facebook"></i></a>
+                                    <a href="https://t.me/muslimani_ideal"><i class="fab fa-telegram-plane"></i></a>
+                                    <a href="https://www.instagram.com/muslimani_ideal/"><i class="fab fa-instagram"></i></a>
                                 </div>
                                 <div class="main-header__top-right-btn-box">
-                                    <a href="#" class="thm-btn main-header__top-right-btn">Become a local guide</a>
+                                    <a href="#" class="thm-btn main-header__top-right-btn">Kontribuoni</a>
                                 </div>
                             </div>
                         </div>
@@ -99,56 +99,17 @@
                         <div class="main-menu-wrapper-inner clearfix">
                             <div class="main-menu-wrapper__left clearfix">
                                 <div class="main-menu-wrapper__logo">
-                                    <a href="index.html"><img src="{{asset('assetsFront/images/resources/logo-1.png')}}" alt=""></a>
+                                    <a href="{{ route('home') }}"><img style="width: 115px" src="{{asset('assetsFront/images/resources/logo.png')}}" alt=""></a>
                                 </div>
                                 <div class="main-menu-wrapper__main-menu">
                                     <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
                                     <ul class="main-menu__list">
-                                        <li class="dropdown current">
-                                            <a href="index.html">Home</a>
-                                            <ul>
-                                                <li>
-                                                    <a href="index.html">Home One</a>
-                                                </li>
-                                                <li><a href="index2.html">Home Two</a></li>
-                                                <li class="dropdown">
-                                                    <a href="#">Header Styles</a>
-                                                    <ul>
-                                                        <li><a href="index.html">Header One</a></li>
-                                                        <li><a href="index.html">Header Two</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a href="#">Destinations</a>
-                                            <ul>
-                                                <li><a href="destinations.html">Destinations</a></li>
-                                                <li><a href="destinations-details.html">Destinations Detail</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a href="#">Tours</a>
-                                            <ul>
-                                                <li><a href="tours.html">Tours</a></li>
-                                                <li><a href="tours-list.html">Tours List</a></li>
-                                                <li><a href="tour-details.html">Tours Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a href="#">Pages</a>
-                                            <ul>
-                                                <li><a href="about.html">About</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown">
-                                            <a href="#">News</a>
-                                            <ul>
-                                                <li><a href="news.html">News</a></li>
-                                                <li><a href="news-details.html">News Details</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="{{ route('ads') }}">Bizneset</a></li>
+                                        <li><a href="{{ route('shield') }}">Mburoja</a></li>
+                                        <li><a href="#">Derset</a></li>
+                                        <li><a href="contact.html">Recitimet</a></li>
+                                        <li><a href="{{ route('blogs') }}">Artikujt</a></li>
+                                        <li><a href="http://onehadith.org/al">One Hadith</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -194,7 +155,7 @@
                                                     <i class="fas fa-envelope"></i>
                                                 </div>
                                                 <div class="text">
-                                                    <a href="mailto:needhelp@company.com">needhelp@company.com</a>
+                                                    <a href="mailto:info@muslimani-ideal.com">info@muslimani-ideal.com</a>
                                                 </div>
                                             </li>
                                             <li>
@@ -202,7 +163,7 @@
                                                     <i class="fas fa-map-marker-alt"></i>
                                                 </div>
                                                 <div class="text">
-                                                    <p>666 road, broklyn street new york</p>
+                                                    <p>Kosovë, Prishtinë</p>
                                                 </div>
                                             </li>
                                         </ul>
@@ -220,18 +181,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                                <div class="col-xl-2 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
-                                    <div class="footer-widget__column footer-widget__explore">
-                                        <h3 class="footer-widget__title">Explore</h3>
-                                        <ul class="list-unstyled footer-widget__explore-list">
-                                            <li><a href="#">Account</a></li>
-                                            <li><a href="#">Legal</a></li>
-                                            <li><a href="#">Contact</a></li>
-                                            <li><a href="#">Affilitate Program</a></li>
-                                            <li><a href="#">Privacy Policy</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
+
                                 <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
                                     <div class="footer-widget__column footer-widget__newsletter">
                                         <h3 class="footer-widget__title">Newsletter</h3>
@@ -265,10 +215,10 @@
                                 <div class="site-footer__bottom-inner">
                                     <div class="site-footer__bottom-left">
                                         <div class="footer-widget__social">
-                                            <a href="#"><i class="fab fa-twitter"></i></a>
-                                            <a href="#"><i class="fab fa-facebook"></i></a>
-                                            <a href="#"><i class="fab fa-pinterest-p"></i></a>
-                                            <a href="#"><i class="fab fa-instagram"></i></a>
+                                            <a href="https://www.youtube.com/c/MuslimaniIdeal"><i class="fab fa-youtube"></i></a>
+                                            <a href="https://www.facebook.com/MuslimaniIdealM/"><i class="fab fa-facebook"></i></a>
+                                            <a href="https://t.me/muslimani_ideal"><i class="fab fa-telegram-plane"></i></a>
+                                            <a href="https://www.instagram.com/muslimani_ideal/"><i class="fab fa-instagram"></i></a>
                                         </div>
                                     </div>
                                     <div class="site-footer__bottom-right">
@@ -297,7 +247,7 @@
                 <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
 
                 <div class="logo-box">
-                    <a href="index.html" aria-label="logo image"><img src="{{asset('assetsFront/images/resources/logo-2.png')}}" width="155"
+                    <a href="index.html" aria-label="logo image"><img style="width: 115px" src="{{asset('assetsFront/images/resources/logo.png')}}" width="155"
                             alt="" /></a>
                 </div>
                 <!-- /.logo-box -->
@@ -316,10 +266,10 @@
                 </ul><!-- /.mobile-nav__contact -->
                 <div class="mobile-nav__top">
                     <div class="mobile-nav__social">
-                        <a href="#" class="fab fa-twitter"></a>
-                        <a href="#" class="fab fa-facebook-square"></a>
-                        <a href="#" class="fab fa-pinterest-p"></a>
-                        <a href="#" class="fab fa-instagram"></a>
+                        <a href="https://www.youtube.com/c/MuslimaniIdeal" class="fab fa-youtube"></a>
+                        <a href="https://www.facebook.com/MuslimaniIdealM/" class="fab fa-facebook-square"></a>
+                        <a href="https://t.me/muslimani_ideal" class="fab fa-telegram-plane"></a>
+                        <a href="https://www.instagram.com/muslimani_ideal/" class="fab fa-instagram"></a>
                     </div><!-- /.mobile-nav__social -->
                 </div><!-- /.mobile-nav__top -->
 

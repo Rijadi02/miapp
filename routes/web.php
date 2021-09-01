@@ -13,13 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
 
 Auth::routes();
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/artikujt', [App\Http\Controllers\HomeController::class, 'blogs'])->name('blogs');
+Route::get('/artikulli/{slug}', [App\Http\Controllers\HomeController::class, 'blog'])->name('blog');
+Route::get('/mburoja', [App\Http\Controllers\HomeController::class, 'shield'])->name('shield');
+Route::get('/bizneset', [App\Http\Controllers\HomeController::class, 'ads'])->name('ads');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'admin'], function () {
@@ -85,5 +86,16 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
     Route::patch('ads/{ad}/update', [App\Http\Controllers\AdController::class, 'update'])->name('ad.update');
     Route::get('ads/{ad}/edit',  [App\Http\Controllers\AdController::class, 'edit'])->name('ad.edit');
 
+    Route::get('blogs', [App\Http\Controllers\BlogController::class, 'index'])->name('blog.index');
+    Route::post('blogs/store', [App\Http\Controllers\BlogController::class, 'store'])->name('blog.store');
+    Route::delete('blogs/{blog}', [App\Http\Controllers\BlogController::class, 'destroy'])->name('blog.destroy');
+    Route::patch('blogs/{blog}/update', [App\Http\Controllers\BlogController::class, 'update'])->name('blog.update');
+    Route::get('blogs/{blog}/edit',  [App\Http\Controllers\BlogController::class, 'edit'])->name('blog.edit');
+
+    Route::get('posts', [App\Http\Controllers\PostController::class, 'index'])->name('post.index');
+    Route::post('posts/store', [App\Http\Controllers\PostController::class, 'store'])->name('post.store');
+    Route::delete('posts/{post}', [App\Http\Controllers\PostController::class, 'destroy'])->name('post.destroy');
+    Route::patch('posts/{post}/update', [App\Http\Controllers\PostController::class, 'update'])->name('post.update');
+    Route::get('posts/{post}/edit',  [App\Http\Controllers\PostController::class, 'edit'])->name('post.edit');
 
 });
