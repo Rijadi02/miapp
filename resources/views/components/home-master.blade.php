@@ -99,13 +99,13 @@
                         <div class="main-menu-wrapper-inner clearfix">
                             <div class="main-menu-wrapper__left clearfix">
                                 <div class="main-menu-wrapper__logo">
-                                    <a href="index.html"><img style="width: 115px" src="{{asset('assetsFront/images/resources/logo.png')}}" alt=""></a>
+                                    <a href="{{ route('home') }}"><img style="width: 115px" src="{{asset('assetsFront/images/resources/logo.png')}}" alt=""></a>
                                 </div>
                                 <div class="main-menu-wrapper__main-menu">
                                     <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
                                     <ul class="main-menu__list">
-                                        <li><a href="{{ route('home') }}">Ballina</a></li>
-                                        <li><a href="#">Mburoja</a></li>
+                                        <li><a href="{{ route('ads') }}">Bizneset</a></li>
+                                        <li><a href="{{ route('shield') }}">Mburoja</a></li>
                                         <li><a href="#">Derset</a></li>
                                         <li><a href="contact.html">Recitimet</a></li>
                                         <li><a href="{{ route('blogs') }}">Artikujt</a></li>

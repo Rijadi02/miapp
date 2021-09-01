@@ -55,7 +55,7 @@
 
                              </ul>
                              <h3 class="news-one__title">
-                                 <a href="{{route('blog',$blog->slug)}}">{{ $blog->title}}</a>
+                                <a href="{{route('blog',$blog->slug)}}">{{ $blog->title}}</a>
                              </h3>
                          </div>
                      </div>

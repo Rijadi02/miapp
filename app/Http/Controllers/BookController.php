@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class BookController extends Controller
 {
@@ -48,6 +49,8 @@ class BookController extends Controller
 
         $book = new \App\Models\Book();
 
+        $slug = Str::slug($data['name'], '-');
+        $book->slug = $slug;
 
         $book->name = $data['name'];
         $book->category_id = $category;
@@ -112,6 +115,9 @@ class BookController extends Controller
 
 
         $book->name = $data['name'];
+
+        $slug = Str::slug($data['name'], '-');
+        $book->slug = $slug;
 
         if (request('image')) {
             $inputs['image'] = request('image')->store('uploads', 'public');

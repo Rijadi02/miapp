@@ -18,6 +18,8 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/artikujt', [App\Http\Controllers\HomeController::class, 'blogs'])->name('blogs');
 Route::get('/artikulli/{slug}', [App\Http\Controllers\HomeController::class, 'blog'])->name('blog');
+Route::get('/mburoja', [App\Http\Controllers\HomeController::class, 'shield'])->name('shield');
+Route::get('/bizneset', [App\Http\Controllers\HomeController::class, 'ads'])->name('ads');
 
 
 
