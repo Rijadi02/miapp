@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Lecture;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -49,6 +50,22 @@ class HomeController extends Controller
     }
 
     public function ads(){
-        
+
+    }
+
+    public function lectures(){
+
+        // $monday = Lecture::where('day', '=', 'E Henë')->get();
+        // $tuesday = Lecture::where('day', '=', 'E Marte')->get();
+        // $wednesday = Lecture::where('day', '=', 'E Merkure')->get();
+        // $tuesday = Lecture::where('day', '=', 'E Ejte')->get();
+        // $tuesday = Lecture::where('day', '=', 'E Ejte')->get();
+        // $friday = Lecture::where('day', '=', 'E Premte')->get();
+        // $saturday = Lecture::where('day', '=', 'E Shtune')->get();
+        // $sunday = Lecture::where('day', '=', 'E Diele')->get();
+
+
+
+
     }
 }

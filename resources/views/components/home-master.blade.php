@@ -104,12 +104,12 @@
                                 <div class="main-menu-wrapper__main-menu">
                                     <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
                                     <ul class="main-menu__list">
-                                        <li><a href="{{ route('ads') }}">Bizneset</a></li>
+                                        <li><a href="{{ route('home')}}">Ballina</a></li>
+                                        <li><a href="{{ route('ads')}}">Bizneset</a></li>
                                         <li><a href="{{ route('shield') }}">Mburoja</a></li>
                                         <li><a href="#">Derset</a></li>
                                         <li><a href="contact.html">Recitimet</a></li>
                                         <li><a href="{{ route('blogs') }}">Artikujt</a></li>
-                                        <li><a href="http://onehadith.org/al">One Hadith</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -186,13 +186,12 @@
 
                                 <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
                                     <div class="footer-widget__column footer-widget__newsletter">
-                                        <h3 class="footer-widget__title">Newsletter</h3>
+                                        <h3 class="footer-widget__title">One Hadith Ueb-i dhe Extention</h3>
                                         <form class="footer-widget__newsletter-form mc-form"
                                             data-url="https://xyz.us18.list-manage.com/subscribe/post?u=20e91746ef818cd941998c598&id=cc0ee8140e">
                                             <div class="footer-widget__newsletter-input-box">
-                                                <input type="email" placeholder="Email address" name="EMAIL">
-                                                <button type="submit"
-                                                    class="footer-widget__newsletter-btn">Subscribe</button>
+                                                <a href="https://t.me/muslimani_ideal" class="about-one__btn thm-btn">One Hadith Ueb</a>
+                                                <a href="https://t.me/muslimani_ideal" class="about-one__btn thm-btn mt-3">One Hadith Extention</a>
                                             </div>
                                         </form>
                                         <div class="mc-form__response text-center"></div><!-- /.mc-form__response -->
