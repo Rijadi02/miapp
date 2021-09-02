@@ -20,6 +20,7 @@ class CreateLecturesTable extends Migration
             $table->string('day');
             $table->string('time');
             $table->string('map')->nullable();
+            $table->string('place')->nullable();
             $table->string('link')->nullable();
             $table->integer('status');
             $table->integer('lecturer_id')->unsigned();

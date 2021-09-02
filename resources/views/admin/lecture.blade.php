@@ -91,6 +91,18 @@
                             </div>
 
                             <div class="col-lg-12">
+                                <label for="place" class="col-md-12 col-form-label">Emri i Vendndodhjes</label>
+                                <input id="place" type="text" name="place"
+                                    class="form-control @error('place') is-invalid @enderror"
+                                    value="{{ old('place') ?? $lecture->place }}" autocomplete="place">
+                                @error('place')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="col-lg-12">
                                 <label for="map" class="col-md-12 col-form-label">Vendndodhja(GoogleMaps link)</label>
                                 <input id="map" type="text" name="map"
                                     class="form-control @error('map') is-invalid @enderror"
@@ -186,6 +198,18 @@
                                     class="form-control @error('time') is-invalid @enderror" value="{{ old('time') }}"
                                     autocomplete="time">
                                 @error('time')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="col-lg-12">
+                                <label for="place" class="col-md-12 col-form-label">Emri i Vendndodhjes</label>
+                                <input id="place" type="text" name="place"
+                                    class="form-control @error('place') is-invalid @enderror" value="{{ old('place') }}"
+                                    autocomplete="place">
+                                @error('place')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

@@ -45,6 +45,7 @@ class LectureController extends Controller
                 'day' => 'required',
                 'time' => 'required',
                 'map' => '',
+                'place' => '',
                 'link' => '',
                 'status' => 'required'
             ]
@@ -58,6 +59,7 @@ class LectureController extends Controller
         $lecture->map = $data['map'];
         $lecture->link = $data['link'];
         $lecture->status = $data['status'];
+        $lecture->place = $data['place'];
         $lecture->lecturer_id = $lecturer;
 
         $lecture->save();
@@ -111,6 +113,7 @@ class LectureController extends Controller
                 'time' => 'required',
                 'map' => '',
                 'link' => '',
+                'place' => '',
                 'status' => 'required'
             ]
         );
@@ -122,6 +125,7 @@ class LectureController extends Controller
         $lecture->map = $data['map'];
         $lecture->link = $data['link'];
         $lecture->status = $data['status'];
+        $lecture->place = $data['place'];
 
 
         $lecture->save();
