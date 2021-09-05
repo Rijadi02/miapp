@@ -58,8 +58,7 @@
                                 <!--Popular Tours Two Single-->
                                 <div class="popular-tours__single">
                                     <div class="popular-tours__img">
-                                        <img style="object-fit: cover;aspect-ratio:1"
-                                            src="/storage/{{ $lecture->lecturer->image }}" alt="">
+                                        <img style="object-fit: cover;aspect-ratio:1" src="/storage/{{ $lecture->lecturer->image }}" alt="">
                                         <div class="popular-tours__icon">
                                             <a href="tour-details.html">
                                                 <i class="fa fa-heart"></i>

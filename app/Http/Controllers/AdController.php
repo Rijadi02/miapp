@@ -126,8 +126,12 @@ class AdController extends Controller
      */
     public function edit(Ad $ad)
     {
+        $medias = json_decode($ad->media, true);
+        $facebook = $medias['facebook'];
+        $twitter = $medias['twitter'];
+        $instagram = $medias['instagram'];
         $ads = Ad::all();
-        return view('admin/ads', compact('ads', 'ad'));
+        return view('admin/ads', compact('ads', 'ad','facebook','instagram','twitter'));
     }
 
     /**
@@ -137,9 +141,69 @@ class AdController extends Controller
      * @param  \App\Models\Ad  $ad
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Ad $ad)
+    public function update(Request $req, Ad $ad)
     {
-        //
+        $data = request()->validate(
+            [
+                'name' => 'required',
+                'photo' => '',
+                'description' => '',
+                'link' => '',
+                'tags' => '',
+                'city' => '',
+                'map' => '',
+                'facebook' => '',
+                'twitter' => '',
+                'instagram' => '',
+                'gallery' => '',
+                'status' => '',
+                'contact_details' => '',
+            ]
+        );
+
+
+        $slug = Str::slug($data['name'], '-');
+        $ad->slug = $slug;
+
+        $ad->name = $data['name'];
+        $ad->description = $data['description'];
+        $ad->tags = $data['tags'];
+        $ad->city = $data['city'];
+        $ad->map = $data['map'];
+        $ad->link = $data['link'];
+        $ad->contact_details = $data['contact_details'];
+
+        $media = array("facebook"=>$data['facebook'],"instagram"=>$data['instagram'],"twitter"=>$data['twitter']);
+
+        $ad->media = json_encode($media);
+
+        if (request('photo')) {
+            $inputs['photo'] = request('photo')->store('uploads', 'public');
+            $ad->photo = $inputs['photo'];
+        }
+
+
+        if ($req->hasfile('gallery')) {
+            foreach ($req->file('gallery') as $file) {
+                $name = $file->getClientOriginalName();
+                $file->move(public_path() . '/uploads/', $name);
+                $imgData[] = $name;
+                // dd($name);
+            }
+            $ad->gallery = json_encode($imgData);
+            // return Redirect::route('cars.damage_hail',array('car' => $car->id));
+        }
+        $ad->save();
+
+
+
+        // if ($category->isDirty('name')) {
+        //     session()->flash('category-add', 'Category added: ' . request('name'));
+        // } else {
+        //     session()->flash('category-add', 'Nothing to add: ' . request('name'));
+        // }
+
+        return redirect('/admin/ads');
     }
 
     /**

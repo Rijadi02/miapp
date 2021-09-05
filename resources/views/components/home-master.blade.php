@@ -107,7 +107,7 @@
                                         <li><a href="{{ route('home')}}">Ballina</a></li>
                                         <li><a href="{{ route('ads')}}">Bizneset</a></li>
                                         <li><a href="{{ route('shield') }}">Mburoja</a></li>
-                                        <li><a href="#">Derset</a></li>
+                                        <li><a href="{{ route('lectures',1) }}">Derset</a></li>
                                         <li><a href="contact.html">Recitimet</a></li>
                                         <li><a href="{{ route('blogs') }}">Artikujt</a></li>
                                     </ul>

@@ -235,150 +235,31 @@
                         <div class="tours-list__right">
                             <div class="tours-list__inner">
                                 <!--Tours List Single-->
+                                @foreach ($ads as $ad)
                                 <div class="tours-list__single">
                                     <div class="tours-list__img">
-                                        <img src="assets/images/resources/tours-list-img-1.jpg" alt="">
-                                        <div class="tours-list__icon">
-                                            <a href="tour-details.html">
-                                                <i class="fa fa-heart"></i>
-                                            </a>
-                                        </div>
+                                        <img style="object-fit: cover" src="/storage/{{ $ad->photo }}" alt="">
+
                                     </div>
                                     <div class="tours-list__content">
-                                        <div class="tours-list__stars">
-                                            <i class="fa fa-star"></i> 8.0 Superb
-                                        </div>
-                                        <h3 class="tours-list__title"><a href="tour-details.html">Moscow Red City
-                                                Land</a></h3>
+
+                                        <h3 class="tours-list__title"><a href="tour-details.html">{{$ad->name}}</a></h3>
                                         <p class="tours-list__rate"><span>$870</span> / Per Person</p>
-                                        <p class="tours-list__text">Lorem ipsum available isn but the majority have
-                                            suffered alteratin in some or form injected semper fames.</p>
+                                        {!! \Illuminate\Support\Str::limit($ad->description, $limit = 100, $end = '...') !!}
                                         <ul class="tours-list__meta list-unstyled">
                                             <li><a href="tour-details.html"><i class="far fa-calendar"></i>3 Days</a>
                                             </li>
                                             <li><a href="tour-details.html"><i class="far fa-user-circle"></i>12+</a>
                                             </li>
-                                            <li><a href="tour-details.html"><i class="far fa-map"></i>Los Angeles</a>
+                                            <li><a href="tour-details.html"><i class="far fa-map"></i>{{$ad->city}}</a>
                                             </li>
                                         </ul>
                                     </div>
                                 </div>
+                                @endforeach
+
                                 <!--Tours List Single-->
-                                <div class="tours-list__single">
-                                    <div class="tours-list__img">
-                                        <img src="assets/images/resources/tours-list-img-2.jpg" alt="">
-                                        <div class="tours-list__icon">
-                                            <a href="tour-details.html">
-                                                <i class="fa fa-heart"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="tours-list__content">
-                                        <div class="tours-list__stars">
-                                            <i class="fa fa-star"></i> 8.0 Superb
-                                        </div>
-                                        <h3 class="tours-list__title"><a href="tour-details.html">Discover Depth of
-                                                Beach</a></h3>
-                                        <p class="tours-list__rate"><span>$870</span> / Per Person</p>
-                                        <p class="tours-list__text">Lorem ipsum available isn but the majority have
-                                            suffered alteratin in some or form injected semper fames.</p>
-                                        <ul class="tours-list__meta list-unstyled">
-                                            <li><a href="tour-details.html"><i class="far fa-calendar"></i>3 Days</a>
-                                            </li>
-                                            <li><a href="tour-details.html"><i class="far fa-user-circle"></i>12+</a>
-                                            </li>
-                                            <li><a href="tour-details.html"><i class="far fa-map"></i>Los Angeles</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!--Tours List Single-->
-                                <div class="tours-list__single">
-                                    <div class="tours-list__img">
-                                        <img src="assets/images/resources/tours-list-img-3.jpg" alt="">
-                                        <div class="tours-list__icon">
-                                            <a href="tour-details.html">
-                                                <i class="fa fa-heart"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="tours-list__content">
-                                        <div class="tours-list__stars">
-                                            <i class="fa fa-star"></i> 8.0 Superb
-                                        </div>
-                                        <h3 class="tours-list__title"><a href="tour-details.html">Discover Depth of
-                                                Beach</a></h3>
-                                        <p class="tours-list__rate"><span>$870</span> / Per Person</p>
-                                        <p class="tours-list__text">Lorem ipsum available isn but the majority have
-                                            suffered alteratin in some or form injected semper fames.</p>
-                                        <ul class="tours-list__meta list-unstyled">
-                                            <li><a href="tour-details.html"><i class="far fa-calendar"></i>3 Days</a>
-                                            </li>
-                                            <li><a href="tour-details.html"><i class="far fa-user-circle"></i>12+</a>
-                                            </li>
-                                            <li><a href="tour-details.html"><i class="far fa-map"></i>Los Angeles</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!--Tours List Single-->
-                                <div class="tours-list__single">
-                                    <div class="tours-list__img">
-                                        <img src="assets/images/resources/tours-list-img-4.jpg" alt="">
-                                        <div class="tours-list__icon">
-                                            <a href="tour-details.html">
-                                                <i class="fa fa-heart"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="tours-list__content">
-                                        <div class="tours-list__stars">
-                                            <i class="fa fa-star"></i> 8.0 Superb
-                                        </div>
-                                        <h3 class="tours-list__title"><a href="tour-details.html">Moscow Red City
-                                                Land</a></h3>
-                                        <p class="tours-list__rate"><span>$870</span> / Per Person</p>
-                                        <p class="tours-list__text">Lorem ipsum available isn but the majority have
-                                            suffered alteratin in some or form injected semper fames.</p>
-                                        <ul class="tours-list__meta list-unstyled">
-                                            <li><a href="tour-details.html"><i class="far fa-calendar"></i>3 Days</a>
-                                            </li>
-                                            <li><a href="tour-details.html"><i class="far fa-user-circle"></i>12+</a>
-                                            </li>
-                                            <li><a href="tour-details.html"><i class="far fa-map"></i>Los Angeles</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!--Tours List Single-->
-                                <div class="tours-list__single">
-                                    <div class="tours-list__img">
-                                        <img src="assets/images/resources/tours-list-img-5.jpg" alt="">
-                                        <div class="tours-list__icon">
-                                            <a href="tour-details.html">
-                                                <i class="fa fa-heart"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="tours-list__content">
-                                        <div class="tours-list__stars">
-                                            <i class="fa fa-star"></i> 8.0 Superb
-                                        </div>
-                                        <h3 class="tours-list__title"><a href="tour-details.html">National Park 2 Days
-                                                Tour</a></h3>
-                                        <p class="tours-list__rate"><span>$870</span> / Per Person</p>
-                                        <p class="tours-list__text">Lorem ipsum available isn but the majority have
-                                            suffered alteratin in some or form injected semper fames.</p>
-                                        <ul class="tours-list__meta list-unstyled">
-                                            <li><a href="tour-details.html"><i class="far fa-calendar"></i>3 Days</a>
-                                            </li>
-                                            <li><a href="tour-details.html"><i class="far fa-user-circle"></i>12+</a>
-                                            </li>
-                                            <li><a href="tour-details.html"><i class="far fa-map"></i>Los Angeles</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>

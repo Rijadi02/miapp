@@ -131,7 +131,7 @@
                                 <label for="facebook" class="col-md-12 col-form-label">Linku i Facebook </label>
                                 <input id="facebook" type="text" name="facebook"
                                     class="form-control @error('facebook') is-invalid @enderror"
-                                    value="{{ old('facebook') ?? $ad->facebook }}" autocomplete="facebook">
+                                    value="{{ old('facebook') ?? $facebook }}" autocomplete="facebook">
                                 @error('facebook')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -143,7 +143,7 @@
                                 <label for="twitter" class="col-md-12 col-form-label">Linku i Twitter</label>
                                 <input id="twitter" type="text" name="twitter"
                                     class="form-control @error('twitter') is-invalid @enderror"
-                                    value="{{ old('twitter') ?? $ad->twitter }}" autocomplete="twitter">
+                                    value="{{ old('twitter') ?? $twitter }}" autocomplete="twitter">
                                 @error('twitter')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -155,7 +155,7 @@
                                 <label for="instagram" class="col-md-12 col-form-label">Linku i Instagram</label>
                                 <input id="instagram" type="text" name="instagram"
                                     class="form-control @error('instagram') is-invalid @enderror"
-                                    value="{{ old('instagram') ?? $ad->instagram }}" autocomplete="instagram">
+                                    value="{{ old('instagram') ?? $instagram }}" autocomplete="instagram">
                                 @error('instagram')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -229,7 +229,7 @@
                             </div>
 
                             <div class="col-lg-12">
-                                
+
 
                                 <div class="custom-file">
                                     <input type="file" name="gallery[]" class="custom-file-input" id="images"

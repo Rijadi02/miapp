@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ad;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Day;
@@ -51,6 +52,18 @@ class HomeController extends Controller
     }
 
     public function ads(){
+        $ads = Ad::all();
+        return view('ads', compact('ads') );
+
+    }
+
+    public function ad($slug){
+        $ad = Ad::where('slug', '=', $slug)->firstOrFail();
+        $medias = json_decode($ad->media, true);
+        $facebook = $medias['facebook'];
+        $twitter = $medias['twitter'];
+        $instagram = $medias['instagram'];
+        return view('ad', compact('ad','facebook','instagram','twitter') );
 
     }
 
