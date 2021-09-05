@@ -52,6 +52,9 @@
                         </ul>
                         <h3 class="news-details__title">{{ $blog->title}}</h3>
                         {!! $blog->content !!}
+
+                        
+
                     </div>
                     {{-- <div class="news-details__bottom">
                         <p class="news-details__tags">

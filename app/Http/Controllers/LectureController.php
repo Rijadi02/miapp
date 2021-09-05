@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
+use App\Models\Day;
 use App\Models\Lecture;
 use App\Models\Lecturer;
 use Carbon\Carbon;
@@ -16,8 +18,10 @@ class LectureController extends Controller
      */
     public function index(Lecturer $lecturer)
     {
+        $days = Day::all();
+        $cities = City::all();
         $lectures = $lecturer->lectures;
-        return view('admin.lecture', compact('lectures', 'lecturer'));
+        return view('admin.lecture', compact('lectures', 'lecturer','days','cities'));
     }
 
     /**
@@ -42,20 +46,24 @@ class LectureController extends Controller
             [
                 'title' => 'required',
                 'date' => '',
-                'day' => 'required',
+                'day_id' => 'required',
+                'city_id' => 'required',
+                'allowance' => 'required',
                 'time' => 'required',
                 'map' => '',
-                'place' => '',
+                'place' => 'required',
                 'link' => '',
                 'status' => 'required'
             ]
         );
 
         $lecture = new \App\Models\Lecture();
-        $lecture->date = Carbon::parse($data['date'])->format('Y-m-d');
+        $lecture->date = $data['date'];
         $lecture->title = $data['title'];
-        $lecture->day = $data['day'];
+        $lecture->day_id = $data['day_id'];
+        $lecture->city_id = $data['city_id'];
         $lecture->time = $data['time'];
+        $lecture->allowance = $data['allowance'];
         $lecture->map = $data['map'];
         $lecture->link = $data['link'];
         $lecture->status = $data['status'];
@@ -92,8 +100,10 @@ class LectureController extends Controller
      */
     public function edit(Lecture $lecture)
     {
+        $days = Day::all();
+        $cities = City::all();
         $lectures = Lecture::all()->where('lecturer_id', '=', $lecture->lecturer_id);
-        return view('admin/lecture', compact('lectures', 'lecture'));
+        return view('admin.lecture', compact('lectures', 'lecture','days','cities'));
     }
 
     /**
@@ -109,20 +119,24 @@ class LectureController extends Controller
             [
                 'title' => 'required',
                 'date' => '',
-                'day' => 'required',
+                'day_id' => 'required',
+                'city_id' => 'required',
+                'allowance' => 'required',
                 'time' => 'required',
                 'map' => '',
                 'link' => '',
-                'place' => '',
+                'place' => 'required',
                 'status' => 'required'
             ]
         );
 
         $lecture->title = $data['title'];
         $lecture->date = $data['date'];
-        $lecture->day = $data['day'];
+        $lecture->day_id = $data['day_id'];
+        $lecture->city_id = $data['city_id'];
         $lecture->time = $data['time'];
         $lecture->map = $data['map'];
+        $lecture->allowance = $data['allowance'];
         $lecture->link = $data['link'];
         $lecture->status = $data['status'];
         $lecture->place = $data['place'];

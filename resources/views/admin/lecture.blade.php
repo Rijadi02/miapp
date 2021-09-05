@@ -16,7 +16,7 @@
                                 @if (isset($lecturer))
                                     Derset e hoxhës :&nbsp; <b>{{ $lecturer->name }}</b>
                                 @else
-                                    Përditësimi i dersit : &nbsp; <b>{{ $lecture->title }}</b>
+                                    Përditësimi i dersit : &nbsp;  <a style="text-decoration: none; color:white" href="{{ route('lecturer.lectures', $lecture->lecturer->id) }}"><b>{{ $lecture->title }}</b> </a>
                                 @endif
                             </h1>
                             <div class="page-header-subtitle">Ketu shtohen dhe modifikohen derset e hoxhallarëve</div>
@@ -49,7 +49,7 @@
 
                             <div class="col-lg-12">
                                 <label for="date" class="col-md-12 col-form-label">Data e ligjerates</label>
-                                <input id="date" type="date" name="date"
+                                <input id="date" type="text" name="date"
                                     class="form-control @error('date') is-invalid @enderror"
                                     value="{{ old('date') ?? $lecture->date }}" autocomplete="date">
                                 @error('date')
@@ -60,22 +60,25 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <label for="day" class="col-md-12 col-form-label">Dita e ligjerates</label>
-
-                                <select name="day"  id="day"  class="form-control @error("day") is-invalid @enderror" value="{{ old("day") }}">
-                                    <option {{ $lecture->day == "E Henë" ? 'selected' : '' }} value="E Henë">E Henë</option>
-                                    <option {{ $lecture->day == "E Marte" ? 'selected' : '' }} value="E Marte">E Marte</option>
-                                    <option {{ $lecture->day == "E Merkure" ? 'selected' : '' }} value="E Merkure">E Merkure</option>
-                                    <option {{ $lecture->day == "E Ejte" ? 'selected' : '' }} value="E Ejte">E Ejte</option>
-                                    <option {{ $lecture->day == "E Premte" ? 'selected' : '' }} value="E Premte">E Premte</option>
-                                    <option {{ $lecture->day == "E Shtune" ? 'selected' : '' }} value="E Shtune">E Shtune</option>
-                                    <option {{ $lecture->day == "E Diele" ? 'selected' : '' }} value="E Diele">E Diele</option>
-                                    </select>
-                                @error('day')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                                <label for="day_id" class="col-md-12 col-form-label">Dita e ligjerates</label>
+                                    <select name="day_id"
+                                    class="form-control @error('day_id') is-invalid @enderror"
+                                    value="{{ old('day_id') }}" autocomplete="day_id" autofocus>
+                                    <option hidden disabled selected value>-- Dita e Dersit--</option>
+                                    @foreach ($days as $day)
+                                        @if ($day->id == $day->id)
+                                            <option value="{{ $day->id }}" selected>{{ $day->name }}
+                                            </option>
+                                        @else
+                                            <option value="{{ $day->id }}">{{ $day->name }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                                    @error('day_id')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                             </div>
 
                             <div class="col-lg-12">
@@ -88,6 +91,28 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                            </div>
+
+                            <div class="col-lg-12">
+                                <label for="city_id" class="col-md-12 col-form-label">Qyteti</label>
+                                    <select name="city_id"
+                                    class="form-control @error('city_id') is-invalid @enderror"
+                                    value="{{ old('city_id') }}" autocomplete="city_id" autofocus>
+                                    <option hidden disabled selected value>-- Qyteti ku mbahet dersi--</option>
+                                    @foreach ($cities as $city)
+                                        @if ($city->id == $city->id)
+                                            <option value="{{ $city->id }}" selected>{{ $city->name }}
+                                            </option>
+                                        @else
+                                            <option value="{{ $city->id }}">{{ $city->name }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                                    @error('city_id')
+                                        <span city_id="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                             </div>
 
                             <div class="col-lg-12">
@@ -126,6 +151,23 @@
                                 @enderror
                             </div>
 
+
+                            <div class="col-lg-12">
+                                <label for="allowance" class="col-md-12 col-form-label">Kujt i lejohet hyrja</label>
+                                <select name="allowance" id="allowance" class="form-control @error('allowance') is-invalid @enderror"
+                                value="{{ old('allowance') }}">
+                                <option {{ $lecture->allowance == 'Meshkuj' ? 'selected' : '' }} value="Meshkuj">Meshkuj</option>
+                                <option {{ $lecture->allowance == 'Femra' ? 'selected' : '' }} value="Femra">Femra</option>
+                                <option {{ $lecture->allowance == 'Meshkuj dhe Femra' ? 'selected' : '' }} value="Meshkuj dhe Femra">Meshkuj dhe Femra</option>
+                            </select>
+                                @error('allowance')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+
                             <div class="col-lg-12">
                                 <label for="status" class="col-md-12 col-form-label">Statusi</label>
                                 <select name="status"  id="status"  class="form-control @error("status") is-invalid @enderror" value="{{ old("status") }}">
@@ -163,7 +205,7 @@
 
                             <div class="col-lg-12">
                                 <label for="date" class="col-md-12 col-form-label">Data kur mbahet</label>
-                                <input id="date" type="date" name="date"
+                                <input id="date" type="text" name="date"
                                     class="form-control @error('date') is-invalid @enderror" value="{{ old('date') }}"
                                     autocomplete="date">
                                 @error('date')
@@ -175,17 +217,16 @@
 
 
                             <div class="col-lg-12">
-                                <label for="day" class="col-md-12 col-form-label">Dita e ligjerates</label>
-                                <select name="day"  id="day"  class="form-control @error("day") is-invalid @enderror" value="{{ old("day") }}">
-                                    <option value="E Henë">E Henë</option>
-                                    <option value="E Marte">E Marte</option>
-                                    <option value="E Merkure">E Merkure</option>
-                                    <option value="E Ejte">E Ejte</option>
-                                    <option value="E Premte">E Premte</option>
-                                    <option value="E Shtune">E Shtune</option>
-                                    <option value="E Diele">E Diele</option>
-                                  </select>
-                                @error('day')
+                                <label for="day_id" class="col-md-12 col-form-label">Dita e ligjerates</label>
+                                <select name="day_id"
+                                class="form-control @error('day_id') is-invalid @enderror"
+                                value="{{ old('day_id') }}" autocomplete="day_id" autofocus>
+                                <option hidden disabled selected value>-- Dita e ligjerates--</option>
+                                @foreach ($days as $day)
+                                    <option value="{{ $day->id }}">{{ $day->name }}</option>
+                                @endforeach
+                                </select>
+                                @error('day_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -198,6 +239,24 @@
                                     class="form-control @error('time') is-invalid @enderror" value="{{ old('time') }}"
                                     autocomplete="time">
                                 @error('time')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+
+                            <div class="col-lg-12">
+                                <label for="city_id" class="col-md-12 col-form-label">Qyteti</label>
+                                <select name="city_id"
+                                class="form-control @error('city_id') is-invalid @enderror"
+                                value="{{ old('city_id') }}" autocomplete="city_id" autofocus>
+                                <option hidden disabled selected value>-- Qyteti ku mbahet dersi--</option>
+                                @foreach ($cities as $city)
+                                    <option value="{{ $city->id }}">{{ $city->name }}</option>
+                                @endforeach
+                                </select>
+                                @error('city_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -231,9 +290,25 @@
                             <div class="col-lg-12">
                                 <label for="link" class="col-md-12 col-form-label">Linku i ligjerates</label>
                                 <input id="link" type="text" name="link"
-                                    class="form-control @error('link') is-invalid @enderror" value="{{ old('link') }}"
-                                    autocomplete="link">
+                                    class="form-control @error('link') is-invalid @enderror"
+                                    value="{{ old('link')}}" autocomplete="link">
                                 @error('link')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="col-lg-12">
+                                <label for="allowance" class="col-md-12 col-form-label">Kujt i lejohet hyrja</label>
+                                <select name="allowance" id="allowance" class="form-control @error('allowance') is-invalid @enderror"
+                                value="{{ old('allowance') }}">
+                                    <option value="Meshkuj">Meshkuj</option>
+                                    <option value="Femra">Femra</option>
+                                    <option value="Meshkuj dhe Femra">Meshkuj dhe Femra</option>
+
+                                </select>
+                                @error('allowance')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -291,7 +366,7 @@
 
                                 <tr>
                                     <td>{{ $lecture->title }}</td>
-                                    <td>{{ $lecture->day }}</td>
+                                    <td>{{ $lecture->day->name }}</td>
                                     <td>{{ $lecture->time }}</td>
                                     <td>
                                     @if ($lecture->status == 0)

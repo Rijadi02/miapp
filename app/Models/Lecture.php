@@ -13,4 +13,14 @@ class Lecture extends Model
     {
         return $this->belongsTo(Lecturer::class);
     }
+
+    public function day()
+    {
+        return $this->belongsTo(Day::class);
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
 }

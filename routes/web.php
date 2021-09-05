@@ -20,7 +20,7 @@ Route::get('/artikujt', [App\Http\Controllers\HomeController::class, 'blogs'])->
 Route::get('/artikulli/{slug}', [App\Http\Controllers\HomeController::class, 'blog'])->name('blog');
 Route::get('/mburoja', [App\Http\Controllers\HomeController::class, 'shield'])->name('shield');
 Route::get('/bizneset', [App\Http\Controllers\HomeController::class, 'ads'])->name('ads');
-Route::get('/derset', [App\Http\Controllers\HomeController::class, 'lectures'])->name('lectures');
+Route::get('/derset/{city}', [App\Http\Controllers\HomeController::class, 'lectures'])->name('lectures');
 
 
 
