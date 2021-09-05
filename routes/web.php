@@ -23,7 +23,7 @@ Route::get('/bizneset/{slug}', [App\Http\Controllers\HomeController::class, 'ad'
 Route::get('/derset/{city}', [App\Http\Controllers\HomeController::class, 'lectures'])->name('lectures');
 Route::get('/mburoja', [App\Http\Controllers\HomeController::class, 'shield'])->name('shield');
 Route::get('/{book}/kapitujt', [App\Http\Controllers\HomeController::class, 'chapters'])->name('chapters');
-
+Route::get('/{chapter}/duatë', [App\Http\Controllers\HomeController::class, 'content'])->name('content');
 
 
 

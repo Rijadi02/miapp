@@ -88,5 +88,11 @@ class HomeController extends Controller
         return view('chapters', compact('chapters') );
     }
 
+    public function content($slug)
+    {
+        $chapter = Chapter::where('slug', '=', $slug)->firstOrFail();
+        $contents = $chapter->contents;
+        return view('content', compact('contents') );
+    }
 
 }

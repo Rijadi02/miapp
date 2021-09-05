@@ -304,9 +304,7 @@
                             </div>
                             <div class="tour-details-two__location">
                                 <h3 class="tour-details-two__title">Tour Plan</h3>
-                                <iframe
-                                    src="{{$ad->map}}"
-                                    class="tour-details-two__location-map" allowfullscreen></iframe>
+                                <iframe src="{{$ad->map}}" class="tour-details-two__location-map" allowfullscreen></iframe>
                             </div>
 
                         </div>
