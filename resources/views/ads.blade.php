@@ -257,7 +257,9 @@
                                     </div>
                                 </div>
                                 @endforeach
-
+                                <div class="row">
+                                    {{ $ads->render("pagination::bootstrap-4") }}
+                                </div>
                                 <!--Tours List Single-->
 
                             </div>

@@ -114,7 +114,7 @@
                                 </div>
                             </div>
                             <div class="main-menu-wrapper__right">
-                                <a href="https://www.youtube.com/c/MuslimaniIdeal" class="about-one__btn thm-btn">Dhikri i mengjesti</a>
+                                <a href="https://www.youtube.com/c/MuslimaniIdeal" class="about-one__btn thm-btn">Dhikri i Mengjesit</a>
 {{--
                                 <a href="#" class="main-menu__search search-toggler icon-magnifying-glass"></a>
                                 <a href="#" class="main-menu__user icon-avatar"></a> --}}

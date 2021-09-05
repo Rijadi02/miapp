@@ -52,7 +52,7 @@ class HomeController extends Controller
     }
 
     public function ads(){
-        $ads = Ad::all();
+        $ads = Ad::latest()->paginate(5);
         return view('ads', compact('ads') );
 
     }
