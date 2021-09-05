@@ -223,7 +223,7 @@
                                         </div>
                                     </div>
                                     <div class="site-footer__bottom-right">
-                                        <p>@ All Copyright 2021, <a href="#">Bracket Web</a></p>
+                                        <p>@ All Copyright 2021, <a href="#">Muslimani Ideal</a></p>
                                     </div>
                                     <div class="site-footer__bottom-left-arrow">
                                         <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><span

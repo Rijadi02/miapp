@@ -6449,7 +6449,7 @@ ul {
 }
 
 .faq-one-accrodion .accrodion-title h4::before {
-    content: "\f106";
+    content: "\f105";
     font-family: "Font Awesome 5 Free";
     font-weight: 900;
     font-size: 17px;
@@ -6472,7 +6472,7 @@ ul {
 }
 
 .faq-one-accrodion .accrodion.active .accrodion-title h4::before {
-    content: "\f107";
+    content: "\f105";
     color: var(--thm-primary);
     ;
     height: 35px;
@@ -7137,7 +7137,7 @@ ul {
 .destinations-details {
     position: relative;
     display: block;
-    padding: 120px 0 120px;
+    padding: 80px 0 120px;
 }
 
 .destinations-details__left {
@@ -7242,7 +7242,7 @@ ul {
 .destinations-details__faq {
     position: relative;
     display: block;
-    margin-top: 30px;
+    /* margin-top: 30px; */
 }
 
 .destinations-details__faq .faq-one-accrodion .accrodion-content {
@@ -7650,3 +7650,10 @@ ul {
     border-bottom: 0;
     border-top: 1px solid #ebe6de;
 }
+
+.mburoja-cards {
+    height: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+

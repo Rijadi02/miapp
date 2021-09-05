@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Ad;
 use App\Models\Blog;
+use App\Models\Book;
 use App\Models\Category;
+use App\Models\Chapter;
 use App\Models\Day;
 use App\Models\Lecture;
 use App\Models\Post;
@@ -44,11 +46,16 @@ class HomeController extends Controller
         return view('blog', compact('blog','blogs') );
     }
 
+    // public function shield2()
+    // {
+    //     $category = Category::where('slug', '=', 'mburoja-e-muslimanit')->firstOrFail();
+    //     $books = $category->books;
+    //     return view('shield', compact('books') );
+    // }
+
     public function shield()
     {
-        $category = Category::where('slug', '=', 'mburoja-e-muslimanit')->firstOrFail();
-        $books = $category->books;
-        return view('shield', compact('books') );
+        return view('shield');
     }
 
     public function ads(){
@@ -73,4 +80,13 @@ class HomeController extends Controller
         return view('lectures', compact('days','city'));
 
     }
+
+    public function chapters($slug)
+    {
+        $book = Book::where('slug', '=', $slug)->firstOrFail();
+        $chapters = $book->chapters;
+        return view('chapters', compact('chapters') );
+    }
+
+
 }

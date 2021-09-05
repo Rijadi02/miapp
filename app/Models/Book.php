@@ -17,6 +17,6 @@ class Book extends Model
 
     public function chapters()
     {
-        return $this->hasMany(Chapter::class);
+        return $this->hasMany(Chapter::class)->orderBy('number');
     }
 }
