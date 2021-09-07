@@ -42,11 +42,10 @@
                                     @foreach ($contents as $content)
                                     <div class="accrodion active">
                                         <div class="accrodion-title">
-                                            <h4>Why are your Tours so Expensive?</h4>
                                         </div>
                                         <div class="accrodion-content" style="display: none;">
                                             <div class="inner">
-                                                <p dir="rtl">{!!$content->arabic!!}</p>
+                                                <p  style="font-family: Kitab;font-size:1.1em" dir="rtl">{{$content->arabic}}</p>
                                                 <p>{!!$content->transliteration!!}</p>
                                                 <p><b>{!!$content->content!!}</b></p>
                                                 <p>{!!$content->reference!!}</p>

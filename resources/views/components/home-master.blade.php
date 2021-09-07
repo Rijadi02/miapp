@@ -42,6 +42,7 @@
     <link rel="stylesheet" href="{{asset('assetsFront/vendors/jquery-ui/jquery-ui.css')}}" />
     <link rel="stylesheet" href="{{asset('assetsFront/vendors/timepicker/timePicker.css')}}" />
 
+    <link rel="stylesheet" href="{{asset('assetsFront/arabic-fonts.css')}}" />
     <!-- template styles -->
     <link rel="stylesheet" href="{{asset('assetsFront/css/tevily.css')}}" />
     <link rel="stylesheet" href="{{asset('assetsFront/css/tevily-responsive.css')}}" />

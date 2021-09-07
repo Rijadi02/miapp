@@ -1,16 +1,17 @@
 <x-home-master>
     @section('content')
 
-    <div class="stricky-header stricked-menu main-menu">
-        <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
-    </div><!-- /.stricky-header -->
+        <div class="stricky-header stricked-menu main-menu">
+            <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
+        </div><!-- /.stricky-header -->
 
 
         <!--Page Header Start-->
         <section class="page-header">
             <div class="page-header__top">
-               <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg)"></div>
-               <div class="page-header-bg-overly"></div>
+                <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg)">
+                </div>
+                <div class="page-header-bg-overly"></div>
                 <div class="container">
                     <div class="page-header__top-inner">
                         <h2>Destinations Details</h2>
@@ -41,12 +42,14 @@
                             <div class="destinations-details__faq">
                                 <div class="accrodion-grp" data-grp-name="faq-one-accrodion">
                                     @foreach ($chapters as $chapter)
-                                    <div class="accrodion active" >
-                                        <div class="accrodion-title" style="background-color:#faf5ee">
-                                            <h4>{{$chapter->number}} . {{$chapter->name}}</h4>
+                                        <div class="accrodion active">
+                                            <a style="text-decoration:none" href="{{route('content',$chapter->slug)}}">
+                                                <div class="accrodion-title" style="background-color:#faf5ee">
+                                                    <h4>{{ $chapter->number }} . {{ $chapter->name }}</h4>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </div>
-                                   @endforeach
+                                    @endforeach
                                 </div>
                             </div>
                         </div>

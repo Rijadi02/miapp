@@ -53,25 +53,6 @@
                             @enderror
                         </div>
 
-                        <div class="col-lg-12">
-                            <label for="content" class="col-md-12 col-form-label">Kontenti ne Shqip</label>
-                            <textarea id="content" name="content"  class="form-control @error("content") is-invalid @enderror">{{$content->content}}</textarea>
-                            @error('content')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-
-                        <div class="col-lg-12">
-                            <label for="transliteration" class="col-md-12 col-form-label">Transliterimi</label>
-                            <textarea  id="transliteration" name="transliteration" class="form-control @error("transliteration") is-invalid @enderror">{{$content->transliteration}}</textarea>
-                            @error('transliteration')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
 
                         <div class="col-lg-12">
                             <label for="arabic" class="col-md-12 col-form-label">Kontenti Arabisht</label>
@@ -83,6 +64,28 @@
                             @enderror
                         </div>
 
+
+                        <div class="col-lg-12">
+                            <label for="transliteration" class="col-md-12 col-form-label">Transliterimi</label>
+                            <textarea  id="transliteration" name="transliteration" class="form-control @error("transliteration") is-invalid @enderror">{{$content->transliteration}}</textarea>
+                            @error('transliteration')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
+
+
+                        <div class="col-lg-12">
+                            <label for="content" class="col-md-12 col-form-label">Kontenti ne Shqip</label>
+                            <textarea id="content" name="content"  class="form-control @error("content") is-invalid @enderror">{{$content->content}}</textarea>
+                            @error('content')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
 
 
 
@@ -143,10 +146,11 @@
                             @enderror
                         </div>
 
+
                         <div class="col-lg-12">
-                            <label for="content" class="col-md-12 col-form-label">Kontenti Shqip</label>
-                            <textarea  id="content" name="content"  class="form-control @error("content") is-invalid @enderror">{{ old('content')}}</textarea>
-                            @error('content')
+                            <label for="arabic" class="col-md-12 col-form-label">Arabisht</label>
+                            <textarea  id="arabic" name="arabic" class="form-control @error("arabic") is-invalid @enderror">{{ old('arabic')}}</textarea>
+                            @error('arabic')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -164,9 +168,9 @@
                         </div>
 
                         <div class="col-lg-12">
-                            <label for="arabic" class="col-md-12 col-form-label">Arabisht</label>
-                            <textarea  id="arabic" name="arabic" class="form-control @error("arabic") is-invalid @enderror">{{ old('arabic')}}</textarea>
-                            @error('arabic')
+                            <label for="content" class="col-md-12 col-form-label">Kontenti Shqip</label>
+                            <textarea  id="content" name="content"  class="form-control @error("content") is-invalid @enderror">{{ old('content')}}</textarea>
+                            @error('content')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
@@ -284,10 +288,10 @@
         </div>
         <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
         <script>
-        CKEDITOR.replace( 'content' );
-        CKEDITOR.replace( 'hadith' );
-        CKEDITOR.replace( 'arabic' );
-        CKEDITOR.replace( 'transliteration' );
+        // CKEDITOR.replace( 'content' );
+        // CKEDITOR.replace( 'hadith' );
+        // CKEDITOR.replace( 'arabic' );
+        // CKEDITOR.replace( 'transliteration' );
 
         </script>
     @endsection
