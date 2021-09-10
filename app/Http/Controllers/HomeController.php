@@ -10,6 +10,8 @@ use App\Models\Chapter;
 use App\Models\Day;
 use App\Models\Lecture;
 use App\Models\Post;
+use App\Models\Recitation;
+use App\Models\Reciter;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -95,4 +97,19 @@ class HomeController extends Controller
         return view('content', compact('contents') );
     }
 
+    public function recitations(){
+        $recitations = Recitation::all()->random(10);
+        return view('recitations', compact('recitations') );
+    }
+
+    public function reciter($slug){
+        $reciter = Reciter::where('slug', '=', $slug)->firstOrFail();
+        $recitations = $reciter->recitations;
+        return view('recitations', compact('recitations') );
+    }
+
+    public function recitations_show($id){
+        $recitations = Recitation::where('id', $id)->get();
+        return view('recitations', compact('recitations') );
+    }
 }
