@@ -14,9 +14,11 @@
 # Client Carousel
 --------------------------------------------------------------*/
 
+
 /*--------------------------------------------------------------
 # Common
 --------------------------------------------------------------*/
+
 :root {
     --thm-font: 'DM Sans', sans-serif;
     --thm-reey-font: 'reeyregular';
@@ -91,7 +93,6 @@ ul {
     opacity: 1;
 }
 
-
 .page-wrapper {
     position: relative;
     margin: 0 auto;
@@ -122,7 +123,6 @@ ul {
     margin-top: 0;
     margin-bottom: 0;
 }
-
 
 .thm-btn {
     position: relative;
@@ -171,7 +171,6 @@ ul {
 .thm-btn:hover {
     color: var(--thm-base);
 }
-
 
 .section-title {
     margin-top: 5px;
@@ -253,12 +252,10 @@ ul {
     cursor: pointer;
 }
 
-
 .bootstrap-select .dropdown-menu>li:last-child>a {
     border-bottom-left-radius: var(--thm-border-radius);
     border-bottom-right-radius: var(--thm-border-radius);
 }
-
 
 .preloader {
     position: fixed;
@@ -291,16 +288,10 @@ ul {
 }
 
 
-
-
-
-
-
-
-
 /*--------------------------------------------------------------
 # Navigations One
 --------------------------------------------------------------*/
+
 .main-header {
     position: relative;
     display: block;
@@ -429,11 +420,6 @@ ul {
     color: var(--thm-black);
 }
 
-
-
-
-
-
 .main-menu {
     position: relative;
     padding: 0 0;
@@ -507,7 +493,6 @@ ul {
     color: var(--thm-base);
 }
 
-
 .stricky-header.main-menu {
     padding: 0 0;
     background-color: var(--thm-base);
@@ -525,7 +510,6 @@ ul {
 }
 
 @media (min-width: 1200px) {
-
     .main-menu .main-menu__list,
     .main-menu .main-menu__list ul,
     .stricky-header .main-menu__list,
@@ -650,7 +634,6 @@ ul {
 .stricky-header .main-menu__list li ul>li:last-child>a {
     border-bottom-left-radius: var(--thm-border-radius);
     border-bottom-right-radius: var(--thm-border-radius);
-
 }
 
 .main-menu .main-menu__list li ul li:hover>a,
@@ -757,6 +740,7 @@ ul {
 /*--------------------------------------------------------------
 # Navigations Two
 --------------------------------------------------------------*/
+
 .main-header-two {
     background: transparent;
     position: absolute;
@@ -776,11 +760,7 @@ ul {
     content: "";
     background-color: rgba(var(--thm-base-rgb), .15);
     z-index: -1;
-
 }
-
-
-
 
 .main-menu-two .main-menu__list>li>a,
 .stricky-header .main-menu-two .main-menu__list>li>a {
@@ -823,36 +803,34 @@ ul {
     background-color: var(--thm-black);
 }
 
+
 /*--------------------------------------------------------------
 # Animations
 --------------------------------------------------------------*/
+
 @keyframes bubbleMover {
     0% {
         -webkit-transform: translateY(0px) translateX(0) rotate(0);
         transform: translateY(0px) translateX(0) rotate(0);
     }
-
     30% {
         -webkit-transform: translateY(30px) translateX(50px) rotate(15deg);
         transform: translateY(30px) translateX(50px) rotate(15deg);
         -webkit-transform-origin: center center;
         transform-origin: center center;
     }
-
     50% {
         -webkit-transform: translateY(50px) translateX(100px) rotate(45deg);
         transform: translateY(50px) translateX(100px) rotate(45deg);
         -webkit-transform-origin: right bottom;
         transform-origin: right bottom;
     }
-
     80% {
         -webkit-transform: translateY(30px) translateX(50px) rotate(15deg);
         transform: translateY(30px) translateX(50px) rotate(15deg);
         -webkit-transform-origin: left top;
         transform-origin: left top;
     }
-
     100% {
         -webkit-transform: translateY(0px) translateX(0) rotate(0);
         transform: translateY(0px) translateX(0) rotate(0);
@@ -862,12 +840,10 @@ ul {
 }
 
 @keyframes shapeMover {
-
     0%,
     100% {
         transform: perspective(400px) translateY(0) rotate(0deg) translateZ(0px) translateX(0);
     }
-
     50% {
         transform: perspective(400px) rotate(0deg) translateZ(20px) translateY(20px) translateX(20px);
     }
@@ -878,22 +854,18 @@ ul {
         -webkit-transform: rotate3d(0, 1, 0, 0deg);
         transform: rotate3d(0, 1, 0, 0deg);
     }
-
     30% {
         -webkit-transform: rotate3d(0, 0, 1, 5deg);
         transform: rotate3d(0, 0, 1, 5deg);
     }
-
     60% {
         -webkit-transform: rotate3d(1, 0, 0, 0deg);
         transform: rotate3d(1, 0, 0, 0deg);
     }
-
     80% {
         -webkit-transform: rotate3d(0, 0, 1, 5deg);
         transform: rotate3d(0, 0, 1, 5deg);
     }
-
     100% {
         -webkit-transform: rotate3d(0, 1, 0, 0deg);
         transform: rotate3d(0, 1, 0, 0deg);
@@ -901,19 +873,16 @@ ul {
 }
 
 @keyframes squareMover {
-
     0%,
     100% {
         -webkit-transform: translate(0, 0) rotate(0);
         transform: translate(0, 0) rotate(0);
     }
-
     20%,
     60% {
         -webkit-transform: translate(20px, 40px) rotate(180deg);
         transform: translate(20px, 40px) rotate(180deg);
     }
-
     30%,
     80% {
         -webkit-transform: translate(40px, 60px) rotate(0deg);
@@ -922,19 +891,16 @@ ul {
 }
 
 @keyframes treeMove {
-
     0%,
     100% {
         -webkit-transform: rotate(0deg) translateX(0);
         transform: rotate(0deg) translateX(0);
     }
-
     25%,
     75% {
         -webkit-transform: rotate(5deg) translateX(15px);
         transform: rotate(5deg) translateX(15px);
     }
-
     50% {
         -webkit-transform: rotate(10deg) translateX(30px);
         transform: rotate(10deg) translateX(30px);
@@ -945,27 +911,24 @@ ul {
 /*--------------------------------------------------------------
 #     Zoom Fade Css
 --------------------------------------------------------------*/
+
 .zoom-fade {
     animation-name: zoom-fade;
     animation-duration: 5s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
-
     -webkit-animation-name: zoom-fade;
     -webkit-animation-duration: 5s;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-timing-function: linear;
-
     -moz-animation-name: zoom-fade;
     -moz-animation-duration: 5s;
     -moz-animation-iteration-count: infinite;
     -moz-animation-timing-function: linear;
-
     -ms-animation-name: zoom-fade;
     -ms-animation-duration: 5s;
     -ms-animation-iteration-count: infinite;
     -ms-animation-timing-function: linear;
-
     -o-animation-name: zoom-fade;
     -o-animation-duration: 5s;
     -o-animation-iteration-count: infinite;
@@ -977,12 +940,10 @@ ul {
         -webkit-transform: scale(0.9);
         transform: scale(0.9);
     }
-
     50% {
         -webkit-transform: scale(1);
         transform: scale(1);
     }
-
     100% {
         -webkit-transform: scale(0.9);
         transform: scale(0.9);
@@ -994,26 +955,21 @@ ul {
         -webkit-transform: scale(0.9);
         transform: scale(0.9);
     }
-
     50% {
         -webkit-transform: scale(1);
         transform: scale(1);
     }
-
     100% {
         -webkit-transform: scale(0.9);
         transform: scale(0.9);
     }
 }
 
-
-
 @-moz-keyframes service_hexagon_2 {
     0% {
         -moz-transform: rotateY(0deg);
         transform: rotateY(0deg)
     }
-
     100% {
         -moz-transform: rotateY(360deg);
         transform: rotateY(360deg)
@@ -1025,7 +981,6 @@ ul {
         -o-transform: rotateY(0deg);
         transform: rotateY(0deg)
     }
-
     100% {
         -o-transform: rotateY(360deg);
         transform: rotateY(360deg)
@@ -1039,7 +994,6 @@ ul {
         -o-transform: rotateY(0deg);
         transform: rotateY(0deg)
     }
-
     100% {
         -webkit-transform: rotateY(360deg);
         -moz-transform: rotateY(360deg);
@@ -1052,15 +1006,14 @@ ul {
 /*--------------------------------------------------------------
     Float Bob Y Animation Css
 --------------------------------------------------------------*/
+
 @-webkit-keyframes float-bob-y {
     0% {
         transform: translateY(-20px);
     }
-
     50% {
         transform: translateY(-10px);
     }
-
     100% {
         transform: translateY(-20px);
     }
@@ -1070,11 +1023,9 @@ ul {
     0% {
         transform: translateY(-20px);
     }
-
     50% {
         transform: translateY(-10px);
     }
-
     100% {
         transform: translateY(-20px);
     }
@@ -1091,9 +1042,11 @@ ul {
     animation-timing-function: linear;
 }
 
+
 /*--------------------------------------------------------------
 # Mobile Nav
 --------------------------------------------------------------*/
+
 .mobile-nav__wrapper {
     position: fixed;
     top: 0;
@@ -1312,9 +1265,11 @@ ul {
     display: none;
 }
 
+
 /*--------------------------------------------------------------
 # Search Popup
 --------------------------------------------------------------*/
+
 .search-popup {
     position: fixed;
     top: 0;
@@ -1394,9 +1349,11 @@ ul {
     margin: 0;
 }
 
+
 /*--------------------------------------------------------------
 # Main Slider
 --------------------------------------------------------------*/
+
 .main-slider {
     overflow: hidden;
     position: relative;
@@ -1463,8 +1420,7 @@ ul {
     -webkit-transition: opacity 2000ms ease, -webkit-transform 2000ms ease;
     transition: opacity 2000ms ease, -webkit-transform 2000ms ease;
     transition: transform 2000ms ease, opacity 2000ms ease;
-    transition: transform 2000ms ease, opacity 2000ms ease,
-        -webkit-transform 2000ms ease;
+    transition: transform 2000ms ease, opacity 2000ms ease, -webkit-transform 2000ms ease;
     z-index: 2;
 }
 
@@ -1494,8 +1450,7 @@ ul {
     -webkit-transition: opacity 2000ms ease, -webkit-transform 2000ms ease;
     transition: opacity 2000ms ease, -webkit-transform 2000ms ease;
     transition: transform 2000ms ease, opacity 2000ms ease;
-    transition: transform 2000ms ease, opacity 2000ms ease,
-        -webkit-transform 2000ms ease;
+    transition: transform 2000ms ease, opacity 2000ms ease, -webkit-transform 2000ms ease;
     z-index: 3;
 }
 
@@ -1575,9 +1530,11 @@ ul {
     opacity: 1;
 }
 
+
 /*--------------------------------------------------------------
 # Banner Two
 --------------------------------------------------------------*/
+
 .banner-two {
     position: relative;
     background-size: cover;
@@ -1651,9 +1608,11 @@ ul {
     border-top-left-radius: 8px;
 }
 
+
 /*--------------------------------------------------------------
 # Tour Search
 --------------------------------------------------------------*/
+
 .tour-search {
     position: relative;
     display: block;
@@ -1810,16 +1769,16 @@ ul {
     display: none;
 }
 
+
 /*--------------------------------------------------------------
 # Destinations One
 --------------------------------------------------------------*/
+
 .destinations-one {
     position: relative;
     display: block;
     padding: 120px 0 0;
 }
-
-
 
 .destinations-one .row {
     --bs-gutter-x: 10px;
@@ -1940,9 +1899,11 @@ ul {
     color: var(--thm-primary);
 }
 
+
 /*--------------------------------------------------------------
 # About One
 --------------------------------------------------------------*/
+
 .about-one {
     position: relative;
     display: block;
@@ -1965,8 +1926,6 @@ ul {
     top: 70px;
     right: 100px;
 }
-
-
 
 .about-one__left {
     position: relative;
@@ -2107,8 +2066,6 @@ ul {
     border-radius: 50%;
 }
 
-
-
 .about-one__points li .text {
     margin-left: 15px;
 }
@@ -2120,10 +2077,10 @@ ul {
 }
 
 
-
 /*--------------------------------------------------------------
 # Popular Tours
 --------------------------------------------------------------*/
+
 .popular-tours {
     position: relative;
     display: block;
@@ -2139,8 +2096,6 @@ ul {
     padding-left: 15px;
     padding-right: 15px;
 }
-
-
 
 .popular-tours__single {
     position: relative;
@@ -2174,8 +2129,6 @@ ul {
     transform: scale(1.05);
 }
 
-
-
 .popular-tours__icon a {
     width: 38px;
     height: 38px;
@@ -2200,8 +2153,6 @@ ul {
     background-color: var(--thm-base);
     color: var(--thm-primary);
 }
-
-
 
 .popular-tours__content {
     position: relative;
@@ -2271,8 +2222,6 @@ ul {
     margin-top: 19px;
 }
 
-
-
 .popular-tours__meta li+li {
     margin-left: 35px;
 }
@@ -2290,8 +2239,6 @@ ul {
 .popular-tours__meta li a:hover {
     color: var(--thm-primary);
 }
-
-
 
 .popular-tours__carousel.owl-carousel .owl-dots {
     position: absolute;
@@ -2331,9 +2278,11 @@ ul {
     display: none;
 }
 
+
 /*--------------------------------------------------------------
 # Video One
 --------------------------------------------------------------*/
+
 .video-one {
     position: relative;
     display: block;
@@ -2408,8 +2357,6 @@ ul {
     border: 1px solid #73737d;
     border-radius: var(--thm-border-radius);
 }
-
-
 
 .video-one__video-link .ripple,
 .video-one__video-icon .ripple:before,
@@ -2490,8 +2437,6 @@ ul {
     margin-left: 0;
 }
 
-
-
 .video-one__four-icon-boxes li:nth-child(3) {
     margin-left: 0;
     margin-bottom: 0;
@@ -2531,9 +2476,11 @@ ul {
     color: var(--thm-primary);
 }
 
+
 /*--------------------------------------------------------------
 # Brand One
 --------------------------------------------------------------*/
+
 .brand-one {
     position: relative;
     display: block;
@@ -2569,8 +2516,6 @@ ul {
     font-family: var(--thm-reey-font);
 }
 
-
-
 .brand-one__main-content .swiper-slide {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -2595,10 +2540,10 @@ ul {
 }
 
 
-
 /*--------------------------------------------------------------
 # Testimonial One
 --------------------------------------------------------------*/
+
 .testimonial-one {
     position: relative;
     display: block;
@@ -2611,8 +2556,6 @@ ul {
     left: 70px;
 }
 
-
-
 .testimonial-one-shape-3 {
     position: absolute;
     top: 155px;
@@ -2623,10 +2566,6 @@ ul {
     -webkit-animation: animation1 5s ease-in infinite;
     animation: animation1 5s ease-in infinite;
 }
-
-
-
-
 
 .testimonial-one__single {
     position: relative;
@@ -2719,8 +2658,6 @@ ul {
     padding-bottom: 18px;
 }
 
-
-
 .testimonial-one__client-name {
     font-size: 20px;
     font-weight: 700;
@@ -2736,8 +2673,6 @@ ul {
     margin: 0;
     line-height: 24px;
 }
-
-
 
 .testimonial-one__carousel.owl-carousel .owl-dots {
     position: absolute;
@@ -2779,11 +2714,6 @@ ul {
     display: none;
 }
 
-
-
-
-
-
 .testimonial-one__carousel.owl-theme .owl-stage-outer {
     overflow: visible;
 }
@@ -2801,15 +2731,10 @@ ul {
 }
 
 
-
-
-
-
-
-
 /*--------------------------------------------------------------
 # Gallery One
 --------------------------------------------------------------*/
+
 .gallery-one {
     position: relative;
     display: block;
@@ -2951,8 +2876,6 @@ ul {
     color: var(--thm-black);
 }
 
-
-
 .mfp-figure figure img.mfp-img {
     border-radius: 10px !important;
     padding: 0;
@@ -2964,9 +2887,11 @@ ul {
     line-height: 20px;
 }
 
+
 /*--------------------------------------------------------------
 # Why Choose
 --------------------------------------------------------------*/
+
 .why-choose {
     position: relative;
     display: block;
@@ -3139,9 +3064,11 @@ ul {
     margin: 0;
 }
 
+
 /*--------------------------------------------------------------
 # News One
 --------------------------------------------------------------*/
+
 .news-one {
     position: relative;
     display: block;
@@ -3168,8 +3095,6 @@ ul {
     float: right;
     margin-bottom: 15px;
 }
-
-
 
 .news-one__bottom {
     position: relative;
@@ -3344,9 +3269,11 @@ ul {
     color: var(--thm-primary);
 }
 
+
 /*--------------------------------------------------------------
 # Site Footer
 --------------------------------------------------------------*/
+
 .site-footer {
     position: relative;
     display: block;
@@ -3372,10 +3299,6 @@ ul {
     margin-top: -8px;
 }
 
-
-
-
-
 .footer-widget__about-text {
     font-size: 15px;
     color: #a9a8b6;
@@ -3386,8 +3309,6 @@ ul {
     padding-bottom: 24px;
     margin-bottom: 18px;
 }
-
-
 
 .footer-widget__about-contact li {
     position: relative;
@@ -3484,7 +3405,6 @@ ul {
 .footer-widget__company-list li a:hover:before {
     opacity: 1;
 }
-
 
 .footer-widget__explore {
     position: relative;
@@ -3622,8 +3542,6 @@ ul {
     font-weight: 500;
 }
 
-
-
 .site-footer__bottom-inner {
     position: relative;
     display: flex;
@@ -3647,8 +3565,6 @@ ul {
     border-top-left-radius: 8px;
     z-index: -1;
 }
-
-
 
 .footer-widget__social {
     position: relative;
@@ -3707,8 +3623,6 @@ ul {
     margin-left: 10px;
 }
 
-
-
 .site-footer__bottom-right p {
     font-size: 15px;
     color: var(--thm-gray);
@@ -3762,9 +3676,11 @@ ul {
     align-items: center;
 }
 
+
 /*--------------------------------------------------------------
 # Three Icon Box
 --------------------------------------------------------------*/
+
 .three-icon-box {
     position: relative;
     display: block;
@@ -3811,24 +3727,26 @@ ul {
     line-height: 30px;
 }
 
+
 /*--------------------------------------------------------------
 # Three Icon Box
 --------------------------------------------------------------*/
+
 .popular-tours-two {
     position: relative;
     display: block;
     padding: 124px 0 90px;
 }
 
-
-
 .popular-tours-two .popular-tours__single {
     margin-bottom: 30px;
 }
 
+
 /*--------------------------------------------------------------
 # Singapore Tour
 --------------------------------------------------------------*/
+
 .singapore-tour {
     position: relative;
     display: block;
@@ -3961,9 +3879,11 @@ ul {
     display: none;
 }
 
+
 /*--------------------------------------------------------------
 # Video Two
 --------------------------------------------------------------*/
+
 .video-two {
     position: relative;
     display: block;
@@ -4007,9 +3927,11 @@ ul {
     margin: 0 auto;
 }
 
+
 /*--------------------------------------------------------------
 # Counter One
 --------------------------------------------------------------*/
+
 .counter-one {
     position: relative;
     display: block;
@@ -4061,12 +3983,6 @@ ul {
     display: none;
 }
 
-
-
-
-
-
-
 .counter-one__single h3 {
     font-size: 50px;
     color: var(--thm-primary);
@@ -4083,9 +3999,11 @@ ul {
     margin-top: -10px;
 }
 
+
 /*--------------------------------------------------------------
 # Destinations Two
 --------------------------------------------------------------*/
+
 .destinations-two {
     position: relative;
     display: block;
@@ -4212,7 +4130,6 @@ ul {
         padding-right: 0;
         text-align: left;
     }
-
 }
 
 .destinations-two__top-banner p {
@@ -4245,9 +4162,11 @@ ul {
     color: var(--thm-black);
 }
 
+
 /*--------------------------------------------------------------
 # About Two
 --------------------------------------------------------------*/
+
 .about-two {
     position: relative;
     display: block;
@@ -4258,8 +4177,6 @@ ul {
     top: -60px;
     right: 170px;
 }
-
-
 
 .about-two__left {
     position: relative;
@@ -4318,8 +4235,6 @@ ul {
     color: var(--thm-base);
 }
 
-
-
 .about-two__right {
     position: relative;
     display: block;
@@ -4365,8 +4280,6 @@ ul {
     border-radius: 50%;
 }
 
-
-
 .about-two__list li .text {
     margin-left: 8px;
 }
@@ -4398,10 +4311,10 @@ ul {
 }
 
 
-
 /*--------------------------------------------------------------
 # Tour Types
 --------------------------------------------------------------*/
+
 .tour-types {
     position: relative;
     display: block;
@@ -4422,8 +4335,6 @@ ul {
     opacity: .6;
     z-index: -1;
 }
-
-
 
 .tour-types_list {
     position: relative;
@@ -4461,8 +4372,8 @@ ul {
     right: 0;
     bottom: 0;
     content: "";
-    background-color: var(  --thm-black);
-    border-radius: var(--thm-border-radius) ;
+    background-color: var(--thm-black);
+    border-radius: var(--thm-border-radius);
     transform: translateY(100%);
     transition: all 300ms ease;
     z-index: -1;
@@ -4484,8 +4395,6 @@ ul {
     color: var(--thm-base);
 }
 
-
-
 .tour-types__title {
     font-size: 17px;
     font-weight: 700;
@@ -4497,9 +4406,11 @@ ul {
     color: var(--thm-base);
 }
 
+
 /*--------------------------------------------------------------
 # Brand One
 --------------------------------------------------------------*/
+
 .brand-two {
     position: relative;
     display: block;
@@ -4531,9 +4442,11 @@ ul {
     opacity: 0.6;
 }
 
+
 /*--------------------------------------------------------------
 # News Two
 --------------------------------------------------------------*/
+
 .news-two {
     position: relative;
     display: block;
@@ -4554,10 +4467,6 @@ ul {
 .news-two__text {
     margin: 0;
 }
-
-
-
-
 
 .news-two__carousel.owl-carousel .owl-stage-outer {
     margin-right: -360px;
@@ -4608,9 +4517,11 @@ ul {
     justify-content: center;
 }
 
+
 /*--------------------------------------------------------------
 # Book Now
 --------------------------------------------------------------*/
+
 .book-now {
     position: relative;
     display: block;
@@ -4639,8 +4550,6 @@ ul {
     justify-content: space-between;
 }
 
-
-
 .book-now__left p {
     font-size: 30px;
     color: var(--thm-base);
@@ -4657,8 +4566,6 @@ ul {
     line-height: 39px;
     letter-spacing: var(--thm-letter-spacing);
 }
-
-
 
 .book-now__btn {
     font-size: 15px;
@@ -4679,9 +4586,11 @@ ul {
     color: var(--thm-black);
 }
 
+
 /*--------------------------------------------------------------
 # page Header
 --------------------------------------------------------------*/
+
 .page-header {
     position: relative;
     display: block;
@@ -4773,9 +4682,11 @@ ul {
     color: var(--thm-primary);
 }
 
+
 /*--------------------------------------------------------------
 # page Header
 --------------------------------------------------------------*/
+
 .news-details {
     position: relative;
     display: block;
@@ -4797,8 +4708,6 @@ ul {
     width: 100%;
     border-radius: var(--thm-border-radius);
 }
-
-
 
 .news-details__title {
     font-size: 30px;
@@ -4850,8 +4759,6 @@ ul {
 .news-details__bottom p {
     margin: 0;
 }
-
-
 
 .news-details__tags span {
     color: var(--thm-black);
@@ -4967,6 +4874,7 @@ ul {
     margin-left: 10px;
 }
 
+
 /* author */
 
 .author-one {
@@ -4977,8 +4885,6 @@ ul {
     margin-bottom: 53px;
     border-radius: var(--thm-border-radius);
 }
-
-
 
 .author-one__image img {
     border-radius: var(--thm-border-radius);
@@ -5001,6 +4907,7 @@ ul {
     font-size: 16px;
     letter-spacing: var(--thm-letter-spacing);
 }
+
 
 /*--------------------------------------------------------------
 ## Comments
@@ -5104,6 +5011,7 @@ ul {
     padding: 17px 60px 17px;
 }
 
+
 /*--------------------------------------------------------------
 # Sidebar
 --------------------------------------------------------------*/
@@ -5130,8 +5038,6 @@ ul {
     color: var(--thm-black);
     letter-spacing: var(--thm-letter-spacing);
 }
-
-
 
 .sidebar__search {
     background-color: var(--thm-base);
@@ -5356,9 +5262,11 @@ ul {
     background: var(--thm-primary);
 }
 
+
 /*--------------------------------------------------------------
 # Contact Page
 --------------------------------------------------------------*/
+
 .contact-page {
     position: relative;
     display: block;
@@ -5369,8 +5277,6 @@ ul {
     position: relative;
     display: block;
 }
-
-
 
 .contact-page__social {
     position: relative;
@@ -5429,9 +5335,11 @@ ul {
     margin-left: 10px;
 }
 
+
 /*--------------------------------------------------------------
 # Information
 --------------------------------------------------------------*/
+
 .information {
     position: relative;
     display: block;
@@ -5488,8 +5396,6 @@ ul {
     transform: scaleX(1.0);
 }
 
-
-
 .information__text {
     margin-left: 20px;
 }
@@ -5513,21 +5419,15 @@ ul {
     transition: all 500ms ease;
 }
 
-
-
-
-
-
-
-
-
 .information__single:hover .information__text h4 a {
     color: var(--thm-primary);
 }
 
+
 /*--------------------------------------------------------------
 # Contact Page Google Map
 --------------------------------------------------------------*/
+
 .contact-page-google-map {
     position: relative;
     display: block;
@@ -5541,9 +5441,11 @@ ul {
     width: 100%;
 }
 
+
 /*--------------------------------------------------------------
 # Tours List
 --------------------------------------------------------------*/
+
 .tours-list {
     position: relative;
     display: block;
@@ -5575,10 +5477,6 @@ ul {
     letter-spacing: var(--thm-letter-spacing);
     margin-bottom: 22px;
 }
-
-
-
-
 
 .tours-list__sidebar-input input[type="text"] {
     height: 67px;
@@ -5674,7 +5572,6 @@ ul {
     width: 20px;
     height: 20px;
     padding: 0;
-
 }
 
 .tour-sidebar__sorter-toggler.toggled {
@@ -5767,7 +5664,6 @@ ul {
 .tour-sidebar__sorter-inputs p label i.active {
     color: #ffa801;
 }
-
 
 .tour-sidebar__sorter-inputs [type="checkbox"]:checked,
 .tour-sidebar__sorter-inputs [type="checkbox"]:not(:checked) {
@@ -5865,8 +5761,6 @@ ul {
     transform: scale(1.05);
 }
 
-
-
 .tours-list__icon a {
     width: 38px;
     height: 38px;
@@ -5886,8 +5780,6 @@ ul {
     justify-content: center;
     line-height: 38px;
 }
-
-
 
 .tours-list__single:hover .tours-list__icon a {
     background-color: var(--thm-base);
@@ -5965,8 +5857,6 @@ ul {
     padding: 0 40px 0;
 }
 
-
-
 .tours-list__meta li+li {
     margin-left: 50px;
 }
@@ -6000,6 +5890,7 @@ ul {
 /*--------------------------------------------------------------
 # Tour Details Slider
 --------------------------------------------------------------*/
+
 .tour-details-slider .swiper-slide-inner {
     padding-top: 290px;
     padding-bottom: 290px;
@@ -6039,9 +5930,11 @@ ul {
     color: var(--thm-primary);
 }
 
+
 /*--------------------------------------------------------------
 # Tour Details
 --------------------------------------------------------------*/
+
 .tour-details {
     position: relative;
     display: block;
@@ -6123,8 +6016,6 @@ ul {
     transform: scale(1.2);
 }
 
-
-
 .tour-details__top-list li .text {
     margin-left: 20px;
 }
@@ -6199,8 +6090,6 @@ ul {
     align-items: center;
 }
 
-
-
 .tour-details__bottom-list li .icon i {
     font-size: 13px;
     color: #ffa801;
@@ -6255,9 +6144,11 @@ ul {
     background-color: var(--thm-primary);
 }
 
+
 /*--------------------------------------------------------------
 # Tour Details Two
 --------------------------------------------------------------*/
+
 .tour-details-two {
     position: relative;
     display: block;
@@ -6331,8 +6222,6 @@ ul {
     margin-top: 6px;
 }
 
-
-
 .tour-details-two__overview-bottom-list li .icon i {
     color: var(--thm-primary);
     font-size: 13px;
@@ -6366,8 +6255,6 @@ ul {
 .tour-details-two__overview-bottom-right-list li+li {
     margin-top: 6px;
 }
-
-
 
 .tour-details-two__overview-bottom-right-list li .icon i {
     color: var(--thm-black);
@@ -6494,8 +6381,6 @@ ul {
 .faq-one-accrodion .accrodion.active .accrodion-content {
     background-color: var(--thm-base);
 }
-
-
 
 .faq-one-accrodion .accrodion-content p {
     margin: 0;
@@ -6676,8 +6561,6 @@ ul {
     align-items: center;
 }
 
-
-
 .tour-details__review-comment-top-img img {
     border-radius: 50%;
 }
@@ -6701,8 +6584,6 @@ ul {
     font-weight: 500;
     letter-spacing: var(--thm-letter-spacing);
 }
-
-
 
 .tour-details__review-comment-content h3 {
     font-size: 24px;
@@ -6888,8 +6769,6 @@ ul {
     margin-bottom: 22px;
 }
 
-
-
 .tour-details-two__sidebar-form-input {
     position: relative;
     display: block;
@@ -7055,8 +6934,6 @@ ul {
     margin-bottom: 18px;
 }
 
-
-
 .tour-details-two__last-minute-list li {
     position: relative;
     border-bottom: 1px solid #ebe6de;
@@ -7131,9 +7008,11 @@ ul {
     line-height: 22px;
 }
 
+
 /*--------------------------------------------------------------
 # Destinations Details
 --------------------------------------------------------------*/
+
 .destinations-details {
     position: relative;
     display: block;
@@ -7293,14 +7172,18 @@ ul {
     margin-top: -7px;
 }
 
+
 /*Destinations Page*/
+
 .destinations-page {
     padding-bottom: 110px;
 }
 
+
 /*--------------------------------------------------------------
 # About Page
 --------------------------------------------------------------*/
+
 .about-page {
     position: relative;
     display: block;
@@ -7377,8 +7260,6 @@ ul {
     margin-top: 31px;
 }
 
-
-
 .about-page__progress-title {
     font-size: 20px;
     font-weight: 700;
@@ -7436,9 +7317,11 @@ ul {
     margin-bottom: 0;
 }
 
+
 /*--------------------------------------------------------------
 # About Page Testimonial
 --------------------------------------------------------------*/
+
 .about-page-testimonial {
     padding-bottom: 114px;
     z-index: 1;
@@ -7469,9 +7352,11 @@ ul {
     z-index: -1;
 }
 
+
 /*--------------------------------------------------------------
 # Team One
 --------------------------------------------------------------*/
+
 .team-one {
     position: relative;
     display: block;
@@ -7492,8 +7377,6 @@ ul {
     opacity: 0.7;
     z-index: -1;
 }
-
-
 
 .team-one__single {
     position: relative;
@@ -7645,7 +7528,9 @@ ul {
     margin-left: 10px;
 }
 
+
 /*Brand Three*/
+
 .brand-three {
     border-bottom: 0;
     border-top: 1px solid #ebe6de;
@@ -7657,3 +7542,9 @@ ul {
     object-fit: cover;
 }
 
+.reciter__image img {
+    border-radius: var(--thm-border-radius);
+    aspect-ratio: 1;
+    width: "100%";
+    object-fit: cover;
+}
