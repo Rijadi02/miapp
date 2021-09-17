@@ -1,13 +1,13 @@
 <x-home-master>
 
     @section('meta')
-    <meta property="og:image" content="http://mi.tachyonstudio.com/storage/uploads/rLJVbuJtik1DNoTWYcVJDIOr1pZy5so6y9jVirxn.png" />
+    <meta property="og:image" content="<?php echo url('/'); ?>/storage/{{ $blog->image }}" />
 
-    <meta property="og:description" content="Coaches share their secrets to success so you can rock 2015. Join us for this inspiring, rejuvenating, motivating look at what secret sauce these coaches use to succeed in their business. This is for coaches of any level that are committed to changing the world. You will be elevated both in your life and your coaching business. Check out the topics below, there is something for everyone." />
+    <meta property="og:description" content="  {!! $blog->content !!}" />
 
-    <meta property="og:url"content="http://mi.tachyonstudio.com/artikulli/titulli-i-bllogut-duhet-te-jete-me-i-madh-apo-me-i-vogel-se-123456789-characters-per-te-qene-i-qendrueshem-si-titull" />
+    <meta property="og:url"content="<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}" />
 
-    <meta property="og:title" content="Coaches Wisdom Telesummit" />
+    <meta property="og:title" content="{{ $blog->title}}" />
     @endsection
 
     @section('content')
