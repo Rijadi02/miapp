@@ -12,7 +12,7 @@
     <link rel="manifest" href="{{asset('assetsFront/images/favicons/site.webmanifest')}}" />
     <meta name="description" content="Tevily HTML Template For Tour" />
 
-    @yield('meta')
+
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,6 +48,8 @@
     <!-- template styles -->
     <link rel="stylesheet" href="{{asset('assetsFront/css/tevily.css')}}" />
     <link rel="stylesheet" href="{{asset('assetsFront/css/tevily-responsive.css')}}" />
+
+    @yield('meta')
 </head>
 
 <body>
