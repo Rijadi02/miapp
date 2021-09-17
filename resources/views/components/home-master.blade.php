@@ -12,6 +12,8 @@
     <link rel="manifest" href="{{asset('assetsFront/images/favicons/site.webmanifest')}}" />
     <meta name="description" content="Tevily HTML Template For Tour" />
 
+    @yield('meta')
+
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
