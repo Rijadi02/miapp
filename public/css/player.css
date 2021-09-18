@@ -1,0 +1,151 @@
+.player {
+    border: 1px solid #f2eae4;
+    padding: 1.5rem;
+    padding-right: 2.5rem;
+    border-radius: 20px;
+}
+
+.player input[type=range] {
+    -webkit-appearance: none !important;
+    margin: 0px;
+    padding: 0px;
+    background: #f2eae4;
+    height: 10px;
+    width: 100%;
+    outline: none;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.player input[type=range]::-ms-fill-lower {
+    background: #f2eae4;
+}
+
+.player input[type=range]::-ms-fill-upper {
+    background: #f2eae4;
+}
+
+.player input[type=range]::-moz-range-track {
+    border: none;
+    background: #f2eae4;
+}
+
+.player input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    background: #e8604c;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    box-shadow: -100vw 0 0 100vw #f7d9b9;
+}
+
+.player input[type=range]::-moz-range-thumb {
+    background: #e8604c;
+    height: 16px;
+    width: 16px;
+    border-radius: 100%;
+}
+
+.player input[type=range]::-ms-thumb {
+    -webkit-appearance: none !important;
+    background: #e8604c;
+    height: 16px;
+    width: 16px;
+    border-radius: 100%;
+}
+
+.player .btn-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.player .btn-box i {
+    font-size: 24px;
+    color: #787780;
+    margin: 0 30px;
+    cursor: pointer;
+}
+
+.player .btn-box i.active {
+    color: #e8604c;
+}
+
+.player .volume-box {
+    display: none;
+    z-index: 1;
+    padding: 0 20px;
+}
+
+.player .volume-box .volume-down {
+    cursor: pointer;
+    color: #787780;
+}
+
+.player .volume-box .volume-up {
+    cursor: pointer;
+    color: #787780;
+}
+
+.player .volume-box .volume-up::selection {
+    background-color: unset;
+}
+
+.player .volume-box input[type=range] {
+    height: 10px;
+}
+
+.player .volume-box.active {
+    display: block;
+}
+
+.player .music-box {}
+
+.player .music-box input[type=range] {
+    display: flex;
+    flex: 1;
+    height: 10px;
+}
+
+.player .music-box input[type=range]::-webkit-slider-thumb {
+    height: 10px;
+    width: 10px;
+}
+
+.player .music-box .current-time {
+    font-size: 16px;
+    color: #787780;
+}
+
+.player .music-box .duration {
+    font-size: 16px;
+    color: #787780;
+}
+
+.player .music-box .play,
+.player .music-box .pause {
+    width: 77px;
+    height: 77px;
+    border-radius: 50px;
+    background-color: #e8604c;
+    cursor: pointer;
+    transition: all 0.4s;
+}
+
+.player .music-box .play i,
+.player .music-box .pause i {
+    font-size: 28px;
+    color: #ffffff;
+    display: flex;
+    padding: 1.5rem;
+    transform: translateX(4px);
+}
+
+.player .music-box .pause i {
+    transform: translateX(0px);
+}
+
+.player .music-box .pause i {
+    font-size: 32px;
+}

@@ -43,6 +43,7 @@
     <link rel="stylesheet" href="{{asset('assetsFront/vendors/vegas/vegas.min.css')}}" />
     <link rel="stylesheet" href="{{asset('assetsFront/vendors/jquery-ui/jquery-ui.css')}}" />
     <link rel="stylesheet" href="{{asset('assetsFront/vendors/timepicker/timePicker.css')}}" />
+    <link rel="stylesheet" href="{{asset('css/player.css')}}" />
 
     <link rel="stylesheet" href="{{asset('assetsFront/arabic-fonts.css')}}" />
     <!-- template styles -->
@@ -304,7 +305,7 @@
 
 
 
-
+        <script src="{{asset('js/player.js')}}"></script>
         <script src="{{asset('assetsFront/vendors/jquery/jquery-3.6.0.min.js')}}"></script>
         <script src="{{asset('assetsFront/vendors/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
         <script src="{{asset('assetsFront/vendors/jarallax/jarallax.min.js')}}"></script>

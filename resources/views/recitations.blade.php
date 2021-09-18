@@ -64,32 +64,72 @@
                                 </audio>
                             </div>
                         </div> --}}
-                        <div class="col-lg-9">
-                            <div class="row">
-                                <div class="col-lg-3">
-                                    <a href="{{ route('reciter', $recitation->reciter->slug) }}">
-                                        <div class="reciter__image d-flex justify-center">
-                                            <img src="/storage/{{ $recitation->reciter->image }}" alt="Card image cap"
-                                                style="max-width: 80%; margin: auto">
+                        <div class="col-lg-9 col-md-12">
+                                <div class="player">
+                                <div class="row">
+                                    <div class="col-lg-3 col-md-4">
+                                        <a href="{{ route('reciter', $recitation->reciter->slug) }}">
+                                            <div class="reciter__image d-flex justify-center">
+                                                <img src="/storage/{{ $recitation->reciter->image }}" alt="Card image cap"
+                                                    style="max-width: 90%;">
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="col-lg-9 col-md-8">
+                                        <a href="{{ route('recitations.show', $recitation->id) }}">
+                                            <h3 class="card-title mt-5 mt-md-1 mb-0">{{ $recitation->title }}</h3>
+                                        </a>
+                                        <p class="card-title">{{ $recitation->reciter->name }}</p>
+                                        <div class="btn-box">
+                                            <span class="iconText"><i class="fas fa-redo"
+                                                    onclick="handleRepeat()"></i></span>
+                                            <span class="iconText"><i class="fas fa-volume-up"
+                                                    onclick="handleVolume()"></i></span>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="col-lg-9">
-                                    <a href="{{ route('recitations.show', $recitation->id) }}">
-                                        <h3 class="card-title mt-1 mt-sm-4 ">{{ $recitation->title }}</h3>
-                                    </a>
-                                    <p class="card-title mt-1 ">{{ $recitation->reciter->name }}</p>
-                                </div>
-                                <div class="col-lg-12 mt-0 pt-0 mb-5" style="padding: 1%;">
-                                    <audio style="min-width: 100%;" class="mt-5" controls="">
-                                        <source src="/storage/{{ $recitation->audio }}" type="audio/mpeg">
-                                        Your browser does not support the audio element.
-                                    </audio>
+                                    </div>
+                                    <div class="col-lg-12 mt-4 pt-0">
+
+                                            <div class="row">
+                                                <div class="col-lg-3 d-none d-md-block my-auto col-md-4">
+                                                    <div
+                                                        class="volume-box active d-flex flex-row justify-center align-center">
+                                                        <span class="volume-down"><i
+                                                                class="fas fa-volume-up"></i></span>
+                                                        <input type="range" class="d-flex flex-1 ms-3 m-auto volume-range"
+                                                            step="1" value="80" min="0" max="100"
+                                                            oninput="music.volume = this.value/100">
+                                                        {{-- <span class="volume-up"><i class="fas fa-volume-up"></i></span> --}}
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-9 col-md-8">
+                                                    <div class="music-box d-flex flex-row justify-center align-center">
+                                                        <span class="play d-flex justify-center align-center"
+                                                            onclick="handlePlay()">
+                                                            <i class="fas fa-play"></i>
+                                                        </span>
+                                                        <audio class="music-element">
+                                                            <source
+                                                                src="https://download.tvquran.com/download/selections/315/5cc9f8f83d272.mp3"
+                                                                type="audio/mp3">
+                                                        </audio>
+                                                        <input type="range" step="1"
+                                                            class="seekbar mx-3 d-flex flex-1 m-auto" value="0" min="0"
+                                                            max="100" oninput="handleSeekBar()">
+                                                        <div class="d-flex m-auto">
+                                                            <span class="current-time">0:0</span> / <span
+                                                                class="duration">0:0</span>
+
+                                                        </div>
+                                                    </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
-
-
                     @endforeach
                 </div>
             </div>
