@@ -55,23 +55,6 @@
     border-radius: 100%;
 }
 
-.player .btn-box {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.player .btn-box i {
-    font-size: 24px;
-    color: #787780;
-    margin: 0 30px;
-    cursor: pointer;
-}
-
-.player .btn-box i.active {
-    color: #e8604c;
-}
-
 .player .volume-box {
     display: none;
     z-index: 1;
@@ -84,7 +67,7 @@
 }
 
 .player .volume-box .volume-up {
-    cursor: pointer;
+    /* cursor: pointer; */
     color: #787780;
 }
 
@@ -143,9 +126,32 @@
 }
 
 .player .music-box .pause i {
-    transform: translateX(0px);
+    transform: translateX(2px);
 }
 
-.player .music-box .pause i {
-    font-size: 32px;
+.player .iconText {
+    margin: 0 4px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.player .iconText i {
+    font-size: 12px;
+    color: #787780;
+}
+
+.player .iconText.active i {
+    color: #e8604c;
+}
+
+.player .iconText .text {
+    font-size: 14px
+}
+
+.player .iconText:hover .text {
+    color: #1d1d1f;
+}
+
+.player .iconText:hover i {
+    color: #1d1d1f;
 }

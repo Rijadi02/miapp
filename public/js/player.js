@@ -1,90 +1,105 @@
-var music = document.querySelector(".music-element");
-var playBtn = document.querySelector(".play");
-var seekbar = document.querySelector(".seekbar");
-var currentTime = document.querySelector(".current-time");
-var duration = document.querySelector(".duration");
+var source = (number) => document.getElementById("source-" + number);
+var playBtn = (number) => document.getElementById("playbtn-" + number);
+var seekbar = (number) => document.getElementById("seekbar-" + number);
+var currentTime = (number) => document.getElementById("current-time-" + number);
+var duration = (number) => document.getElementById("duration-" + number);
 
-function handlePlay() {
-    if (music.paused) {
-        music.play();
-        playBtn.className = "pause";
-        playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+var volumeBox = (number) => document.getElementById("volume-box-" + number);
+var volume = (number) => document.getElementById("volume-" + number);
+
+var sources = [];
+
+var audio = 1;
+
+function handlePlay(number) {
+    if (source(number).paused) {
+        sources.map((number) => {
+            source(number).pause();
+            volumeBox(number).classList = "volume-box d-none flex-row justify-center align-center";
+            playBtn(number).className = "play";
+            playBtn(number).innerHTML = '<i class="fas fa-play"></i>';
+        });
+
+        volumeBox(number).classList = "volume-box d-flex flex-row justify-center align-center";
+        volume(number).value = audio;
+        source(number).volume = audio;
+
+        source(number).play();
+        playBtn(number).className = "pause";
+        playBtn(number).innerHTML = '<i class="fas fa-pause"></i>';
     } else {
-        music.pause();
-        playBtn.className = "play";
-        playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        source(number).pause();
+        playBtn(number).className = "play";
+        playBtn(number).innerHTML = '<i class="fas fa-play"></i>';
     }
-    music.addEventListener("ended", function() {
-        playBtn.className = "play";
-        playBtn.innerHTML = '<i class="fas fa-play"></i>';
-        music.currentTime = 0;
-    });
 }
 
-music.onloadeddata = function() {
-    seekbar.max = music.duration;
-    var ds = parseInt(music.duration % 60);
-    var dm = parseInt((music.duration / 60) % 60);
-    duration.innerHTML = dm + ":" + ds;
-};
-music.ontimeupdate = function() {
-    seekbar.value = music.currentTime;
-};
+function sourceEnded(number) {
+    playBtn(number).className = "play";
+    playBtn(number).innerHTML = '<i class="fas fa-play"></i>';
+    source(number).currentTime = 0;
 
-function handleSeekBar() {
-    music.currentTime = seekbar.value;
+    var index = sources.findIndex((num) => num == number);
+    if (sources.length - 1 <= index) {
+        handlePlay(sources[0]);
+    } else {
+        handlePlay(sources[index + 1]);
+    }
 }
-music.addEventListener(
-    "timeupdate",
-    function() {
-        var cs = parseInt(music.currentTime % 60);
-        var cm = parseInt((music.currentTime / 60) % 60);
-        currentTime.innerHTML = cm + ":" + cs;
-    },
-    false
-);
 
-// like
-var favIcon = document.querySelector(".favorite");
+function onSourceLoad(number) {
+    seekbar(number).max = source(number).duration;
+    var ds = parseInt(source(number).duration % 60);
+    var dm = parseInt((source(number).duration / 60) % 60);
+    duration(number).innerHTML = dm + ":" + ds;
+    sources.push(number);
+}
 
-function handleFavorite() {
-    favIcon.classList.toggle("active");
+function ontTimeUpdate(number) {
+    seekbar(number).value = source(number).currentTime;
+    var cs = parseInt(source(number).currentTime % 60);
+    var cm = parseInt((source(number).currentTime / 60) % 60);
+    currentTime(number).innerHTML = cm + ":" + cs;
+}
+
+function handleSeekBar(number) {
+    source(number).currentTime = seekbar(number).value;
 }
 
 // repeat
-var repIcon = document.querySelector(".repeat");
+var repIcon = (number) => document.getElementById("repeat-" + number);
 
-function handleRepeat() {
-    if (music.loop == true) {
-        music.loop = false;
-        repIcon.classList.toggle("active");
+function handleRepeat(number) {
+    if (source(number).loop == true) {
+        source(number).loop = false;
+        repIcon(number).classList.toggle("active");
     } else {
-        music.loop = true;
-        repIcon.classList.toggle("active");
+        source(number).loop = true;
+        repIcon(number).classList.toggle("active");
     }
 }
 
 // volume
-var volIcon = document.querySelector(".volume");
-var volBox = document.querySelector(".volume-box");
-var volumeRange = document.querySelector(".volume-range");
-var volumeDown = document.querySelector(".volume-down");
-var volumeUp = document.querySelector(".volume-up");
+// var volIcon = document.querySelector(".volume");
+// var volBox = document.querySelector(".volume-box");
+// var volumeRange = (number) => document.getElementById("volume-" + number);
+// var volumeDown = document.querySelector(".volume-down");
+// var volumeUp = document.querySelector(".volume-up");
 
-function handleVolume() {
-    volIcon.classList.toggle("active");
-    volBox.classList.toggle("active");
-}
+// function handleVolume() {
+//     volIcon.classList.toggle("active");
+//     volBox.classList.toggle("active");
+// }
 
-volumeDown.addEventListener("click", handleVolumeDown);
-volumeUp.addEventListener("click", handleVolumeUp);
+// volumeDown.addEventListener("click", handleVolumeDown);
+// volumeUp.addEventListener("click", handleVolumeUp);
 
-function handleVolumeDown() {
-    volumeRange.value = Number(volumeRange.value) - 20;
-    music.volume = volumeRange.value / 100;
-}
+// function handleVolumeDown() {
+//     volumeRange.value = Number(volumeRange.value) - 20;
+//     source(number).volume = volumeRange.value / 100;
+// }
 
-function handleVolumeUp() {
-    volumeRange.value = Number(volumeRange.value) + 20;
-    music.volume = volumeRange.value / 100;
-}
+// function handleVolumeUp() {
+//     volumeRange.value = Number(volumeRange.value) + 20;
+//     source(number).volume = volumeRange.value / 100;
+// }

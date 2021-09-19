@@ -64,8 +64,8 @@
                                 </audio>
                             </div>
                         </div> --}}
-                        <div class="col-lg-9 col-md-12">
-                                <div class="player">
+                        <div class="col-lg-9 mb-4 col-md-12">
+                            <div class="player">
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4">
                                         <a href="{{ route('reciter', $recitation->reciter->slug) }}">
@@ -81,47 +81,54 @@
                                         </a>
                                         <p class="card-title">{{ $recitation->reciter->name }}</p>
                                         <div class="btn-box">
-                                            <span class="iconText"><i class="fas fa-redo"
-                                                    onclick="handleRepeat()"></i></span>
-                                            <span class="iconText"><i class="fas fa-volume-up"
-                                                    onclick="handleVolume()"></i></span>
+                                            <div onclick="handleRepeat({{ $recitation->id }})"
+                                                id="repeat-{{ $recitation->id }}" class="iconText"><i
+                                                    class="fas fa-redo"></i> <span class="text">Rikthe</span>
+                                            </div>
+                                            <div class=" iconText"><i class="fas fa-share" "></i> <span
+                                                                            class="    text">Shperndaj</span></div>
+                                            <a download href="/storage/{{ $recitation->audio }}" class="iconText"><i
+                                                    class="fas fa-download" "></i> <span
+                                                                            class="    text">Shkarko</span></a>
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 mt-4 pt-0">
+                                    <div class="col-lg-12 mt-4 mt-md-2 pt-0">
 
-                                            <div class="row">
-                                                <div class="col-lg-3 d-none d-md-block my-auto col-md-4">
-                                                    <div
-                                                        class="volume-box active d-flex flex-row justify-center align-center">
-                                                        <span class="volume-down"><i
-                                                                class="fas fa-volume-up"></i></span>
-                                                        <input type="range" class="d-flex flex-1 ms-3 m-auto volume-range"
-                                                            step="1" value="80" min="0" max="100"
-                                                            oninput="music.volume = this.value/100">
-                                                        {{-- <span class="volume-up"><i class="fas fa-volume-up"></i></span> --}}
+                                        <div class="row">
+                                            <div class="col-lg-3 d-none d-md-block my-auto col-md-4">
+                                                <div id="volume-box-{{ $recitation->id }}" class="volume-box d-none flex-row justify-center align-center">
+                                                    <span class="volume-up"><i class="fas fa-volume-up"></i></span>
+                                                    <input id="volume-{{ $recitation->id }}" type="range" class="d-flex flex-1 ms-3 m-auto volume-range"
+                                                        step="0.01" value="1" min="0" max="1"
+                                                        oninput="source({{ $recitation->id }}).volume = this.value; audio = this.value">
+                                                    {{-- <span class="volume-up"><i class="fas fa-volume-up"></i></span> --}}
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-9 col-md-8">
+                                                <div class="music-box d-flex flex-row justify-center align-center">
+                                                    <span id="playbtn-{{ $recitation->id }}"
+                                                        class="play d-flex justify-center align-center"
+                                                        onclick="handlePlay({{ $recitation->id }})">
+                                                        <i class="fas fa-play"></i>
+                                                    </span>
+                                                    <audio id="source-{{ $recitation->id }}"
+                                                        ontimeupdate="ontTimeUpdate({{ $recitation->id }})"
+                                                        onloadeddata="onSourceLoad({{ $recitation->id }})"
+                                                        onended="sourceEnded({{ $recitation->id }})">
+                                                        <source src="/storage/{{ $recitation->audio }}" type="audio/mp3">
+                                                    </audio>
+                                                    <input type="range" step="1" id="seekbar-{{ $recitation->id }}"
+                                                        class="mx-3 d-flex flex-1 m-auto" value="0" min="0" max="100"
+                                                        oninput="handleSeekBar({{ $recitation->id }})">
+                                                    <div class="d-flex m-auto">
+                                                        <span class="current-time"
+                                                            id="current-time-{{ $recitation->id }}">0:0</span> / <span
+                                                            class="duration"
+                                                            id="duration-{{ $recitation->id }}">0:0</span>
+
                                                     </div>
                                                 </div>
-
-                                                <div class="col-lg-9 col-md-8">
-                                                    <div class="music-box d-flex flex-row justify-center align-center">
-                                                        <span class="play d-flex justify-center align-center"
-                                                            onclick="handlePlay()">
-                                                            <i class="fas fa-play"></i>
-                                                        </span>
-                                                        <audio class="music-element">
-                                                            <source
-                                                                src="https://download.tvquran.com/download/selections/315/5cc9f8f83d272.mp3"
-                                                                type="audio/mp3">
-                                                        </audio>
-                                                        <input type="range" step="1"
-                                                            class="seekbar mx-3 d-flex flex-1 m-auto" value="0" min="0"
-                                                            max="100" oninput="handleSeekBar()">
-                                                        <div class="d-flex m-auto">
-                                                            <span class="current-time">0:0</span> / <span
-                                                                class="duration">0:0</span>
-
-                                                        </div>
-                                                    </div>
 
                                             </div>
                                         </div>
