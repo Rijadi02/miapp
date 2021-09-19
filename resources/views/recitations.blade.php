@@ -131,9 +131,9 @@
                                                         oninput="handleSeekBar({{ $recitation->id }})">
                                                     <div class="d-flex m-auto">
                                                         <span class="current-time"
-                                                            id="current-time-{{ $recitation->id }}">0:0</span> / <span
+                                                            id="current-time-{{ $recitation->id }}">0:00</span> / <span
                                                             class="duration"
-                                                            id="duration-{{ $recitation->id }}">0:0</span>
+                                                            id="duration-{{ $recitation->id }}">0:00</span>
 
                                                     </div>
                                                 </div>

@@ -51,11 +51,17 @@ function sourceEnded(number) {
     }
 }
 
+function addZeros(number) {
+    if (number <= 9) {
+        return "0" + number;
+    }
+}
+
 function onSourceLoad(number) {
     seekbar(number).max = source(number).duration;
     var ds = parseInt(source(number).duration % 60);
     var dm = parseInt((source(number).duration / 60) % 60);
-    duration(number).innerHTML = dm + ":" + ds;
+    duration(number).innerHTML = dm + ":" + addZeros(ds);
     sources.push(number);
 }
 
@@ -63,7 +69,7 @@ function ontTimeUpdate(number) {
     seekbar(number).value = source(number).currentTime;
     var cs = parseInt(source(number).currentTime % 60);
     var cm = parseInt((source(number).currentTime / 60) % 60);
-    currentTime(number).innerHTML = cm + ":" + cs;
+    currentTime(number).innerHTML = cm + ":" + addZeros(cs);
 }
 
 function handleSeekBar(number) {
