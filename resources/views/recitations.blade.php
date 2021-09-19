@@ -39,7 +39,9 @@
             <div class="container  ps-4 pe-4">
 
                 <div class="row ">
+                    
                     @foreach ($recitations as $recitation)
+
 
                         {{-- <div class="col-lg-3">
                             <a href="{{ route('reciter', $recitation->reciter->slug) }}">

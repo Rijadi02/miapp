@@ -104,7 +104,7 @@ class HomeController extends Controller
     }
 
     public function recitations(){
-        $recitations = Recitation::all()->random(10);
+        $recitations = Recitation::inRandomOrder()->limit(10)->get();
         return view('recitations', compact('recitations') );
     }
 
