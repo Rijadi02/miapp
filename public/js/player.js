@@ -15,12 +15,14 @@ function handlePlay(number) {
     if (source(number).paused) {
         sources.map((number) => {
             source(number).pause();
-            volumeBox(number).classList = "volume-box d-none flex-row justify-center align-center";
+            volumeBox(number).classList =
+                "volume-box d-none flex-row justify-center align-center";
             playBtn(number).className = "play";
             playBtn(number).innerHTML = '<i class="fas fa-play"></i>';
         });
 
-        volumeBox(number).classList = "volume-box d-flex flex-row justify-center align-center";
+        volumeBox(number).classList =
+            "volume-box d-flex flex-row justify-center align-center";
         volume(number).value = audio;
         source(number).volume = audio;
 
@@ -39,11 +41,13 @@ function sourceEnded(number) {
     playBtn(number).innerHTML = '<i class="fas fa-play"></i>';
     source(number).currentTime = 0;
 
-    var index = sources.findIndex((num) => num == number);
+    var index = parseInt(source(number).dataset.index);
     if (sources.length - 1 <= index) {
-        handlePlay(sources[0]);
+        var element = document.querySelector(`[data-index='0']`);
+        handlePlay(parseInt(element.dataset.num));
     } else {
-        handlePlay(sources[index + 1]);
+        var element = document.querySelector(`[data-index='${index + 1}']`);
+        handlePlay(parseInt(element.dataset.num));
     }
 }
 

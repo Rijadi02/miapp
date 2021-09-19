@@ -39,7 +39,7 @@
             <div class="container  ps-4 pe-4">
 
                 <div class="row ">
-                    
+                    <?php $i = 0; ?>
                     @foreach ($recitations as $recitation)
 
 
@@ -72,8 +72,7 @@
                                     <div class="col-lg-3 col-md-4">
                                         <a href="{{ route('reciter', $recitation->reciter->slug) }}">
                                             <div class="reciter__image d-flex justify-center">
-                                                <img src="/storage/{{ $recitation->reciter->image }}" alt="Card image cap"
-                                                    style="max-width: 90%;">
+                                                <img class="reciter-img" src="/storage/{{ $recitation->reciter->image }}" alt="Card image cap">
                                             </div>
                                         </a>
                                     </div>
@@ -88,20 +87,25 @@
                                                     class="fas fa-redo"></i> <span class="text">Rikthe</span>
                                             </div>
                                             <div class=" iconText"><i class="fas fa-share" "></i> <span
-                                                                            class="    text">Shperndaj</span></div>
+                                                                                    class="
+                                                         text">Shperndaj</span>
+                                            </div>
                                             <a download href="/storage/{{ $recitation->audio }}" class="iconText"><i
                                                     class="fas fa-download" "></i> <span
-                                                                            class="    text">Shkarko</span></a>
+                                                                                    class="
+                                                         text">Shkarko</span></a>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 mt-4 mt-md-2 pt-0">
 
                                         <div class="row">
                                             <div class="col-lg-3 d-none d-md-block my-auto col-md-4">
-                                                <div id="volume-box-{{ $recitation->id }}" class="volume-box d-none flex-row justify-center align-center">
+                                                <div id="volume-box-{{ $recitation->id }}"
+                                                    class="volume-box d-none flex-row justify-center align-center">
                                                     <span class="volume-up"><i class="fas fa-volume-up"></i></span>
-                                                    <input id="volume-{{ $recitation->id }}" type="range" class="d-flex flex-1 ms-3 m-auto volume-range"
-                                                        step="0.01" value="1" min="0" max="1"
+                                                    <input id="volume-{{ $recitation->id }}" type="range"
+                                                        class="d-flex flex-1 ms-3 m-auto volume-range" step="0.01" value="1"
+                                                        min="0" max="1"
                                                         oninput="source({{ $recitation->id }}).volume = this.value; audio = this.value">
                                                     {{-- <span class="volume-up"><i class="fas fa-volume-up"></i></span> --}}
                                                 </div>
@@ -117,7 +121,9 @@
                                                     <audio id="source-{{ $recitation->id }}"
                                                         ontimeupdate="ontTimeUpdate({{ $recitation->id }})"
                                                         onloadeddata="onSourceLoad({{ $recitation->id }})"
-                                                        onended="sourceEnded({{ $recitation->id }})">
+                                                        onended="sourceEnded({{ $recitation->id }})"
+                                                        data-index="{{ $i }}"
+                                                        data-num="{{ $recitation->id }}">
                                                         <source src="/storage/{{ $recitation->audio }}" type="audio/mp3">
                                                     </audio>
                                                     <input type="range" step="1" id="seekbar-{{ $recitation->id }}"
@@ -139,6 +145,7 @@
                             </div>
 
                         </div>
+                        <?php $i = $i + 1; ?>
                     @endforeach
                 </div>
             </div>
