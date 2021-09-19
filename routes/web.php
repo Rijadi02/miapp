@@ -105,4 +105,11 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
     Route::patch('posts/{post}/update', [App\Http\Controllers\PostController::class, 'update'])->name('post.update');
     Route::get('posts/{post}/edit',  [App\Http\Controllers\PostController::class, 'edit'])->name('post.edit');
 
+    Route::get('medias', [App\Http\Controllers\MediaController::class, 'index'])->name('media.index');
+    Route::post('medias/store', [App\Http\Controllers\MediaController::class, 'store'])->name('media.store');
+    Route::delete('medias/{media}', [App\Http\Controllers\MediaController::class, 'destroy'])->name('media.destroy');
+    Route::patch('medias/{media}/update', [App\Http\Controllers\MediaController::class, 'update'])->name('media.update');
+    Route::get('medias/{media}/edit',  [App\Http\Controllers\MediaController::class, 'edit'])->name('media.edit');
+
+
 });

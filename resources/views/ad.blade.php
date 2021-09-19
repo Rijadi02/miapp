@@ -60,7 +60,7 @@
         </section>
         <!--Tour Details Slider End-->
 
-        <!--Tour Details End-->
+        {{-- <!--Tour Details End-->
         <section class="tour-details">
             <div class="tour-details__top">
                 <div class="container">
@@ -392,7 +392,10 @@
                 </div>
             </div>
         </section>
-        <!--Tour Details Two End-->
+        <!--Tour Details Two End--> --}}
+
+        {!!html_entity_decode($ad->description)!!}
+
 
     @endsection
 

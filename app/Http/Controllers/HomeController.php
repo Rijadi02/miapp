@@ -7,8 +7,10 @@ use App\Models\Blog;
 use App\Models\Book;
 use App\Models\Category;
 use App\Models\Chapter;
+use App\Models\City;
 use App\Models\Day;
 use App\Models\Lecture;
+use App\Models\Media;
 use App\Models\Post;
 use App\Models\Recitation;
 use App\Models\Reciter;
@@ -30,9 +32,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $media = Media::orderBy('id', 'desc')->firstOrFail();
         $posts = Post::orderBy('id', 'desc')->take(5)->get();
         $blogs = Blog::orderBy('id', 'desc')->take(5)->get();
-        return view('home', compact('posts','blogs') );
+        return view('home', compact('posts','blogs','media') );
     }
 
     public function blogs()
@@ -78,8 +81,11 @@ class HomeController extends Controller
 
     public function lectures($city){
 
+
         $days = Day::all();
-        return view('lectures', compact('days','city'));
+        $city = City::where('name', '=', $city)->firstOrFail();
+        $cities = City::all();
+        return view('lectures', compact('days','city','cities'));
 
     }
 

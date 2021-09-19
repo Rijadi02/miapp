@@ -82,19 +82,19 @@
             <div class="counter-one__container">
                 <ul class="list-unstyled counters-one__box">
                     <li class="counter-one__single wow fadeInUp" data-wow-delay="100ms">
-                        <h3 class="odometer" data-count="7864">00</h3>
+                        <h3 class="odometer" data-count="{{$media->instagram}}">00</h3>
                         <p class="counter-one__text">Instagram</p>
                     </li>
                     <li class="counter-one__single wow fadeInUp" data-wow-delay="200ms">
-                        <h3 class="odometer" data-count="16321">00</h3>
+                        <h3 class="odometer" data-count="{{$media->youtube}}">00</h3>
                         <p class="counter-one__text">Youtube</p>
                     </li>
                     <li class="counter-one__single wow fadeInUp" data-wow-delay="300ms">
-                        <h3 class="odometer" data-count="4561">00</h3>
+                        <h3 class="odometer" data-count="{{$media->telegram}}">00</h3>
                         <p class="counter-one__text">Telegram</p>
                     </li>
                     <li class="counter-one__single wow fadeInUp" data-wow-delay="400ms">
-                        <h3 class="odometer" data-count="1267">00</h3>
+                        <h3 class="odometer" data-count="{{$media->facebook}}">00</h3>
                         <p class="counter-one__text">Facebook</p>
                     </li>
                 </ul>

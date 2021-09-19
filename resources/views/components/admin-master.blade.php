@@ -130,6 +130,11 @@
                             Instagram
                         </a>
 
+                        <a class="nav-link" href="{{ route('media.index') }}">
+                            <div class="nav-link-icon"><i class="fas fa-tv"></i></div>
+                            Media
+                        </a>
+
                         {{-- <a class="nav-link" href="{{ route('brands.index') }}">
                             <div class="nav-link-icon"><i class="fas fa-copyright"></i></div>
                             Brands

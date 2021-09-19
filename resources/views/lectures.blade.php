@@ -23,9 +23,13 @@
                 <div class="container">
                     <div class="page-header__bottom-inner">
                         <ul class="thm-breadcrumb list-unstyled">
-                            <li><a href="index.html">Home</a></li>
-                            <li><span>.</span></li>
-                            <li class="active">Tours</li>
+                            @foreach ($cities as $citi )
+                                <li><a class="text-white about-one__btn thm-btn mt-3" href="{{ route('lectures',$citi->name) }}">{{$citi->name}}</a></li>
+                                <li><span>_</span></li>
+                            @endforeach
+
+
+
                         </ul>
                     </div>
                 </div>
@@ -40,7 +44,7 @@
                 @foreach ($days as $day)
                     <h2 class="section-title__title mb-3">{{ $day->name }}</h2>
                     <div class="row">
-                        <?php $lectures = $day->lectures->where('city_id', $city); ?>
+                        <?php $lectures = $day->lectures->where('city_id', $city->id); ?>
                         @if ($lectures->count() == 0)
                             <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp animated" data-wow-delay="100ms"
                                 style="visibility: visible; animation-delay: 100ms; animation-name: fadeInUp;">
