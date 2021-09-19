@@ -54,7 +54,7 @@ function sourceEnded(number) {
 function addZeros(number) {
     if (number <= 9) {
         return "0" + number;
-    }
+    } else return number;
 }
 
 function onSourceLoad(number) {
