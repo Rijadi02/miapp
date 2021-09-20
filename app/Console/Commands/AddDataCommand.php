@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\Day;
+use App\Models\Media;
 use App\Models\User;
 use Illuminate\Console\Command;
 
@@ -48,9 +49,21 @@ class AddDataCommand extends Command
             ['name' => 'E shtune'],
             ['name' => 'E diel'],
         ];
+        $medias = [
+            ['telegram' => 0,'instagram'=>0,'facebook'=>0,'youtube'=>0],
+
+        ];
+
         $users = [
             ['name' => 'Rijad Morina', 'email' => 'rijadmorinax8@gmail.com','password' => bcrypt('12345678')],
         ];
+
+        if (User::all()->count() > 0) {
+            $this->info('Data already exists inside users table');
+        } else {
+            User::insert($users);
+            $this->info('Successfully created users');
+        }
 
         if (Day::all()->count() > 0) {
             $this->info('Data already exists inside days table');
@@ -59,12 +72,15 @@ class AddDataCommand extends Command
             $this->info('Successfully created days');
         }
 
-        if (User::all()->count() > 0) {
-            $this->info('Data already exists inside users table');
+        if (Media::all()->count() > 0) {
+            $this->info('Data already exists inside medias table');
         } else {
-            User::insert($users);
-            $this->info('Successfully created users');
+            Media::insert($medias);
+            $this->info('Successfully created medias');
         }
+
+
+
 
         return 0;
     }
