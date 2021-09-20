@@ -14,6 +14,8 @@ use App\Models\Media;
 use App\Models\Post;
 use App\Models\Recitation;
 use App\Models\Reciter;
+use App\Models\Time;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -32,6 +34,26 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $buttons = [];
+
+        $time = Carbon::now();
+        $month = $time->month;
+        $day = $time->day;
+        $hour = $time->format('H:i:s');
+
+        $current_data = Time::where('month', $month)->where('day',$day)->first();
+
+        if($hour > $current_data->imsaku && $hour < $current_data->dhuhr ){
+            array_push($buttons,'Dhikri i mengjesit');
+        }else if($hour > $current_data->asr && $hour < '00:00'){
+            array_push($buttons,'Dhikri i mbremjes');
+        }
+
+        if($hour > $current_data->isha){
+            array_push($buttons,'Dhikri i fjetjes');
+        }
+
+        dd($buttons);
         $media = Media::orderBy('id', 'desc')->firstOrFail();
         $posts = Post::orderBy('id', 'desc')->take(5)->get();
         $blogs = Blog::orderBy('id', 'desc')->take(5)->get();
