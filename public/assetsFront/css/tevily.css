@@ -6301,7 +6301,6 @@ ul {
 .faq-one-accrodion .accrodion-title {
     position: relative;
     display: block;
-    cursor: pointer;
     padding: 23px 40px 24px;
     padding-right: 27px;
     transition: all 200ms linear;
@@ -6385,11 +6384,40 @@ ul {
     background-color: var(--thm-base);
 }
 
+.accrodion-title--num {
+    color: var(--thm-black);
+    background-color: #faf5ee;
+    border-radius: 50px;
+    display: inline-block;
+    padding: 2px 20px;
+    font-weight: 700;
+}
+
 .faq-one-accrodion .accrodion-content p {
-    margin: 0;
-    font-size: 16px;
+    margin: 12px 0;
+    font-size: 20px;
+    line-height: 28px;
+    color: var(--thm-black);
     letter-spacing: var(--thm-letter-spacing);
 }
+
+.accrodion-content .arabic {
+    font-family: Kitab;
+    margin-bottom: 18px !important;
+    font-size: 32px !important;
+    line-height: 54px !important;
+}
+
+.accrodion-content .reference,
+.hadith {
+    font-size: 16px !important;
+    color: var(--thm-gray) !important;
+}
+
+
+/* .accrodion-content .reference {
+    text-align: right;
+} */
 
 .accrodion-content ul {
     position: relative;
@@ -7585,4 +7613,60 @@ ul {
     aspect-ratio: 1;
     width: "100%";
     object-fit: cover;
+}
+
+.shield_check {
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+}
+
+.shield_check span {
+    position: relative;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--thm-black);
+    background-color: #faf5ee;
+    border-radius: 50%;
+    font-size: 15px;
+    height: 50px;
+    width: 50px;
+    transform: rotate(0);
+    -webkit-transition: all 500ms ease;
+    transition: all 500ms ease;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.shield_check .active {
+    color: var(--thm-base);
+    transform: rotate(360deg);
+}
+
+.shield_check span:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    background-color: var(--thm-primary);
+    border-radius: 50%;
+    transform: scale(0.0);
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transition: all 0.4s cubic-bezier(0.62, 0.21, 0.45, 1.52);
+    z-index: -1;
+}
+
+.shield_check .active:before {
+    transform: scaleX(1.0);
 }
