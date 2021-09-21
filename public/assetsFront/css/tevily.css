@@ -7551,7 +7551,7 @@ ul {
     object-fit: cover;
 }
 
-.mburoja2 {
+.mburoja2-2 {
     height: 100%;
     aspect-ratio: 2.044;
     object-fit: cover;
@@ -7561,6 +7561,23 @@ ul {
     height: 100%;
     aspect-ratio: 3.066;
     object-fit: cover;
+}
+
+@media (max-width: 992px) {
+    .mburoja3,
+    .mburoja2,
+    .mburoja {
+        aspect-ratio: 1.2;
+    }
+}
+
+@media (max-width: 768px) {
+    .mburoja3,
+    .mburoja2,
+    .mburoja,
+    .mburoja2-2 {
+        aspect-ratio: 1.2;
+    }
 }
 
 .reciter__image img {
