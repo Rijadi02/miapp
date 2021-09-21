@@ -37,23 +37,35 @@ class HomeController extends Controller
         $buttons = [];
 
         $time = Carbon::now();
+
         $month = $time->month;
         $day = $time->day;
         $hour = $time->format('H:i:s');
+        $dayOfWeek = $time->dayOfWeek;
 
-        $current_data = Time::where('month', $month)->where('day',$day)->first();
+        $current_date = Time::where('month', $month)->where('day',$day)->first();
 
-        if($hour > $current_data->imsaku && $hour < $current_data->dhuhr ){
+        if($hour > $current_date->imsaku && $hour < $current_date->dhuhr ){
             array_push($buttons,'Dhikri i mengjesit');
-        }else if($hour > $current_data->asr && $hour < '00:00'){
+        }else if($hour > $current_date->asr && $hour < '00:00'){
             array_push($buttons,'Dhikri i mbremjes');
         }
 
-        if($hour > $current_data->isha){
+        if($hour > $current_date->isha){
             array_push($buttons,'Dhikri i fjetjes');
         }
 
+        if($dayOfWeek == 5 && $hour > $current_date->sunrise && $hour < $current_date->maghrib ){
+            array_push($buttons,'Surah Kehf');
+        }
+
+        if($hour > $current_date->isha && $hour < '10:00'){
+            array_push($buttons,'Surah Mulk');
+            array_push($buttons,'Surah Sajadah');
+        }
+
         dd($buttons);
+
         $media = Media::orderBy('id', 'desc')->firstOrFail();
         $posts = Post::orderBy('id', 'desc')->take(5)->get();
         $blogs = Blog::orderBy('id', 'desc')->take(5)->get();
