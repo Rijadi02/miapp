@@ -1831,16 +1831,17 @@ ul {
 
 .destinations-one__content {
     position: absolute;
-    bottom: 43px;
-    left: 50px;
+    bottom: 0px;
+    left: 0px;
     z-index: 2;
 }
 
 .destinations-one__sub-title {
     font-size: 20px;
+    padding: 0 25px;
     color: var(--thm-primary);
     font-family: var(--thm-reey-font);
-    margin: 0;
+    margin: -10px 0;
     line-height: 30px;
     letter-spacing: var(--thm-letter-spacing);
     position: relative;
@@ -1851,6 +1852,8 @@ ul {
     font-size: 30px;
     font-weight: 700;
     line-height: 34px;
+    padding: 25px;
+    padding-top: 0;
     letter-spacing: var(--thm-letter-spacing);
     position: relative;
     display: block;
@@ -7536,9 +7539,27 @@ ul {
     border-top: 1px solid #ebe6de;
 }
 
-.mburoja-cards {
+.mburoja {
     height: 100%;
     aspect-ratio: 1;
+    object-fit: cover;
+}
+
+.mburoja2 {
+    height: 100%;
+    aspect-ratio: 2.044;
+    object-fit: cover;
+}
+
+.mburoja2 {
+    height: 100%;
+    aspect-ratio: 2.044;
+    object-fit: cover;
+}
+
+.mburoja3 {
+    height: 100%;
+    aspect-ratio: 3.066;
     object-fit: cover;
 }
 
