@@ -96,8 +96,19 @@ class HomeController extends Controller
         return view('shield');
     }
 
-    public function ads(){
-        $ads = Ad::latest()->paginate(5);
+    public function ads(Request $request){
+        $tag = $request->input('tag');
+        $city = $request->input('city');
+        $ads = Ad::query()->where('status', '=', 1);
+        if (isset($tag)) {
+            $ads = $ads->where('tags', 'LIKE', "%{$tag}%");
+        }
+
+        if (isset($city)) {
+            $ads = $ads->where('city', 'LIKE', "%{$city}%");
+        }
+
+        $ads = $ads->paginate(5);
         return view('ads', compact('ads') );
 
     }
@@ -111,6 +122,7 @@ class HomeController extends Controller
         return view('ad', compact('ad','facebook','instagram','twitter') );
 
     }
+
 
     public function lectures($city){
 

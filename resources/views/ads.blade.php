@@ -41,26 +41,24 @@
                         <div class="tours-list__left">
                             <div class="tours-list__sidebar">
                                 <div class="tours-list__sidebar-search">
-                                    <h3 class="tours-list__sidebar-search-title">Search Tours</h3>
-                                    <form class="tours-list__sidebar-form">
+                                    <h3 class="tours-list__sidebar-search-title">Kërko Biznes</h3>
+                                    <form class="tours-list__sidebar-form" method="GET" action="{{ route('ads') }}">
                                         <div class="tours-list__sidebar-input">
-                                            <input type="text" placeholder="Where to" name="where to">
+                                            <input type="text" placeholder="Emri apo Veprimtaria" name="tag">
                                         </div>
                                         <div class="tours-list__sidebar-input">
-                                            <input type="text" placeholder="When" name="when">
-                                        </div>
-                                        <div class="tours-list__sidebar-input">
-                                            <select class="selectpicker" id="type">
-                                                <option value="Adventure">Type</option>
-                                                <option value="Adventure">Adventure</option>
-                                                <option value="Wildlife">Wildlife</option>
-                                                <option value="Sightseeing">Sightseeing</option>
+                                            <select class="selectpicker" id="city" name="city">
+                                                <option hidden disabled selected >-- Zgjedh --</option>
+                                                <option value="Prishtinë">Prishtinë</option>
+                                                <option value="Drenas">Drenas</option>
+                                                <option value="Skenderaj">Skenderaj</option>
+                                                <option value="Mitrovicë">Mitrovicë</option>
                                             </select>
                                         </div>
-                                        <button type="submit" class="thm-btn tours-list__sidebar-btn">search</button>
+                                        <button type="submit" class="thm-btn tours-list__sidebar-btn">Kërko</button>
                                     </form>
                                 </div>
-                                <div class="tour-sidebar__sorter-wrap">
+                                {{-- <div class="tour-sidebar__sorter-wrap">
 
                                     <div class="tour-sidebar__sorter-single">
                                         <div class="tour-sidebar__sorter-top">
@@ -227,7 +225,7 @@
                                         </div>
                                     </div>
 
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -243,7 +241,7 @@
                                     </div>
                                     <div class="tours-list__content">
 
-                                        <h3 class="tours-list__title"><a href="tour-details.html">{{$ad->name}}</a></h3>
+                                        <h3 class="tours-list__title"><a href="{{route('ad',$ad->slug)}}">{{$ad->name}}</a></h3>
                                         <p class="tours-list__rate"><span>$870</span> / Per Person</p>
                                         {!! \Illuminate\Support\Str::limit($ad->description, $limit = 100, $end = '...') !!}
                                         <ul class="tours-list__meta list-unstyled">
@@ -257,9 +255,9 @@
                                     </div>
                                 </div>
                                 @endforeach
-                                <div class="row">
+                                {{-- <div class="row">
                                     {{ $ads->render("pagination::bootstrap-4") }}
-                                </div>
+                                </div> --}}
                                 <!--Tours List Single-->
 
                             </div>

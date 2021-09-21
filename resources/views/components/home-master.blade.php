@@ -65,14 +65,14 @@
                     <div class="main-header__top-inner clearfix">
                         <div class="main-header__top-left">
                             <ul class="list-unstyled main-header__top-address">
-                                <li>
+                                {{-- <li>
                                     <div class="icon">
                                         <span class="icon-phone-call"></span>
                                     </div>
                                     <div class="text">
                                         <a href= "tel:+92-666-999-0000">+ 92 666 999 0000</a>
                                     </div>
-                                </li>
+                                </li> --}}
                                 <li>
                                     <div class="icon">
                                         <span class="icon-at"></span>

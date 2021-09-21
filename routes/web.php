@@ -27,6 +27,7 @@ Route::get('/{chapter}/duatë', [App\Http\Controllers\HomeController::class, 'co
 Route::get('/recitimet', [App\Http\Controllers\HomeController::class, 'recitations'])->name('recitations');
 Route::get('/recitimet/{id}', [App\Http\Controllers\HomeController::class, 'recitations_show'])->name('recitations.show');
 Route::get('/recitues/{slug}', [App\Http\Controllers\HomeController::class, 'reciter'])->name('reciter');
+// Route::get('/bizneset_e_filturara', [App\Http\Controllers\HomeController::class, 'search_ads'])->name('search_ads');
 
 
 
