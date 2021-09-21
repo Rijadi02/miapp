@@ -64,7 +64,6 @@ class HomeController extends Controller
             array_push($buttons,'Surah Sajadah');
         }
 
-        dd($buttons);
 
         $media = Media::orderBy('id', 'desc')->firstOrFail();
         $posts = Post::orderBy('id', 'desc')->take(5)->get();
