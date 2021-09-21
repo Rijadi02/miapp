@@ -118,6 +118,8 @@ class AddDataCommand extends Command
             ['name' => 'Haxh dhe Umre','slug' => 'haxh-dhe-umre', 'category_id' => '1'],
             ['name' => 'Natyra','slug' => 'natyra', 'category_id' => '1'],
             ['name' => 'Sëmundja dhe vdekja','slug' => 'sëmundja-dhe-vdekja', 'category_id' => '1'],
+            ['name' => 'Gëzim dhe shqetësim','slug' => 'gëzim-dhe-shqetësim', 'category_id' => '1'],
+
         ];
 
 
@@ -127,6 +129,9 @@ class AddDataCommand extends Command
             Book::insert($books);
             $this->info('Successfully created books');
         }
+
+
+        
 
         return 0;
     }

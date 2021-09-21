@@ -36,14 +36,14 @@
         <section class="destinations-one destinations-page">
             <div class="container">
                 <div class="row">
+                    <a href="/mëngjes-dhe-mbrëmje/kapitujt">
                     <div class="col-xl-6 col-lg-6">
                         <div class="destinations-one__single">
                             <div class="destinations-one__img">
                                 <img class="mburoja"
                                     src="https://images.unsplash.com/photo-1536373766806-c56c9acd7fd5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80">
                                 <div class="destinations-one__content">
-                                    <h2 class="destinations-one__title"><a
-                                            href="{{ route('chapters', 'sjelljet-e-mira') }}">Mëngjes dhe mbrëmje</a></h2>
+                                    <h2 class="destinations-one__title"><a href="{{ route('chapters', 'mëngjes-dhe-mbrëmje') }}">Mëngjes dhe mbrëmje</a></h2>
                                 </div>
                                 <div class="destinations-one__button">
                                     <a href="#">13 kapituj</a>
@@ -51,9 +51,10 @@
                             </div>
                         </div>
                     </div>
+                </a>
 
-                    <div class="col-xl-6 col-lg-6">
-                        <div class="row">
+                <div class="col-xl-6 col-lg-6">
+                    <div class="row">
                             <div class="col-lg-12 col-xl-12">
                                 <div class="destinations-one__single">
                                     <div class="destinations-one__img">
@@ -63,7 +64,7 @@
                                         <div class="destinations-one__content">
                                             {{-- <p class="destinations-one__sub-title">Wildlife</p> --}}
                                             <h2 class="destinations-one__title"><a
-                                                    href="destinations-details.html">Shtëpia dhe familja</a>
+                                                    href="{{ route('chapters', 'shtëpia-dhe-familja') }}">Shtëpia dhe familja</a>
                                             </h2>
                                         </div>
                                         <div class="destinations-one__button">
@@ -80,7 +81,7 @@
                                             alt="">
                                         <div class="destinations-one__content">
                                             <h2 class="destinations-one__title"><a
-                                                    href="destinations-details.html">Udhëtim</a>
+                                                    href="{{ route('chapters', 'udhëtim') }}">Udhëtim</a>
                                             </h2>
                                         </div>
                                         <div class="destinations-one__button">
@@ -97,7 +98,7 @@
                                             alt="">
                                         <div class="destinations-one__content">
                                             <h2 class="destinations-one__title"><a
-                                                    href="destinations-details.html">Ushqim dhe pije</a></h2>
+                                                    href="{{ route('chapters', 'ushqim-dhe-pije') }}">Ushqim dhe pije</a></h2>
                                         </div>
                                         <div class="destinations-one__button">
                                             <a href="#">6 tours</a>
@@ -116,7 +117,7 @@
                                     alt="">
                                 <div class="destinations-one__content">
                                     {{-- <p class="destinations-one__sub-title">Adventure</p> --}}
-                                    <h2 class="destinations-one__title"><a href="destinations-details.html">Gëzim dhe shqetësim</a>
+                                    <h2 class="destinations-one__title"><a href="{{ route('chapters', 'gëzim-dhe-shqetësim') }}">Gëzim dhe shqetësim</a>
                                     </h2>
                                 </div>
                                 <div class="destinations-one__button">
@@ -125,6 +126,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-xl-9 col-lg-9">
                         <div class="destinations-one__single">
                             <div class="destinations-one__img">
@@ -133,7 +135,7 @@
                                     alt="">
                                 <div class="destinations-one__content">
                                     {{-- <p class="destinations-one__sub-title">Adventure</p> --}}
-                                    <h2 class="destinations-one__title"><a href="destinations-details.html">Namazi</a></h2>
+                                    <h2 class="destinations-one__title"><a href="{{ route('chapters', 'namazi') }}">Namazi</a></h2>
                                 </div>
                                 <div class="destinations-one__button">
                                     <a href="#">6 tours</a>
@@ -154,8 +156,7 @@
                                     src="https://images.unsplash.com/photo-1554230333-6fee16f4a12b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
                                     alt="">
                                 <div class="destinations-one__content">
-                                    <p class="destinations-one__sub-title">Tours</p>
-                                    <h2 class="destinations-one__title"><a href="destinations-details.html">Falënderimi ndaj Allahut</a></h2>
+                                    <h2 class="destinations-one__title"><a href="{{ route('chapters', 'falënderimi-ndaj-Allahut') }}">Falënderimi ndaj Allahut</a></h2>
                                 </div>
                                 <div class="destinations-one__button">
                                     <a href="#">6 tours</a>
@@ -170,7 +171,7 @@
                                 <img class="mburoja2" src="https://images.unsplash.com/photo-1510022079733-8b58aca7c4a9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80"
                                     alt="">
                                 <div class="destinations-one__content">
-                                    <h2 class="destinations-one__title"><a href="destinations-details.html">Mirësjellja</a></h2>
+                                    <h2 class="destinations-one__title"><a href="{{ route('chapters', 'mirësjellja') }}">Mirësjellja</a></h2>
                                 </div>
                                 <div class="destinations-one__button">
                                     <a href="#">6 tours</a>
@@ -178,6 +179,7 @@
                             </div>
                         </div>
                     </div>
+
 
                     <div class="col-xl-3 col-lg-3">
                         <div class="destinations-one__single">
@@ -187,7 +189,7 @@
                                     alt="">
                                 <div class="destinations-one__content">
                                     <p class="destinations-one__sub-title">Tours</p>
-                                    <h2 class="destinations-one__title"><a href="destinations-details.html">Haxh de Umre</a></h2>
+                                    <h2 class="destinations-one__title"><a href="{{ route('chapters', 'haxh-dhe-umre') }}">Haxh dhe Umre</a></h2>
                                 </div>
                                 <div class="destinations-one__button">
                                     <a href="#">6 tours</a>
@@ -195,6 +197,8 @@
                             </div>
                         </div>
                     </div>
+
+
                     <div class="col-xl-6 col-lg-6">
                         <div class="destinations-one__single">
                             <div class="destinations-one__img">
@@ -202,7 +206,7 @@
                                     src="https://images.unsplash.com/photo-1625472603517-1b0dc72846ab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
                                     alt="">
                                 <div class="destinations-one__content">
-                                    <h2 class="destinations-one__title"><a href="destinations-details.html">Natyra</a></h2>
+                                    <h2 class="destinations-one__title"><a href="{{ route('chapters', 'natyra') }}">Natyra</a></h2>
                                 </div>
                                 <div class="destinations-one__button">
                                     <a href="#">6 tours</a>
@@ -210,6 +214,8 @@
                             </div>
                         </div>
                     </div>
+
+
                     <div class="col-xl-6 col-lg-6">
                         <div class="destinations-one__single">
                             <div class="destinations-one__img">
@@ -217,7 +223,7 @@
                                     src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80"
                                     alt="">
                                 <div class="destinations-one__content">
-                                    <h2 class="destinations-one__title"><a href="destinations-details.html">Sëmundja dhe vdekja</a></h2>
+                                    <h2 class="destinations-one__title"><a href="{{ route('chapters', 'sëmundja-dhe-vdekja') }}">Sëmundja dhe vdekja</a></h2>
                                 </div>
                                 <div class="destinations-one__button">
                                     <a href="#">6 tours</a>
@@ -225,6 +231,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
