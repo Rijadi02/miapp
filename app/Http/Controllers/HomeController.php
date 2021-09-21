@@ -59,7 +59,7 @@ class HomeController extends Controller
             array_push($buttons,'Surah Kehf');
         }
 
-        if($hour > $current_date->isha && $hour < '10:00'){
+        if($hour > $current_date->isha && $hour < '23:59'){
             array_push($buttons,'Surah Mulk');
             array_push($buttons,'Surah Sajadah');
         }
