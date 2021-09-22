@@ -244,7 +244,9 @@
                                         <h3 class="tours-list__title"><a href="{{route('ad',$ad->slug)}}">{{$ad->name}}</a></h3>
                                         <p class="tours-list__rate"><span>Hapur</span> 24/7</p>
                                         {{-- {!! \Illuminate\Support\Str::limit($ad->description, $limit = 100, $end = '...') !!} --}}
-                                        <ul class="tours-list__meta list-unstyled">
+
+
+                                        <ul class="tours-list__meta list-unstyled mt-5 p-3">
                                             <li><a href="tour-details.html"><i class="far fa-calendar"></i>3 Days</a>
                                             </li>
                                             <li><a href="tour-details.html"><i class="far fa-user-circle"></i>12+</a>
