@@ -1,15 +1,16 @@
 <x-home-master>
     @section('content')
 
-    <div class="stricky-header stricked-menu main-menu">
-        <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
-    </div><!-- /.stricky-header -->
+        <div class="stricky-header stricked-menu main-menu">
+            <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
+        </div><!-- /.stricky-header -->
 
         <!--Page Header Start-->
         <section class="page-header">
             <div class="page-header__top">
-               <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg)"></div>
-               <div class="page-header-bg-overly"></div>
+                <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg)">
+                </div>
+                <div class="page-header-bg-overly"></div>
                 <div class="container">
                     <div class="page-header__top-inner">
                         <h2>Destinations Details</h2>
@@ -40,20 +41,25 @@
                             <div class="destinations-details__faq">
                                 <div class="accrodion-grp faq-one-accrodion" data-grp-name="faq-one-accrodion">
                                     @foreach ($contents as $content)
-                                    <div class="accrodion active">
-                                        <div class="accrodion-title">
-                                        </div>
-                                        <div class="accrodion-content" style="display: none;">
-                                            <div class="inner">
-                                                <p  style="font-family: Kitab;font-size:1.1em" dir="rtl">{{$content->arabic}}</p>
-                                                <p>{!!$content->transliteration!!}</p>
-                                                <p><b>{!!$content->content!!}</b></p>
-                                                <p>{!!$content->reference!!}</p>
+                                        <div class="accrodion active">
+                                            <div class="accrodion-title">
+                                                <p class="accrodion-title--num">{!! $content->number !!}</p>
+                                            </div>
+                                            <div class="accrodion-content" style="display: none;">
+                                                <div class="inner">
+                                                    <p class="arabic" dir="rtl">{{ $content->arabic }}</p>
+                                                    <p class="transliteration">{!! $content->transliteration !!}</p>
+                                                    <p class="content"><b>{!! $content->content !!}</b></p>
+                                                    <p class="hadith">{!! $content->hadith !!}</p>
+                                                    <p class="reference">{!! $content->reference !!}</p>
 
+                                                        <div class="shield_check">
+                                                            <span onclick="this.classList.toggle('active')"><i class="fas fa-check"></i></span>
+                                                        </div>
 
-                                            </div><!-- /.inner -->
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
                                     @endforeach
 
 
