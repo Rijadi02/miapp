@@ -171,6 +171,7 @@ class AdController extends Controller
         $ad->city = $data['city'];
         $ad->map = $data['map'];
         $ad->link = $data['link'];
+        $ad->status = $data['status'];
         $ad->contact_details = $data['contact_details'];
 
         $media = array("facebook"=>$data['facebook'],"instagram"=>$data['instagram'],"twitter"=>$data['twitter']);
