@@ -133,8 +133,8 @@ class ContentController extends Controller
         // } else {
         //     session()->flash('title-add', 'Nothing to add: ' . request('title'));
         // }
-
-        return back();
+        $chapter_id = $content->chapter_id;
+        return redirect('/admin/chapter/'.$chapter_id.'/contents');
     }
 
     /**
