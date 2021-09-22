@@ -334,7 +334,7 @@
                                 @foreach ($blogs as $blog)
                                     <div class="news-one__single wow fadeInUp" data-wow-delay="100ms">
                                         <div class="news-one__img">
-                                            <img src="/storage/{{ $blog->image }}" alt="">
+                                            <img style="aspect-ratio: 0.7;object-fit: cover;" src="/storage/{{ $blog->image }}" alt="">
                                             <a href="news-details.html">
                                                 <span class="news-one__plus"></span>
                                             </a>

@@ -242,8 +242,8 @@
                                     <div class="tours-list__content">
 
                                         <h3 class="tours-list__title"><a href="{{route('ad',$ad->slug)}}">{{$ad->name}}</a></h3>
-                                        <p class="tours-list__rate"><span>$870</span> / Per Person</p>
-                                        {!! \Illuminate\Support\Str::limit($ad->description, $limit = 100, $end = '...') !!}
+                                        <p class="tours-list__rate"><span>Hapur</span> 24/7</p>
+                                        {{-- {!! \Illuminate\Support\Str::limit($ad->description, $limit = 100, $end = '...') !!} --}}
                                         <ul class="tours-list__meta list-unstyled">
                                             <li><a href="tour-details.html"><i class="far fa-calendar"></i>3 Days</a>
                                             </li>
