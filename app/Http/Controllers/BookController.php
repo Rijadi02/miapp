@@ -133,7 +133,9 @@ class BookController extends Controller
         //     session()->flash('book-add', 'Nothing to add: ' . request('name'));
         // }
 
-        return back();
+        $category_id = $book->category_id;
+
+        return redirect('admin/category/'.$category_id.'/books');
     }
 
     /**

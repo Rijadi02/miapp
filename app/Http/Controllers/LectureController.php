@@ -150,7 +150,8 @@ class LectureController extends Controller
         //     session()->flash('chapter-add', 'Nothing to add: ' . request('name'));
         // }
 
-        return back();
+        $lecturer_id = $lecture->lecturer_id;
+        return redirect('/admin/lecturer/'.$lecturer_id.'/lectures');
     }
 
     /**

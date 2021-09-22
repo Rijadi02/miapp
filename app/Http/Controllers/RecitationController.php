@@ -139,7 +139,8 @@ class RecitationController extends Controller
         //     session()->flash('chapter-add', 'Nothing to add: ' . request('name'));
         // }
 
-        return back();
+        $reciter_id = $recitation->reciter_id;
+        return redirect('/admin/reciter/'.$reciter_id.'/recitations');
     }
 
     /**

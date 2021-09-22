@@ -119,7 +119,9 @@ class ChapterController extends Controller
         //     session()->flash('chapter-add', 'Nothing to add: ' . request('name'));
         // }
 
-        return back();
+        $book_id = $chapter->book_id;
+        return redirect('/admin/book/'.$book_id.'/chapters');
+
     }
 
     /**
