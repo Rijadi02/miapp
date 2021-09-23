@@ -34,35 +34,40 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // $buttons = [];
+        $buttons = [];
 
-        // $time = Carbon::now();
+        $time = Carbon::now();
 
-        // $month = $time->month;
-        // $day = $time->day;
-        // $hour = $time->format('H:i:s');
-        // $dayOfWeek = $time->dayOfWeek;
+        $month = $time->month;
+        $day = $time->day;
+        $hour = $time->format('H:i:s');
+        $dayOfWeek = $time->dayOfWeek;
 
-        // $current_date = Time::where('month', $month)->where('day',$day)->first();
 
-        // if($hour > $current_date->imsaku && $hour < $current_date->dhuhr ){
-        //     array_push($buttons,'Dhikri i mengjesit');
-        // }else if($hour > $current_date->asr && $hour < '00:00'){
-        //     array_push($buttons,'Dhikri i mbremjes');
-        // }
+        $reminders = [
+            'mengjes' => ['name'=>'Dhikri i mengjesit','link'=>'', 'icon'=> "sun"],
+            'mbremje' => ['name'=>'Dhikri i mbremjes','link'=>'', 'icon'=> "sun"],
+            'fjetjes' => ['name'=>'Dhikri i fjetjes','link'=>'', 'icon'=> "sun"],
+            'kehf' => ['name'=>'Surah Kehf','link'=>'', 'icon'=> "sun"],
+        ];
 
-        // if($hour > $current_date->isha){
-        //     array_push($buttons,'Dhikri i fjetjes');
-        // }
+        $current_date = Time::where('month', $month)->where('day',$day)->first();
 
-        // if($dayOfWeek == 5 && $hour > $current_date->sunrise && $hour < $current_date->maghrib ){
-        //     array_push($buttons,'Surah Kehf');
-        // }
+        if($hour > $current_date->imsaku && $hour < $current_date->dhuhr ){
+            array_push($buttons, $reminders['mengjes']);
+        }else if($hour > $current_date->asr && $hour < '00:00'){
+            array_push($buttons, $reminders['mbremje']);
+        }
 
-        // if($hour > $current_date->isha && $hour < '23:59'){
-        //     array_push($buttons,'Surah Mulk');
-        //     array_push($buttons,'Surah Sajadah');
-        // }
+        if($dayOfWeek == 5 && $hour > $current_date->sunrise && $hour < $current_date->maghrib ){
+            array_push($buttons, $reminders['kehf']);
+        }
+
+        if($hour > $current_date->isha && $hour < '23:59'){
+            // array_push($buttons,'Surah Mulk');
+            array_push($buttons, $reminders['fjetjes']);
+            // array_push($buttons,'Surah Sajadah');
+        }
 
 
         $media = Media::orderBy('id', 'desc')->firstOrFail();
