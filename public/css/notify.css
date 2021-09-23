@@ -275,3 +275,9 @@
     align-items: center;
     justify-content: center
 }
+
+
+.notify__icon {
+    margin-right: 20px !important;
+    margin-left: 8px !important
+}

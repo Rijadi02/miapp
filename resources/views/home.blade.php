@@ -2,21 +2,22 @@
     @section('content')
 
         <section class="main-slider">
-            <div class="swiper-container thm-swiper__slider" data-swiper-options='{"slidesPerView": 1, "loop": true,
-                                                                                                    "effect": "fade",
-                                                                                                    "pagination": {
-                                                                                                        "el": "#main-slider-pagination",
-                                                                                                        "type": "bullets",
-                                                                                                        "clickable": true
-                                                                                                      },
-                                                                                                    "navigation": {
-                                                                                                        "nextEl": ".main-slider-button-next",
-                                                                                                        "prevEl": ".main-slider-button-prev",
-                                                                                                        "clickable": true
-                                                                                                    },
-                                                                                                    "autoplay": {
-                                                                                                        "delay": 5000
-                                                                                                    }}'>
+            <div class="swiper-container thm-swiper__slider"
+                data-swiper-options='{"slidesPerView": 1, "loop": true,
+                                                                                                                        "effect": "fade",
+                                                                                                                        "pagination": {
+                                                                                                                            "el": "#main-slider-pagination",
+                                                                                                                            "type": "bullets",
+                                                                                                                            "clickable": true
+                                                                                                                          },
+                                                                                                                        "navigation": {
+                                                                                                                            "nextEl": ".main-slider-button-next",
+                                                                                                                            "prevEl": ".main-slider-button-prev",
+                                                                                                                            "clickable": true
+                                                                                                                        },
+                                                                                                                        "autoplay": {
+                                                                                                                            "delay": 5000
+                                                                                                                        }}'>
 
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
@@ -483,7 +484,7 @@
                     customIcon: '',
                     showIcon: true,
                     showCloseButton: true,
-                    autoclose: false,
+                    autoclose: true,
                     autotimeout: 10000,
                     gap: 10,
                     distance: 10,

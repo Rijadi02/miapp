@@ -45,10 +45,10 @@ class HomeController extends Controller
 
 
         $reminders = [
-            'mengjes' => ['name' => 'Dhikri i mengjesit', 'link' => 'https://google.com'],
-            'mbremje' => ['name' => 'Dhikri i mbremjes', 'link' => 'https://google.com'],
-            'fjetjes' => ['name' => 'Dhikri i fjetjes', 'link' => 'https://google.com'],
-            'kehf' => ['name' => 'Surah Kehf', 'link' => 'https://google.com'],
+            'mengjes' => ['name' => 'Dhikri i mengjesit', 'link' => '/kur-zgjohemi/duat%C3%AB'],
+            'mbremje' => ['name' => 'Dhikri i mbremjes', 'link' => '/kur-zgjohemi/duat%C3%AB'],
+            'fjetjes' => ['name' => 'Dhikri i fjetjes', 'link' => '/kur-zgjohemi/duat%C3%AB'],
+            'kehf' => ['name' => 'Surah Kehf', 'link' => '/kur-zgjohemi/duat%C3%AB'],
         ];
 
         $current_date = Time::where('month', $month)->where('day', $day)->first();
