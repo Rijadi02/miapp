@@ -3,20 +3,20 @@
 
         <section class="main-slider">
             <div class="swiper-container thm-swiper__slider" data-swiper-options='{"slidesPerView": 1, "loop": true,
-                                                                                    "effect": "fade",
-                                                                                    "pagination": {
-                                                                                        "el": "#main-slider-pagination",
-                                                                                        "type": "bullets",
-                                                                                        "clickable": true
-                                                                                      },
-                                                                                    "navigation": {
-                                                                                        "nextEl": ".main-slider-button-next",
-                                                                                        "prevEl": ".main-slider-button-prev",
-                                                                                        "clickable": true
-                                                                                    },
-                                                                                    "autoplay": {
-                                                                                        "delay": 5000
-                                                                                    }}'>
+                                                                                                    "effect": "fade",
+                                                                                                    "pagination": {
+                                                                                                        "el": "#main-slider-pagination",
+                                                                                                        "type": "bullets",
+                                                                                                        "clickable": true
+                                                                                                      },
+                                                                                                    "navigation": {
+                                                                                                        "nextEl": ".main-slider-button-next",
+                                                                                                        "prevEl": ".main-slider-button-prev",
+                                                                                                        "clickable": true
+                                                                                                    },
+                                                                                                    "autoplay": {
+                                                                                                        "delay": 5000
+                                                                                                    }}'>
 
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
@@ -470,25 +470,28 @@
         <!--Book Now End-->
         <script src="{{ asset('js/notify.js') }}"></script>
         <script>
-            console.log("notify");
-            new Notify({
-                status: 'warning',
-                title: 'Dhikri i Mengjesit',
-                text: '<a href="google.com">Kliko ketu</a>',
-                href: 'https://google.com',
-                effect: 'slide',
-                speed: 300,
-                customClass: '',
-                customIcon: '',
-                showIcon: true,
-                showCloseButton: true,
-                autoclose: false,
-                autotimeout: 10000,
-                gap: 10,
-                distance: 10,
-                type: 1,
-                position: 'right bottom'
-            })
+            window.addEventListener('load', (event) => {
+                @foreach ($buttons as $button)
+                    new Notify({
+                    status: 'warning',
+                    title: '{{ $button['name'] }}',
+                    text: 'Kliko ketu',
+                    href: '{{ $button['link'] }}',
+                    effect: 'slide',
+                    speed: 300,
+                    customClass: '',
+                    customIcon: '',
+                    showIcon: true,
+                    showCloseButton: true,
+                    autoclose: false,
+                    autotimeout: 10000,
+                    gap: 10,
+                    distance: 10,
+                    type: 1,
+                    position: 'right bottom'
+                    })
+                @endforeach
+            });
         </script>
 
     @endsection

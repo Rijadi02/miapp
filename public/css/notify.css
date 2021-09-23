@@ -251,7 +251,6 @@
     /* --notify-padding: 0.75rem; */
     font-family: 'DM Sans', sans-serif !important;
     --notify-icon-size: 32px;
-    --notify-close-icon-size: 16px;
     cursor: pointer !important;
 }
 
@@ -264,4 +263,15 @@
 
     line-height: 1rem !important;
     margin-bottom: 5px !important;
+}
+
+.notify__close {
+    position: absolute;
+    width: 34px !important;
+    right: 20px;
+    top: 8px;
+    padding: 8px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center
 }

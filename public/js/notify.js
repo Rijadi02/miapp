@@ -1,23 +1,23 @@
 var Notify = function () {
     "use strict";
     var t = function (t) {
-            t.wrapper.classList.add("notify--fade"), setTimeout((function () {
-                t.wrapper.classList.add("notify--fadeIn")
+            t.cont.classList.add("notify--fade"), setTimeout((function () {
+                t.cont.classList.add("notify--fadeIn")
             }), 100)
         },
         e = function (t) {
-            t.wrapper.classList.remove("notify--fadeIn"), setTimeout((function () {
-                t.wrapper.remove()
+            t.cont.classList.remove("notify--fadeIn"), setTimeout((function () {
+                t.cont.remove()
             }), t.speed)
         },
         s = function (t) {
-            t.wrapper.classList.add("notify--slide"), setTimeout((function () {
-                t.wrapper.classList.add("notify--slideIn")
+            t.cont.classList.add("notify--slide"), setTimeout((function () {
+                t.cont.classList.add("notify--slideIn")
             }), 100)
         },
         i = function (t) {
-            t.wrapper.classList.remove("notify--slideIn"), setTimeout((function () {
-                t.wrapper.remove()
+            t.cont.classList.remove("notify--slideIn"), setTimeout((function () {
+                t.cont.remove()
             }), t.speed)
         };
     return function () {
@@ -54,25 +54,30 @@ var Notify = function () {
                 N = o.position,
                 _ = void 0 === N ? "right top" : N,
                 ee = o.href;
-            this.status = c, this.title = C, this.text = h, this.href = ee, this.showIcon = l, this.customIcon = u, this.customClass = v, this.speed = y, this.effect = L, this.showCloseButton = I, this.autoclose = E, this.autotimeout = O, this.gap = b, this.distance = T, this.type = a, this.position = _, this.checkRequirements() ? (this.setContainer(), this.setWrapper(), this.setPosition(), this.showIcon && this.setIcon(), this.showCloseButton && this.setCloseButton(), this.setContent(), this.container.prepend(this.wrapper), this.setEffect(), this.notifyIn(this.selectedNotifyInEffect), this.autoclose && this.autoClose(), this.setObserver()) : console.error("You must specify 'title' or 'text' at least.")
+            this.status = c, this.title = C, this.text = h, this.href = ee, this.showIcon = l, this.customIcon = u, this.customClass = v, this.speed = y, this.effect = L, this.showCloseButton = I, this.autoclose = E, this.autotimeout = O, this.gap = b, this.distance = T, this.type = a, this.position = _, this.checkRequirements() ? (this.setContainer(), this.setCont(), this.setWrapper(), this.setPosition(), this.showIcon && this.setIcon(), this.showCloseButton && this.setCloseButton(), this.setContent(), this.container.prepend(this.cont), this.setEffect(), this.notifyIn(this.selectedNotifyInEffect), this.autoclose && this.autoClose(), this.setObserver()) : console.error("You must specify 'title' or 'text' at least.")
         }
         return o.prototype.checkRequirements = function () {
             return !(!this.title && !this.text)
         }, o.prototype.setContainer = function () {
             var t = document.querySelector(".notifications-container");
             t ? this.container = t : (this.container = document.createElement("div"), this.container.classList.add("notifications-container"), document.body.appendChild(this.container)), this.container.style.setProperty("--distance", this.distance + "px")
+        }, o.prototype.setCont = function () {
+            var t = document.createElement("div");
+            this.container.appendChild(t);
+            this.cont = t, this.cont.style.transitionDuration = this.speed + "ms";
         }, o.prototype.setPosition = function () {
             var t = "notify-is-";
             "center" === this.position ? this.container.classList.add(t + "center") : this.container.classList.remove(t + "center"), this.position.includes("left") ? this.container.classList.add(t + "left") : this.container.classList.remove(t + "left"), this.position.includes("right") ? this.container.classList.add(t + "right") : this.container.classList.remove(t + "right"), this.position.includes("x-center") ? this.container.classList.add(t + "x-center") : this.container.classList.remove(t + "x-center"), this.position.includes("top") ? this.container.classList.add(t + "top") : this.container.classList.remove(t + "top"), this.position.includes("bottom") ? this.container.classList.add(t + "bottom") : this.container.classList.remove(t + "bottom"), this.position.includes("y-center") ? this.container.classList.add(t + "y-center") : this.container.classList.remove(t + "y-center")
         }, o.prototype.setCloseButton = function () {
             var t = this,
                 e = document.createElement("div");
-            e.classList.add("notify__close"), e.innerHTML = '<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.94 7.99988L13.14 3.80655C13.2655 3.68101 13.3361 3.51075 13.3361 3.33321C13.3361 3.15568 13.2655 2.98542 13.14 2.85988C13.0145 2.73434 12.8442 2.66382 12.6667 2.66382C12.4891 2.66382 12.3189 2.73434 12.1933 2.85988L8 7.05988L3.80667 2.85988C3.68113 2.73434 3.51087 2.66382 3.33333 2.66382C3.1558 2.66382 2.98554 2.73434 2.86 2.85988C2.73446 2.98542 2.66394 3.15568 2.66394 3.33321C2.66394 3.51075 2.73446 3.68101 2.86 3.80655L7.06 7.99988L2.86 12.1932C2.79751 12.2552 2.74792 12.3289 2.71407 12.4102C2.68023 12.4914 2.6628 12.5785 2.6628 12.6665C2.6628 12.7546 2.68023 12.8417 2.71407 12.9229C2.74792 13.0042 2.79751 13.0779 2.86 13.1399C2.92198 13.2024 2.99571 13.252 3.07695 13.2858C3.15819 13.3197 3.24533 13.3371 3.33333 13.3371C3.42134 13.3371 3.50848 13.3197 3.58972 13.2858C3.67096 13.252 3.74469 13.2024 3.80667 13.1399L8 8.93988L12.1933 13.1399C12.2553 13.2024 12.329 13.252 12.4103 13.2858C12.4915 13.3197 12.5787 13.3371 12.6667 13.3371C12.7547 13.3371 12.8418 13.3197 12.9231 13.2858C13.0043 13.252 13.078 13.2024 13.14 13.1399C13.2025 13.0779 13.2521 13.0042 13.2859 12.9229C13.3198 12.8417 13.3372 12.7546 13.3372 12.6665C13.3372 12.5785 13.3198 12.4914 13.2859 12.4102C13.2521 12.3289 13.2025 12.2552 13.14 12.1932L8.94 7.99988Z" fill="currentColor"/></svg>', this.wrapper.appendChild(e), e.addEventListener("click", (function () {
+            e.classList.add("notify__close"), e.innerHTML = '<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.94 7.99988L13.14 3.80655C13.2655 3.68101 13.3361 3.51075 13.3361 3.33321C13.3361 3.15568 13.2655 2.98542 13.14 2.85988C13.0145 2.73434 12.8442 2.66382 12.6667 2.66382C12.4891 2.66382 12.3189 2.73434 12.1933 2.85988L8 7.05988L3.80667 2.85988C3.68113 2.73434 3.51087 2.66382 3.33333 2.66382C3.1558 2.66382 2.98554 2.73434 2.86 2.85988C2.73446 2.98542 2.66394 3.15568 2.66394 3.33321C2.66394 3.51075 2.73446 3.68101 2.86 3.80655L7.06 7.99988L2.86 12.1932C2.79751 12.2552 2.74792 12.3289 2.71407 12.4102C2.68023 12.4914 2.6628 12.5785 2.6628 12.6665C2.6628 12.7546 2.68023 12.8417 2.71407 12.9229C2.74792 13.0042 2.79751 13.0779 2.86 13.1399C2.92198 13.2024 2.99571 13.252 3.07695 13.2858C3.15819 13.3197 3.24533 13.3371 3.33333 13.3371C3.42134 13.3371 3.50848 13.3197 3.58972 13.2858C3.67096 13.252 3.74469 13.2024 3.80667 13.1399L8 8.93988L12.1933 13.1399C12.2553 13.2024 12.329 13.252 12.4103 13.2858C12.4915 13.3197 12.5787 13.3371 12.6667 13.3371C12.7547 13.3371 12.8418 13.3197 12.9231 13.2858C13.0043 13.252 13.078 13.2024 13.14 13.1399C13.2025 13.0779 13.2521 13.0042 13.2859 12.9229C13.3198 12.8417 13.3372 12.7546 13.3372 12.6665C13.3372 12.5785 13.3198 12.4914 13.2859 12.4102C13.2521 12.3289 13.2025 12.2552 13.14 12.1932L8.94 7.99988Z" fill="currentColor"/></svg>', this.cont.appendChild(e), e.addEventListener("click", (function () {
                 t.close()
             }))
         }, o.prototype.setWrapper = function () {
             var t = document.createElement("a");
-            this.wrapper = t, this.wrapper.setAttribute("href", this.href), this.wrapper.style.setProperty("--gap", this.gap + "px"), this.wrapper.style.transitionDuration = this.speed + "ms", this.wrapper.classList.add("notify"), this.wrapper.classList.add("notify--type-" + this.type), this.wrapper.classList.add("notify--" + this.status), this.customClass && this.wrapper.classList.add(this.customClass)
+            this.cont.appendChild(t);
+            this.wrapper = t, this.wrapper.setAttribute("href", this.href), this.wrapper.style.setProperty("--gap", this.gap + "px"), this.wrapper.classList.add("notify"), this.wrapper.classList.add("notify--type-" + this.type), this.wrapper.classList.add("notify--" + this.status), this.customClass && this.wrapper.classList.add(this.customClass)
         }, o.prototype.setContent = function () {
             var t, e, s = document.createElement("div");
             s.classList.add("notify-content"), this.title && ((t = document.createElement("div")).classList.add("notify__title"), t.textContent = this.title, this.showCloseButton || (t.style.paddingRight = "0")), this.text && ((e = document.createElement("div")).classList.add("notify__text"), e.innerHTML = this.text.trim(), this.title || (e.style.marginTop = "0")), this.wrapper.appendChild(s), this.title && s.appendChild(t), this.text && s.appendChild(e)

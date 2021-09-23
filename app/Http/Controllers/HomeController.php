@@ -36,7 +36,7 @@ class HomeController extends Controller
     {
         $buttons = [];
 
-        $time = Carbon::now();
+        $time = Carbon::now('GMT+2');
 
         $month = $time->month;
         $day = $time->day;
@@ -45,49 +45,49 @@ class HomeController extends Controller
 
 
         $reminders = [
-            'mengjes' => ['name'=>'Dhikri i mengjesit','link'=>''],
-            'mbremje' => ['name'=>'Dhikri i mbremjes','link'=>''],
-            'fjetjes' => ['name'=>'Dhikri i fjetjes','link'=>''],
-            'kehf' => ['name'=>'Surah Kehf','link'=>''],
+            'mengjes' => ['name' => 'Dhikri i mengjesit', 'link' => 'https://google.com'],
+            'mbremje' => ['name' => 'Dhikri i mbremjes', 'link' => 'https://google.com'],
+            'fjetjes' => ['name' => 'Dhikri i fjetjes', 'link' => 'https://google.com'],
+            'kehf' => ['name' => 'Surah Kehf', 'link' => 'https://google.com'],
         ];
 
-        $current_date = Time::where('month', $month)->where('day',$day)->first();
+        $current_date = Time::where('month', $month)->where('day', $day)->first();
 
-        if($hour > $current_date->imsaku && $hour < $current_date->asr ){
+        if ($hour > $current_date->imsaku && $hour < $current_date->asr) {
             array_push($buttons, $reminders['mengjes']);
-        }else if($hour > $current_date->asr && $hour < '00:00'){
+        } else if ($hour > $current_date->asr && $hour < '23:59') {
             array_push($buttons, $reminders['mbremje']);
         }
 
-        if($dayOfWeek == 5 && $hour > $current_date->sunrise && $hour < $current_date->maghrib ){
+        if ($dayOfWeek == 5 && $hour > $current_date->sunrise && $hour < $current_date->maghrib) {
             array_push($buttons, $reminders['kehf']);
         }
 
-        if($hour > $current_date->isha && $hour < '23:59'){
+        if ($hour > $current_date->maghrib && $hour < '23:59') {
             // array_push($buttons,'Surah Mulk');
-            array_push($buttons, $reminders['fjetjes']);
             // array_push($buttons,'Surah Sajadah');
+            array_push($buttons, $reminders['fjetjes']);
         }
 
-        // dd($buttons);
+        // dd($hour);
 
         $media = Media::orderBy('id', 'desc')->firstOrFail();
         $posts = Post::orderBy('id', 'desc')->take(5)->get();
         $blogs = Blog::orderBy('id', 'desc')->take(5)->get();
-        return view('home', compact('posts','blogs','media') );
+        return view('home', compact('posts', 'blogs', 'media', 'buttons'));
     }
 
     public function blogs()
     {
         $blogs = Blog::latest()->paginate(5);
-        return view('blogs', compact('blogs') );
+        return view('blogs', compact('blogs'));
     }
 
     public function blog($slug)
     {
         $blog = Blog::where('slug', '=', $slug)->firstOrFail();
         $blogs = Blog::latest()->take(3)->get();
-        return view('blog', compact('blog','blogs') );
+        return view('blog', compact('blog', 'blogs'));
     }
 
     // public function shield2()
@@ -102,7 +102,8 @@ class HomeController extends Controller
         return view('shield');
     }
 
-    public function ads(Request $request){
+    public function ads(Request $request)
+    {
         $tag = $request->input('tag');
         $city = $request->input('city');
         $ads = Ad::query()->where('status', '=', 1);
@@ -115,58 +116,60 @@ class HomeController extends Controller
         }
 
         $ads = $ads->paginate(5);
-        return view('ads', compact('ads') );
-
+        return view('ads', compact('ads'));
     }
 
-    public function ad($slug){
+    public function ad($slug)
+    {
         $ad = Ad::where('slug', '=', $slug)->firstOrFail();
         $medias = json_decode($ad->media, true);
         $facebook = $medias['facebook'];
         $twitter = $medias['twitter'];
         $instagram = $medias['instagram'];
-        return view('ad', compact('ad','facebook','instagram','twitter') );
-
+        return view('ad', compact('ad', 'facebook', 'instagram', 'twitter'));
     }
 
 
-    public function lectures($city){
+    public function lectures($city)
+    {
 
 
         $days = Day::all();
         $city = City::where('name', '=', $city)->firstOrFail();
         $cities = City::all();
-        return view('lectures', compact('days','city','cities'));
-
+        return view('lectures', compact('days', 'city', 'cities'));
     }
 
     public function chapters($slug)
     {
         $book = Book::where('slug', '=', $slug)->firstOrFail();
         $chapters = $book->chapters;
-        return view('chapters', compact('chapters') );
+        return view('chapters', compact('chapters'));
     }
 
     public function content($slug)
     {
         $chapter = Chapter::where('slug', '=', $slug)->firstOrFail();
         $contents = $chapter->contents;
-        return view('content', compact('contents') );
+        return view('content', compact('contents'));
     }
 
-    public function recitations(){
+    public function recitations()
+    {
         $recitations = Recitation::inRandomOrder()->limit(10)->get();
-        return view('recitations', compact('recitations') );
+        return view('recitations', compact('recitations'));
     }
 
-    public function reciter($slug){
+    public function reciter($slug)
+    {
         $reciter = Reciter::where('slug', '=', $slug)->firstOrFail();
         $recitations = $reciter->recitations;
-        return view('recitations', compact('recitations') );
+        return view('recitations', compact('recitations'));
     }
 
-    public function recitations_show($id){
+    public function recitations_show($id)
+    {
         $recitations = Recitation::where('id', $id)->get();
-        return view('recitations', compact('recitations') );
+        return view('recitations', compact('recitations'));
     }
 }
