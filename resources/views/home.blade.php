@@ -3,20 +3,20 @@
 
         <section class="main-slider">
             <div class="swiper-container thm-swiper__slider" data-swiper-options='{"slidesPerView": 1, "loop": true,
-                                "effect": "fade",
-                                "pagination": {
-                                    "el": "#main-slider-pagination",
-                                    "type": "bullets",
-                                    "clickable": true
-                                  },
-                                "navigation": {
-                                    "nextEl": ".main-slider-button-next",
-                                    "prevEl": ".main-slider-button-prev",
-                                    "clickable": true
-                                },
-                                "autoplay": {
-                                    "delay": 5000
-                                }}'>
+                                                                                    "effect": "fade",
+                                                                                    "pagination": {
+                                                                                        "el": "#main-slider-pagination",
+                                                                                        "type": "bullets",
+                                                                                        "clickable": true
+                                                                                      },
+                                                                                    "navigation": {
+                                                                                        "nextEl": ".main-slider-button-next",
+                                                                                        "prevEl": ".main-slider-button-prev",
+                                                                                        "clickable": true
+                                                                                    },
+                                                                                    "autoplay": {
+                                                                                        "delay": 5000
+                                                                                    }}'>
 
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
@@ -82,19 +82,19 @@
             <div class="counter-one__container">
                 <ul class="list-unstyled counters-one__box">
                     <li class="counter-one__single wow fadeInUp" data-wow-delay="100ms">
-                        <h3 class="odometer" data-count="{{$media->instagram}}">00</h3>
+                        <h3 class="odometer" data-count="{{ $media->instagram }}">00</h3>
                         <p class="counter-one__text">Instagram</p>
                     </li>
                     <li class="counter-one__single wow fadeInUp" data-wow-delay="200ms">
-                        <h3 class="odometer" data-count="{{$media->youtube}}">00</h3>
+                        <h3 class="odometer" data-count="{{ $media->youtube }}">00</h3>
                         <p class="counter-one__text">Youtube</p>
                     </li>
                     <li class="counter-one__single wow fadeInUp" data-wow-delay="300ms">
-                        <h3 class="odometer" data-count="{{$media->telegram}}">00</h3>
+                        <h3 class="odometer" data-count="{{ $media->telegram }}">00</h3>
                         <p class="counter-one__text">Telegram</p>
                     </li>
                     <li class="counter-one__single wow fadeInUp" data-wow-delay="400ms">
-                        <h3 class="odometer" data-count="{{$media->facebook}}">00</h3>
+                        <h3 class="odometer" data-count="{{ $media->facebook }}">00</h3>
                         <p class="counter-one__text">Facebook</p>
                     </li>
                 </ul>
@@ -138,7 +138,9 @@
                                 <span class="section-title__tagline">Kush jemi ne?</span>
                                 <h2 class="section-title__title">Organizata Muslimani Ideal</h2>
                             </div>
-                            <p class="about-one__right-text">Muslimani Ideal është medium islam, i cili synim kryesor e ka përhapjen e fesë së Allahut në të gjitha rrjetet sociale. Përmes këti mediumi tentojmë të hapim pakëz dritë në këtë errësirë të madhe. </p>
+                            <p class="about-one__right-text">Muslimani Ideal është medium islam, i cili synim kryesor e ka
+                                përhapjen e fesë së Allahut në të gjitha rrjetet sociale. Përmes këti mediumi tentojmë të
+                                hapim pakëz dritë në këtë errësirë të madhe. </p>
                             <ul class="list-unstyled about-one__points">
                                 <li>
                                     <div class="icon">
@@ -165,7 +167,8 @@
                                     </div>
                                 </li>
                             </ul>
-                            <a href="https://www.youtube.com/c/MuslimaniIdeal" class="about-one__btn thm-btn">Na ndiqni në Youtube</a>
+                            <a href="https://www.youtube.com/c/MuslimaniIdeal" class="about-one__btn thm-btn">Na ndiqni në
+                                Youtube</a>
                         </div>
                     </div>
                 </div>
@@ -323,7 +326,8 @@
                                 <span class="section-title__tagline">Artikujt & lajmet e fundit —></span>
                                 <h2 class="section-title__title">Artikujt e fundit</h2>
                             </div>
-                            <p class="news-two__text">Muslimani Ideal poston artikuj si dhe lajme nga më bashkohorët. Artikujt janë të përgaditur nga vetë stafi i Muslimanit Ideal, ose nga hoxhallarët.
+                            <p class="news-two__text">Muslimani Ideal poston artikuj si dhe lajme nga më bashkohorët.
+                                Artikujt janë të përgaditur nga vetë stafi i Muslimanit Ideal, ose nga hoxhallarët.
                             </p>
                         </div>
                     </div>
@@ -334,7 +338,8 @@
                                 @foreach ($blogs as $blog)
                                     <div class="news-one__single wow fadeInUp" data-wow-delay="100ms">
                                         <div class="news-one__img">
-                                            <img style="aspect-ratio: 0.7;object-fit: cover;" src="/storage/{{ $blog->image }}" alt="">
+                                            <img style="aspect-ratio: 0.7;object-fit: cover;"
+                                                src="/storage/{{ $blog->image }}" alt="">
                                             <a href="news-details.html">
                                                 <span class="news-one__plus"></span>
                                             </a>
@@ -432,7 +437,9 @@
                                 </ul>
                             </div>
                             <p class="about-two__right-text-1">Allahu në Kuran thotë:</p>
-                            <p class="about-two__right-text-2">Kush do t’i japë Allahut një hua të bukur, që Ai t’ia kthejë shpërblimin shumëfish? Allahu e shtrëngon (riskun) dhe e liron; tek Ai do të ktheheni. <a class="text-decoration-none" href="https://quran.com/2/245"> <br> [2:245] </a></p>
+                            <p class="about-two__right-text-2">Kush do t’i japë Allahut një hua të bukur, që Ai t’ia kthejë
+                                shpërblimin shumëfish? Allahu e shtrëngon (riskun) dhe e liron; tek Ai do të ktheheni. <a
+                                    class="text-decoration-none" href="https://quran.com/2/245"> <br> [2:245] </a></p>
                             <a href="#" class="thm-btn about-two__btn">Dhuro Sadakë</a>
                         </div>
                     </div>
@@ -461,6 +468,28 @@
             </div>
         </section>
         <!--Book Now End-->
+        <script src="{{ asset('js/notify.js') }}"></script>
+        <script>
+            console.log("notify");
+            new Notify({
+                status: 'warning',
+                title: 'Dhikri i Mengjesit',
+                text: '<a href="google.com">Kliko ketu</a>',
+                href: 'https://google.com',
+                effect: 'slide',
+                speed: 300,
+                customClass: '',
+                customIcon: '',
+                showIcon: true,
+                showCloseButton: true,
+                autoclose: false,
+                autotimeout: 10000,
+                gap: 10,
+                distance: 10,
+                type: 1,
+                position: 'right bottom'
+            })
+        </script>
 
     @endsection
 

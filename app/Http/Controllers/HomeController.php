@@ -45,15 +45,15 @@ class HomeController extends Controller
 
 
         $reminders = [
-            'mengjes' => ['name'=>'Dhikri i mengjesit','link'=>'', 'icon'=> "sun"],
-            'mbremje' => ['name'=>'Dhikri i mbremjes','link'=>'', 'icon'=> "sun"],
-            'fjetjes' => ['name'=>'Dhikri i fjetjes','link'=>'', 'icon'=> "sun"],
-            'kehf' => ['name'=>'Surah Kehf','link'=>'', 'icon'=> "sun"],
+            'mengjes' => ['name'=>'Dhikri i mengjesit','link'=>''],
+            'mbremje' => ['name'=>'Dhikri i mbremjes','link'=>''],
+            'fjetjes' => ['name'=>'Dhikri i fjetjes','link'=>''],
+            'kehf' => ['name'=>'Surah Kehf','link'=>''],
         ];
 
         $current_date = Time::where('month', $month)->where('day',$day)->first();
 
-        if($hour > $current_date->imsaku && $hour < $current_date->dhuhr ){
+        if($hour > $current_date->imsaku && $hour < $current_date->asr ){
             array_push($buttons, $reminders['mengjes']);
         }else if($hour > $current_date->asr && $hour < '00:00'){
             array_push($buttons, $reminders['mbremje']);
@@ -69,6 +69,7 @@ class HomeController extends Controller
             // array_push($buttons,'Surah Sajadah');
         }
 
+        // dd($buttons);
 
         $media = Media::orderBy('id', 'desc')->firstOrFail();
         $posts = Post::orderBy('id', 'desc')->take(5)->get();

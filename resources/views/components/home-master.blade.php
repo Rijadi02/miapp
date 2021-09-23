@@ -21,7 +21,6 @@
         href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
         rel="stylesheet">
 
-
     <link rel="stylesheet" href="{{asset('assetsFront/vendors/bootstrap/css/bootstrap.min.css')}}" />
     <link rel="stylesheet" href="{{asset('assetsFront/vendors/animate/animate.min.css')}}" />
     <link rel="stylesheet" href="{{asset('assetsFront/vendors/animate/custom-animate.css')}}" />
@@ -44,6 +43,8 @@
     <link rel="stylesheet" href="{{asset('assetsFront/vendors/jquery-ui/jquery-ui.css')}}" />
     <link rel="stylesheet" href="{{asset('assetsFront/vendors/timepicker/timePicker.css')}}" />
     <link rel="stylesheet" href="{{asset('css/player.css')}}" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@0.5.4/dist/simple-notify.min.css" />
+     <link rel="stylesheet" href="{{asset('css/notify.css')}}" />
 
     <link rel="stylesheet" href="{{asset('assetsFront/arabic-fonts.css')}}" />
     <!-- template styles -->
@@ -303,6 +304,7 @@
             <!-- /.search-popup__content -->
         </div>
         <!-- /.search-popup -->
+
 
 
 
