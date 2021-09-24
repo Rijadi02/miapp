@@ -9,12 +9,13 @@
                             <div class="page-header-icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layout"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg></div>
 
                             @if(isset($category))
-                            Librat për kategorinë :&nbsp;<b> {{ $category->name}}</b>
+                            Librat për kategorinë :&nbsp; {{ $category->name}}
                             @else
-                            Editimi i librit : &nbsp; <b>{{$book->name}}</b>
+                            Editimi i librit : &nbsp; {{$book->name}}
                             @endif
                         </h1>
                         <div class="page-header-subtitle">Ketu vendosen librat prej te cilave merret materiali prej seciles kategori</div>
+                        <a href="{{route('category.index')}}" class="btn btn-white text-black mt-3"><i style="font-size: 10px" class="fa fa-arrow-left ml-1"></i> &nbsp; Kthehu te Kategoritë</a>
                     </div>
                 </div>
             </div>
