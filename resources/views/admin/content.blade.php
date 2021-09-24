@@ -14,6 +14,12 @@
                              @endif
                         </h1>
                         <div class="page-header-subtitle">The default page header layout with main content that overlaps the background of the page header</div>
+                        @if(isset($chapter))
+                        <a href="{{route('book.chapters',$chapter->book_id)}}" class="btn btn-white text-black mt-3"><i style="font-size: 10px" class="fa fa-arrow-left ml-1"></i> &nbsp; Kthehu te Kapitujt</a>
+                        @else
+                        <a href="{{route('book.chapters',$content->chapter->book_id)}}" class="btn btn-white text-black mt-3"><i style="font-size: 10px" class="fa fa-arrow-left ml-1"></i> &nbsp; Kthehu te Kapitujt</a>
+                        @endif
+
                     </div>
                 </div>
             </div>

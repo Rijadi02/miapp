@@ -14,6 +14,12 @@
                             @endif
                         </h1>
                         <div class="page-header-subtitle">Ketu shtohen kapitujt per libra te caktuar, e te cilet kapituj mund te popullohen me kontent.</div>
+                        @if(isset($book))
+                        <a href="{{route('category.books',$book->category_id)}}" class="btn btn-white text-black mt-3"><i style="font-size: 10px" class="fa fa-arrow-left ml-1"></i> &nbsp; Kthehu te Librat</a>
+                        @else
+                        <a href="{{route('category.books',$chapter->book->category_id)}}" class="btn btn-white text-black mt-3"><i style="font-size: 10px" class="fa fa-arrow-left ml-1"></i> &nbsp; Kthehu te Librat</a>
+                        @endif
+
                     </div>
                 </div>
             </div>
