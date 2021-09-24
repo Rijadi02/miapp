@@ -2,7 +2,7 @@
     @section('meta')
     <meta property="og:image" content="<?php echo url('/'); ?>/storage/{{ $lecture->lecturer->image }}" />
 
-    <meta property="og:description" content="{{ $lecture->day->name }}, {{$lecture->date}}" />
+    <meta property="og:description" content="{{ $lecture->day->name }}, {{$lecture->place}}" />
 
     <meta property="og:url"content="<?php echo url('/'); ?>/dersi/{{ $lecture->id }}" />
 
