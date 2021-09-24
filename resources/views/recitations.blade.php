@@ -72,7 +72,8 @@
                                     <div class="col-lg-3 col-md-4">
                                         <a href="{{ route('reciter', $recitation->reciter->slug) }}">
                                             <div class="reciter__image d-flex justify-center">
-                                                <img class="reciter-img" src="/storage/{{ $recitation->reciter->image }}" alt="Card image cap">
+                                                <img class="reciter-img"
+                                                    src="/storage/{{ $recitation->reciter->image }}" alt="Card image cap">
                                             </div>
                                         </a>
                                     </div>
@@ -86,14 +87,12 @@
                                                 id="repeat-{{ $recitation->id }}" class="iconText"><i
                                                     class="fas fa-redo"></i> <span class="text">Rikthe</span>
                                             </div>
-                                            <div class=" iconText"><i class="fas fa-share" "></i> <span
-                                                                                    class="
-                                                         text">Shperndaj</span>
-                                            </div>
+                                            <a class="search-toggler iconText"><i class="fas fa-share"></i> <span
+                                                    class="text">Shperndaj</span>
+                                            </a>
                                             <a download href="/storage/{{ $recitation->audio }}" class="iconText"><i
-                                                    class="fas fa-download" "></i> <span
-                                                                                    class="
-                                                         text">Shkarko</span></a>
+                                                    class="fas fa-download"></i> <span
+                                                    class="text">Shkarko</span></a>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 mt-4 mt-md-2 pt-0">
@@ -150,6 +149,15 @@
                 </div>
             </div>
         </section>
+
+        <div class="search-popup">
+            <div class="search-popup__overlay search-toggler"></div>
+            <div class="search-popup__content">
+                <a class="thm-btn">
+                    <i class="icon-magnifying-glass"></i>
+                </a>
+            </div>
+        </div>
         <!--Tours List End-->
 
 
