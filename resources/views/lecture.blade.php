@@ -2,13 +2,13 @@
     @section('meta')
     <meta property="og:image" content="<?php echo url('/'); ?>/storage/{{ $lecture->lecturer->image }}" />
 
-    <meta property="og:description" content="  {{ $lecture->day }}, {{$lecture->date}}" />
+    <meta property="og:description" content="{{ $lecture->day }}, {{$lecture->date}}" />
 
     <meta property="og:url"content="<?php echo url('/'); ?>/dersi/{{ $lecture->id }}" />
 
 
 
-    <meta property="og:title" content="Dersi '{{ $lecture->title}}' {{ $lecture->status == "0" ? "NUK" : "" }} mbahet me daten {{ $lecture->title}}"  />
+    <meta property="og:title" content="Dersi '{{ $lecture->title}}' {{ $lecture->status == "0" ? "NUK" : "" }} mbahet me daten {{ $lecture->date}}"  />
     @endsection
 
     @section('content')
