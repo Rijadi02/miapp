@@ -21,6 +21,7 @@ Route::get('/artikulli/{slug}', [App\Http\Controllers\HomeController::class, 'bl
 Route::get('/bizneset', [App\Http\Controllers\HomeController::class, 'ads'])->name('ads');
 Route::get('/bizneset/{slug}', [App\Http\Controllers\HomeController::class, 'ad'])->name('ad');
 Route::get('/derset/{city}', [App\Http\Controllers\HomeController::class, 'lectures'])->name('lectures');
+Route::get('/dersi/{id}', [App\Http\Controllers\HomeController::class, 'lecture'])->name('lecture');
 Route::get('/mburoja', [App\Http\Controllers\HomeController::class, 'shield'])->name('shield');
 Route::get('/{book}/kapitujt', [App\Http\Controllers\HomeController::class, 'chapters'])->name('chapters');
 Route::get('/{chapter}/duatë', [App\Http\Controllers\HomeController::class, 'content'])->name('content');

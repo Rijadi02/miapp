@@ -140,6 +140,13 @@ class HomeController extends Controller
         return view('lectures', compact('days', 'city', 'cities'));
     }
 
+    public function lecture($id)
+    {
+        $lecture = Lecture::where('id', '=', $id)->firstOrFail();
+
+        return view('lecture', compact('lecture') );
+    }
+
     public function chapters($slug)
     {
         $book = Book::where('slug', '=', $slug)->firstOrFail();
