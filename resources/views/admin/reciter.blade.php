@@ -107,10 +107,10 @@
                             <div class="col-lg-4 mb-3 mb-lg-5">
                                 <div class="card">
                                     <div class="card-body text-center p-lg-5">
-                                        <a href="{{ route('reciter.recitations', $reciter->id) }}">
+                                        <a style="text-decoration: none" href="{{ route('reciter.recitations', $reciter->id) }}">
                                             <img class="img-fluid mb-4" src="/storage/{{ $reciter->image }}" alt="">
+                                            <h5>{{ $reciter->name }}</h5>
                                         </a>
-                                        <h5>{{ $reciter->name }}</h5>
 
                                         <a class="btn btn-primary btn-sm"
                                             href="{{ route('reciter.edit', $reciter->id) }}">Përditëso</a>

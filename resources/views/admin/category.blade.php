@@ -132,15 +132,15 @@
                             <div class="col-lg-4 mb-3 mb-lg-5">
                                 <div class="card">
                                     <div class="card-body text-center p-lg-5">
-                                        <a href="{{ route('category.books', $category->id) }}">
+                                        <a style="text-decoration: none" href="{{ route('category.books', $category->id) }}">
                                             <img class="img-fluid mb-4" src="/storage/{{ $category->image }}" alt="">
+                                            <h5>{{ $category->name }}</h5>
                                         </a>
-                                        <h5>{{ $category->name }}</h5>
 
                                         <a class="btn btn-primary btn-sm"
                                             href="{{ route('category.edit', $category->id) }}">Përditëso</a>
-                                        <button class="btn btn-sm btn-danger" type="button" data-toggle="modal"
-                                            data-target="#exampleModal{{ $category->id }}">Shlyej</button>
+                                        {{-- <button class="btn btn-sm btn-danger" type="button" data-toggle="modal"
+                                            data-target="#exampleModal{{ $category->id }}">Shlyej</button> --}}
 
                                     </div>
                                 </div>

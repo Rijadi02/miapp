@@ -39,8 +39,8 @@ class ContentController extends Controller
     {
         $data = request()->validate(
             [
-                'title' => 'required',
-                'number' => 'required|unique:contents',
+                'title' => '',
+                'number' => 'required',
                 'content' => 'required',
                 'transliteration' => '',
                 'arabic' => '',

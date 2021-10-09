@@ -48,7 +48,7 @@
                         </div>
 
                         <div class="col-lg-12">
-                            <label for="title" class="col-md-12 col-form-label">Titulli</label>
+                            <label for="title" class="col-md-12 col-form-label">Titulli(sa here të thuhet, psh: 3)</label>
                             <input id="title" type="text" name="title"
                                 class="form-control @error('title') is-invalid @enderror"
                                 value="{{ old('title') ?? $content->title }}" autocomplete="title">
@@ -141,7 +141,7 @@
                         </div>
 
                         <div class="col-lg-12">
-                            <label for="title" class="col-md-12 col-form-label">Titulli</label>
+                            <label for="title" class="col-md-12 col-form-label">Titulli (sa here të thuhet, psh: 3)</label>
                             <input id="title" type="text" name="title"
                                 class="form-control @error('title') is-invalid @enderror" value="{{ old('title') }}"
                                 autocomplete="title">
@@ -184,7 +184,7 @@
                         </div>
 
                         <div class="col-lg-12">
-                            <label for="reference" class="col-md-12 col-form-label">Referenca</label>
+                            <label for="reference" class="col-md-12 col-form-label">Referenca (ku është marrë, psh: 'Buhari 32' ose 'Buhariu dhe Muslimi')</label>
                             <input id="reference" type="text" name="reference"
                                 class="form-control @error('reference') is-invalid @enderror"
                                 value="{{ old('reference') }}" autocomplete="reference">
@@ -196,7 +196,7 @@
                         </div>
 
                         <div class="col-lg-12">
-                            <label for="hadith" class="col-md-12 col-form-label">Hadithi</label>
+                            <label for="hadith" class="col-md-12 col-form-label">Hadithi (nese ka ndonje hadith për të)</label>
                             <textarea  id="hadith" name="hadith" class="form-control @error("hadith") is-invalid @enderror">{{ old('hadith')}}</textarea>
                             @error('hadith')
                                 <span class="invalid-feedback" role="alert">
@@ -225,15 +225,17 @@
                         <thead>
                             <tr>
                                 <th>Renditja</th>
-                                <th>Titulli</th>
+                                <th>Shqip</th>
+                                <th>Referenca</th>
                                 <th>Modifikimet</th>
 
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>ID</th>
-                                <th>Name</th>
+                                <th>Renditja</th>
+                                <th>Shqip</th>
+                                <th>Referenca</th>
                                 <th>Modifikimet</th>
                             </tr>
                         </tfoot>
@@ -242,7 +244,8 @@
 
                                 <tr>
                                     <td>{{ $content->number }}</td>
-                                    <td>{{ $content->title }}</td>
+                                    <td> {{  \Illuminate\Support\Str::limit($content->content, $limit = 100, $end = '...') }}</td>
+                                    <td> {{  $content->reference }}</td>
 
 
                                     <td>
