@@ -53,15 +53,68 @@
                                                     <p class="hadith">{!! $content->hadith !!}</p>
                                                     <p class="reference">{!! $content->reference !!}</p>
 
-                                                        <div class="shield_check">
-                                                            <span onclick="this.classList.toggle('active')"><i class="fas fa-check"></i></span>
+                                                        <div class="shield_check spans">
+                                                            <span id="{{$content->id}}" class="span"><i class="fas fa-check"></i></span>
                                                         </div>
 
                                                 </div>
                                             </div>
                                         </div>
                                     @endforeach
+                                    <script>
+                                        const spans = document.querySelectorAll('span');
+                                        spans.forEach(spa => {
+                                            var id = spa.getAttribute('id');
 
+                                            var data = JSON.parse(localStorage.getItem("contents"));
+                                            if(data){
+                                                var result = data.find(x => x.s == id) ? data.findIndex(x => x.s == id) : null;
+                                            if(result != null){
+                                                spa.classList.add('active');
+                                            }
+                                            }
+
+
+                                            spa.addEventListener('click', function (e) {
+                                                e.preventDefault();
+                                                var id = e.currentTarget.getAttribute('id');
+                                                id = parseInt(id);
+                                                var data = JSON.parse(localStorage.getItem("contents"));
+                                                var result = data.find(x => x.s == id) ? data.findIndex(x => x.s == id) : null;
+                                                var index = result
+                                                var spani = document.getElementById(id);
+
+                                                if (index == null) {
+                                                    // e.target.classList.add("active");
+                                                    var content2 = {
+                                                        s: id
+                                                    };
+                                                    data.push(content2);
+                                                    localStorage.setItem("contents", JSON.stringify(data));
+                                                    spani.classList.toggle('active');
+                                                } else {
+                                                    data.splice(index, 1);
+                                                    localStorage.setItem("contents", JSON.stringify(data));
+                                                    spani.classList.toggle('active');
+                                                }
+                                            });
+                                        });
+
+                                        document.addEventListener('DOMContentLoaded', function () {
+                                            var contents = [];
+                                            if (localStorage.getItem("contents") === null) {
+                                                var content1 = {
+                                                    s: 1
+                                                };
+                                                contents.push(content1);
+                                                localStorage.setItem("contents", JSON.stringify(contents));
+                                            }
+                                        }, false);
+
+                                        function removeContents(){
+                                            localStorage.removeItem('contents');
+                                        }
+                                    </script>
 
 
                                 </div>
