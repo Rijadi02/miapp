@@ -57,7 +57,7 @@
             <div class="col-xl-8 col-lg-7">
                 <div class="news-details__left">
                     <div class="news-details__img">
-                        <img src="/storage/{{ $blog->image }}" alt="">
+                        <img src="/storage/{{ $blog->image }}" alt="{{ $blog->title }}">
                         <div class="news-one__date">
                             <p>{{ $blog->created_at->format('d') }} <br> <span>{{ $blog->created_at->format('M') }}</span></p>
                         </div>
