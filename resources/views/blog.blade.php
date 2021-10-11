@@ -8,6 +8,11 @@
     <meta property="og:url"content="<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}" />
 
     <meta property="og:title" content="{{ $blog->title}}" />
+
+    <meta property="og:type" content="article" />
+
+    <meta name="description" content="Muslimani Ideal" />
+
     @endsection
 
     @section('content')
