@@ -5,7 +5,7 @@
 
     <meta property="og:description" content="  {!! $blog->content !!}" />
 
-    <meta property="og:url"content="<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}" />
+    <meta property="og:url" content="<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}" />
 
     <meta property="og:title" content="{{ $blog->title}}" />
 
@@ -69,6 +69,12 @@
                         <h3 class="news-details__title">{{ $blog->title}}</h3>
                         {!! $blog->content !!}
 
+                        facebook share:
+
+
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}" target="_blank">
+                            Share on Facebook
+                        </a>
 
 
                     </div>
