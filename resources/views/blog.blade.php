@@ -72,11 +72,7 @@
                         facebook share:
 
 
-                        <a href="https://www.facebook.com/dialog/share?
-                        app_id=1266109583813461
-                        &display=popup
-                        &href=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}
-                        &redirect_uri=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}" target="_blank">
+                        <a href="https://www.facebook.com/dialog/share?app_id=1266109583813461&display=popup&href=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}&redirect_uri=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}" target="_blank">
                             Share on Facebook
                         </a>
 
