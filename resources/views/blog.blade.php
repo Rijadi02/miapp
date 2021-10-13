@@ -72,25 +72,14 @@
                         facebook share:
 
 
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}" target="_blank">
+                        <a href="https://www.facebook.com/dialog/share?
+                        app_id=1266109583813461
+                        &display=popup
+                        &href=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}
+                        &redirect_uri=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}" target="_blank">
                             Share on Facebook
                         </a>
 
-                        <div id="fb-root"></div>
-                        <script>(function(d, s, id) {
-                        var js, fjs = d.getElementsByTagName(s)[0];
-                        if (d.getElementById(id)) return;
-                        js = d.createElement(s); js.id = id;
-                        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-                        fjs.parentNode.insertBefore(js, fjs);
-                        }(document, 'script', 'facebook-jssdk'));</script>
-
-                        <!-- Your share button code -->
-                        <div class="fb-share-button"
-                        data-href="http://mi.tachyonstudio.com/<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}"
-                        data-layout="button_count">
-                        share aaaaaa
-                        </div>
 
                     </div>
                     {{-- <div class="news-details__bottom">
