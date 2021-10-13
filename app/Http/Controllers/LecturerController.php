@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Lecturer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class LecturerController extends Controller
 {
@@ -57,6 +58,15 @@ class LecturerController extends Controller
         if (request('image')) {
             $inputs['image'] = request('image')->store('uploads', 'public');
             $lecturer->image = $inputs['image'];
+
+            $file = request('image');
+            $file_name =  $inputs['image'];
+            $img  = Image::make($file);
+            $img->resize(400, 400, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
+            $img->save(\public_path($file_name));
         } else {
             $lecturer->image = 'null';
         }
@@ -121,6 +131,15 @@ class LecturerController extends Controller
         if (request('image')) {
             $inputs['image'] = request('image')->store('uploads', 'public');
             $lecturer->image = $inputs['image'];
+
+            $file = request('image');
+            $file_name =  $inputs['image'];
+            $img  = Image::make($file);
+            $img->resize(400, 400, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
+            $img->save(\public_path($file_name));
         }
         $lecturer->save();
 
