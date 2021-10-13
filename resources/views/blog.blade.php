@@ -87,7 +87,7 @@
 
                         <!-- Your share button code -->
                         <div class="fb-share-button"
-                        data-href="http://mi.tachyonstudio.com/+ <?php echo url('/'); ?>/artikulli/{{ $blog->slug }}"
+                        data-href="http://mi.tachyonstudio.com/<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}"
                         data-layout="button_count">
                         share aaaaaa
                         </div>
