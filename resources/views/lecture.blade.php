@@ -1,12 +1,19 @@
 <x-home-master>
     @section('meta')
-    <meta property="og:image" content="<?php echo url('/'); ?>/storage/{{ $lecture->lecturer->image }}" />
+    <meta property="og:image" content="<?php echo url('/'); ?>/{{ $lecture->lecturer->image }}" />
 
     <meta property="og:description" content="{{ $lecture->day->name }}, {{$lecture->place}}" />
 
     <meta property="og:url"content="<?php echo url('/'); ?>/dersi/{{ $lecture->id }}" />
 
     <meta property="og:title" content="Dersi '{{ $lecture->title}}' {{ $lecture->status == "0" ? "NUK" : "" }} mbahet me daten {{ $lecture->date}}"  />
+
+    <meta property="og:type" content="lecture" />
+
+
+
+
+
     @endsection
 
     @section('content')
