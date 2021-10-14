@@ -2,6 +2,8 @@
 
 
 
+
+
     @section('content')
 
         <div class="stricky-header stricked-menu main-menu">
@@ -42,7 +44,20 @@
                     <?php $i = 0; ?>
                     @foreach ($recitations as $recitation)
 
+                    @section('meta')
+                    <meta property="og:image" content="<?php echo url('/'); ?>/{{  $recitation->reciter->image }}" />
 
+                    <meta property="og:description" content="  {{ $recitation->reciter->name}}" />
+
+                    <meta property="og:url" content="<?php echo url('/'); ?>/recitimet/{{ $recitation->id }}" />
+
+                    <meta property="og:title" content="{{ $recitation->title}}" />
+
+                    <meta property="og:type" content="recitation" />
+
+                    <meta name="description" content="Muslimani Ideal" />
+
+                    @endsection
                         {{-- <div class="col-lg-3">
                             <a href="{{ route('reciter', $recitation->reciter->slug) }}">
                                 <div class="reciter__image">
@@ -153,9 +168,18 @@
         <div class="search-popup">
             <div class="search-popup__overlay search-toggler"></div>
             <div class="search-popup__content">
-                <a class="thm-btn">
-                    <i class="icon-magnifying-glass"></i>
-                </a>
+                <?php $url = url('/')."/recitimet/".$recitation->id?>
+                {{$url}}
+                <div class="news-details__bottom">
+                    <div class="news-details__social-list">
+                        <a href="https://www.facebook.com/dialog/share?app_id=1266109583813461&display=popup&href=<?php echo $url ?>&redirect_uri=<?php echo $url ?>" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a class="d-none-mobile" href="fb-messenger://share/?link=<?php echo $url ?>&redirect_uri=<?php echo $url ?>&app_id=1266109583813461"><i class="fab fa-facebook-messenger"></i></a>
+                        <a href="whatsapp://send?text=<?php echo $url ?>&redirect_uri=<?php echo $url ?>" data-action="share/whatsapp/share" target="_blank"><i class="fab fa-whatsapp "></i></a>
+                        <a href="https://telegram.me/share/url?url=<?php echo $url ?>&redirect_uri=<?php echo $url ?>" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                    </div>
+                </div>
+
+
             </div>
         </div>
         <!--Tours List End-->

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Reciter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Intervention\Image\ImageManagerStatic as Image;
+
 class ReciterController extends Controller
 {
     /**
@@ -53,6 +55,16 @@ class ReciterController extends Controller
         if (request('image')) {
             $inputs['image'] = request('image')->store('uploads', 'public');
             $reciter->image = $inputs['image'];
+
+            $file = request('image');
+            $file_name =  $inputs['image'];
+            $img  = Image::make($file);
+            $img->resize(400, 400, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
+            $img->save(\public_path($file_name));
+
         } else {
             $reciter->image = 'null';
         }
@@ -117,6 +129,15 @@ class ReciterController extends Controller
         if (request('image')) {
             $inputs['image'] = request('image')->store('uploads', 'public');
             $reciter->image = $inputs['image'];
+
+            $file = request('image');
+            $file_name =  $inputs['image'];
+            $img  = Image::make($file);
+            $img->resize(400, 400, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
+            $img->save(\public_path($file_name));
         }
 
         $reciter->save();

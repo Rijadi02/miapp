@@ -7670,3 +7670,9 @@ ul {
 .shield_check .active:before {
     transform: scaleX(1.0);
 }
+
+@media only screen and (min-width: 987px) {
+    .d-none-mobile{
+        display: none!important;
+    }
+  }

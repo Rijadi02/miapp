@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html prefix="og: http://ogp.me/ns#" lang="en">
 
 <head>
     <meta charset="UTF-8" />
@@ -10,7 +10,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{asset('assetsFront/images/favicons/favicon-32x32.png')}}" />
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assetsFront/images/favicons/favicon-16x16.png')}}" />
     <link rel="manifest" href="{{asset('assetsFront/images/favicons/site.webmanifest')}}" />
-    <meta name="description" content="Tevily HTML Template For Tour" />
 
 
 
@@ -289,7 +288,7 @@
         </div>
         <!-- /.mobile-nav__wrapper -->
 
-        <div class="search-popup">
+        {{-- <div class="search-popup">
             <div class="search-popup__overlay search-toggler"></div>
             <!-- /.search-popup__overlay -->
             <div class="search-popup__content">
@@ -302,7 +301,7 @@
                 </form>
             </div>
             <!-- /.search-popup__content -->
-        </div>
+        </div> --}}
         <!-- /.search-popup -->
 
 

@@ -5,9 +5,14 @@
 
     <meta property="og:description" content="  {!! $blog->content !!}" />
 
-    <meta property="og:url"content="<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}" />
+    <meta property="og:url" content="<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}" />
 
     <meta property="og:title" content="{{ $blog->title}}" />
+
+    <meta property="og:type" content="article" />
+
+    <meta name="description" content="Muslimani Ideal" />
+
     @endsection
 
     @section('content')
@@ -52,7 +57,7 @@
             <div class="col-xl-8 col-lg-7">
                 <div class="news-details__left">
                     <div class="news-details__img">
-                        <img src="/storage/{{ $blog->image }}" alt="">
+                        <img src="/storage/{{ $blog->image }}" alt="{{ $blog->title }}">
                         <div class="news-one__date">
                             <p>{{ $blog->created_at->format('d') }} <br> <span>{{ $blog->created_at->format('M') }}</span></p>
                         </div>
@@ -63,10 +68,22 @@
                         </ul>
                         <h3 class="news-details__title">{{ $blog->title}}</h3>
                         {!! $blog->content !!}
-
-
-
                     </div>
+
+                    <?php $url = url('/')."/artikulli/".$blog->slug?>
+
+                    <div class="news-details__bottom">
+                        <div class="news-details__social-list">
+                            <a href="https://www.facebook.com/dialog/share?app_id=1266109583813461&display=popup&href=<?php echo $url ?>&redirect_uri=<?php echo $url ?>" target="_blank"><i class="fab fa-facebook"></i></a>
+                            <a class="d-none-mobile" href="fb-messenger://share/?link=<?php echo $url ?>&redirect_uri=<?php echo $url ?>&app_id=1266109583813461"><i class="fab fa-facebook-messenger"></i></a>
+                            <a href="whatsapp://send?text=<?php echo $url ?>&redirect_uri=<?php echo $url ?>" data-action="share/whatsapp/share" target="_blank"><i class="fab fa-whatsapp "></i></a>
+                            <a href="https://telegram.me/share/url?url=<?php echo $url ?>&redirect_uri=<?php echo $url ?>" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                        </div>
+                    </div>
+
+
+
+
                     {{-- <div class="news-details__bottom">
                         <p class="news-details__tags">
                             <span>Tags:</span>

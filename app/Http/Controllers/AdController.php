@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Ad;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class AdController extends Controller
 {
@@ -81,6 +82,15 @@ class AdController extends Controller
         if (request('photo')) {
             $inputs['photo'] = request('photo')->store('uploads', 'public');
             $ad->photo = $inputs['photo'];
+
+            $file = request('photo');
+            $file_name =  $inputs['photo'];
+            $img  = Image::make($file);
+            $img->resize(400, 400, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
+            $img->save(\public_path($file_name));
         }
 
 
@@ -181,6 +191,15 @@ class AdController extends Controller
         if (request('photo')) {
             $inputs['photo'] = request('photo')->store('uploads', 'public');
             $ad->photo = $inputs['photo'];
+
+            $file = request('photo');
+            $file_name =  $inputs['photo'];
+            $img  = Image::make($file);
+            $img->resize(400, 400, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
+            $img->save(\public_path($file_name));
         }
 
 

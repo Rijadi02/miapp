@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
-
+use Intervention\Image\ImageManagerStatic as Image;
 class BlogController extends Controller
 {
     /**
@@ -58,6 +57,15 @@ class BlogController extends Controller
         if (request('image')) {
             $inputs['image'] = request('image')->store('uploads', 'public');
             $blog->image = $inputs['image'];
+
+            $file = request('image');
+            $file_name =  $inputs['image'];
+            $img  = Image::make($file);
+            $img->resize(400, 400, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
+            $img->save(\public_path($file_name));
         }
 
         $blog->save();
@@ -67,6 +75,8 @@ class BlogController extends Controller
         // } else {
         //     session()->flash('category-add', 'Nothing to add: ' . request('name'));
         // }
+
+
 
         return redirect('/admin/blogs');
     }
@@ -123,6 +133,15 @@ class BlogController extends Controller
         if (request('image')) {
             $inputs['image'] = request('image')->store('uploads', 'public');
             $blog->image = $inputs['image'];
+
+            $file = request('image');
+            $file_name =  $inputs['image'];
+            $img  = Image::make($file);
+            $img->resize(400, 400, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            });
+            $img->save(\public_path($file_name));
         }
 
         $blog->save();
