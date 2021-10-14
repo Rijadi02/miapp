@@ -69,14 +69,12 @@
                         <h3 class="news-details__title">{{ $blog->title}}</h3>
                         {!! $blog->content !!}
 
-                        facebook share:
-
-
                         <a href="https://www.facebook.com/dialog/share?app_id=1266109583813461&display=popup&href=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}&redirect_uri=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}" target="_blank">
                             Share on Facebook
                         </a>
 
-
+                        <a href="whatsapp://send?text=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}&redirect_uri=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}" data-action="share/whatsapp/share"
+                        target="_blank"> Share to WhatsApp </a>
                     </div>
                     {{-- <div class="news-details__bottom">
                         <p class="news-details__tags">
