@@ -115,9 +115,9 @@
                         <div class="about-one__left">
                             <div class="about-one__img-box">
                                 <div class="about-one__img">
-                                    <img src="{{ asset('assetsFront/images/resources/about-one-img-1.png') }}" alt="">
+                                    <img src="{{ asset('assetsFront/images/resources/about-one-img-2.png') }}" alt="">
                                 </div>
-                                <div class="about-one__call">
+                                {{-- <div class="about-one__call">
                                     <div class="about-one__call-icon">
                                         <span class="icon-phone-call"></span>
                                     </div>
@@ -129,7 +129,7 @@
                                 <div class="about-one__discount">
                                     <h2>30%</h2>
                                     <h3>Discount</h3>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
@@ -218,25 +218,26 @@
                             <ul class="list-unstyled video-one__four-icon-boxes">
                                 <li>
                                     <div class="video-one__icon-box">
-                                        <span class="icon-deer"></span>
+                                        {{-- <span class="icon-deer"></span> --}}
+                                        <img src="{{ asset('assetsFront/images/icons/chat.svg') }}"></img>
                                     </div>
                                     <h4 class="video-one__icon-box-title"><a href="#">Video <br> Këshilluese</a></h4>
                                 </li>
                                 <li>
                                     <div class="video-one__icon-box">
-                                        <span class="icon-paragliding"></span>
+                                        <img src="{{ asset('assetsFront/images/icons/paper.svg') }}"></img>
                                     </div>
                                     <h4 class="video-one__icon-box-title"><a href="#">Video <br> Motivuese</a></h4>
                                 </li>
                                 <li>
                                     <div class="video-one__icon-box">
-                                        <span class="icon-flag"></span>
+                                        <img src="{{ asset('assetsFront/images/icons/pen.svg') }}"></img>
                                     </div>
                                     <h4 class="video-one__icon-box-title"><a href="#">Video <br> Edukative</a></h4>
                                 </li>
                                 <li>
                                     <div class="video-one__icon-box">
-                                        <span class="icon-hang-gliding"></span>
+                                        <img src="{{ asset('assetsFront/images/icons/book.svg') }}"></img>
                                     </div>
                                     <h4 class="video-one__icon-box-title"><a href="#">Bazat e <br> Besimit</a></h4>
                                 </li>
@@ -249,7 +250,7 @@
 
         <section class="brand-one">
             <div class="singapore-tour-right-shape"
-                style="background-image: url({{ asset('assetsFront/images/shapes/singapore-tour-right-shape.png') }})">
+                style="background-image: url({{ asset('assetsFront/images/shapes/singapore-tour-right-shape.svg') }})">
             </div>
             <div class="container">
                 <div class="tour-types-map">
@@ -263,7 +264,7 @@
                         <li class="tour-types__single wow fadeInUp" data-wow-delay="100ms">
                             <div class="tour-types__content">
                                 <div class="tour-types__icon">
-                                    <span class="icon-deer"></span>
+                                    <img src="{{ asset('assetsFront/images/icons/scroll.svg') }}"></img>
                                 </div>
                                 <h4 class="tour-types__title">Tregime</h4>
                             </div>
@@ -274,7 +275,7 @@
                         <li class="tour-types__single wow fadeInUp" data-wow-delay="200ms">
                             <div class="tour-types__content">
                                 <div class="tour-types__icon">
-                                    <span class="icon-paragliding"></span>
+                                    <img src="{{ asset('assetsFront/images/icons/chat.svg') }}"></img>
                                 </div>
                                 <h4 class="tour-types__title">Këshilluese</h4>
                             </div>
@@ -285,7 +286,7 @@
                         <li class="tour-types__single wow fadeInUp" data-wow-delay="300ms">
                             <div class="tour-types__content">
                                 <div class="tour-types__icon">
-                                    <span class="icon-flag"></span>
+                                    <img src="{{ asset('assetsFront/images/icons/heart.svg') }}"></img>
                                 </div>
                                 <h4 class="tour-types__title">Emocionale</h4>
                             </div>
@@ -296,7 +297,7 @@
                         <li class="tour-types__single wow fadeInUp" data-wow-delay="400ms">
                             <div class="tour-types__content">
                                 <div class="tour-types__icon">
-                                    <span class="icon-hang-gliding"></span>
+                                    <img src="{{ asset('assetsFront/images/icons/paper.svg') }}"></img>
                                 </div>
                                 <h4 class="tour-types__title">Motivuese</h4>
                             </div>
@@ -307,7 +308,7 @@
                         <li class="tour-types__single wow fadeInUp" data-wow-delay="500ms">
                             <div class="tour-types__content">
                                 <div class="tour-types__icon">
-                                    <span class="icon-booking"></span>
+                                    <img src="{{ asset('assetsFront/images/icons/challenge.svg') }}"></img>
                                 </div>
                                 <h4 class="tour-types__title">Sfidat</h4>
                             </div>
