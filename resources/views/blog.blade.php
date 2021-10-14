@@ -75,11 +75,13 @@
 
                         <a href="whatsapp://send?text=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}&redirect_uri=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}" data-action="share/whatsapp/share"
                         target="_blank"> Share to WhatsApp </a>
+
+                        <a href="https://telegram.me/share/url?url=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}&redirect_uri=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}&text={{ $blog->title }}"
+                            target="_blank"> Share to Telegram </a>
+                        </div>
                     </div>
 
-                    <a href="https://telegram.me/share/url?url=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}&redirect_uri=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}&text={{ $blog->title }}"
-                        target="_blank"> Share to WhatsApp </a>
-                    </div>
+
 
 
                     {{-- <div class="news-details__bottom">
