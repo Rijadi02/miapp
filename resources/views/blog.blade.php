@@ -68,34 +68,18 @@
                         </ul>
                         <h3 class="news-details__title">{{ $blog->title}}</h3>
                         {!! $blog->content !!}
-
-                        <a href="https://www.facebook.com/dialog/share?app_id=1266109583813461&display=popup&href=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}&redirect_uri=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}" target="_blank">
-                            Share on Facebook
-                        </a>
-
-                        <a href="whatsapp://send?text=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}&redirect_uri=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}" data-action="share/whatsapp/share"
-                        target="_blank"> Share to WhatsApp </a>
-
-                        <a href="https://telegram.me/share/url?url=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}&redirect_uri=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}&text={{ $blog->title }}"
-                            target="_blank"> Share to Telegram </a>
-                        </div>
                     </div>
 
                     <div class="news-details__bottom">
-
                         <div class="news-details__social-list">
-                            <a href="#"><i class="fab fa-whatsapp"></i></a>
-                            <a href="#"><i class="fab fa-facebook"></i></a>
-                            <a href="#"><i class="fab fa-telegram-plane"></i></a>
-                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                            <a href="https://www.facebook.com/dialog/share?app_id=1266109583813461&display=popup&href=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}&redirect_uri=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}" target="_blank"><i class="fab fa-facebook"></i></a>
+                            <a href="fb-messenger://share/?link=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}&redirect_uri=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}&app_id=1266109583813461"><i class="fab fa-facebook-messenger"></i></a>
+                            <a href="whatsapp://send?text=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}&redirect_uri=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}" data-action="share/whatsapp/share" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                            <a href="https://telegram.me/share/url?url=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}&redirect_uri=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}&text={{ $blog->title }}" target="_blank"><i class="fab fa-telegram-plane"></i></a>
                         </div>
                     </div>
 
-                    <a href="fb-messenger://share/?link=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}&redirect_uri=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}&app_id=1266109583813461">Send In Messenger</a>
 
-                    <a href="fb-messenger://share/?link=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}&redirect_uri=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}&app_id=1266109583813461">
-                        Send In Messenger 2
-                        </a>
 
 
                     {{-- <div class="news-details__bottom">
