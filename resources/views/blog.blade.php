@@ -81,7 +81,21 @@
                         </div>
                     </div>
 
+                    <div class="news-details__bottom">
 
+                        <div class="news-details__social-list">
+                            <a href="#"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-telegram-plane"></i></a>
+                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                        </div>
+                    </div>
+
+                    <a href="fb-messenger://share/?link=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}&redirect_uri=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}&app_id=1266109583813461">Send In Messenger</a>
+
+                    <a href="fb-messenger://share/?link=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}&redirect_uri=<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}&app_id=1266109583813461">
+                        Send In Messenger 2
+                        </a>
 
 
                     {{-- <div class="news-details__bottom">
