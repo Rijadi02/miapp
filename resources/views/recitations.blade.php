@@ -1,6 +1,21 @@
 <x-home-master>
 
 
+    @section('meta')
+    <meta property="og:image" content="<?php echo url('/'); ?>/{{  $recitation->reciter->image }}" />
+
+    <meta property="og:description" content="  {{ $recitation->reciter->name}}" />
+
+    <meta property="og:url" content="<?php echo url('/'); ?>/recitimet/{{ $recitation->id }}" />
+
+    <meta property="og:title" content="{{ $recitation->title}}" />
+
+    <meta property="og:type" content="recitation" />
+
+    <meta name="description" content="Muslimani Ideal" />
+
+    @endsection
+
 
     @section('content')
 
