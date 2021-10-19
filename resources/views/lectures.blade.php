@@ -61,10 +61,23 @@
                                 <!--Popular Tours Two Single-->
                                 <div class="popular-tours__single">
                                     <div class="popular-tours__img">
+
                                         <img style="object-fit: cover;aspect-ratio:1" src="/storage/{{ $lecture->lecturer->image }}" alt="">
                                         <div class="popular-tours__icon">
+                                            <a href="#">
+                                                <i class="fab fa-facebook"></i>
+                                            </a>
+                                            <a class="d-none-mobile" href="tour-details.html">
+                                                <i class="fab fa-facebook-messenger"></i>
+                                            </a>
                                             <a href="tour-details.html">
-                                                <i class="fa fa-heart"></i>
+                                                <i class="fab fa-whatsapp"></i>
+                                            </a>
+                                            <a href="tour-details.html">
+                                                <i class="fab fa-telegram-plane"></i>
+                                            </a>
+                                            <a href="javascript:copy_text('url');">
+                                                <i class="fas fa-copy"></i>
                                             </a>
                                         </div>
                                     </div>
