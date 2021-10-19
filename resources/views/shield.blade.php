@@ -9,12 +9,11 @@
         <!--Page Header Start-->
         <section class="page-header">
             <div class="page-header__top">
-                <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg)">
-                </div>
+                <div class="page-header-bg" style="background-image: url({{asset('assetsFront/images/backgrounds/mburoja1.jpg')}})"></div>
                 <div class="page-header-bg-overly"></div>
                 <div class="container">
                     <div class="page-header__top-inner">
-                        <h2>Destinations</h2>
+                        <h2>Mburoja e muslimanit</h2>
                     </div>
                 </div>
             </div>

@@ -145,7 +145,7 @@
                                 <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
                                     <div class="footer-widget__column footer-widget__about">
                                         <div class="footer-widget__about-logo">
-                                            <a href="index.html"><img src="{{asset('assetsFront/images/resources/footer-logo.png')}}"
+                                            <a href="index.html"><img style="width: 132px" src="{{asset('assetsFront/images/resources/footer-logo.png')}}"
                                                     alt=""></a>
                                         </div>
                                         <p class="footer-widget__about-text">Welcome to our Trip and Tour Agency. Lorem
@@ -255,7 +255,7 @@
                 <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
 
                 <div class="logo-box">
-                    <a href="index.html" aria-label="logo image"><img style="width: 115px" src="{{asset('assetsFront/images/resources/logo.png')}}" width="155"
+                    <a href="index.html" aria-label="logo image"><img style="width: 115px" src="{{asset('assetsFront/images/resources/logo-2.png')}}" width="155"
                             alt="" /></a>
                 </div>
                 <!-- /.logo-box -->

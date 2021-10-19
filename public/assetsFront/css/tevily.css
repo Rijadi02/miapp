@@ -4614,7 +4614,7 @@ ul {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    filter: grayscale(100%);
+    /* filter: grayscale(100%); */
 }
 
 .page-header-bg-overly {
@@ -7672,7 +7672,7 @@ ul {
 }
 
 @media only screen and (min-width: 987px) {
-    .d-none-mobile{
+    .d-none-mobile {
         display: none!important;
     }
-  }
+}
