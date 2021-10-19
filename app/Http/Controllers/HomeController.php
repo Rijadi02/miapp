@@ -51,23 +51,23 @@ class HomeController extends Controller
             'kehf' => ['name' => 'Surah Kehf', 'link' => '/kur-zgjohemi/duat%C3%AB'],
         ];
 
-        $current_date = Time::where('month', $month)->where('day', $day)->first();
+        // $current_date = Time::where('month', $month)->where('day', $day)->first();
 
-        if ($hour > $current_date->imsaku && $hour < $current_date->asr) {
-            array_push($buttons, $reminders['mengjes']);
-        } else if ($hour > $current_date->asr && $hour < '23:59') {
-            array_push($buttons, $reminders['mbremje']);
-        }
+        // if ($hour > $current_date->imsaku && $hour < $current_date->asr) {
+        //     array_push($buttons, $reminders['mengjes']);
+        // } else if ($hour > $current_date->asr && $hour < '23:59') {
+        //     array_push($buttons, $reminders['mbremje']);
+        // }
 
-        if ($dayOfWeek == 5 && $hour > $current_date->sunrise && $hour < $current_date->maghrib) {
-            array_push($buttons, $reminders['kehf']);
-        }
+        // if ($dayOfWeek == 5 && $hour > $current_date->sunrise && $hour < $current_date->maghrib) {
+        //     array_push($buttons, $reminders['kehf']);
+        // }
 
-        if ($hour > $current_date->maghrib && $hour < '23:59') {
-            // array_push($buttons,'Surah Mulk');
-            // array_push($buttons,'Surah Sajadah');
-            array_push($buttons, $reminders['fjetjes']);
-        }
+        // if ($hour > $current_date->maghrib && $hour < '23:59') {
+        //     // array_push($buttons,'Surah Mulk');
+        //     // array_push($buttons,'Surah Sajadah');
+        //     array_push($buttons, $reminders['fjetjes']);
+        // }
 
         // dd($hour);
 

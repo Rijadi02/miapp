@@ -111,11 +111,11 @@
                                     <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
                                     <ul class="main-menu__list">
                                         <li><a href="{{ route('home')}}">Ballina</a></li>
-                                        <li><a href="{{ route('ads')}}">Bizneset</a></li>
-                                        <li><a href="{{ route('shield') }}">Mburoja</a></li>
-                                        <li><a href="{{ route('lectures','prishtinë') }}">Derset</a></li>
-                                        <li><a href="{{ route('recitations') }}">Recitimet</a></li>
                                         <li><a href="{{ route('blogs') }}">Artikujt</a></li>
+                                        <li><a href="{{ route('shield') }}">Mburoja</a></li>
+                                        <li><a href="{{ route('recitations') }}">Recitimet</a></li>
+                                        <li><a href="{{ route('lectures','prishtinë') }}">Derset</a></li>
+                                        <li><a href="{{ route('ads')}}">Bizneset</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -148,8 +148,7 @@
                                             <a href="index.html"><img style="width: 132px" src="{{asset('assetsFront/images/resources/footer-logo.png')}}"
                                                     alt=""></a>
                                         </div>
-                                        <p class="footer-widget__about-text">Welcome to our Trip and Tour Agency. Lorem
-                                            simply text amet cing elit.</p>
+                                        <p class="footer-widget__about-text">Për çdo këshillë, sygjerim apo kritikë, na kontaktoni.</p>
                                         <ul class="footer-widget__about-contact list-unstyled">
                                             <li>
                                                 <div class="icon">
@@ -180,13 +179,15 @@
                                 </div>
                                 <div class="col-xl-2 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
                                     <div class="footer-widget__column footer-widget__company clearfix">
-                                        <h3 class="footer-widget__title">Company</h3>
+                                        <h3 class="footer-widget__title">Muslimani Ideal</h3>
                                         <ul class="footer-widget__company-list list-unstyled">
-                                            <li><a href="about.html">About Us</a></li>
-                                            <li><a href="#">Community Blog</a></li>
-                                            <li><a href="#">Rewards</a></li>
-                                            <li><a href="#">Work with Us</a></li>
-                                            <li><a href="#">Meet the Team</a></li>
+                                            <li><a href="about.html">Ballina</a></li>
+                                            <li><a href="#">Mburoja</a></li>
+                                            <li><a href="#">Artikujt</a></li>
+                                            <li><a href="#">Recitimet</a></li>
+                                            <li><a href="#">Derset</a></li>
+                                            <li><a href="#">Bizneset</a></li>
+
                                         </ul>
                                     </div>
                                 </div>
@@ -202,14 +203,7 @@
                                             </div>
                                         </form>
                                         <div class="mc-form__response text-center"></div><!-- /.mc-form__response -->
-                                        <div class="footer-widget__newsletter-bottom">
-                                            <div class="footer-widget__newsletter-bottom-icon">
-                                                <i class="fa fa-check"></i>
-                                            </div>
-                                            <div class="footer-widget__newsletter-bottom-text">
-                                                <p>I agree to all terms and policies</p>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -230,7 +224,7 @@
                                         </div>
                                     </div>
                                     <div class="site-footer__bottom-right">
-                                        <p>@ All Copyright 2021, <a href="#">Muslimani Ideal</a></p>
+                                        <p>© All Copyright 2021, <a href="#">Muslimani Ideal</a></p>
                                     </div>
                                     <div class="site-footer__bottom-left-arrow">
                                         <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><span
