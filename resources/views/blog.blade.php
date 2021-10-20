@@ -70,9 +70,13 @@
                         {!! $blog->content !!}
                     </div>
 
+
                     <?php $url = url('/')."/artikulli/".$blog->slug?>
 
                     <div class="news-details__bottom">
+                        <div>
+                            <h3>Shpërndaje</h3>
+                        </div>
                         <div class="news-details__social-list">
                             <a href="https://www.facebook.com/dialog/share?app_id=1266109583813461&display=popup&href=<?php echo $url ?>&redirect_uri=<?php echo $url ?>" target="_blank"><i class="fab fa-facebook"></i></a>
                             <a class="d-none-mobile" href="fb-messenger://share/?link=<?php echo $url ?>&redirect_uri=<?php echo $url ?>&app_id=1266109583813461"><i class="fab fa-facebook-messenger"></i></a>

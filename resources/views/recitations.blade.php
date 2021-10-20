@@ -159,30 +159,28 @@
 
                         </div>
                         <?php $i = $i + 1; ?>
-
-                        <div class="search-popup">
-                            <div class="search-popup__overlay search-toggler"></div>
-                            <div class="search-popup__content">
-                                <?php $url = url('/')."/recitimet/".$recitation->id?>
-                                <div class="news-details__bottom">
-                                    <div class="news-details__social-list">
-                                        <a href="https://www.facebook.com/dialog/share?app_id=1266109583813461&display=popup&href=<?php echo $url ?>&redirect_uri=<?php echo $url ?>" target="_blank"><i class="fab fa-facebook"></i></a>
-                                        <a class="d-none-mobile" href="fb-messenger://share/?link=<?php echo $url ?>&redirect_uri=<?php echo $url ?>&app_id=1266109583813461"><i class="fab fa-facebook-messenger"></i></a>
-                                        <a href="whatsapp://send?text=<?php echo $url ?>&redirect_uri=<?php echo $url ?>" data-action="share/whatsapp/share" target="_blank"><i class="fab fa-whatsapp "></i></a>
-                                        <a href="https://telegram.me/share/url?url=<?php echo $url ?>&redirect_uri=<?php echo $url ?>" target="_blank"><i class="fab fa-telegram-plane"></i></a>
-                                        <a href="javascript:copy_text('<?php echo $url ?>');"><i class="fas fa-copy"></i></a>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                        </div>
                     @endforeach
                 </div>
             </div>
         </section>
 
+        <div class="search-popup">
+            <div class="search-popup__overlay search-toggler"></div>
+            <div class="search-popup__content">
+                <?php $url = url('/')."/recitimet/".$recitation->id?>
+                <div class="news-details__bottom">
+                    <div class="news-details__social-list">
+                        <a href="https://www.facebook.com/dialog/share?app_id=1266109583813461&display=popup&href=<?php echo $url ?>&redirect_uri=<?php echo $url ?>" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a class="d-none-mobile" href="fb-messenger://share/?link=<?php echo $url ?>&redirect_uri=<?php echo $url ?>&app_id=1266109583813461"><i class="fab fa-facebook-messenger"></i></a>
+                        <a href="whatsapp://send?text=<?php echo $url ?>&redirect_uri=<?php echo $url ?>" data-action="share/whatsapp/share" target="_blank"><i class="fab fa-whatsapp "></i></a>
+                        <a href="https://telegram.me/share/url?url=<?php echo $url ?>&redirect_uri=<?php echo $url ?>" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="javascript:copy_text('<?php echo $url ?>');"><i class="fas fa-copy"></i></a>
+                    </div>
+                </div>
 
+
+            </div>
+        </div>
         <!--Tours List End-->
 
 
