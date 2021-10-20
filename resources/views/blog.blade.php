@@ -3,7 +3,6 @@
     @section('meta')
     <meta property="og:image" content="<?php echo url('/'); ?>/storage/{{ $blog->image }}" />
 
-    <meta property="og:description" content="{!! substr($blog->content, 0, 25);  !!}" />
 
     <meta property="og:url" content="<?php echo url('/'); ?>/artikulli/{{ $blog->slug }}" />
 
