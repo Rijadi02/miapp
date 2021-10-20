@@ -67,7 +67,7 @@
                             <li><a href="news-details.html"><i class="far fa-user-circle"></i>{{ $blog->author}}</a></li>
                         </ul>
                         <h3 class="news-details__title">{{ $blog->title}}</h3>
-                        {{ $blog->content }}
+                        {!! $blog->content !!}
                     </div>
 
 
