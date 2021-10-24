@@ -21,9 +21,9 @@
                 <div class="container">
                     <div class="page-header__bottom-inner">
                         <ul class="thm-breadcrumb list-unstyled">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="/">Ballina</a></li>
                             <li><span>.</span></li>
-                            <li class="active">Destinations</li>
+                            <li class="active">Mburoja e Muslimanit</li>
                         </ul>
                     </div>
                 </div>

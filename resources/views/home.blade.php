@@ -137,7 +137,7 @@
                         <div class="about-one__right">
                             <div class="section-title text-left">
                                 <span class="section-title__tagline">Kush jemi ne?</span>
-                                <h2 class="section-title__title">Organizata Muslimani Ideal</h2>
+                                <h2 class="section-title__title">Mediumi Muslimani Ideal</h2>
                             </div>
                             <p class="about-one__right-text">Muslimani Ideal është medium islam, i cili synim kryesor e ka
                                 përhapjen e fesë së Allahut në të gjitha rrjetet sociale. Përmes këti mediumi tentojmë të

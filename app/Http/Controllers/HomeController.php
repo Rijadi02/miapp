@@ -151,14 +151,14 @@ class HomeController extends Controller
     {
         $book = Book::where('slug', '=', $slug)->firstOrFail();
         $chapters = $book->chapters;
-        return view('chapters', compact('chapters'));
+        return view('chapters', compact('chapters','book'));
     }
 
     public function content($slug)
     {
         $chapter = Chapter::where('slug', '=', $slug)->firstOrFail();
         $contents = $chapter->contents;
-        return view('content', compact('contents'));
+        return view('content', compact('contents','chapter'));
     }
 
     public function recitations()

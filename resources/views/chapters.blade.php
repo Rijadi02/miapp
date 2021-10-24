@@ -9,12 +9,12 @@
         <!--Page Header Start-->
         <section class="page-header">
             <div class="page-header__top">
-                <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg)">
+                <div class="page-header-bg" style="background-image: url({{asset('assetsFront/images/backgrounds/kabba.jpg')}})">
                 </div>
                 <div class="page-header-bg-overly"></div>
                 <div class="container">
                     <div class="page-header__top-inner">
-                        <h2>Destinations Details</h2>
+                        <h2>{{$book->name}}</h2>
                     </div>
                 </div>
             </div>
@@ -22,9 +22,9 @@
                 <div class="container">
                     <div class="page-header__bottom-inner">
                         <ul class="thm-breadcrumb list-unstyled">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="/mburoja">Mburoja e Muslimanit</a></li>
                             <li><span>.</span></li>
-                            <li class="active">Destinations</li>
+                            <li class="active">{{$book->name}}</li>
                         </ul>
                     </div>
                 </div>
@@ -56,44 +56,29 @@
                     </div>
                     <div class="col-xl-4 col-lg-5">
                         <div class="destinations-details__right">
-                            <div class="tour-details-two__last-minute tour-details-two__last-minute-2">
-                                <h3 class="tour-details-two__sidebar-title">Më të shpeshta</h3>
-                                <ul class="tour-details-two__last-minute-list list-unstyled">
-                                    <li>
-                                        <div class="tour-details-two__last-minute-image">
-                                            <img src="assets/images/resources/td-img-1.jpg" alt="">
-                                        </div>
-                                        <div class="tour-details-two__last-minute-content">
-                                            <h5>Dhikri i Mbjremjes</h5>
-                                            <p>Mengjesi dhe Mbremja</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="tour-details-two__last-minute-image">
-                                            <img src="assets/images/resources/td-img-2.jpg" alt="">
-                                        </div>
-                                        <div class="tour-details-two__last-minute-content">
-                                            <h5>Dhikri i Mengjesit</h5>
-                                            <p>Mengjesi dhe Mbremja</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="tour-details-two__last-minute-image">
-                                            <img src="assets/images/resources/td-img-3.jpg" alt="">
-                                        </div>
-                                        <div class="tour-details-two__last-minute-content">
-                                            <h5>Surja Kehf</h5>
-                                            <p>Kuran</p>
-                                        </div>
-                                    </li>
-                                </ul>
+                            <div class="destinations-details__discount" style="margin-top:0px;margin-bottom:30px">
+                                <a href="{{route('content','dhikri-i-mengjesit')}}">
+                                <img style="max-height:170px;object-fit:cover" src="{{asset('assetsFront/images/backgrounds/mengjes.jpg')}}" alt="">
+                                <div class="destinations-details__discount-content">
+                                    <h4> Dhikri i <br> Mëngjesit</h4>
+                                </div>
+                            </a>
                             </div>
                             <div class="destinations-details__discount">
-                                <img src="https://cdn.pixabay.com/photo/2016/05/24/16/48/mountains-1412683__340.png" alt="">
+                                <a href="{{route('content','dhikri-i-mbremjes')}}">
+                                <img style="max-height:170px;object-fit:cover" src="{{asset('assetsFront/images/backgrounds/mbremje.jpg')}}" alt="">
                                 <div class="destinations-details__discount-content">
-                                    <h4> Artikulli i <br> Fundit</h4>
+                                    <h4> Dhikri i <br> Mbrëmjes</h4>
+                                </div>
+                                </a>
+                            </div>
+                            <div class="destinations-details__discount">
+                                <img style="max-height:170px;object-fit:cover" src="{{asset('assetsFront/images/backgrounds/kehf.jpg')}}" alt="">
+                                <div class="destinations-details__discount-content">
+                                    <h4> Surja <br> Kehf</h4>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
