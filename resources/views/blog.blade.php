@@ -25,7 +25,7 @@
    <!--Page Header Start-->
    <section class="page-header">
     <div class="page-header__top">
-       <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg)"></div>
+       <div class="page-header-bg" style="background-image: url(/storage/{{ $blog->image }})"></div>
        <div class="page-header-bg-overly"></div>
         <div class="container">
             <div class="page-header__top-inner">
@@ -57,7 +57,7 @@
             <div class="col-xl-8 col-lg-7">
                 <div class="news-details__left">
                     <div class="news-details__img">
-                        <img src="/storage/{{ $blog->image }}" alt="{{ $blog->title }}">
+                        <img style="max-height: 500px; object-fit:cover;  object-position: 50% 50%;" src="/storage/{{ $blog->image }}" alt="{{ $blog->title }}">
                         <div class="news-one__date">
                             <p>{{ $blog->created_at->format('d') }} <br> <span>{{ $blog->created_at->format('M') }}</span></p>
                         </div>
@@ -115,7 +115,7 @@
                             @foreach ($blogs as $bloga )
                             <li>
                                 <div class="sidebar__post-image">
-                                    <img  src="/storage/{{ $bloga->image }}" alt="">
+                                    <img style="aspect-ratio: 0.75; object-fit:cover" src="/storage/{{ $bloga->image }}" alt="">
                                 </div>
                                 <div class="sidebar__post-content">
                                     <h3>
