@@ -53,7 +53,18 @@
     <link rel="stylesheet" href="{{ asset('assetsFront/css/tevily.css') }}" />
     <link rel="stylesheet" href="{{ asset('assetsFront/css/tevily-responsive.css') }}" />
 
+
     @yield('meta')
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DC2JT2VD2Y"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-DC2JT2VD2Y');
+    </script>
 </head>
 
 <body>
