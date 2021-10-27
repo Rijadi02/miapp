@@ -13,7 +13,8 @@
         <!--Page Header Start-->
         <section class="page-header">
             <div class="page-header__top">
-                <div class="page-header-bg" style="background-image: url({{asset('assetsFront/images/backgrounds/recitimet.jpg')}})"></div>
+                <div class="page-header-bg"
+                    style="background-image: url({{ asset('assetsFront/images/backgrounds/recitimet.jpg') }})"></div>
                 <div class="page-header-bg-overly"></div>
                 <div class="container">
                     <div class="page-header__top-inner">
@@ -43,20 +44,20 @@
                     <?php $i = 0; ?>
                     @foreach ($recitations as $recitation)
 
-                    @section('meta')
-                    <meta property="og:image" content="<?php echo url('/'); ?>/{{  $recitation->reciter->image }}" />
+                        @section('meta')
+                            <meta property="og:image" content="<?php echo url('/'); ?>/{{ $recitation->reciter->image }}" />
 
-                    <meta property="og:description" content="  {{ $recitation->reciter->name}}" />
+                            <meta property="og:description" content="  {{ $recitation->reciter->name }}" />
 
-                    <meta property="og:url" content="<?php echo url('/'); ?>/recitimet/{{ $recitation->id }}" />
+                            <meta property="og:url" content="<?php echo url('/'); ?>/recitimet/{{ $recitation->id }}" />
 
-                    <meta property="og:title" content="{{ $recitation->title}}" />
+                            <meta property="og:title" content="{{ $recitation->title }}" />
 
-                    <meta property="og:type" content="recitation" />
+                            <meta property="og:type" content="recitation" />
 
-                    <meta name="description" content="Muslimani Ideal" />
+                            <meta name="description" content="Muslimani Ideal" />
 
-                    @endsection
+                        @endsection
                         {{-- <div class="col-lg-3">
                             <a href="{{ route('reciter', $recitation->reciter->slug) }}">
                                 <div class="reciter__image">
@@ -97,16 +98,39 @@
                                         </a>
                                         <p class="card-title">{{ $recitation->reciter->name }}</p>
                                         <div class="btn-box">
-                                            <div onclick="handleRepeat({{ $recitation->id }})"
-                                                id="repeat-{{ $recitation->id }}" class="iconText"><i
-                                                    class="fas fa-redo"></i> <span class="text">Rikthe</span>
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div onclick="handleRepeat({{ $recitation->id }})"
+                                                        id="repeat-{{ $recitation->id }}" class="iconText"><i
+                                                            class="fas fa-redo"></i> <span
+                                                            class="text">Rikthe</span>
+                                                    </div>
+
+                                                    <a download href="/storage/{{ $recitation->audio }}"
+                                                        class="iconText"><i class="fas fa-download"></i> <span
+                                                            class="text">Shkarko</span></a>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    {{-- <span class="search-toggler iconText"><span
+                                                            class="text">Shperndaje:</span>
+                                                    </span> --}}
+                                                    <div class="news-details__social-list my-3 my-lg-0">
+                                                        <?php $url = url('/') . '/recitimet/' . $recitation->id; ?>
+                                                        <a href="https://www.facebook.com/dialog/share?app_id=1266109583813461&display=popup&href=<?php echo $url; ?>&redirect_uri=<?php echo $url; ?>"
+                                                            target="_blank"><i class="fab fa-facebook"></i></a>
+                                                        <a class="d-none-mobile"
+                                                            href="fb-messenger://share/?link=<?php echo $url; ?>&redirect_uri=<?php echo $url; ?>&app_id=1266109583813461"><i
+                                                                class="fab fa-facebook-messenger"></i></a>
+                                                        <a href="whatsapp://send?text=<?php echo $url; ?>&redirect_uri=<?php echo $url; ?>"
+                                                            data-action="share/whatsapp/share" target="_blank"><i
+                                                                class="fab fa-whatsapp "></i></a>
+                                                        <a href="https://telegram.me/share/url?url=<?php echo $url; ?>&redirect_uri=<?php echo $url; ?>"
+                                                            target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                                                        <a href="javascript:copy_text('<?php echo $url; ?>');"><i
+                                                                class="fas fa-copy"></i></a>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <a class="search-toggler iconText"><i class="fas fa-share"></i> <span
-                                                    class="text">Shperndaj</span>
-                                            </a>
-                                            <a download href="/storage/{{ $recitation->audio }}" class="iconText"><i
-                                                    class="fas fa-download"></i> <span
-                                                    class="text">Shkarko</span></a>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 mt-4 mt-md-2 pt-0">
@@ -164,23 +188,23 @@
             </div>
         </section>
 
-        <div class="search-popup">
+        {{-- <div class="search-popup">
             <div class="search-popup__overlay search-toggler"></div>
             <div class="search-popup__content">
-                <?php $url = url('/')."/recitimet/".$recitation->id?>
+                <?php $url = url('/') . '/recitimet/' . $recitation->id; ?>
                 <div class="news-details__bottom">
                     <div class="news-details__social-list">
-                        <a href="https://www.facebook.com/dialog/share?app_id=1266109583813461&display=popup&href=<?php echo $url ?>&redirect_uri=<?php echo $url ?>" target="_blank"><i class="fab fa-facebook"></i></a>
-                        <a class="d-none-mobile" href="fb-messenger://share/?link=<?php echo $url ?>&redirect_uri=<?php echo $url ?>&app_id=1266109583813461"><i class="fab fa-facebook-messenger"></i></a>
-                        <a href="whatsapp://send?text=<?php echo $url ?>&redirect_uri=<?php echo $url ?>" data-action="share/whatsapp/share" target="_blank"><i class="fab fa-whatsapp "></i></a>
-                        <a href="https://telegram.me/share/url?url=<?php echo $url ?>&redirect_uri=<?php echo $url ?>" target="_blank"><i class="fab fa-telegram-plane"></i></a>
-                        <a href="javascript:copy_text('<?php echo $url ?>');"><i class="fas fa-copy"></i></a>
+                        <a href="https://www.facebook.com/dialog/share?app_id=1266109583813461&display=popup&href=<?php echo $url; ?>&redirect_uri=<?php echo $url; ?>" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a class="d-none-mobile" href="fb-messenger://share/?link=<?php echo $url; ?>&redirect_uri=<?php echo $url; ?>&app_id=1266109583813461"><i class="fab fa-facebook-messenger"></i></a>
+                        <a href="whatsapp://send?text=<?php echo $url; ?>&redirect_uri=<?php echo $url; ?>" data-action="share/whatsapp/share" target="_blank"><i class="fab fa-whatsapp "></i></a>
+                        <a href="https://telegram.me/share/url?url=<?php echo $url; ?>&redirect_uri=<?php echo $url; ?>" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="javascript:copy_text('<?php echo $url; ?>');"><i class="fas fa-copy"></i></a>
                     </div>
                 </div>
 
 
             </div>
-        </div>
+        </div> --}}
         <!--Tours List End-->
 
 
