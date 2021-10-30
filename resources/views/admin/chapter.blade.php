@@ -161,9 +161,9 @@
                                             </div>
                                         </div>
 
-                                        {{-- <button class="btn btn-datatable btn-icon btn-transparent-dark" type="submit"
+                                        <button class="btn btn-datatable btn-icon btn-transparent-dark" type="submit"
                                             data-toggle="modal" data-target="#exampleModal{{ $chapter->id }}"><i
-                                                data-feather="trash-2"></i></button> --}}
+                                                data-feather="trash-2"></i></button>
 
 
 

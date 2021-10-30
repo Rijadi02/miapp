@@ -1,6 +1,20 @@
 <x-home-master>
     @section('content')
+    <?php
+    function ndreqe($teksti){
+       return preg_replace("/\r\n|\r|\n/", '<br/>',$teksti);
+    }
 
+
+    ?>
+      <style>
+        .arabic br{
+            content: "";
+            margin: 3em;
+            display: block;
+            font-size: 24%;
+        }
+    </style>
         <div class="stricky-header stricked-menu main-menu">
             <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
         </div><!-- /.stricky-header -->
@@ -47,9 +61,11 @@
                                             </div>
                                             <div class="accrodion-content" style="display: none;">
                                                 <div class="inner">
-                                                    <p class="arabic" dir="rtl">{{ $content->arabic }}</p>
-                                                    <p class="transliteration">{!! $content->transliteration !!}</p>
-                                                    <p class="content"><b>{!! $content->content !!}</b></p>
+
+                                                    <p class="arabic"  dir="rtl">{!! ndreqe($content->arabic) !!}</p>
+                                                    <p class="transliteration">{!! ndreqe($content->transliteration) !!}</p>
+
+                                                    <p class="content"><b>{!! ndreqe($content->content) !!}</b></p>
                                                     <p class="hadith">{!! $content->hadith !!}</p>
                                                     <p class="reference">{!! $content->reference !!}</p>
 
@@ -61,6 +77,7 @@
                                             </div>
                                         </div>
                                     @endforeach
+
 
                                     <button onclick="removeContents()" class="mt-5 about-one__btn thm-btn">Shlyej Progresin</button>
                                     <script>
@@ -115,55 +132,8 @@
 
                                         function removeContents(){
                                             localStorage.removeItem('contents');
+                                            location.reload();
 
-                                            const spans = document.querySelectorAll('span');
-                                        spans.forEach(spa => {
-                                            var id = spa.getAttribute('id');
-
-                                            var data = JSON.parse(localStorage.getItem("contents"));
-                                            if(data){
-                                                var result = data.find(x => x.s == id) ? data.findIndex(x => x.s == id) : null;
-                                            if(result != null){
-                                                spa.classList.add('active');
-                                            }
-                                            }
-
-
-                                            spa.addEventListener('click', function (e) {
-                                                e.preventDefault();
-                                                var id = e.currentTarget.getAttribute('id');
-                                                id = parseInt(id);
-                                                var data = JSON.parse(localStorage.getItem("contents"));
-                                                var result = data.find(x => x.s == id) ? data.findIndex(x => x.s == id) : null;
-                                                var index = result
-                                                var spani = document.getElementById(id);
-
-                                                if (index == null) {
-                                                    // e.target.classList.add("active");
-                                                    var content2 = {
-                                                        s: id
-                                                    };
-                                                    data.push(content2);
-                                                    localStorage.setItem("contents", JSON.stringify(data));
-                                                    spani.classList.toggle('active');
-                                                } else {
-                                                    data.splice(index, 1);
-                                                    localStorage.setItem("contents", JSON.stringify(data));
-                                                    spani.classList.toggle('active');
-                                                }
-                                            });
-                                        });
-
-                                        document.addEventListener('DOMContentLoaded', function () {
-                                            var contents = [];
-                                            if (localStorage.getItem("contents") === null) {
-                                                var content1 = {
-                                                    s: 1
-                                                };
-                                                contents.push(content1);
-                                                localStorage.setItem("contents", JSON.stringify(contents));
-                                            }
-                                        }, false);
                                         }
                                     </script>
 
