@@ -178,6 +178,92 @@
 
 
                             <div class="col-lg-12">
+                                <label for="phone" class="col-md-12 col-form-label">Telefoni</label>
+                                <input id="phone" type="text" name="phone"
+                                    class="form-control @error('phone') is-invalid @enderror"
+                                    value="{{ old('phone') ?? $ad->phone }}"
+                                    autocomplete="phone">
+                                @error('phone')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="col-lg-12">
+                                <label for="address" class="col-md-12 col-form-label">Adresa</label>
+                                <input id="address" type="text" name="address"
+                                    class="form-control @error('address') is-invalid @enderror"
+                                    value="{{ old('address') ?? $ad->address }}"
+                                    autocomplete="address">
+                                @error('address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="col-lg-12">
+                                <label for="hours" class="col-md-12 col-form-label">Orari i punës</label>
+                                <textarea id="hours" type="text" name="hours" class="form-control @error('hours') is-invalid @enderror" autocomplete="hours">
+                                    {{ old('hours') ?? $ad->hours }}
+                                </textarea>
+                                @error('hours')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="col-lg-12">
+                                <label for="website" class="col-md-12 col-form-label">Websajti</label>
+                                <input id="website" type="text" name="website"
+                                    class="form-control @error('website') is-invalid @enderror"
+                                    value="{{ old('website') ?? $ad->website }}"
+                                    autocomplete="website">
+                                @error('website')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="col-lg-12">
+                                <label for="email" class="col-md-12 col-form-label">Emaili</label>
+                                <input id="email" type="text" name="email"
+                                    class="form-control @error('email') is-invalid @enderror"
+                                    value="{{ old('email') ?? $ad->email }}"
+                                    autocomplete="email">
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="col-lg-12">
+                                <label for="type_id" class="col-md-12 col-form-label">Lloji i biznesit</label>
+                                    <select name="type_id"
+                                    class="form-control @error('type_id') is-invalid @enderror"
+                                    value="{{ old('type_id') }}" autocomplete="type_id" autofocus>
+                                    <option hidden disabled selected value>-- Lloji i biznesit--</option>
+                                    @foreach ($types as $type)
+                                        @if ($ad->type_id == $type->id)
+                                            <option value="{{ $type->id }}" selected>{{ $type->name }}
+                                            </option>
+                                        @else
+                                            <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                        @endif
+                                    @endforeach
+                                </select>
+                                    @error('type_id')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                            </div>
+
+                            <div class="col-lg-12">
                                 <label for="status" class="col-md-12 col-form-label">Statusi</label>
                                 <select name="status" id="status" class="form-control @error('status') is-invalid @enderror"
                                     value="{{ old('status') }}">
@@ -346,7 +432,86 @@
                                 @enderror
                             </div>
 
+                            <div class="col-lg-12">
+                                <label for="phone" class="col-md-12 col-form-label">Telefoni</label>
+                                <input id="phone" type="text" name="phone"
+                                    class="form-control @error('phone') is-invalid @enderror"
+                                    value="{{ old('phone')}}"
+                                    autocomplete="phone">
+                                @error('phone')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
 
+                            <div class="col-lg-12">
+                                <label for="address" class="col-md-12 col-form-label">Adresa</label>
+                                <input id="address" type="text" name="address"
+                                    class="form-control @error('address') is-invalid @enderror"
+                                    value="{{ old('address')}}"
+                                    autocomplete="address">
+                                @error('address')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="col-lg-12">
+                                <label for="hours" class="col-md-12 col-form-label">Orari i punës</label>
+                                <textarea id="hours" type="text" name="hours" class="form-control @error('hours') is-invalid @enderror" autocomplete="hours">
+                                    {{ old('hours')}}
+                                </textarea>
+                                @error('hours')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="col-lg-12">
+                                <label for="website" class="col-md-12 col-form-label">Websajti</label>
+                                <input id="website" type="text" name="website"
+                                    class="form-control @error('website') is-invalid @enderror"
+                                    value="{{ old('website')}}"
+                                    autocomplete="website">
+                                @error('website')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="col-lg-12">
+                                <label for="email" class="col-md-12 col-form-label">Emaili</label>
+                                <input id="email" type="text" name="email"
+                                    class="form-control @error('email') is-invalid @enderror"
+                                    value="{{ old('email')}}"
+                                    autocomplete="email">
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="col-lg-12">
+                                <label for="type_id" class="col-md-12 col-form-label">Lloji i binzesit</label>
+                                <select name="type_id"
+                                class="form-control @error('type_id') is-invalid @enderror"
+                                value="{{ old('type_id') }}" autocomplete="type_id" autofocus>
+                                <option hidden disabled selected value>-- Lloji i binzesit--</option>
+                                @foreach ($types as $type)
+                                    <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                @endforeach
+                                </select>
+                                @error('type_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                             <div class="col-lg-12">
                                 <label for="status" class="col-md-12 col-form-label">Statusi</label>
                                 <select name="status" id="status" class="form-control @error('status') is-invalid @enderror"

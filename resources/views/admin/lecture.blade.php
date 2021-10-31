@@ -66,7 +66,7 @@
                                     value="{{ old('day_id') }}" autocomplete="day_id" autofocus>
                                     <option hidden disabled selected value>-- Dita e Dersit--</option>
                                     @foreach ($days as $day)
-                                        @if ($day->id == $day->id)
+                                        @if ($lecture->day_id == $day->id)
                                             <option value="{{ $day->id }}" selected>{{ $day->name }}
                                             </option>
                                         @else

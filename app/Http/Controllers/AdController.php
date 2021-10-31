@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Ad;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -17,7 +18,9 @@ class AdController extends Controller
     public function index()
     {
         $ads = Ad::all();
-        return view('admin/ads', compact('ads'));
+        $types = Type::all();
+
+        return view('admin/ads', compact('ads','types'));
     }
 
     /**
@@ -152,7 +155,9 @@ class AdController extends Controller
         $twitter = $medias['twitter'];
         $instagram = $medias['instagram'];
         $ads = Ad::all();
-        return view('admin/ads', compact('ads', 'ad','facebook','instagram','twitter'));
+        $types = Type::all();
+
+        return view('admin/ads', compact('ads', 'ad','facebook','instagram','twitter','types'));
     }
 
     /**
@@ -184,7 +189,6 @@ class AdController extends Controller
                 'website' => '',
                 'email' => '',
                 'type_id' => '',
-
             ]
         );
 
