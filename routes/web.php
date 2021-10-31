@@ -40,6 +40,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
     Route::patch('categories/{category}/update', [App\Http\Controllers\CategoryController::class, 'update'])->name('category.update');
     Route::get('categories/{category}/edit',  [App\Http\Controllers\CategoryController::class, 'edit'])->name('category.edit');
 
+
     Route::get('category/{category}/books', [App\Http\Controllers\BookController::class, 'index'])->name('category.books');
     Route::post('book/{category}/store', [App\Http\Controllers\BookController::class, 'store'])->name('category.books.store');
     Route::delete('books/{book}', [App\Http\Controllers\BookController::class, 'destroy'])->name('category.books.destroy');
@@ -112,6 +113,19 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
     Route::delete('medias/{media}', [App\Http\Controllers\MediaController::class, 'destroy'])->name('media.destroy');
     Route::patch('medias/{media}/update', [App\Http\Controllers\MediaController::class, 'update'])->name('media.update');
     Route::get('medias/{media}/edit',  [App\Http\Controllers\MediaController::class, 'edit'])->name('media.edit');
+
+    Route::get('types', [App\Http\Controllers\TypeController::class, 'index'])->name('type.index');
+    Route::post('types/store', [App\Http\Controllers\TypeController::class, 'store'])->name('type.store');
+    Route::delete('types/{type}', [App\Http\Controllers\TypeController::class, 'destroy'])->name('type.destroy');
+    Route::patch('types/{type}/update', [App\Http\Controllers\TypeController::class, 'update'])->name('type.update');
+    Route::get('types/{type}/edit',  [App\Http\Controllers\TypeController::class, 'edit'])->name('type.edit');
+
+    Route::get('promotions', [App\Http\Controllers\PromotionController::class, 'index'])->name('promotion.index');
+    Route::post('promotions/store', [App\Http\Controllers\PromotionController::class, 'store'])->name('promotion.store');
+    Route::delete('promotions/{promotion}', [App\Http\Controllers\PromotionController::class, 'destroy'])->name('promotion.destroy');
+    Route::patch('promotions/{promotion}/update', [App\Http\Controllers\PromotionController::class, 'update'])->name('promotion.update');
+    Route::get('promotions/{promotion}/edit',  [App\Http\Controllers\PromotionController::class, 'edit'])->name('promotion.edit');
+
 
 
 });

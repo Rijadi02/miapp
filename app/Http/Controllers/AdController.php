@@ -53,6 +53,12 @@ class AdController extends Controller
                 'gallery' => '',
                 'status' => '',
                 'contact_details' => '',
+                'phone' => '',
+                'address' => '',
+                'hours' => '',
+                'website' => '',
+                'email' => '',
+                'type_id' => '',
             ]
         );
 
@@ -68,7 +74,12 @@ class AdController extends Controller
         $ad->map = $data['map'];
         $ad->link = $data['link'];
         $ad->contact_details = $data['contact_details'];
-
+        $ad->phone = $data['phone'];
+        $ad->address = $data['address'];
+        $ad->hours = $data['hours'];
+        $ad->website = $data['website'];
+        $ad->email = $data['email'];
+        $ad->type_id = $data['type_id'];
 
 
         $facebook = $data['facebook'];
@@ -167,7 +178,13 @@ class AdController extends Controller
                 'instagram' => '',
                 'gallery' => '',
                 'status' => '',
-                'contact_details' => '',
+                'phone' => '',
+                'address' => '',
+                'hours' => '',
+                'website' => '',
+                'email' => '',
+                'type_id' => '',
+
             ]
         );
 
@@ -182,7 +199,13 @@ class AdController extends Controller
         $ad->map = $data['map'];
         $ad->link = $data['link'];
         $ad->status = $data['status'];
-        $ad->contact_details = $data['contact_details'];
+        $ad->phone = $data['phone'];
+        $ad->address = $data['address'];
+        $ad->hours = $data['hours'];
+        $ad->website = $data['website'];
+        $ad->email = $data['email'];
+        $ad->type_id = $data['type_id'];
+
 
         $media = array("facebook"=>$data['facebook'],"instagram"=>$data['instagram'],"twitter"=>$data['twitter']);
 

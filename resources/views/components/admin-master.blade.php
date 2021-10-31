@@ -135,6 +135,16 @@
                             Media
                         </a>
 
+                        <a class="nav-link" href="{{ route('type.index') }}">
+                            <div class="nav-link-icon"><i class="fa fa-sitemap"></i></div>
+                            Biznes Kategoritë
+                        </a>
+
+                        <a class="nav-link" href="{{ route('type.index') }}">
+                            <div class="nav-link-icon"><i class="fa fa-ad"></i></div>
+                            Reklamat
+                        </a>
+
                         {{-- <a class="nav-link" href="{{ route('brands.index') }}">
                             <div class="nav-link-icon"><i class="fas fa-copyright"></i></div>
                             Brands
