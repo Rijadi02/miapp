@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Ad extends Model
+class Type extends Model
 {
     use HasFactory;
 
-    public function type()
+    public function ads()
     {
-        return $this->belongsTo(Ads::class);
+        return $this->hasMany(Ads::class);
     }
 }
