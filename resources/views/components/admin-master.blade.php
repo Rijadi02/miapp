@@ -140,7 +140,7 @@
                             Biznes Kategoritë
                         </a>
 
-                        <a class="nav-link" href="{{ route('type.index') }}">
+                        <a class="nav-link" href="{{ route('promotion.index') }}">
                             <div class="nav-link-icon"><i class="fa fa-ad"></i></div>
                             Reklamat
                         </a>

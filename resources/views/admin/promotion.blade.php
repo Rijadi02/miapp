@@ -82,7 +82,7 @@
                                 @enderror
                             </div>
                             <div class="form-group mt-3">
-                                <button type="submit" class="btn btn-primary">Përditëso kategorinë</button>
+                                <button type="submit" class="btn btn-primary">Përditëso reklamen</button>
                         </form>
 
                     @else
@@ -141,7 +141,7 @@
                                 @enderror
                             </div>
                             <div class="form-group mt-3 ">
-                                <button type="submit" class="btn btn-primary ">Shto kategorinë</button>
+                                <button type="submit" class="btn btn-primary ">Shto reklamen</button>
                         </form>
                     @endif
 
