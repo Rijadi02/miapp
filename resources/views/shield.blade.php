@@ -47,7 +47,7 @@
                                             mbrëmje</a></h2>
                                 </div>
                                 <div class="destinations-one__button">
-                                    <a href="#">13 kapituj</a>
+                                    <a href="#">7 kapituj</a>
                                 </div>
                             </a>
                         </div>
@@ -70,7 +70,7 @@
                                             </h2>
                                         </div>
                                         <div class="destinations-one__button">
-                                            <a href="#">6 tours</a>
+                                            <a href="#">14 kapituj</a>
                                         </div>
                                     </a>
                                 </div>
@@ -87,7 +87,7 @@
                                             </h2>
                                         </div>
                                         <div class="destinations-one__button">
-                                            <a href="#">6 tours</a>
+                                            <a href="#">11 kapituj</a>
                                         </div>
                                     </a>
                                 </div>
@@ -104,7 +104,7 @@
                                             </h2>
                                         </div>
                                         <div class="destinations-one__button">
-                                            <a href="#">6 tours</a>
+                                            <a href="#">7 kapituj</a>
                                         </div>
                                     </a>
                                 </div>
@@ -125,7 +125,7 @@
                                     </h2>
                                 </div>
                                 <div class="destinations-one__button">
-                                    <a href="#">6 tours</a>
+                                    <a href="#">15 kapituj</a>
                                 </div>
                             </a>
                         </div>
@@ -143,7 +143,7 @@
                                             href="{{ route('chapters', 'namazi') }}">Namazi</a></h2>
                                 </div>
                                 <div class="destinations-one__button">
-                                    <a href="#">6 tours</a>
+                                    <a href="#">19 kapituj</a>
                                 </div>
                             </a>
                         </div>
@@ -166,7 +166,7 @@
                                             Allahut</a></h2>
                                 </div>
                                 <div class="destinations-one__button">
-                                    <a href="#">6 tours</a>
+                                    <a href="#">9 kapituj</a>
                                 </div>
                             </a>
                         </div>
@@ -183,7 +183,7 @@
                                             href="{{ route('chapters', 'mirësjellja') }}">Mirësjellja</a></h2>
                                 </div>
                                 <div class="destinations-one__button">
-                                    <a href="#">6 tours</a>
+                                    <a href="#">20 kapituj</a>
                                 </div>
                             </a>
                         </div>
@@ -202,7 +202,7 @@
                                             href="{{ route('chapters', 'haxh-dhe-umre') }}">Haxh dhe Umre</a></h2>
                                 </div>
                                 <div class="destinations-one__button">
-                                    <a href="#">6 tours</a>
+                                    <a href="#">8 kapituj</a>
                                 </div>
                             </a>
                         </div>
@@ -220,7 +220,7 @@
                                             href="{{ route('chapters', 'natyra') }}">Natyra</a></h2>
                                 </div>
                                 <div class="destinations-one__button">
-                                    <a href="#">6 tours</a>
+                                    <a href="#">10 kapituj</a>
                                 </div>
                             </a>
                         </div>
@@ -239,7 +239,7 @@
                                     </h2>
                                 </div>
                                 <div class="destinations-one__button">
-                                    <a href="#">6 tours</a>
+                                    <a href="#">13 kapituj</a>
                                 </div>
                             </a>
                         </div>

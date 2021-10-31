@@ -93,7 +93,7 @@
                                         <span class="icon-at"></span>
                                     </div>
                                     <div class="text">
-                                        <a href="mailto:info@muslimani-ideal.com">info@muslimani-ideal.com</a>
+                                        <a href="mailto:info@muslimani-ideal.org">info@muslimani-ideal.org</a>
                                     </div>
                                 </li>
                             </ul>
@@ -174,7 +174,7 @@
                                                 <i class="fas fa-phone-square-alt"></i>
                                             </div>
                                             <div class="text">
-                                                <a href="tel:+92-666-888-0000">+92 666 888 0000</a>
+                                                <a href="tel:+38349133540">+383 49 133 540</a>
                                             </div>
                                         </li>
                                         <li>
@@ -182,7 +182,7 @@
                                                 <i class="fas fa-envelope"></i>
                                             </div>
                                             <div class="text">
-                                                <a href="mailto:info@muslimani-ideal.com">info@muslimani-ideal.com</a>
+                                                <a href="mailto:info@muslimani-ideal.org">info@muslimani-ideal.org</a>
                                             </div>
                                         </li>
                                         <li>
@@ -283,11 +283,11 @@
             <ul class="mobile-nav__contact list-unstyled">
                 <li>
                     <i class="fa fa-envelope"></i>
-                    <a href="mailto:needhelp@packageName__.com">needhelp@tevily.com</a>
+                    <a href="mailto:info@muslimani-ideal.org">info@muslimani-ideal.org</a>
                 </li>
                 <li>
                     <i class="fa fa-phone-alt"></i>
-                    <a href="tel:666-888-0000">666 888 0000</a>
+                    <a href="tel:+38349133540">+383 49 133 540</a>
                 </li>
             </ul><!-- /.mobile-nav__contact -->
             <div class="mobile-nav__top">

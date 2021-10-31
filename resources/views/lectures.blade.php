@@ -94,7 +94,7 @@
                                                     <i class="fas fa-map"></i>
                                                 </div>
                                                 <div class="mx-2">
-                                                    <a href="{{ $lecture->map }}">{{ $lecture->place }}</a>
+                                                    <a style="font-weight:bold" href="{{ $lecture->map }}">{{ $lecture->place }}</a>
                                                 </div>
                                             </li>
                                             <li>
