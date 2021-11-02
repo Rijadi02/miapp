@@ -11,6 +11,6 @@ class Ad extends Model
 
     public function type()
     {
-        return $this->belongsTo(Ads::class);
+        return $this->belongsTo(Type::class);
     }
 }

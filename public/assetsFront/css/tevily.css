@@ -5744,7 +5744,7 @@ ul {
 .tours-list__img {
     position: relative;
     display: block;
-    max-width: 270px;
+    max-width: 280px;
     width: 100%;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
@@ -5754,6 +5754,7 @@ ul {
 .tours-list__img img {
     width: 100%;
     border-top-left-radius: 8px;
+    aspect-ratio: 0.95;
     border-bottom-left-radius: 8px;
     transform: scale(1);
     opacity: 1;
@@ -7680,7 +7681,7 @@ ul {
 
 @media only screen and (min-width: 987px) {
     .d-none-mobile {
-        display: none!important;
+        display: none !important;
     }
 }
 
@@ -7691,4 +7692,18 @@ span[dir="rtl"] {
     margin-bottom: 18px !important;
     font-size: 24px !important;
     line-height: 42px !important;
+}
+
+.next-ads {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: #e8604c;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
 }

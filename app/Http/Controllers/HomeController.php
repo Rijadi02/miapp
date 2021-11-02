@@ -126,6 +126,7 @@ class HomeController extends Controller
         $facebook = $medias['facebook'];
         $twitter = $medias['twitter'];
         $instagram = $medias['instagram'];
+
         return view('ad', compact('ad', 'facebook', 'instagram', 'twitter'));
     }
 

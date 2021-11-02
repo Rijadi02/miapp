@@ -1,66 +1,41 @@
 <x-home-master>
     @section('content')
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.0/photoswipe.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.0/default-skin/default-skin.css">
 
-    <div class="stricky-header stricked-menu main-menu">
-        <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
-    </div><!-- /.stricky-header -->
 
 
 
         <!--Tour Details Slider Start-->
         <section class="main-slider tour-details-slider">
-            <div class="swiper-container thm-swiper__slider" data-swiper-options='{"slidesPerView": 1, "loop": true,
-    "effect": "fade",
-    "pagination": {
-        "el": "#main-slider-pagination",
-        "type": "bullets",
-        "clickable": true
-      },
-    "navigation": {
-        "nextEl": ".main-slider-button-next",
-        "prevEl": ".main-slider-button-prev",
-        "clickable": true
-    },
-    "autoplay": {
-        "delay": 5000
-    }}'>
 
-                <div class="swiper-wrapper">
-                    @foreach ((array) json_decode($ad->gallery) as $image)
-                    <div class="swiper-slide">
-                        <div class="image-layer"
-                            style="background-image: url(/uploads/{{ $image }});"></div>
-                        <div class="container">
-                            <div class="swiper-slide-inner">
-                                <div class="tour-details-slider_icon">
-                                    @if($facebook != "")
-                                    <a href="{{$facebook}}"><i class="fab fa-facebook"></i></a>
-                                    @endif
-                                    @if($instagram != "")
-                                    <a href="{{$instagram}}"><i class="fab fa-instagram"></i></a>
-                                    @endif
-                                    @if($twitter != "")
-                                    <a href="{{$twitter}}"><i class="fab fa-twitter"></i></a>
-                                    @endif
+            <div class="image-layer" style="background-image: url(/uploads/{{ json_decode($ad->gallery)[0] }});">
+                <div style="background-color: #0000002C; position: absolute; top:0; bottom:0; right: 0; left: 0"></div>
+            </div>
+            <div class="container">
+                <div class="swiper-slide-inner">
+                    <div class="tour-details-slider_icon">
+                        @if ($facebook)
+                            <a href="{{ $facebook }}"><i class="fab fa-facebook"></i></a>
+                        @endif
+                        @if ($instagram)
+                            <a href="{{ $instagram }}"><i class="fab fa-instagram"></i></a>
+                        @endif
+                        @if ($twitter)
+                            <a href="{{ $twitter }}"><i class="fab fa-twitter"></i></a>
+                        @endif
+                        @if ($ad->link)
+                            <a href="{{ $ad->link }}"><i class="fas fa-globe"></i></a>
+                        @endif
 
-
-                                </div>
-                            </div>
-                        </div>
                     </div>
-                    @endforeach
-
-                </div>
-
-                <div class="main-slider-nav">
-                    <div class="main-slider-button-prev"><span class="icon-right-arrow"></span></div>
-                    <div class="main-slider-button-next"><span class="icon-right-arrow"></span> </div>
                 </div>
             </div>
+
         </section>
         <!--Tour Details Slider End-->
 
-        {{-- <!--Tour Details End-->
+        <!--Tour Details End-->
         <section class="tour-details">
             <div class="tour-details__top">
                 <div class="container">
@@ -68,30 +43,31 @@
                         <div class="col-xl-12">
                             <div class="tour-details__top-inner">
                                 <div class="tour-details__top-left">
-                                    <h2 class="tour-details__top-title">{{$ad->name}}</h2>
-                                    <p class="tour-details__top-rate"><span>$870</span> / Per Person</p>
+                                    <h1 class="tour-details__top-title mb-0">{{ $ad->name }}</h1>
+                                    <p class="tour-details__top-rate"><span class="mr-1" style="font-size:1em"><i
+                                                class="fa fa-tag"></i></span> {{ $ad->type->name }}</p>
                                 </div>
                                 <div class="tour-details__top-right">
                                     <ul class="list-unstyled tour-details__top-list">
                                         <li>
                                             <div class="icon">
-                                                <span class="icon-clock"></span>
+                                                <span class="icon-phone-call"></span>
                                             </div>
                                             <div class="text">
-                                                <p>Duration</p>
-                                                <h6>3 Days</h6>
+                                                <p>Telefoni</p>
+                                                <h6>{{ $ad->phone }}</h6>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="icon">
-                                                <span class="icon-user"></span>
+                                                <span class="icon-place"></span>
                                             </div>
                                             <div class="text">
-                                                <p>Min Age</p>
-                                                <h6>12 +</h6>
+                                                <p>Qyteti</p>
+                                                <h6>{{ $ad->city }}</h6>
                                             </div>
                                         </li>
-                                        <li>
+                                        {{-- <li>
                                             <div class="icon">
                                                 <span class="icon-plane"></span>
                                             </div>
@@ -108,7 +84,7 @@
                                                 <p>Location</p>
                                                 <h6>Los Angeles</h6>
                                             </div>
-                                        </li>
+                                        </li> --}}
                                     </ul>
                                 </div>
                             </div>
@@ -116,7 +92,7 @@
                     </div>
                 </div>
             </div>
-            <div class="tour-details__bottom">
+            {{-- <div class="tour-details__bottom">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-12">
@@ -152,7 +128,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </section>
         <!--Tour Details End-->
 
@@ -162,198 +138,90 @@
                 <div class="row">
                     <div class="col-xl-8 col-lg-7">
                         <div class="tour-details-two__left">
-                            <div class="tour-details-two__overview">
-                                <h3 class="tour-details-two__title">Kush jemi ne?</h3>
-                                <p class="tour-details-two__overview-text">{!!$ad->description!!}</p>
-                                <div class="tour-details-two__overview-bottom">
-                                    <h3 class="tour-details-two-overview__title">Included/Exclude</h3>
-                                    <div class="tour-details-two__overview-bottom-inner">
-                                        <div class="tour-details-two__overview-bottom-left">
-                                            <ul class="list-unstyled tour-details-two__overview-bottom-list">
-                                                <li>
-                                                    <div class="icon">
-                                                        <i class="fa fa-check"></i>
-                                                    </div>
-                                                    <div class="text">
-                                                        <p>Pick and Drop Services</p>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="icon">
-                                                        <i class="fa fa-check"></i>
-                                                    </div>
-                                                    <div class="text">
-                                                        <p>1 Meal Per Day</p>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="icon">
-                                                        <i class="fa fa-check"></i>
-                                                    </div>
-                                                    <div class="text">
-                                                        <p>Cruise Dinner & Music Event</p>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="icon">
-                                                        <i class="fa fa-check"></i>
-                                                    </div>
-                                                    <div class="text">
-                                                        <p>Visit 7 Best Places in the City With Group</p>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="tour-details-two__overview-bottom-right">
-                                            <ul class="list-unstyled tour-details-two__overview-bottom-right-list">
-                                                <li>
-                                                    <div class="icon">
-                                                        <i class="fa fa-times"></i>
-                                                    </div>
-                                                    <div class="text">
-                                                        <p>Additional Services</p>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="icon">
-                                                        <i class="fa fa-times"></i>
-                                                    </div>
-                                                    <div class="text">
-                                                        <p>Insurance</p>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="icon">
-                                                        <i class="fa fa-times"></i>
-                                                    </div>
-                                                    <div class="text">
-                                                        <p>Food & Drinks</p>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="icon">
-                                                        <i class="fa fa-times"></i>
-                                                    </div>
-                                                    <div class="text">
-                                                        <p>Tickets</p>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="tour-details-two__overview mb-5">
+                                <h3 class="tour-details-two__title mb-3">{{ $ad->name }}</h3>
+                                {!! $ad->description !!}
+
                             </div>
                             <div class="tour-details-two__tour-plan">
-                                <h3 class="tour-details-two__title">Tour Plan</h3>
-                                <div class="accrodion-grp" data-grp-name="faq-one-accrodion">
-                                    <div class="accrodion active">
-                                        <div class="accrodion-title">
-                                            <h4><span>Day 1</span> Arrive South Africa Forest</h4>
-                                        </div>
-                                        <div class="accrodion-content">
-                                            <div class="inner">
-                                                <p>There are many variations of passages of available but majority have
-                                                    alteration in some by inject humour or random words. Lorem ipsum
-                                                    dolor sit amet, error insolens reprimique no quo, ea pri verterem
-                                                    phaedr vel ea iisque aliquam.</p>
-                                                <ul class="list-unstyled">
-                                                    <li>Free Drinks</li>
-                                                    <li>Awesome Breakfast</li>
-                                                    <li>5 Star Accommodation</li>
-                                                </ul>
-                                            </div><!-- /.inner -->
-                                        </div>
+                                <h3 class="tour-details-two__title">Galeria</h3>
+                                <div id="gallery" class="gallery" itemscope
+                                    itemtype="http://schema.org/ImageGallery">
+                                    <div class="row">
+                                        <?php
+                                        $gallery = json_decode($ad->gallery);
+                                        $gallery = array_splice($gallery, 1, 4);
+                                        ?>
+                                        @foreach ($gallery as $photo)
+                                            <?php $dimensions = getimagesize('uploads/' . $photo); ?>
+
+                                            <figure class="col-lg-6" itemprop="associatedMedia" itemscope
+                                                itemtype="http://schema.org/ImageObject">
+                                                <a class="gallery-link" href="/uploads/{{ $photo }}"
+                                                    data-width="{{ $dimensions[0] }}"
+                                                    data-height="{{ $dimensions[1] }}" itemprop="contentUrl">
+                                                    <div class="destinations-one__single">
+                                                        <div class="destinations-one__img">
+                                                            <img style="aspect-ratio: 1.3; object-fit: cover"
+                                                                src="/uploads/{{ $photo }}" itemprop="thumbnail"
+                                                                alt="Galeria">
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </figure>
+
+                                        @endforeach
+
+
+
+
+
                                     </div>
-                                    <div class="accrodion">
-                                        <div class="accrodion-title">
-                                            <h4><span>Day 2</span> Lunch Inside of Forest & Adventure</h4>
-                                        </div>
-                                        <div class="accrodion-content">
-                                            <div class="inner">
-                                                <p>There are many variations of passages of available but majority have
-                                                    alteration in some by inject humour or random words. Lorem ipsum
-                                                    dolor sit amet, error insolens reprimique no quo, ea pri verterem
-                                                    phaedr vel ea iisque aliquam.</p>
-                                                <ul class="list-unstyled">
-                                                    <li>Free Drinks</li>
-                                                    <li>Awesome Breakfast</li>
-                                                    <li>5 Star Accommodation</li>
-                                                </ul>
-                                            </div><!-- /.inner -->
-                                        </div>
-                                    </div>
-                                    <div class="accrodion last-chiled">
-                                        <div class="accrodion-title">
-                                            <h4><span>Day 3</span> Depart from South Africa</h4>
-                                        </div>
-                                        <div class="accrodion-content">
-                                            <div class="inner">
-                                                <p>There are many variations of passages of available but majority have
-                                                    alteration in some by inject humour or random words. Lorem ipsum
-                                                    dolor sit amet, error insolens reprimique no quo, ea pri verterem
-                                                    phaedr vel ea iisque aliquam.</p>
-                                                <ul class="list-unstyled">
-                                                    <li>Free Drinks</li>
-                                                    <li>Awesome Breakfast</li>
-                                                    <li>5 Star Accommodation</li>
-                                                </ul>
-                                            </div><!-- /.inner -->
-                                        </div>
-                                    </div>
+
                                 </div>
+
                             </div>
                             <div class="tour-details-two__location">
-                                <h3 class="tour-details-two__title">Tour Plan</h3>
-                                <iframe src="{{$ad->map}}" class="tour-details-two__location-map" allowfullscreen></iframe>
+                                <h3 class="tour-details-two__title mb-0">Lokacioni</h3>
+                                <p class="mb-5">{{ $ad->address }}</p>
+                                <iframe src="{{ $ad->map }}" class="tour-details-two__location-map" loading="lazy"
+                                    allowfullscreen></iframe>
                             </div>
-
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-5">
+
+
                         <div class="tour-details-two__sidebar">
-                            <div class="tour-details-two__book-tours">
-                                <h3 class="tour-details-two__sidebar-title">Book Tours</h3>
-                                <form action="#" class="tour-details-two__sidebar-form">
-                                    <div class="tour-details-two__sidebar-form-input">
-                                        <input type="text" placeholder="Where to" name="where to">
-                                    </div>
-                                    <div class="tour-details-two__sidebar-form-input">
-                                        <input type="text" placeholder="When" name="When">
-                                    </div>
-                                    <div class="tour-details-two__sidebar-form-input">
-                                        <select class="selectpicker" id="type">
-                                            <option value="Adventure">Type</option>
-                                            <option value="Adventure">Adventure</option>
-                                            <option value="Wildlife">Wildlife</option>
-                                            <option value="Sightseeing">Sightseeing</option>
-                                        </select>
-                                        <div class="tour-details-two__sidebar-form-icon">
-                                            <i class="fa fa-angle-down"></i>
-                                        </div>
-                                    </div>
-                                    <div class="tour-details-two__sidebar-form-input">
-                                        <input type="text" name="date" placeholder="Select date" id="datepicker">
-                                        <div class="tour-details-two__sidebar-form-icon">
-                                            <i class="fa fa-angle-down"></i>
-                                        </div>
-                                    </div>
-                                    <div class="tour-details-two__sidebar-form-input">
-                                        <select class="selectpicker">
-                                            <option value="Adventure">Choose Ticket</option>
-                                            <option value="Adventure">Adventure</option>
-                                            <option value="Wildlife">Wildlife</option>
-                                            <option value="Sightseeing">Sightseeing</option>
-                                        </select>
-                                        <div class="tour-details-two__sidebar-form-icon">
-                                            <i class="fa fa-angle-down"></i>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="thm-btn tour-details-two__sidebar-btn">Book
-                                        Now</button>
-                                </form>
+                            <div class="tour-details-two__last-minute mb-4 p-3 p-lg-5">
+                                <h3 class="tour-details-two__sidebar-title">Sherndaje</h3>
+
+                                <?php $url = url('/') . '/artikulli/'; ?>
+
+
+                                <div class="news-details__social-list">
+                                    <a href="https://www.facebook.com/dialog/share?app_id=1266109583813461&display=popup&href=<?php echo $url; ?>&redirect_uri=<?php echo $url; ?>"
+                                        target="_blank"><i class="fab fa-facebook"></i></a>
+                                    <a class="d-none-mobile"
+                                        href="fb-messenger://share/?link=<?php echo $url; ?>&redirect_uri=<?php echo $url; ?>&app_id=1266109583813461"><i
+                                            class="fab fa-facebook-messenger"></i></a>
+                                    <a href="whatsapp://send?text=<?php echo $url; ?>&redirect_uri=<?php echo $url; ?>"
+                                        data-action="share/whatsapp/share" target="_blank"><i
+                                            class="fab fa-whatsapp "></i></a>
+                                    <a href="https://telegram.me/share/url?url=<?php echo $url; ?>&redirect_uri=<?php echo $url; ?>"
+                                        target="_blank"><i class="fab fa-telegram-plane"></i></a>
+                                    <a href="javascript:copy_text('<?php echo $url; ?>');"><i
+                                            class="fas fa-copy"></i></a>
+                                </div>
+
+
                             </div>
-                            <div class="tour-details-two__last-minute">
-                                <h3 class="tour-details-two__sidebar-title">Last Minute</h3>
+                            <div class="tour-details-two__book-tours">
+                                <h3 class="tour-details-two__sidebar-title">Orari</h3>
+                                {!! $ad->hours !!}
+                            </div>
+                            <div class="tour-details-two__last-minute p-4 p-lg-5">
+                                <h3 class="tour-details-two__sidebar-title">Bizneset e fundit</h3>
                                 <ul class="tour-details-two__last-minute-list list-unstyled">
                                     <li>
                                         <div class="tour-details-two__last-minute-image">
@@ -392,11 +260,84 @@
                 </div>
             </div>
         </section>
-        <!--Tour Details Two End--> --}}
-
-        {!!html_entity_decode($ad->description)!!}
+        <!--Tour Details Two End-->
 
 
+        <!--Site Footer One End-->
+
+
+        <!-- /.page-wrapper -->
+
+
+
+
+        <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="pswp__bg"></div>
+            <div class="pswp__scroll-wrap">
+                <div class="pswp__container">
+                    <div class="pswp__item"></div>
+                    <div class="pswp__item"></div>
+                    <div class="pswp__item"></div>
+                </div>
+                <div class="pswp__ui pswp__ui--hidden">
+                    <div class="pswp__top-bar">
+                        <div class="pswp__counter"></div>
+                        <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                        <button class="pswp__button pswp__button--share" title="Share"></button>
+                        <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                        <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                        <div class="pswp__preloader">
+                            <div class="pswp__preloader__icn">
+                                <div class="pswp__preloader__cut">
+                                    <div class="pswp__preloader__donut"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                        <div class="pswp__share-tooltip"></div>
+                    </div>
+                    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+                    </button>
+                    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+                    </button>
+                    <div class="pswp__caption">
+                        <div class="pswp__caption__center"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.0/photoswipe.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.0/photoswipe-ui-default.min.js"></script>
+        <script>
+            'use strict';
+            (function($) {
+                var container = [];
+                $('#gallery').find('figure').each(function() {
+                    var $link = $(this).find('a'),
+                        item = {
+                            src: $link.attr('href'),
+                            w: $link.data('width'),
+                            h: $link.data('height'),
+                        };
+                    container.push(item);
+                });
+                $('.gallery-link').click(function(event) {
+                    event.preventDefault();
+                    var $pswp = $('.pswp')[0],
+                        options = {
+                            index: $(this).parent('figure').index(),
+                            bgOpacity: 0.85,
+                            showHideOpacity: true,
+                            shareEl: false,
+                        };
+                    var gallery = new PhotoSwipe($pswp, PhotoSwipeUI_Default, container, options);
+                    gallery.init();
+                });
+            }(jQuery));
+        </script>
     @endsection
 
 </x-home-master>

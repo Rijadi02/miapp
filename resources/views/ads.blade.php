@@ -234,26 +234,58 @@
                                 <!--Tours List Single-->
                                 @foreach ($ads as $ad)
                                 <div class="tours-list__single">
-                                    <div class="tours-list__img">
+                                    <a href="{{route('ad',$ad->slug)}}" class="tours-list__img">
                                         <img style="object-fit: cover" src="/storage/{{ $ad->photo }}" alt="">
-
-                                    </div>
-                                    <div class="tours-list__content">
+                                    </a>
+                                    <div class="tours-list__content w-100">
 
                                         <h3 class="tours-list__title"><a href="{{route('ad',$ad->slug)}}">{{$ad->name}}</a></h3>
-                                        <p class="tours-list__rate"><span>Hapur</span> 24/7</p>
+                                        {!! substr($ad->description, 0, 40) . "..." !!}
                                         {{-- {!! \Illuminate\Support\Str::limit($ad->description, $limit = 100, $end = '...') !!} --}}
 
+                                        <ul class="footer-widget__about-contact list-unstyled">
+                                            <li>
+                                                <div class="icon ">
+                                                    <i class="fas fa-map-marker-alt"></i>
+                                                </div>
+                                                <div class="mx-2">
+                                                    <a>{{ $ad->address }}</a>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="icon ">
+                                                    <i class="fas fa-phone"></i>
+                                                </div>
+                                                <div class="mx-2">
+                                                    <a>{{ preg_split('/\s+/', $ad->phone)[0] }}</a>
+                                                </div>
 
-                                        <ul class="tours-list__meta list-unstyled mt-5 p-3">
+                                            </li>
+
+                                            <li>
+                                                <div class="icon ">
+                                                    <i class="fas fa-tag"></i>
+                                                </div>
+                                                <div class="mx-2">
+                                                    <a>{{$ad->type->name}}</a>
+                                                </div>
+
+                                            </li>
+
+                                        </ul>
+
+                                        {{-- <ul class="tours-list__meta list-unstyled mt-5 p-3">
                                             <li><a href="tour-details.html"><i class="far fa-calendar"></i>3 Days</a>
                                             </li>
                                             <li><a href="tour-details.html"><i class="far fa-user-circle"></i>12+</a>
                                             </li>
                                             <li><a href="tour-details.html"><i class="far fa-map"></i>{{$ad->city}}</a>
                                             </li>
-                                        </ul>
+                                        </ul> --}}
                                     </div>
+                                    <a href="{{route('ad',$ad->slug)}}" class="next-ads thm-btn">
+                                        <i class="fa fa-arrow-right"></i>
+                                    </a>
                                 </div>
                                 @endforeach
                                 {{-- <div class="row">
