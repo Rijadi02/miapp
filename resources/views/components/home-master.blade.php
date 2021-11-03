@@ -121,12 +121,12 @@
                 <div class="main-menu-wrapper clearfix">
                     <div class="container clearfix">
                         <div class="main-menu-wrapper-inner clearfix">
-                            <div class="main-menu-wrapper__left clearfix">
+                            <div class="main-menu-wrapper__left w-100 clearfix">
                                 <div class="main-menu-wrapper__logo">
                                     <a href="{{ route('home') }}"><img style="width: 115px"
                                             src="{{ asset('assetsFront/images/resources/logo.png') }}" alt=""></a>
                                 </div>
-                                <div class="main-menu-wrapper__main-menu">
+                                <div class="main-menu-wrapper__main-menu" style="float: right">
                                     <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
                                     <ul class="main-menu__list">
                                         <li><a href="{{ route('home') }}">Ballina</a></li>

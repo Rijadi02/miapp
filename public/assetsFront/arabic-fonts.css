@@ -1,8 +1,7 @@
 @font-face {
     font-family: 'Kitab';
     src: url('kitab-b.woff2');
-    src: local('Kitab Bold'), local('Kitab-Bold'),
-        url('kitab-b.woff2') format('woff2');
+    src: local('Kitab Bold'), local('Kitab-Bold'), url('kitab-b.woff2') format('woff2');
     font-weight: 400;
     font-style: normal;
 }
@@ -10,9 +9,15 @@
 @font-face {
     font-family: 'Kitab';
     src: url('kitab.woff2');
-    src: local('Kitab'), local('Kitab'),
-        url('kitab.woff2') format('woff2');
+    src: local('Kitab'), local('Kitab'), url('kitab.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Uthmani';
+    src: url('uthmani.ttf');
+    src: local('Uthmani'), local('Uthmani'), url('uthmani.ttf') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}

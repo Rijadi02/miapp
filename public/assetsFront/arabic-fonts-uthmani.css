@@ -1,8 +1,7 @@
 @font-face {
     font-family: 'Arabic';
     src: url('arabic-font.otf');
-    src: local('Arabic Bold'), local('Arabic-Bold'),
-        url('arabic-font-b.otf') format('woff2');
+    src: local('Arabic Bold'), local('Arabic-Bold'), url('arabic-font-b.otf') format('woff2');
     font-weight: 400;
     font-style: normal;
 }
@@ -10,9 +9,15 @@
 @font-face {
     font-family: 'Arabic';
     src: url('arabic-font.otf');
-    src: local('Arabic'), local('Arabic'),
-        url('arabic-font-b.otf') format('woff2');
+    src: local('Arabic'), local('Arabic'), url('arabic-font-b.otf') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Uthmani';
+    src: url('uthmani.ttf');
+    src: local('Uthmani'), local('Uthmani'), url('uthmani.ttf') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}

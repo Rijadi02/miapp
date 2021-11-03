@@ -3997,7 +3997,8 @@ ul {
     font-size: 50px;
     color: var(--thm-primary);
     font-weight: 400;
-    font-family: var(--thm-reey-font) !important;
+    font-family: 'Zen Antique Soft', serif !important;
+    /* font-family: var(--thm-reey-font) !important; */
     line-height: 65px !important;
     letter-spacing: var(--thm-letter-spacing);
 }
@@ -6410,10 +6411,10 @@ ul {
 }
 
 .accrodion-content .arabic {
-    font-family: Kitab;
+    font-family: Uthmani;
     margin-bottom: 18px !important;
-    font-size: 30px !important;
-    line-height: 54px !important;
+    font-size: 36px !important;
+    line-height: 64px !important;
 }
 
 .accrodion-content .reference,
@@ -7686,12 +7687,12 @@ ul {
 }
 
 span[dir="rtl"] {
-    font-family: Kitab;
+    font-family: Uthmani;
     width: 100%;
     display: block;
     margin-bottom: 18px !important;
-    font-size: 24px !important;
-    line-height: 42px !important;
+    font-size: 32px !important;
+    line-height: 52px !important;
 }
 
 .next-ads {

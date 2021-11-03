@@ -1,103 +1,45 @@
 <x-home-master>
     @section('content')
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&display=swap" rel="stylesheet">
 
         <section class="main-slider">
-            <div class="swiper-container thm-swiper__slider"
-                data-swiper-options='{"slidesPerView": 1, "loop": true,
-                                                                                                                        "effect": "fade",
-                                                                                                                        "pagination": {
-                                                                                                                            "el": "#main-slider-pagination",
-                                                                                                                            "type": "bullets",
-                                                                                                                            "clickable": true
-                                                                                                                          },
-                                                                                                                        "navigation": {
-                                                                                                                            "nextEl": ".main-slider-button-next",
-                                                                                                                            "prevEl": ".main-slider-button-prev",
-                                                                                                                            "clickable": true
-                                                                                                                        },
-                                                                                                                        "autoplay": {
-                                                                                                                            "delay": 5000
-                                                                                                                        }}'>
 
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="image-layer"
-                            style="background-image: url(https://images.unsplash.com/photo-1444090695923-48e08781a76a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80)">
-                        </div>
-                        <div class="image-layer-overlay"></div>
-                        <div class="container">
-                            <div class="swiper-slide-inner">
-                                <div class="row">
-                                    <div class="col-xl-12">
-                                        <h2>Muslimani Ideal</h2>
-                                        <p>Medium me përmbajtje fetare</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="image-layer"
-                            style="background-image: url(https://images.unsplash.com/photo-1444090695923-48e08781a76a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80)">
-                        </div>
-                        <div class="image-layer-overlay"></div>
-                        <div class="container">
-                            <div class="swiper-slide-inner">
-                                <div class="row">
-                                    <div class="col-xl-12">
-                                        <h2>Muslimani Ideal</h2>
-                                        <p>Medium me përmbajtje fetare</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="image-layer"
-                            style="background-image: url(https://images.unsplash.com/photo-1444090695923-48e08781a76a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80)">
-                        </div>
-                        <div class="image-layer-overlay"></div>
-                        <div class="container">
-                            <div class="swiper-slide-inner">
-                                <div class="row">
-                                    <div class="col-xl-12">
-                                        <h2>Muslimani Ideal</h2>
-                                        <p>Medium me përmbajtje fetare</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="main-slider-nav">
-                    <div class="main-slider-button-prev"><span class="icon-right-arrow"></span></div>
-                    <div class="main-slider-button-next"><span class="icon-right-arrow"></span> </div>
-                </div>
+            <div style="height: 50vh; width: 100%;background-repeat: no-repeat; background-size: cover;background-position: center;background-image: url({{ asset('assetsFront/images/backgrounds/header.jpg') }})">
             </div>
+
+
+
         </section>
 
 
 
         <div class="counter-one">
-            <div class="counter-one__container">
-                <ul class="list-unstyled counters-one__box">
-                    <li class="counter-one__single wow fadeInUp" data-wow-delay="100ms">
+            <div class="counter-one__container py-4 py-lg-5">
+                <ul class="list-unstyled counters-one__box pt-4 pb-3 pt-lg-5 pb-lg-4">
+                    <li class="counter-one__single wow fadeInUp d-none d-md-inline-block" data-wow-delay="100ms">
                         <h3 class="odometer" data-count="{{ $media->instagram }}">00</h3>
                         <p class="counter-one__text">Instagram</p>
                     </li>
-                    <li class="counter-one__single wow fadeInUp" data-wow-delay="200ms">
+                    <li class="counter-one__single wow fadeInUp d-none d-md-inline-block" data-wow-delay="200ms">
                         <h3 class="odometer" data-count="{{ $media->youtube }}">00</h3>
                         <p class="counter-one__text">Youtube</p>
                     </li>
-                    <li class="counter-one__single wow fadeInUp" data-wow-delay="300ms">
+                    <li class="counter-one__single wow fadeInUp d-none d-md-inline-block" data-wow-delay="300ms">
                         <h3 class="odometer" data-count="{{ $media->telegram }}">00</h3>
                         <p class="counter-one__text">Telegram</p>
                     </li>
-                    <li class="counter-one__single wow fadeInUp" data-wow-delay="400ms">
+                    <li class="counter-one__single wow fadeInUp d-none d-md-inline-block" data-wow-delay="400ms">
                         <h3 class="odometer" data-count="{{ $media->facebook }}">00</h3>
                         <p class="counter-one__text">Facebook</p>
                     </li>
+                    <li class="counter-one__single wow fadeInUp d-md-none" data-wow-delay="400ms">
+                        <h3 class="odometer" data-count="{{ $media->facebook + $media->telegram + $media->youtube + $media->instagram }}">00</h3>
+                        <p class="counter-one__text">Ndjekes në rrjetet sociale</p>
+                    </li>
+
                 </ul>
             </div>
         </div>
@@ -176,9 +118,10 @@
             </div>
             <div class="gallery-one__container-box clearfix pt-5">
                 <ul class="list-unstyled gallery-one__content clearfix pt-5">
-
+                    <?php $post_index = 0; ?>
                     @foreach ($posts as $post)
-                        <li class="wow fadeInUp" data-wow-delay="100ms">
+                        <?php $post_index++; ?>
+                        <li class="wow fadeInUp {{ $post_index > 3 ? 'd-none-mobile' : '' }}" data-wow-delay="100ms">
                             <div class="gallery-one__img-box">
                                 <img src="/storage/{{ $post->image }}" alt="">
                                 <div class="gallery-one__iocn">
