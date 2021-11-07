@@ -69,8 +69,11 @@
                                                     <p class="hadith">{!! $content->hadith !!}</p>
                                                     <p class="reference">{!! $content->reference !!}</p>
 
-                                                        <div class="shield_check spans">
-                                                            <span id="{{$content->id}}" class="span"><i class="fas fa-check"></i></span>
+                                                        <div class="shield_check">
+                                                            @if ($content->title != 1 && $content->title != null)
+                                                            <div class="times">{{$content->title}}x</div>
+                                                            @endif
+                                                            <span id="{{$content->id}}"><i class="fas fa-check"></i></span>
                                                         </div>
 
                                                 </div>
@@ -146,25 +149,27 @@
                         <div class="destinations-details__right">
                             <div class="destinations-details__discount" style="margin-top:0px;margin-bottom:30px">
                                 <a href="{{route('content','dhikri-i-mengjesit')}}">
-                                <img style="max-height:170px;object-fit:cover" src="{{asset('assetsFront/images/backgrounds/mengjes.jpg')}}" alt="">
-                                <div class="destinations-details__discount-content">
-                                    <h4> Dhikri i <br> Mëngjesit</h4>
-                                </div>
-                            </a>
-                            </div>
-                            <div class="destinations-details__discount">
-                                <a href="{{route('content','dhikri-i-mbremjes')}}">
-                                <img style="max-height:170px;object-fit:cover" src="{{asset('assetsFront/images/backgrounds/mbremje.jpg')}}" alt="">
-                                <div class="destinations-details__discount-content">
-                                    <h4> Dhikri i <br> Mbrëmjes</h4>
-                                </div>
+                                    <img style="max-height:170px;object-fit:cover" src="{{asset('assetsFront/images/backgrounds/mengjes.jpg')}}" alt="">
+                                    <div class="destinations-details__discount-content">
+                                        <h4> Dhikri i <br> Mëngjesit</h4>
+                                    </div>
                                 </a>
                             </div>
                             <div class="destinations-details__discount">
-                                <img style="max-height:170px;object-fit:cover" src="{{asset('assetsFront/images/backgrounds/kehf.jpg')}}" alt="">
-                                <div class="destinations-details__discount-content">
-                                    <h4> Surja <br> Kehf</h4>
-                                </div>
+                                <a href="{{route('content','dhikri-i-mbremjes')}}">
+                                    <img style="max-height:170px;object-fit:cover" src="{{asset('assetsFront/images/backgrounds/mbremje.jpg')}}" alt="">
+                                    <div class="destinations-details__discount-content">
+                                        <h4> Dhikri i <br> Mbrëmjes</h4>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="destinations-details__discount">
+                                <a href="https://quran.com/18/1-110?translations=88&locale=sq">
+                                    <img style="max-height:170px;object-fit:cover" src="{{asset('assetsFront/images/backgrounds/kehf.jpg')}}" alt="">
+                                    <div class="destinations-details__discount-content">
+                                        <h4> Surja <br> Kehf</h4>
+                                    </div>
+                                </a>
                             </div>
 
                         </div>

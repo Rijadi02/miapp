@@ -2875,14 +2875,14 @@ ul {
     -o-transition: all 500ms ease 500ms;
 }
 
-.gallery-one__iocn a {
+.gallery-one__iocn {
     color: #ffffff;
     font-size: 35px;
     -webkit-transition: all 500ms ease;
     transition: all 500ms ease;
 }
 
-.gallery-one__iocn a:hover {
+.gallery-one__iocn:hover {
     color: var(--thm-black);
 }
 
@@ -3146,7 +3146,7 @@ ul {
     transform: scale(1.05);
 }
 
-.news-one__img>a {
+.news-one__img>.a_plus {
     top: 0;
     left: 0;
     right: 0;
@@ -3165,11 +3165,11 @@ ul {
     border-radius: var(--thm-border-radius);
 }
 
-.news-one__img>a>span {
+.news-one__img>.a_plus>span {
     position: relative;
 }
 
-.news-one__img>a>span::before {
+.news-one__img>.a_plus>span::before {
     content: '';
     width: 20px;
     height: 2px;
@@ -3181,7 +3181,7 @@ ul {
     transition: all 500ms ease;
 }
 
-.news-one__img>a>span::after {
+.news-one__img>.a_plus>span::after {
     content: '';
     transition: all 500ms ease;
     width: 2px;
@@ -3193,12 +3193,12 @@ ul {
     transform: translate(-50%, -50%);
 }
 
-.news-one__img>a:hover>span::before,
-.news-one__img>a:hover>span::after {
+.news-one__img>.a_plus:hover>span::before,
+.news-one__img>.a_plus:hover>span::after {
     background-color: var(--thm-primary);
 }
 
-.news-one__single:hover .news-one__img>a {
+.news-one__single:hover .news-one__img>.a_plus {
     visibility: visible;
     transform: translateY(0%);
     opacity: 1;
@@ -6323,6 +6323,7 @@ ul {
     font-size: 20px;
     font-weight: 700;
     line-height: 30px;
+    width: 85%;
     color: var(--thm-black);
     position: relative;
     -webkit-transition: all 500ms ease;
@@ -6352,10 +6353,9 @@ ul {
     font-weight: 900;
     font-size: 17px;
     color: var(--thm-black);
-    ;
     position: absolute;
     top: 50%;
-    right: 0;
+    right: -17.5%;
     height: 35px;
     width: 35px;
     border-radius: 50%;
@@ -6408,6 +6408,14 @@ ul {
     line-height: 28px;
     color: var(--thm-black);
     letter-spacing: var(--thm-letter-spacing);
+}
+
+.faq-one-accrodion .accrodion-content a {
+    color: var(--thm-primary);
+}
+
+.faq-one-accrodion .accrodion-content a:hover {
+    color: var(--thm-gray);
 }
 
 .accrodion-content .arabic {
@@ -7653,6 +7661,17 @@ ul {
     transition: all 500ms ease;
     z-index: 1;
     cursor: pointer;
+}
+
+.shield_check .times {
+    display: flex;
+    color: #fff;
+    padding: 3px 16px;
+    background-color: var(--thm-primary);
+    border-radius: 50px;
+    font-size: 17px;
+    font-weight: bold;
+    margin-right: 12px;
 }
 
 .shield_check .active {

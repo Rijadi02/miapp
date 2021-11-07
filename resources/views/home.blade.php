@@ -7,7 +7,8 @@
         <section class="main-slider">
 
 
-            <div style="height: 50vh; width: 100%;background-repeat: no-repeat; background-size: cover;background-position: center;background-image: url({{ asset('assetsFront/images/backgrounds/header.jpg') }})">
+            <div
+                style="height: 50vh; width: 100%;background-repeat: no-repeat; background-size: cover;background-position: center;background-image: url({{ asset('assetsFront/images/backgrounds/header.jpg') }})">
             </div>
 
 
@@ -36,7 +37,9 @@
                         <p class="counter-one__text">Facebook</p>
                     </li>
                     <li class="counter-one__single wow fadeInUp d-md-none" data-wow-delay="400ms">
-                        <h3 class="odometer" data-count="{{ $media->facebook + $media->telegram + $media->youtube + $media->instagram }}">00</h3>
+                        <h3 class="odometer"
+                            data-count="{{ $media->facebook + $media->telegram + $media->youtube + $media->instagram }}">
+                            00</h3>
                         <p class="counter-one__text">Ndjekes në rrjetet sociale</p>
                     </li>
 
@@ -121,14 +124,17 @@
                     <?php $post_index = 0; ?>
                     @foreach ($posts as $post)
                         <?php $post_index++; ?>
-                        <li class="wow fadeInUp {{ $post_index > 3 ? 'd-none-mobile' : '' }}" data-wow-delay="100ms">
-                            <div class="gallery-one__img-box">
-                                <img src="/storage/{{ $post->image }}" alt="">
-                                <div class="gallery-one__iocn">
-                                    <a href="{{ $post->link }}"><i class="fab fa-instagram"></i></a>
+                        <a href="{{ $post->link }}">
+                            <li class="wow fadeInUp {{ $post_index > 3 ? 'd-none d-md-inline-block' : '' }}"
+                                data-wow-delay="100ms">
+                                <div class="gallery-one__img-box">
+                                    <img src="/storage/{{ $post->image }}" alt="">
+                                    <div class="gallery-one__iocn">
+                                        <i class="fab fa-instagram"></i>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
+                            </li>
+                        </a>
                     @endforeach
                 </ul>
             </div>

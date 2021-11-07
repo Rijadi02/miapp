@@ -40,15 +40,15 @@
                 <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
                     <!--News One Single-->
                      <div class="news-one__single">
-                         <div class="news-one__img">
+                         <a href="{{route('blog',$blog->slug)}}" class="news-one__img">
                              <img style="aspect-ratio: 0.7;object-fit: cover;" src="/storage/{{ $blog->image }}" alt="">
-                             <a href="{{route('blog',$blog->slug)}}">
+                             <div class="a_plus" >
                                  <span class="news-one__plus"></span>
-                             </a>
+                             </div>
                              <div class="news-one__date">
                                  <p>{{ $blog->created_at->format('d') }}<br> <span>{{ $blog->created_at->format('M') }}</span></p>
                              </div>
-                         </div>
+                            </a>
                          <div class="news-one__content">
                              <ul class="list-unstyled news-one__meta">
                                  <li><a href="{{route('blog',$blog->slug)}}"><i class="far fa-user-circle"></i>{{ $blog->author}}</a></li>
