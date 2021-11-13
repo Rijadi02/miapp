@@ -58,6 +58,7 @@
                                 <a href="{{route('blog',$blog->slug)}}">{{ $blog->title}}</a>
                              </h3>
                          </div>
+                         
                      </div>
                  </div>
                 @endforeach

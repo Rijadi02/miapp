@@ -288,10 +288,11 @@
                                 <!--News One Single-->
                                 @foreach ($blogs as $blog)
                                     <div class="news-one__single wow fadeInUp" data-wow-delay="100ms">
+                                        <a href="{{route('blog',$blog->slug)}}">
                                         <div class="news-one__img">
                                             <img style="aspect-ratio: 0.7;object-fit: cover;"
                                                 src="/storage/{{ $blog->image }}" alt="">
-                                            <a href="news-details.html">
+                                            <a href="{{route('blog',$blog->slug)}}">
                                                 <span class="news-one__plus"></span>
                                             </a>
                                             <div class="news-one__date">
@@ -302,7 +303,7 @@
                                         </div>
                                         <div class="news-one__content">
                                             <ul class="list-unstyled news-one__meta">
-                                                <li><a href="news-details.html"><i
+                                                <li><a href="{{route('blog',$blog->slug)}}"><i
                                                             class="far fa-user-circle"></i>{{ $blog->author }}</a>
                                                 </li>
                                                 {{-- <li><a href="news-details.html"><i class="far fa-comments"></i>2
@@ -310,9 +311,10 @@
                                             </li> --}}
                                             </ul>
                                             <h3 class="news-one__title">
-                                                <a href="news-details.html">{{ $blog->title }}</a>
+                                                <a href="{{route('blog',$blog->slug)}}">{{ $blog->title }}</a>
                                             </h3>
                                         </div>
+                                        </a>
                                     </div>
                                 @endforeach
 
@@ -387,7 +389,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <p class="about-two__right-text-1">Allahu në Kuran thotë:</p>
+                            <p class="about-two__right-text-1">Jepi Allahut një hua të bukur...</p>
                             <p class="about-two__right-text-2">Kush do t’i japë Allahut një hua të bukur, që Ai t’ia kthejë
                                 shpërblimin shumëfish? Allahu e shtrëngon (riskun) dhe e liron; tek Ai do të ktheheni. <a
                                     class="text-decoration-none" href="https://quran.com/2/245"> <br> [2:245] </a></p>
