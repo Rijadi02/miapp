@@ -170,25 +170,25 @@
                                         {{-- <span class="icon-deer"></span> --}}
                                         <img src="{{ asset('assetsFront/images/icons/chat.svg') }}"></img>
                                     </div>
-                                    <h4 class="video-one__icon-box-title"><a href="#">Video <br> Këshilluese</a></h4>
+                                    <h4 class="video-one__icon-box-title"><a href="https://www.youtube.com/c/MuslimaniIdeal">Video <br> Këshilluese</a></h4>
                                 </li>
                                 <li>
                                     <div class="video-one__icon-box">
                                         <img src="{{ asset('assetsFront/images/icons/paper.svg') }}"></img>
                                     </div>
-                                    <h4 class="video-one__icon-box-title"><a href="#">Video <br> Motivuese</a></h4>
+                                    <h4 class="video-one__icon-box-title"><a href="https://www.youtube.com/c/MuslimaniIdeal">Video <br> Motivuese</a></h4>
                                 </li>
                                 <li>
                                     <div class="video-one__icon-box">
                                         <img src="{{ asset('assetsFront/images/icons/pen.svg') }}"></img>
                                     </div>
-                                    <h4 class="video-one__icon-box-title"><a href="#">Video <br> Edukative</a></h4>
+                                    <h4 class="video-one__icon-box-title"><a href="https://www.youtube.com/c/MuslimaniIdeal">Video <br> Edukative</a></h4>
                                 </li>
                                 <li>
                                     <div class="video-one__icon-box">
                                         <img src="{{ asset('assetsFront/images/icons/book.svg') }}"></img>
                                     </div>
-                                    <h4 class="video-one__icon-box-title"><a href="#">Bazat e <br> Besimit</a></h4>
+                                    <h4 class="video-one__icon-box-title"><a href="https://www.youtube.com/c/MuslimaniIdeal">Bazat e <br> Besimit</a></h4>
                                 </li>
                             </ul>
                         </div>

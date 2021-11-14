@@ -134,7 +134,7 @@
                                         <li><a href="{{ route('shield') }}">Mburoja</a></li>
                                         <li><a href="{{ route('recitations') }}">Recitimet</a></li>
                                         <li><a href="{{ route('lectures', 'prishtinë') }}">Derset</a></li>
-                                        <li><a href="{{ route('ads') }}">Bizneset</a></li>
+                                        {{-- <li><a href="{{ route('ads') }}">Bizneset</a></li> --}}
                                     </ul>
                                 </div>
                             </div>
@@ -205,7 +205,7 @@
                                         <li><a href="#">Artikujt</a></li>
                                         <li><a href="#">Recitimet</a></li>
                                         <li><a href="#">Derset</a></li>
-                                        <li><a href="#">Bizneset</a></li>
+                                        {{-- <li><a href="#">Bizneset</a></li> --}}
 
                                     </ul>
                                 </div>

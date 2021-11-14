@@ -115,10 +115,10 @@
                             Hoxhallarët
                         </a>
 
-                        <a class="nav-link" href="{{ route('ad.index') }}">
+                        {{-- <a class="nav-link" href="{{ route('ad.index') }}">
                             <div class="nav-link-icon"><i class="fa fa-poll"></i></div>
                             Bizneset
-                        </a>
+                        </a> --}}
 
                         <a class="nav-link" href="{{ route('blog.index') }}">
                             <div class="nav-link-icon"><i class="fa fa-newspaper"></i></div>

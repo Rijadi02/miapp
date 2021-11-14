@@ -26,9 +26,9 @@
                 <div class="container">
                     <div class="page-header__bottom-inner">
                         <ul class="thm-breadcrumb list-unstyled">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="{{ route('home')}}">Ballina</a></li>
                             <li><span>.</span></li>
-                            <li class="active">Tours</li>
+                            <li class="active">Recitimet</li>
                         </ul>
                     </div>
                 </div>
