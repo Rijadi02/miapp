@@ -7727,3 +7727,26 @@ span[dir="rtl"] {
     align-items: center;
     border-radius: 8px;
 }
+
+.news-details__content {
+    color: #414050
+}
+
+.news-details__content strong {
+    color: #313041
+}
+
+.news-details__content h2 {
+    font-size: 24px;
+    margin-bottom: 12px;
+    margin-top: 2.5rem;
+}
+
+.news-details__content h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.news-details__content p {
+    margin-bottom: 1rem;
+}
