@@ -41,6 +41,21 @@
             <div class="container  ps-4 pe-4">
 
                 <div class="row ">
+
+                    <div class="col-lg-9 mb-3">
+                        <div class="destinations-details__left">
+
+                            <div class="destinations-details__faq">
+                                <div class="accrodion-grp" data-grp-name="faq-one-accrodion">
+                                        <div class="accrodion active">
+                                                <div class="accrodion-title" style="background-color:#faf5ee">
+                                                    <h5>Pas çdo rifreskimi ndryshojnë recitimet!</h5>
+                                                </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <?php $i = 0; ?>
                     @foreach ($recitations as $recitation)
 
@@ -184,20 +199,42 @@
                         </div>
                         <?php $i = $i + 1; ?>
                     @endforeach
+
                     <div class="col-lg-9">
                         <div class="destinations-details__left">
 
                             <div class="destinations-details__faq">
                                 <div class="accrodion-grp" data-grp-name="faq-one-accrodion">
                                         <div class="accrodion active">
-                                                <div class="accrodion-title" style="background-color:#faf5ee">
-                                                    <h5>Shumë nga recitimet dhe referencat janë të shkarkuara nga <a href="https://www.tvquran.com/en">tvquran.com</a></h5>
+                                                <div class="accrodion-title" >
+                                                    <h5>
+                                                        @foreach ($reciters as $reciter)
+                                                        <a href="/recitues/{{$reciter->slug}}">{{$reciter->name}}</a>
+                                                        @endforeach
+                                                    </h5>
                                                 </div>
                                         </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="col-lg-9 mt-3">
+                        <div class="destinations-details__left">
+
+                            <div class="destinations-details__faq">
+                                <div class="accrodion-grp" data-grp-name="faq-one-accrodion">
+                                        <div class="accrodion active">
+                                                <div class="accrodion-title" style="background-color:#faf5ee">
+                                                    <h5>Disa nga recitimet dhe referencat janë të shkarkuara nga <a href="https://www.tvquran.com/en">tvquran.com</a></h5>
+                                                </div>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
 
             </div>
