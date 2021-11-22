@@ -41,7 +41,7 @@
                     <li><span>.</span></li>
                     <li class="active"><a href="{{ route('blogs') }}">Artikujt</a></li>
                     <li><span>.</span></li>
-                    <li class="active">Detajet</li>
+                    <li class="active">{{$blog->title}}</li>
 
                 </ul>
             </div>

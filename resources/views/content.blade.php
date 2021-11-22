@@ -35,6 +35,9 @@
                 <div class="container">
                     <div class="page-header__bottom-inner">
                         <ul class="thm-breadcrumb list-unstyled">
+                            <li><a href="/mburoja">Mburoja e Muslimanit</a></li>
+
+                            <li><span>.</span></li>
                             <li><a href="{{route('chapters',$chapter->book->slug)}}">{{$chapter->book->name}}</a></li>
                             <li><span>.</span></li>
                             <li class="active" ><a>{{$chapter->name}}</a></li>
