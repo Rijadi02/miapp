@@ -166,7 +166,7 @@
                                                 src="{{ asset('assetsFront/images/resources/footer-logo.png') }}"
                                                 alt=""></a>
                                     </div>
-                                    <p class="footer-widget__about-text">Për çdo këshillë, sygjerim apo kritikë, na
+                                    <p class="footer-widget__about-text">Për çdo këshillë, sugjerim apo kritikë, na
                                         kontaktoni.</p>
                                     <ul class="footer-widget__about-contact list-unstyled">
                                         <li>
@@ -200,11 +200,11 @@
                                 <div class="footer-widget__column footer-widget__company clearfix">
                                     <h3 class="footer-widget__title">Muslimani Ideal</h3>
                                     <ul class="footer-widget__company-list list-unstyled">
-                                        <li><a href="about.html">Ballina</a></li>
-                                        <li><a href="#">Mburoja</a></li>
-                                        <li><a href="#">Artikujt</a></li>
-                                        <li><a href="#">Recitimet</a></li>
-                                        <li><a href="#">Derset</a></li>
+                                        <li><a href="{{route('home')}}">Ballina</a></li>
+                                        <li><a href="{{route('shield')}}">Mburoja</a></li>
+                                        <li><a href="{{route('blogs')}}">Artikujt</a></li>
+                                        <li><a href="{{route('recitations')}}">Recitimet</a></li>
+                                        <li><a href="{{route('lectures','Prishtinë')}}">Derset</a></li>
                                         {{-- <li><a href="#">Bizneset</a></li> --}}
 
                                     </ul>
@@ -287,7 +287,7 @@
                 </li>
                 <li>
                     <i class="fa fa-phone-alt"></i>
-                    <a href="tel:+38349133540">+383 49 133 540</a>
+                    <a href="">+383 49 133 540</a>
                 </li>
             </ul><!-- /.mobile-nav__contact -->
             <div class="mobile-nav__top">

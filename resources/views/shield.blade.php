@@ -197,7 +197,6 @@
                                     src="https://images.unsplash.com/photo-1592326871020-04f58c1a52f3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80"
                                     alt="">
                                 <div class="destinations-one__content">
-                                    <p class="destinations-one__sub-title">Tours</p>
                                     <h2 class="destinations-one__title"><a
                                             href="{{ route('chapters', 'haxh-dhe-umre') }}">Haxh dhe Umre</a></h2>
                                 </div>

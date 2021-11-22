@@ -58,7 +58,7 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <label for="instagram" class="col-md-12 col-form-label">Ndjekesti ne Instagram</label>
+                                <label for="instagram" class="col-md-12 col-form-label">Ndjekësti ne Instagram</label>
                                 <input id="instagram" type="number" name="instagram"
                                     class="form-control @error('instagram') is-invalid @enderror"
                                     value="{{ old('instagram') ?? $media->instagram }}" autocomplete="instagram">

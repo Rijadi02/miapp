@@ -40,7 +40,7 @@
                         <h3 class="odometer"
                             data-count="{{ $media->facebook + $media->telegram + $media->youtube + $media->instagram }}">
                             00</h3>
-                        <p class="counter-one__text">Ndjekes në rrjetet sociale</p>
+                        <p class="counter-one__text">Ndjekës në rrjetet sociale</p>
                     </li>
 
                 </ul>
@@ -85,7 +85,7 @@
                                 <h2 class="section-title__title">Mediumi Muslimani Ideal</h2>
                             </div>
                             <p class="about-one__right-text">Muslimani Ideal është medium islam, i cili synim kryesor e ka
-                                përhapjen e fesë së Allahut në të gjitha rrjetet sociale. Përmes këti mediumi tentojmë të
+                                përhapjen e fesë së Allahut në të gjitha rrjetet sociale. Përmes këtij mediumi tentojmë të
                                 hapim pakëz dritë në këtë errësirë të madhe. </p>
                             <ul class="list-unstyled about-one__points">
                                 <li>
@@ -277,8 +277,8 @@
                                 <span class="section-title__tagline">Artikujt & lajmet e fundit —></span>
                                 <h2 class="section-title__title">Artikujt e fundit</h2>
                             </div>
-                            <p class="news-two__text">Muslimani Ideal poston artikuj si dhe lajme nga më bashkohorët.
-                                Artikujt janë të përgaditur nga vetë stafi i Muslimanit Ideal, ose nga hoxhallarët.
+                            <p class="news-two__text">Muslimani Ideal poston artikuj si dhe lajme nga më bashkëkohorët.
+                                Artikujt janë të përgatitur nga vetë stafi i Muslimanit Ideal, ose nga hoxhallarët.
                             </p>
                         </div>
                     </div>
@@ -343,7 +343,7 @@
                     <div class="col-xl-6">
                         <div class="about-two__right">
                             <div class="section-title text-left">
-                                <span class="section-title__tagline">Kontribo per Muslimanin Ideal</span>
+                                <span class="section-title__tagline">Kontribuo për Muslimanin Ideal                                </span>
                                 <h2 class="section-title__title">Përkrah davetin</h2>
                             </div>
                             <div class="about-two__tour-points">
@@ -353,7 +353,7 @@
                                             <i class="fa fa-check"></i>
                                         </div>
                                         <div class="text">
-                                            <p>Ndihmo ne perhapjen e fesë</p>
+                                            <p>Ndihmo në përhapjen e fesë</p>
                                         </div>
                                     </li>
                                     <li>
