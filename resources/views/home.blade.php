@@ -336,12 +336,7 @@
                         <div class="about-two__left">
                             <div class="about-tow__left-img wow slideInLeft" data-wow-delay="100ms"
                                 data-wow-duration="2500ms">
-                                <img src="{{ asset('assetsFront/images/resources/about-two-img.jpg') }}" alt="">
-                                <a href="https://www.youtube.com/watch?v=Get7rqXYrbQ" class="video-popup">
-                                    <div class="about-two__video-btn">
-                                        <span class="icon-play-button"></span>
-                                    </div>
-                                </a>
+                                <img src="{{ asset('assetsFront/images/donation.jpg') }}" alt="">
                             </div>
                         </div>
                     </div>

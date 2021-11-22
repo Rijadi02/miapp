@@ -66,7 +66,7 @@
                         <ul class="list-unstyled news-one__meta">
                             <li><a ><i class="far fa-user-circle"></i>{{ $blog->author}}</a></li>
                         </ul>
-                        <h3 class="news-details__title">{{ $blog->title}}</h3>
+                        <h1 class="news-details__title">{{ $blog->title}}</h1>
                         {!! $blog->content !!}
                     </div>
 
