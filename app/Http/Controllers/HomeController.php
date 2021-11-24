@@ -183,4 +183,9 @@ class HomeController extends Controller
         $recitations = Recitation::where('id', $id)->get();
         return view('recitations', compact('recitations','reciters'));
     }
+
+    public function academy()
+    {
+        return view('academy');
+    }
 }

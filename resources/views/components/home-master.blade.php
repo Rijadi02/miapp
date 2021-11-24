@@ -134,6 +134,7 @@
                                         <li><a href="{{ route('shield') }}">Mburoja</a></li>
                                         <li><a href="{{ route('recitations') }}">Recitimet</a></li>
                                         <li><a href="{{ route('lectures', 'prishtinë') }}">Derset</a></li>
+                                        <li><a href="{{ route('academy') }}">Akademia</a></li>
                                         {{-- <li><a href="{{ route('ads') }}">Bizneset</a></li> --}}
                                     </ul>
                                 </div>
