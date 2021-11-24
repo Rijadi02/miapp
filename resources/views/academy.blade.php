@@ -1,7 +1,7 @@
 <x-home-master>
 
     @section('meta')
-    <meta property="og:image" content="{{ asset('assetsFront/images/ether-logo.png') }}" />
+    <meta property="og:image" content="<?php echo url('/'); ?>/assetsFront/images/ether-logo.png" />
 
     <meta property="og:description" content="Akademia 'Ether' e Muslimanit Ideal " />
 
@@ -11,6 +11,8 @@
 
     <meta property="og:type" content="academy" />
 
+
+
     @endsection
 
     @section('content')
@@ -18,6 +20,7 @@
         <div class="stricky-header stricked-menu main-menu">
             <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
         </div><!-- /.stricky-header -->
+
 
 
         <section class="page-header">
