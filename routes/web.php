@@ -127,6 +127,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
     Route::patch('promotions/{promotion}/update', [App\Http\Controllers\PromotionController::class, 'update'])->name('promotion.update');
     Route::get('promotions/{promotion}/edit',  [App\Http\Controllers\PromotionController::class, 'edit'])->name('promotion.edit');
 
-
+    Route::get('applications', [App\Http\Controllers\AcademyController::class, 'index'])->name('applications.index');
+    Route::post('applications/store', [App\Http\Controllers\AcademyController::class, 'store'])->name('applications.store');
 
 });
