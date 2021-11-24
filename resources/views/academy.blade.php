@@ -8,14 +8,9 @@
 
 
         <section class="page-header">
-            <div class="page-header__top">
-                <div class="page-header-bg" style="background-image: url({{asset('assetsFront/images/backgrounds/mburoja1.jpg')}})"></div>
-                <div class="page-header-bg-overly"></div>
-                <div class="container">
-                    <div class="page-header__top-inner">
-                        <h2>Akademia Ether</h2>
-                    </div>
-                </div>
+            <div class="page-header__top" style="min-height: 375px">
+                <div class="page-header-bg" style="background-image: url({{asset('assetsFront/images/ether.png')}})"></div>
+                
             </div>
             <div class="page-header__bottom">
                 <div class="container">
