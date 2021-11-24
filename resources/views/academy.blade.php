@@ -9,8 +9,8 @@
 
         <section class="page-header">
             <div class="page-header__top" style="min-height: 375px">
-                <div class="page-header-bg" style="background-image: url({{asset('assetsFront/images/ether.png')}})"></div>
-                
+                <div class="page-header-bg" style="background-image: url({{ asset('assetsFront/images/ether.png') }})"></div>
+
             </div>
             <div class="page-header__bottom">
                 <div class="container">
@@ -28,39 +28,58 @@
 
         <section class="contact-page">
             <div class="container">
+
+                @if (Session::has('application-add'))
+                    <div class="col-lg-12 mt-5 mb-5">
+                        <div class="destinations-details__left">
+
+                            <div class="destinations-details__faq">
+                                <div class="accrodion-grp" data-grp-name="faq-one-accrodion">
+                                    <div class="accrodion active">
+                                        <div class="accrodion-title" style="background-color: #d7eed9;">
+                                            <h5>{!! Session::get('application-add')!!} </h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+
                 <div class="row">
                     <div class="col-xl-4 col-lg-5">
                         <div class="contact-page__left">
                             <div class="section-title text-left">
                                 <span class="section-title__tagline">Mëso fenë!</span>
-                                <h2 class="section-title__title">Regjistrohu në Akademinë Ether - vetëm për femra</h2>
+                                <h2 class="section-title__title">Regjistrohu në Akademinë Ether - vetëm për motra</h2>
                             </div>
                             <div class="contact-page__social">
-                            <a href="https://www.youtube.com/c/MuslimaniIdeal"><i class="fab fa-youtube"></i></a>
-                            <a href="https://www.facebook.com/MuslimaniIdealM/"><i class="fab fa-facebook"></i></a>
-                            <a href="https://t.me/muslimani_ideal"><i class="fab fa-telegram-plane"></i></a>
-                            <a href="https://www.instagram.com/muslimani_ideal/"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.youtube.com/c/MuslimaniIdeal"><i class="fab fa-youtube"></i></a>
+                                <a href="https://www.facebook.com/MuslimaniIdealM/"><i class="fab fa-facebook"></i></a>
+                                <a href="https://t.me/muslimani_ideal"><i class="fab fa-telegram-plane"></i></a>
+                                <a href="https://www.instagram.com/muslimani_ideal/"><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-8 col-lg-7">
                         <div class="contact-page__right">
                             <div class="comment-form">
-                                <form action="inc/sendemail.php" class="comment-one__form contact-form-validated" novalidate="novalidate">
+                                <form method="POST" action="{{ route('applications.store') }}">
+                                    @csrf
                                     <div class="row">
                                         <div class="col-xl-12">
                                             <div class="comment-form__input-box">
-                                                <input type="text" placeholder="Emri dhe Mbiemri" name="name">
+                                                <input required type="text" placeholder="Emri dhe Mbiemri" name="name">
                                             </div>
                                         </div>
                                         <div class="col-xl-12">
                                             <div class="comment-form__input-box">
-                                                <input type="email" placeholder="Mosha" name="age">
+                                                <input required type="number" placeholder="Mosha" name="age">
                                             </div>
                                         </div>
                                         <div class="col-xl-12">
                                             <div class="comment-form__input-box">
-                                                <input type="email" placeholder="Vendbanimi (Qyteti)" name="city">
+                                                <input required type="text" placeholder="Vendbanimi (Qyteti)" name="city">
                                             </div>
                                         </div>
                                     </div>
@@ -83,7 +102,7 @@
 
 
 
-        <section class="information">
+        {{-- <section class="information">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-4 col-lg-4">
@@ -118,22 +137,23 @@
                             </div>
                             <div class="information__text">
                                 <h4>
-                                    <a href="mailto:info@muslimani-ideal.org" class="information__mail-1">info@muslimani-ideal.org</a> <br>
+                                    <a href="mailto:info@muslimani-ideal.org"
+                                        class="information__mail-1">info@muslimani-ideal.org</a> <br>
                                 </h4>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-
-
+        </section> --}}
         <section class="contact-page-google-map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4562.753041141002!2d-118.80123790098536!3d34.152323469614075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80e82469c2162619%3A0xba03efb7998eef6d!2sCostco+Wholesale!5e0!3m2!1sbn!2sbd!4v1562518641290!5m2!1sbn!2sbd" class="contact-page-google-map__one" allowfullscreen=""></iframe>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d366.7236850412683!2d21.170050949227686!3d42.66581636733797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13549f20d08017f9%3A0xa879d246924d6aea!2sAfrim%20Loxha%2C%20Prishtin%C3%AB!5e0!3m2!1sen!2s!4v1637766434622!5m2!1sen!2s"
+                class="contact-page-google-map__one" allowfullscreen=""></iframe>
 
         </section>
 
 
-            @endsection('content')
+    @endsection('content')
 
 </x-home-master>

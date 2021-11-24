@@ -30,7 +30,7 @@ Route::get('/recitimet/{id}', [App\Http\Controllers\HomeController::class, 'reci
 Route::get('/recitues/{slug}', [App\Http\Controllers\HomeController::class, 'reciter'])->name('reciter');
 // Route::get('/bizneset_e_filturara', [App\Http\Controllers\HomeController::class, 'search_ads'])->name('search_ads');
 Route::get('/akademia', [App\Http\Controllers\HomeController::class, 'academy'])->name('academy');
-
+Route::post('applications/store', [App\Http\Controllers\AcademyController::class, 'store'])->name('applications.store');
 
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'admin'], function () {
@@ -128,6 +128,6 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
     Route::get('promotions/{promotion}/edit',  [App\Http\Controllers\PromotionController::class, 'edit'])->name('promotion.edit');
 
     Route::get('applications', [App\Http\Controllers\AcademyController::class, 'index'])->name('applications.index');
-    Route::post('applications/store', [App\Http\Controllers\AcademyController::class, 'store'])->name('applications.store');
+    Route::delete('applications/{application}', [App\Http\Controllers\AcademyController::class, 'destroy'])->name('applications.destroy');
 
 });

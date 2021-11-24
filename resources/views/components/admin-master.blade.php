@@ -145,6 +145,12 @@
                             Reklamat
                         </a>
 
+                        <a class="nav-link" href="{{ route('applications.index') }}">
+                            <div class="nav-link-icon"><i class="fa fa-university"></i></div>
+                            Akademia
+                        </a>
+
+
                         {{-- <a class="nav-link" href="{{ route('brands.index') }}">
                             <div class="nav-link-icon"><i class="fas fa-copyright"></i></div>
                             Brands

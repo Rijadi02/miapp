@@ -4989,6 +4989,8 @@ ul {
 }
 
 .comment-form__input-box input[type="text"],
+.comment-form__input-box input[type="number"],
+
 .comment-form__input-box input[type="email"] {
     height: 67px;
     width: 100%;
@@ -5282,6 +5284,14 @@ ul {
     position: relative;
     display: block;
     padding: 120px 0 120px;
+}
+
+@media (max-width: 900px) {
+    .contact-page {
+        position: relative;
+        display: block;
+        padding: 35px 0 120px;
+    }
 }
 
 .contact-page__left {

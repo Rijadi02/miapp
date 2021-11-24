@@ -13,9 +13,9 @@
                                         <line x1="3" y1="9" x2="21" y2="9"></line>
                                         <line x1="9" y1="21" x2="9" y2="9"></line>
                                     </svg></div>
-                                Aplikimet
+                                Regjistrimet
                             </h1>
-                            <div class="page-header-subtitle">Këtu janë motrat që janë regjistruar në Ether</div>
+                            <div class="page-header-subtitle">Këtu janë motrat që janë regjistruar në Akademin Ether</div>
                         </div>
                     </div>
                 </div>
@@ -33,18 +33,18 @@
                         width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Renditja</th>
-                                <th>Shqip</th>
-                                <th>Referenca</th>
+                                <th>Emri dhe Mbiemri</th>
+                                <th>Vendbanimi</th>
+                                <th>Mosha</th>
                                 <th>Modifikimet</th>
 
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>Renditja</th>
-                                <th>Shqip</th>
-                                <th>Referenca</th>
+                                <th>Emri dhe Mbiemri</th>
+                                <th>Vendbanimi</th>
+                                <th>Mosha</th>
                                 <th>Modifikimet</th>
                             </tr>
                         </tfoot>
@@ -52,30 +52,29 @@
                             @foreach ($applications as $application)
 
                                 <tr>
-                                    <td>{{ $content->number }}</td>
-                                    <td> {{  \Illuminate\Support\Str::limit($content->content, $limit = 100, $end = '...') }}</td>
-                                    <td> {{  $content->reference }}</td>
+                                    <td>{{ $application->name }}</td>
+                                    <td>{{ $application->city }}</td>
+                                    <td>{{ $application->age }}</td>
 
 
                                     <td>
-                                        <a class="btn btn-datatable btn-icon btn-transparent-dark mr-2"
-                                            href="{{ route('chapter.contents.edit', $content->id) }}"><i
-                                                data-feather="edit"></i></a>
 
-                                        <div class="modal fade" id="exampleModal{{ $content->id }}" tabindex="-1"
+
+                                        <div class="modal fade" id="exampleModal{{ $application->id }}" tabindex="-1"
                                             role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalLabel">Shylej Kontentin</h5>
+                                                        <h5 class="modal-title" id="exampleModalLabel">Shylej Kontentin
+                                                        </h5>
                                                         <button class="close" type="button" data-dismiss="modal"
                                                             aria-label="Close"><span aria-hidden="true">×</span></button>
                                                     </div>
-                                                    <div class="modal-body">Kjo do ta shlyej kontentin, te cilin so mund ta riktheni më</div>
+                                                    <div class="modal-body">Kjo do ta shlyej , te cilin s'mund
+                                                        ta riktheni më</div>
                                                     <div class="modal-footer"><button class="btn btn-secondary"
                                                             type="button" data-dismiss="modal">Mbyll</button>
-                                                        <form method="POST"
-                                                            action="{{ route('chapter.contents.destroy', $content->id) }}">
+                                                        <form method="POST" action="{{ route('applications.destroy', $application->id) }}">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button class="btn btn-danger" type="submit">Shlyej</button>
@@ -86,7 +85,7 @@
                                         </div>
 
                                         <button class="btn btn-datatable btn-icon btn-transparent-dark" type="submit"
-                                            data-toggle="modal" data-target="#exampleModal{{ $content->id }}"><i
+                                            data-toggle="modal" data-target="#exampleModal{{ $application->id }}"><i
                                                 data-feather="trash-2"></i></button>
 
 
@@ -105,42 +104,8 @@
         </div>
 
 
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-
-        <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
-        <script>
-        CKEDITOR.replace( 'content' );
 
 
-        </script>
-
-        <script>
-            $(function() {
-                // Multiple images preview with JavaScript
-                var multiImgPreview = function(input, imgPreviewPlaceholder) {
-
-                    if (input.files) {
-                        var filesAmount = input.files.length;
-
-                        for (i = 0; i < filesAmount; i++) {
-                            var reader = new FileReader();
-
-                            reader.onload = function(event) {
-                                $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(
-                                    imgPreviewPlaceholder);
-                            }
-
-                            reader.readAsDataURL(input.files[i]);
-                        }
-                    }
-
-                };
-
-                $('#images').on('change', function() {
-                    multiImgPreview(this, 'div.imgPreview');
-                });
-            });
-        </script>
 
     @endsection
 

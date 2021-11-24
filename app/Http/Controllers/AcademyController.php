@@ -53,6 +53,10 @@ class AcademyController extends Controller
 
         $application->save();
 
+        if ( $application->name != null) {
+            session()->flash('application-add', 'Regjistrimi për <b> ' . request('name') . '</b> u krye me sukses!');
+        }
+        return back();
     }
 
     /**
@@ -95,8 +99,9 @@ class AcademyController extends Controller
      * @param  \App\Models\Academy  $academy
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Academy $academy)
+    public function destroy($academy)
     {
-        //
+        Academy::where('id',$academy)->delete();
+        return back();
     }
 }
