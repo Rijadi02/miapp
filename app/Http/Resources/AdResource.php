@@ -20,7 +20,8 @@ class AdResource extends JsonResource
             "city" => $this->city,
             "image" => $this->image,
             "address" => $this->address,
-            "slug" => $this->slug,
+            "linku" => route('ad',$this->slug)
+
         ];
     }
 }

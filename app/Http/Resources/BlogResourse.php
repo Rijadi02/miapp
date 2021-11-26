@@ -20,7 +20,7 @@ class BlogResourse extends JsonResource
             "author" => $this->author,
             "image" => $this->image,
             "date" => $this->created_at,
-            "slug" => $this->slug,
+            "linku" => route('blog',$this->slug)
         ];
     }
 }
