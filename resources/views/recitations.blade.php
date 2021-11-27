@@ -121,7 +121,7 @@
                                                             class="text">Rikthe</span>
                                                     </div>
 
-                                                    <a download href="/storage/{{ $recitation->audio }}"
+                                                    <a download="{{$recitation->reciter->name}} - {{$recitation->surah}} {{$recitation->ayahs}}.mp3" href="/storage/{{ $recitation->audio }}"
                                                         class="iconText"><i class="fas fa-download"></i> <span
                                                             class="text">Shkarko</span></a>
                                                 </div>
