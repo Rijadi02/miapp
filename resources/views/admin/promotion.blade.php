@@ -149,7 +149,7 @@
             </div>
         </div>
         <div class="card">
-            <div class="card-header">Të gjitë recitimet</div>
+            <div class="card-header">Të gjitha reklamat</div>
             <div class="card-body">
                 <div class="datatable" style="overflow-x:auto;">
 

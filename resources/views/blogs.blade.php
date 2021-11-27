@@ -23,7 +23,7 @@
                     <ul class="thm-breadcrumb list-unstyled">
                         <li><a href="{{ route('home') }}">Ballina</a></li>
                         <li><span>.</span></li>
-                        <li class="active">Artikujt</li>
+                        <li class="active">Artikuj</li>
                     </ul>
                 </div>
             </div>

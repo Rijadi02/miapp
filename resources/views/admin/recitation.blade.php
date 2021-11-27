@@ -172,7 +172,7 @@
         </div>
 
         <div class="card">
-            <div class="card-header">Të gjitë recitimet</div>
+            <div class="card-header">Të gjithë recitimet</div>
             <div class="card-body">
                 <div class="datatable" style="overflow-x:auto;">
 

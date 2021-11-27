@@ -130,10 +130,10 @@
                                     <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
                                     <ul class="main-menu__list">
                                         <li><a href="{{ route('home') }}">Ballina</a></li>
-                                        <li><a href="{{ route('blogs') }}">Artikujt</a></li>
+                                        <li><a href="{{ route('blogs') }}">Artikuj</a></li>
                                         <li><a href="{{ route('shield') }}">Mburoja</a></li>
-                                        <li><a href="{{ route('recitations') }}">Recitimet</a></li>
-                                        <li><a href="{{ route('lectures', 'prishtinë') }}">Derset</a></li>
+                                        <li><a href="{{ route('recitations') }}">Recitime</a></li>
+                                        <li><a href="{{ route('lectures', 'prishtinë') }}">Derse</a></li>
                                         <li><a href="{{ route('academy') }}">Akademia</a></li>
                                         {{-- <li><a href="{{ route('ads') }}">Bizneset</a></li> --}}
                                     </ul>
@@ -203,9 +203,9 @@
                                     <ul class="footer-widget__company-list list-unstyled">
                                         <li><a href="{{route('home')}}">Ballina</a></li>
                                         <li><a href="{{route('shield')}}">Mburoja</a></li>
-                                        <li><a href="{{route('blogs')}}">Artikujt</a></li>
-                                        <li><a href="{{route('recitations')}}">Recitimet</a></li>
-                                        <li><a href="{{route('lectures','Prishtinë')}}">Derset</a></li>
+                                        <li><a href="{{route('blogs')}}">Artikuj</a></li>
+                                        <li><a href="{{route('recitations')}}">Recitime</a></li>
+                                        <li><a href="{{route('lectures','Prishtinë')}}">Derse</a></li>
                                         {{-- <li><a href="#">Bizneset</a></li> --}}
 
                                     </ul>

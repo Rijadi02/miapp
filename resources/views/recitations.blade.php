@@ -18,7 +18,7 @@
                 <div class="page-header-bg-overly"></div>
                 <div class="container">
                     <div class="page-header__top-inner">
-                        <h2>Recitimet</h2>
+                        <h2>Recitime</h2>
                     </div>
                 </div>
             </div>
@@ -28,7 +28,7 @@
                         <ul class="thm-breadcrumb list-unstyled">
                             <li><a href="{{ route('home')}}">Ballina</a></li>
                             <li><span>.</span></li>
-                            <li class="active">Recitimet</li>
+                            <li class="active">Recitime</li>
                         </ul>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
 
                             <meta property="og:description" content="  {{ $recitation->reciter->name }}" />
 
-                            <meta property="og:url" content="<?php echo url('/'); ?>/recitimet/{{ $recitation->id }}" />
+                            <meta property="og:url" content="<?php echo url('/'); ?>/recitime/{{ $recitation->id }}" />
 
                             <meta property="og:title" content="{{ $recitation->title }}" />
 
@@ -130,7 +130,7 @@
                                                             class="text">Shperndaje:</span>
                                                     </span> --}}
                                                     <div class="news-details__social-list my-3 my-lg-0">
-                                                        <?php $url = url('/') . '/recitimet/' . $recitation->id; ?>
+                                                        <?php $url = url('/') . '/recitime/' . $recitation->id; ?>
                                                         <a href="https://www.facebook.com/dialog/share?app_id=1266109583813461&display=popup&href=<?php echo $url; ?>&redirect_uri=<?php echo $url; ?>"
                                                             target="_blank"><i class="fab fa-facebook"></i></a>
                                                         <a class="d-none-mobile"
@@ -245,7 +245,7 @@
         {{-- <div class="search-popup">
             <div class="search-popup__overlay search-toggler"></div>
             <div class="search-popup__content">
-                <?php $url = url('/') . '/recitimet/' . $recitation->id; ?>
+                <?php $url = url('/') . '/recitime/' . $recitation->id; ?>
                 <div class="news-details__bottom">
                     <div class="news-details__social-list">
                         <a href="https://www.facebook.com/dialog/share?app_id=1266109583813461&display=popup&href=<?php echo $url; ?>&redirect_uri=<?php echo $url; ?>" target="_blank"><i class="fab fa-facebook"></i></a>

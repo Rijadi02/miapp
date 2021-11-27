@@ -39,7 +39,7 @@
                 <ul class="thm-breadcrumb list-unstyled">
                     <li><a href="{{ route('home') }}">Ballina</a></li>
                     <li><span>.</span></li>
-                    <li class="active"><a href="{{ route('blogs') }}">Artikujt</a></li>
+                    <li class="active"><a href="{{ route('blogs') }}">Artikuj</a></li>
                     <li><span>.</span></li>
                     <li class="active">{{$blog->title}}</li>
 

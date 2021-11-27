@@ -14,7 +14,7 @@
                 <div class="page-header-bg-overly"></div>
                 <div class="container">
                     <div class="page-header__top-inner">
-                        <h2>Derset</h2>
+                        <h2>Derse</h2>
                     </div>
                 </div>
             </div>
