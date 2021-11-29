@@ -21,3 +21,11 @@
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'DM Serif';
+    src: url('DMSerifText-Regular.ttf');
+    src: local('DM Seri'), local('DM Seri'), url('DMSerifText-Regular.ttf') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
