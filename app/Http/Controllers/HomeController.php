@@ -41,7 +41,7 @@ class HomeController extends Controller
         $month = $time->month;
         $day = $time->day;
         $hour = $time->format('H:i:s');
-        
+
         $dayOfWeek = $time->dayOfWeek;
 
 
@@ -78,7 +78,7 @@ class HomeController extends Controller
         // dd($hour);
 
         $media = Media::orderBy('id', 'desc')->firstOrFail();
-        $posts = Post::orderBy('id', 'desc')->take(5)->get();
+        $posts = Post::all()->random(5);
         $blogs = Blog::orderBy('id', 'desc')->take(5)->get();
         return view('home', compact('posts', 'blogs', 'media', 'buttons'));
     }
