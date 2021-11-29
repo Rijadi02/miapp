@@ -296,8 +296,8 @@
                                                 <span class="news-one__plus"></span>
                                             </a>
                                             <div class="news-one__date">
-                                                <p>{{ $blog->created_at->format('d') }} <br>
-                                                    <span>{{ $blog->created_at->format('M') }}</span>
+                                                <p>{{ $blog->updated_at->format('d') }} <br>
+                                                    <span>{{ $blog->updated_at->format('M') }}</span>
                                                 </p>
                                             </div>
                                         </div>

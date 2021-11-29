@@ -46,7 +46,7 @@
                                  <span class="news-one__plus"></span>
                              </div>
                              <div class="news-one__date">
-                                 <p>{{ $blog->created_at->format('d') }}<br> <span>{{ $blog->created_at->format('M') }}</span></p>
+                                 <p>{{ $blog->updated_at->format('d') }}<br> <span>{{ $blog->created_at->format('M') }}</span></p>
                              </div>
                             </a>
                          <div class="news-one__content">
@@ -58,7 +58,7 @@
                                 <a href="{{route('blog',$blog->slug)}}">{{ $blog->title}}</a>
                              </h3>
                          </div>
-                         
+
                      </div>
                  </div>
                 @endforeach

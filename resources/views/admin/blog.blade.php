@@ -28,120 +28,142 @@
                 <div class="card-header">Shto Blog</div>
                 <div class="card-body">
                     @if (isset($blog))
-                    <form method="POST" action="{{ route("blog.update", $blog->id) }}" enctype="multipart/form-data">
-                    @csrf
-                    @method('PATCH')
+                        <form method="POST" action="{{ route('blog.update', $blog->id) }}" enctype="multipart/form-data">
+                            @csrf
+                            @method('PATCH')
 
-                    <div class="col-lg-12">
-                    <label for="title" class="col-md-12 col-form-label">Titulli</label>
-                    <input id="title" type="text" name="title" class="form-control @error("title") is-invalid @enderror" value="{{ old("title") ?? $blog->title }}" autocomplete="title">
-                    @error("title")
-                    <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                    </div>
+                            <div class="col-lg-12">
+                                <label for="title" class="col-md-12 col-form-label">Titulli</label>
+                                <input id="title" type="text" name="title"
+                                    class="form-control @error('title') is-invalid @enderror"
+                                    value="{{ old('title') ?? $blog->title }}" autocomplete="title">
+                                @error('title')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
 
-                    <div class="col-lg-12">
-                    <label for="author" class="col-md-12 col-form-label">Autori</label>
-                    <input id="author" type="text" name="author" class="form-control @error("author") is-invalid @enderror" value="{{ old("author") ?? $blog->author }}" autocomplete="author">
-                    @error("author")
-                    <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                    </div>
+                            <div class="col-lg-12">
+                                <label for="author" class="col-md-12 col-form-label">Autori</label>
+                                <input id="author" type="text" name="author"
+                                    class="form-control @error('author') is-invalid @enderror"
+                                    value="{{ old('author') ?? $blog->author }}" autocomplete="author">
+                                @error('author')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
 
-                    <div class="col-lg-12">
-                    <label for="content" class="col-md-12 col-form-label">Shkrimi i Blogut</label>
-                    <textarea  id="content" name="content"  class="form-control @error("content") is-invalid @enderror">{{$blog->content}}</textarea>
-                    @error("content")
-                    <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                    </div>
+                            <div class="col-lg-12">
+                                <label for="content" class="col-md-12 col-form-label">Shkrimi i Blogut</label>
+                                <textarea id="content" name="content"
+                                    class="form-control @error('content') is-invalid @enderror">{{ $blog->content }}</textarea>
+                                @error('content')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
 
-                    <div class="col-lg-12">
-                    <label for="image" class="col-md-12 col-form-label">Fotoja</label>
-                    <input id="image" type="file" name="image" class="form-control @error("image") is-invalid @enderror" value="{{ old("image") ?? $blog->image }}" autocomplete="image">
-                    @error("image")
-                    <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                    </div>
+                            <div class="col-lg-12">
+                                <label for="image" class="col-md-12 col-form-label">Fotoja</label>
+                                <input id="image" type="file" name="image"
+                                    class="form-control @error('image') is-invalid @enderror"
+                                    value="{{ old('image') ?? $blog->image }}" autocomplete="image">
+                                @error('image')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
 
-                    <div class="col-lg-12">
-                    <label for="tags" class="col-md-12 col-form-label">Tiketat</label>
-                    <input id="tags" type="text" name="tags" class="form-control @error("tags") is-invalid @enderror" value="{{ old("tags") ?? $blog->tags }}" autocomplete="tags">
-                    @error("tags")
-                    <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                    </div>
-                     <div class="form-group mt-3">
-                    <button type="submit" class="btn btn-primary">Përditëso</button>
-                    </form>
+                            <div class="col-lg-12">
+                                <label for="tags" class="col-md-12 col-form-label">Statusi</label>
+                                <select name="tags" id="tags" class="form-control @error('tags') is-invalid @enderror"
+                                    value="{{ old('tags') }}">
+                                    <option {{ $blog->tags == 'Pasive' ? 'selected' : '' }} value="Pasive">Pasive</option>
+                                    <option {{ $blog->tags == 'Aktive' ? 'selected' : '' }} value="Aktive">Aktive</option>
+                                </select> @error('tags')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group mt-3">
+                                <button type="submit" class="btn btn-primary">Përditëso</button>
+                        </form>
 
                     @else
 
-                    <form method="POST" action="{{ route("blog.store") }}" enctype="multipart/form-data">
-                    @csrf
+                        <form method="POST" action="{{ route('blog.store') }}" enctype="multipart/form-data">
+                            @csrf
 
-                    <div class="col-lg-12">
-                    <label for="title" class="col-md-12 col-form-label">Titulli</label>
-                    <input id="title" type="text" name="title" class="form-control @error("title") is-invalid @enderror" value="{{ old("title") }}" autocomplete="title">
-                    @error("title")
-                    <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                    </div>
+                            <div class="col-lg-12">
+                                <label for="title" class="col-md-12 col-form-label">Titulli</label>
+                                <input id="title" type="text" name="title"
+                                    class="form-control @error('title') is-invalid @enderror" value="{{ old('title') }}"
+                                    autocomplete="title">
+                                @error('title')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
 
-                    <div class="col-lg-12">
-                    <label for="author" class="col-md-12 col-form-label">Autori</label>
-                    <input id="author" type="text" name="author" class="form-control @error("author") is-invalid @enderror" value="{{ old("author") }}" autocomplete="author">
-                    @error("author")
-                    <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                    </div>
+                            <div class="col-lg-12">
+                                <label for="author" class="col-md-12 col-form-label">Autori</label>
+                                <input id="author" type="text" name="author"
+                                    class="form-control @error('author') is-invalid @enderror"
+                                    value="{{ old('author') }}" autocomplete="author">
+                                @error('author')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
 
-                    <div class="col-lg-12">
-                    <label for="content" class="col-md-12 col-form-label">Shkrimi i Blogut</label>
-                    <textarea  id="content" name="content" class="form-control @error("content") is-invalid @enderror">{{ old("content")}}</textarea>
-                    @error("content")
-                    <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                    </div>
+                            <div class="col-lg-12">
+                                <label for="content" class="col-md-12 col-form-label">Shkrimi i Blogut</label>
+                                <textarea id="content" name="content"
+                                    class="form-control @error('content') is-invalid @enderror">{{ old('content') }}</textarea>
+                                @error('content')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
 
-                    <div class="col-lg-12">
-                    <label for="image" class="col-md-12 col-form-label">Fotoja</label>
-                    <input id="image" type="file" name="image" class="form-control @error("image") is-invalid @enderror" value="{{ old("image") }}" autocomplete="image">
-                    @error("image")
-                    <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                    </div>
+                            <div class="col-lg-12">
+                                <label for="image" class="col-md-12 col-form-label">Fotoja</label>
+                                <input id="image" type="file" name="image"
+                                    class="form-control @error('image') is-invalid @enderror" value="{{ old('image') }}"
+                                    autocomplete="image">
+                                @error('image')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
 
-                    <div class="col-lg-12">
-                    <label for="tags" class="col-md-12 col-form-label">Tiketat</label>
-                    <input id="tags" type="text" name="tags" class="form-control @error("tags") is-invalid @enderror" value="{{ old("tags") }}" autocomplete="tags">
-                    @error("tags")
-                    <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                    </div>
-                     <div class="form-group mt-3">
-                    <button type="submit" class="btn btn-primary">Shto Blog</button>
-                    </form>
+                            <div class="col-lg-12">
+                                <label for="tags" class="col-md-12 col-form-label">Statusi</label>
+                                <select name="tags" id="tags" class="form-control @error('tags') is-invalid @enderror"
+                                    value="{{ old('tags') }}">
+                                    <option value="Pasive">Pasive</option>
+                                    <option value="Aktive">Aktive</option>
+                                </select>
+
+                                @error('tags')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="form-group mt-3">
+                                <button type="submit" class="btn btn-primary">Shto Blog</button>
+                        </form>
                     @endif
 
                 </div>
@@ -209,9 +231,7 @@
 
         <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
         <script>
-        CKEDITOR.replace( 'content' );
-
-
+            CKEDITOR.replace('content');
         </script>
 
         <script>

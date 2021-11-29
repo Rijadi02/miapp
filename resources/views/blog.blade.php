@@ -11,7 +11,7 @@
 
     <meta property="og:type" content="article" />
 
-    <meta name="description" content="Muslimani Ideal" />
+    <meta name="description" content="{{ $blog->author }}" />
 
     @endsection
 
@@ -59,7 +59,7 @@
                     <div class="news-details__img">
                         <img style="max-height: 500px; object-fit:cover;  object-position: 50% 50%;" src="/storage/{{ $blog->image }}" alt="{{ $blog->title }}">
                         <div class="news-one__date">
-                            <p>{{ $blog->created_at->format('d') }} <br> <span>{{ $blog->created_at->format('M') }}</span></p>
+                            <p>{{ $blog->updated_at->format('d') }} <br> <span>{{ $blog->updated_at->format('M') }}</span></p>
                         </div>
                     </div>
                     <div class="news-details__content">
@@ -111,7 +111,7 @@
                         </form>
                     </div> --}}
                     <div class="sidebar__single sidebar__post">
-                        <h3 class="sidebar__title">Lajmet e fundit</h3>
+                        <h3 class="sidebar__title">Artikujt e fundit</h3>
                         <ul class="sidebar__post-list list-unstyled">
                             @foreach ($blogs as $bloga )
                             <li>
