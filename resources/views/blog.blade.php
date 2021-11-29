@@ -63,7 +63,7 @@
                         </div>
                     </div>
                     <div class="news-details__content">
-                        <ul class="list-unstyled news-one__meta  mt-5">
+                        <ul class="list-unstyled news-one__meta  mt-1">
                             <li><a ><i class="far fa-user-circle"></i>{{ $blog->author}}</a></li>
                         </ul>
 
