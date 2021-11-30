@@ -11,6 +11,6 @@ class Reciter extends Model
 
     public function recitations()
     {
-        return $this->hasMany(Recitation::class)->orderBy('updated_at');
+        return $this->hasMany(Recitation::class)->orderBy('updated_at','desc');
     }
 }
