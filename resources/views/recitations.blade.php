@@ -66,7 +66,7 @@
 
                             <meta property="og:url" content="<?php echo url('/'); ?>/recitime/{{ $recitation->id }}" />
 
-                            <meta property="og:title" content="{{ $recitation->title }}" />
+                            <meta property="og:title" content="{{$recitation->reciter->name}} - {{$recitation->surah}} {{$recitation->ayahs}}" />
 
                             <meta property="og:type" content="recitation" />
 
@@ -109,7 +109,7 @@
                                     </div>
                                     <div class="col-lg-9 col-md-8">
                                         <a href="{{ route('recitations.show', $recitation->id) }}">
-                                            <h3 class="card-title mt-5 mt-md-1 mb-0">{{ $recitation->title }}</h3>
+                                            <h3 class="card-title mt-5 mt-md-1 mb-0">{{$recitation->surah}} {{$recitation->ayahs}}</h3>
                                         </a>
                                         <p class="card-title">{{ $recitation->reciter->name }}</p>
                                         <div class="btn-box">
