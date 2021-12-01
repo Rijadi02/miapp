@@ -19,6 +19,9 @@
 /* Medium screen  */
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .news-details__img img {
+        max-height: 450px;
+    }
     .about-one__left {
         max-width: 600px;
         width: 100%;
@@ -189,6 +192,9 @@
 /* Tablet Layout: 768px. */
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .news-details__img img {
+        max-height: 400px;
+    }
     .tour-search-one__inputs {
         -webkit-box-flex: 1;
         flex: 1 1 100%;
@@ -411,6 +417,9 @@
 /* Mobile Layout: 320px. */
 
 @media only screen and (max-width: 767px) {
+    .news-details__img img {
+        max-height: 350px;
+    }
     .section-title__title {
         font-size: 35px;
         line-height: 45px;

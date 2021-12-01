@@ -24,7 +24,7 @@
 
    <!--Page Header Start-->
    <section class="page-header">
-    <div class="page-header__top">
+    {{-- <div class="page-header__top">
        <div class="page-header-bg" style="background-image: url(/storage/{{ $blog->image }})"></div>
        <div class="page-header-bg-overly"></div>
         <div class="container">
@@ -32,8 +32,8 @@
                 <h2>{{$blog->title}}</h2>
             </div>
         </div>
-    </div>
-    <div class="page-header__bottom">
+    </div> --}}
+    <div class="page-header__bottom" style="border-top: 1px solid #ebe6de">
         <div class="container">
             <div class="page-header__bottom-inner">
                 <ul class="thm-breadcrumb list-unstyled">
@@ -51,13 +51,13 @@
 <!--Page Header End-->
 
 <!--News One Start-->
-<section class="news-details">
+<section class="news-details pt-5">
     <div class="container">
         <div class="row">
             <div class="col-xl-8 col-lg-7">
                 <div class="news-details__left">
                     <div class="news-details__img">
-                        <img style="max-height: 500px; object-fit:cover;  object-position: 50% 50%;" src="/storage/{{ $blog->image }}" alt="{{ $blog->title }}">
+                        <img style="object-fit:cover;  object-position: 50% 50%;" src="/storage/{{ $blog->image }}" alt="{{ $blog->title }}">
                         <div class="news-one__date">
                             <p>{{ $blog->updated_at->format('d') }} <br> <span>{{ $blog->updated_at->format('M') }}</span></p>
                         </div>

@@ -7767,3 +7767,7 @@ span[dir="rtl"] {
     /* border-radius: 1rem; */
     border-left: solid 3px var(--thm-primary);
 }
+
+.news-details__img img {
+    max-height: 500px;
+}
