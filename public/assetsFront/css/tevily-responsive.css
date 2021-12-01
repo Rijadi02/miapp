@@ -420,6 +420,12 @@
     .news-details__img img {
         max-height: 350px;
     }
+    .page-header__top {
+        padding: 54px 0;
+    }
+    .news-one {
+        padding-top: 54px;
+    }
     .section-title__title {
         font-size: 35px;
         line-height: 45px;
