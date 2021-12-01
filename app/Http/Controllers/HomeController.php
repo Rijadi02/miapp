@@ -164,7 +164,7 @@ class HomeController extends Controller
     public function content($slug)
     {
         $chapter = Chapter::where('slug', '=', $slug)->firstOrFail();
-        $contents = $chapter->contents;
+        $contents = $chapter->contents()->orderBy('number')->get();
         return view('content', compact('contents','chapter'));
     }
 
