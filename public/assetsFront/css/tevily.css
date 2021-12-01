@@ -7771,3 +7771,7 @@ span[dir="rtl"] {
 .news-details__img img {
     max-height: 500px;
 }
+
+.news-one__img img {
+    aspect-ratio: 0.7;
+}

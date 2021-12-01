@@ -41,7 +41,7 @@
                     <!--News One Single-->
                      <div class="news-one__single">
                          <a href="{{route('blog',$blog->slug)}}" class="news-one__img">
-                             <img style="aspect-ratio: 0.85;object-fit: cover;" src="/storage/{{ $blog->image }}" alt="">
+                             <img style="object-fit: cover;" src="/storage/{{ $blog->image }}" alt="">
                              <div class="a_plus" >
                                  <span class="news-one__plus"></span>
                              </div>

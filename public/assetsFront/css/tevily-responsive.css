@@ -421,10 +421,19 @@
         max-height: 350px;
     }
     .page-header__top {
-        padding: 54px 0;
+        padding: 64px 0;
+    }
+    .destinations-one {
+        padding-top: 54px;
+    }
+    .popular-tours-two {
+        padding-top: 54px;
     }
     .news-one {
         padding-top: 54px;
+    }
+    .news-one__img img {
+        aspect-ratio: 0.85;
     }
     .section-title__title {
         font-size: 35px;

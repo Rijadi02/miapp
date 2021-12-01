@@ -290,7 +290,7 @@
                                     <div class="news-one__single wow fadeInUp" data-wow-delay="100ms">
                                         <a href="{{route('blog',$blog->slug)}}">
                                         <div class="news-one__img">
-                                            <img style="aspect-ratio: 0.7;object-fit: cover;"
+                                            <img style="object-fit: cover;"
                                                 src="/storage/{{ $blog->image }}" alt="">
                                             <a href="{{route('blog',$blog->slug)}}">
                                                 <span class="news-one__plus"></span>
