@@ -182,7 +182,7 @@
                                         {{-- <a href="{{ route('blog.books', $blog->id) }}"> --}}
                                         <img class="img-fluid mb-4" src="/storage/{{ $blog->image }}" alt="">
                                         {{-- </a> --}}
-                                        <h5>{{ $blog->title }}</h5>
+                                        <h5>{{ $blog->title }} | {{ $blog->counter}}</h5>
 
                                         <a class="btn btn-primary btn-sm"
                                             href="{{ route('blog.edit', $blog->id) }}">Përditëso</a>

@@ -15,7 +15,7 @@ class AddCounterToBlogsTable extends Migration
     {
         Schema::table('blogs', function (Blueprint $table) {
             $table->string('status');
-            $table->integer('counter');
+            $table->integer('counter')->default('0');
         });
     }
 

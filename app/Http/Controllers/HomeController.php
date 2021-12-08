@@ -93,6 +93,8 @@ class HomeController extends Controller
     {
         $blog = Blog::where('slug', '=', $slug)->firstOrFail();
         $blogs = Blog::latest()->take(3)->get();
+        $blog->counter = $blog->counter + 1;
+        $blog->save();
         return view('blog', compact('blog', 'blogs'));
     }
 
@@ -132,7 +134,8 @@ class HomeController extends Controller
         $facebook = $medias['facebook'];
         $twitter = $medias['twitter'];
         $instagram = $medias['instagram'];
-
+        $ad->counter = $ad->counter + 1;
+        $ad->save();
         return view('ad', compact('ad', 'facebook', 'instagram', 'twitter'));
     }
 

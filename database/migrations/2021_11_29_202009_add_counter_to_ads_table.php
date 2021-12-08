@@ -14,7 +14,7 @@ class AddCounterToAdsTable extends Migration
     public function up()
     {
         Schema::table('ads', function (Blueprint $table) {
-            $table->integer('counter');
+            $table->integer('counter')->default('0');
         });
     }
 
