@@ -42,22 +42,24 @@ class HomeController extends Controller
         $day = $time->day;
         $hour = $time->format('H:i:s');
 
+        // dd($hour);
+
         $dayOfWeek = $time->dayOfWeek;
 
 
         $reminders = [
-            'mengjes' => ['name' => 'Dhikri i mengjesit', 'link' => '/kur-zgjohemi/duat%C3%AB'],
-            'mbremje' => ['name' => 'Dhikri i mbremjes', 'link' => '/kur-zgjohemi/duat%C3%AB'],
-            'zgjohemi' => ['name' => 'Kur zgjohemi', 'link' => '/kur-zgjohemi/duat%C3%AB'],
-            'fjetjes' => ['name' => 'Dhikri i fjetjes', 'link' => '/kur-zgjohemi/duat%C3%AB'],
-            'kehf' => ['name' => 'Surah Kehf', 'link' => '/kur-zgjohemi/duat%C3%AB'],
+            'mengjes' => ['name' => 'Dhikri i mëngjesit', 'link' => '/dhikri-i-mengjesit/duatë'],
+            'mbremje' => ['name' => 'Dhikri i mbrëmjes', 'link' => '/dhikri-i-mbremjes/duatë'],
+            'zgjohemi' => ['name' => 'Dhikri kur zgjohemi', 'link' => '/kur-zgjohemi/duatë'],
+            'fjetjes' => ['name' => 'Dhikri para fjetjes ', 'link' => '/dhikri-kur-biem-ne-gjume/duatë'],
+            'kehf' => ['name' => 'Lexo suren El-Kehf', 'link' => 'https://quran.com/18/1-110?translations=88&locale=sq'],
         ];
 
         $current_date = Time::where('month', $month)->where('day', $day)->first();
 
         if ($hour > $current_date->imsaku && $hour < $current_date->dhuhr) {
             array_push($buttons, $reminders['mengjes']);
-        } else if ($hour > $current_date->asr && $hour < '23:59') {
+        } else if ($hour > $current_date->asr && $hour < $current_date->isha) {
             array_push($buttons, $reminders['mbremje']);
         }
 
@@ -65,11 +67,11 @@ class HomeController extends Controller
             array_push($buttons, $reminders['zgjohemi']);
         }
 
-        if ($dayOfWeek == 5 && $hour > $current_date->sunrise && $hour < $current_date->maghrib) {
+        if ($dayOfWeek == 5 && $hour > $current_date->fajr && $hour < $current_date->maghrib) {
             array_push($buttons, $reminders['kehf']);
         }
 
-        if ($hour > $current_date->maghrib && $hour < '23:59') {
+        if ($hour > $current_date->isha && $hour < '23:59') {
             // array_push($buttons,'Surah Mulk');
             // array_push($buttons,'Surah Sajadah');
             array_push($buttons, $reminders['fjetjes']);
@@ -154,28 +156,28 @@ class HomeController extends Controller
     {
         $lecture = Lecture::where('id', '=', $id)->firstOrFail();
 
-        return view('lecture', compact('lecture') );
+        return view('lecture', compact('lecture'));
     }
 
     public function chapters($slug)
     {
         $book = Book::where('slug', '=', $slug)->firstOrFail();
         $chapters = $book->chapters;
-        return view('chapters', compact('chapters','book'));
+        return view('chapters', compact('chapters', 'book'));
     }
 
     public function content($slug)
     {
         $chapter = Chapter::where('slug', '=', $slug)->firstOrFail();
         $contents = $chapter->contents()->orderBy('number')->get();
-        return view('content', compact('contents','chapter'));
+        return view('content', compact('contents', 'chapter'));
     }
 
     public function recitations()
     {
         $reciters = Reciter::all();
         $recitations = Recitation::inRandomOrder()->limit(10)->get();
-        return view('recitations', compact('recitations','reciters'));
+        return view('recitations', compact('recitations', 'reciters'));
     }
 
     public function reciter($slug)
@@ -183,18 +185,23 @@ class HomeController extends Controller
         $reciters = Reciter::all();
         $reciter = Reciter::where('slug', '=', $slug)->firstOrFail();
         $recitations = $reciter->recitations;
-        return view('recitations', compact('recitations','reciters'));
+        return view('recitations', compact('recitations', 'reciters'));
     }
 
     public function recitations_show($id)
     {
         $reciters = Reciter::all();
         $recitations = Recitation::where('id', $id)->get();
-        return view('recitations', compact('recitations','reciters'));
+        return view('recitations', compact('recitations', 'reciters'));
     }
 
     public function academy()
     {
         return view('academy');
+    }
+
+    public function donations()
+    {
+        return view('donations');
     }
 }

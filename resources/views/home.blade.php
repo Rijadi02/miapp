@@ -388,7 +388,7 @@
                             <p class="about-two__right-text-2">Kush do t’i japë Allahut një hua të bukur, që Ai t’ia kthejë
                                 shpërblimin shumëfish? Allahu e shtrëngon (riskun) dhe e liron; tek Ai do të ktheheni. <a
                                     class="text-decoration-none" href="https://quran.com/2/245"> <br> [2:245] </a></p>
-                            <a href="#" class="thm-btn about-two__btn">Dhuro Sadakë</a>
+                            <a href="javascript:void(0)" class="thm-btn about-two__btn  search-toggler">Dhuro Sadakë</a>
                         </div>
                     </div>
                 </div>
@@ -415,6 +415,9 @@
                 </div>
             </div>
         </section>
+
+        
+        
         <!--Book Now End-->
         <script src="{{ asset('js/notify.js') }}"></script>
         <script>

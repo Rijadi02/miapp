@@ -28,7 +28,8 @@
     <link rel="stylesheet" href="{{ asset('assetsFront/vendors/animate/custom-animate.css') }}" />
     <link rel="stylesheet" href="{{ asset('assetsFront/vendors/fontawesome/css/all.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assetsFront/vendors/jarallax/jarallax.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assetsFront/vendors/jquery-magnific-popup/jquery.magnific-popup.css') }}" />
+    <link rel="stylesheet"
+        href="{{ asset('assetsFront/vendors/jquery-magnific-popup/jquery.magnific-popup.css') }}" />
     <link rel="stylesheet" href="{{ asset('assetsFront/vendors/nouislider/nouislider.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assetsFront/vendors/nouislider/nouislider.pips.css') }}" />
     <link rel="stylesheet" href="{{ asset('assetsFront/vendors/odometer/odometer.min.css') }}" />
@@ -59,11 +60,14 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DC2JT2VD2Y"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
 
-    gtag('config', 'G-DC2JT2VD2Y');
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-DC2JT2VD2Y');
     </script>
 </head>
 
@@ -110,7 +114,8 @@
                                             class="fab fa-instagram"></i></a>
                                 </div>
                                 <div class="main-header__top-right-btn-box">
-                                    <a href="#" class="thm-btn main-header__top-right-btn">Kontribuoni</a>
+                                    <a href="javascript:void(0)"
+                                        class="thm-btn search-toggler main-header__top-right-btn">Kontribuoni</a>
                                 </div>
                             </div>
                         </div>
@@ -201,11 +206,11 @@
                                 <div class="footer-widget__column footer-widget__company clearfix">
                                     <h3 class="footer-widget__title">Muslimani Ideal</h3>
                                     <ul class="footer-widget__company-list list-unstyled">
-                                        <li><a href="{{route('home')}}">Ballina</a></li>
-                                        <li><a href="{{route('shield')}}">Mburoja</a></li>
-                                        <li><a href="{{route('blogs')}}">Artikuj</a></li>
-                                        <li><a href="{{route('recitations')}}">Recitime</a></li>
-                                        <li><a href="{{route('lectures','Prishtinë')}}">Derse</a></li>
+                                        <li><a href="{{ route('home') }}">Ballina</a></li>
+                                        <li><a href="{{ route('shield') }}">Mburoja</a></li>
+                                        <li><a href="{{ route('blogs') }}">Artikuj</a></li>
+                                        <li><a href="{{ route('recitations') }}">Recitime</a></li>
+                                        <li><a href="{{ route('lectures', 'Prishtinë') }}">Derse</a></li>
                                         {{-- <li><a href="#">Bizneset</a></li> --}}
 
                                     </ul>
@@ -252,7 +257,8 @@
                                     <p>© All Copyright 2021, <a href="#">Muslimani Ideal</a></p>
                                 </div>
                                 <div class="site-footer__bottom-left-arrow">
-                                    <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><span
+                                    <a href="javascript:void(0)" data-target="html"
+                                        class="scroll-to-target scroll-to-top"><span
                                             class="icon-right-arrow"></span></a>
                                 </div>
                             </div>
@@ -265,6 +271,7 @@
 
 
     </div><!-- /.page-wrapper -->
+
 
 
     <div class="mobile-nav__wrapper">
@@ -306,6 +313,50 @@
         <!-- /.mobile-nav__content -->
     </div>
     <!-- /.mobile-nav__wrapper -->
+
+
+    <div class="search-popup">
+        <div class="search-popup__overlay search-toggler"></div>
+        <!-- /.search-popup__overlay -->
+        <div class="search-popup__content p-4 pt-5 p-md-5 card" style="max-width: 1280px; overflow: auto; max-height: 90vh">
+            <div class="row ">
+
+                <div class="news-details__content col-lg-6">
+
+
+                    <h4 class="news-details__title  mb-4">Për Kosovë</h4>
+
+                    <div class="mt-4">
+                        <p class="mt-3 mb-1">Blej Për muslimanin ideal një kafe!</p>
+
+                        <a href="https://www.buymeacoffee.com/muslimani.ideal"><img
+                                src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=muslimani.ideal&button_colour=FF5F5F&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00"></a>
+
+                        <p class="mt-3 mb-1">Dorzo në qender</p>
+
+                        <iframe
+                        style="max-height: 280px;border: 1px solid #00000030;"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d366.7236850412683!2d21.170050949227686!3d42.66581636733797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13549f20d08017f9%3A0xa879d246924d6aea!2sAfrim%20Loxha%2C%20Prishtin%C3%AB!5e0!3m2!1sen!2s!4v1637766434622!5m2!1sen!2s"
+                            class="tour-details-two__location-map" loading="lazy" allowfullscreen></iframe>
+
+                    </div>
+
+                </div>
+                <div class="col-lg-1"></div>
+
+                <div class="news-details__content col-lg-5 mt-5 mt-lg-0">
+
+
+                    <h1 class="news-details__title  mb-4">Per Jashtë</h1>
+
+                    <div class="gfm-embed" data-url="https://www.gofundme.com/f/muslimani-ideal/widget/large/">
+                    </div><script defer src="https://www.gofundme.com/static/js/embed.js"></script>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
 
     {{-- <div class="search-popup">
             <div class="search-popup__overlay search-toggler"></div>
