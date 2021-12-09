@@ -129,6 +129,7 @@ class BlogController extends Controller
         $blog->author = $data['author'];
         $blog->tags = $data['tags'];
         $blog->content = $data['content'];
+        $blog->status = 1;
 
         if (request('image')) {
             $inputs['image'] = request('image')->store('uploads', 'public');
