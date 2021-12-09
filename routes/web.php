@@ -30,6 +30,7 @@ Route::get('/recitime/{id}', [App\Http\Controllers\HomeController::class, 'recit
 Route::get('/recitues/{slug}', [App\Http\Controllers\HomeController::class, 'reciter'])->name('reciter');
 // Route::get('/bizneset_e_filturara', [App\Http\Controllers\HomeController::class, 'search_ads'])->name('search_ads');
 Route::get('/akademia', [App\Http\Controllers\HomeController::class, 'academy'])->name('academy');
+Route::get('/donacionet', [App\Http\Controllers\HomeController::class, 'donations'])->name('donations');
 Route::post('applications/store', [App\Http\Controllers\AcademyController::class, 'store'])->name('applications.store');
 
 
