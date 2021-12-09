@@ -67,6 +67,7 @@ class BlogController extends Controller
             });
             $img->save(\public_path($file_name));
         }
+        $blog->status = 1;
 
         $blog->save();
 
