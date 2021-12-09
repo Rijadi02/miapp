@@ -67,6 +67,7 @@ class BlogController extends Controller
             });
             $img->save(\public_path($file_name));
         }
+        $blog->status = 1;
 
         $blog->save();
 
@@ -129,6 +130,7 @@ class BlogController extends Controller
         $blog->author = $data['author'];
         $blog->tags = $data['tags'];
         $blog->content = $data['content'];
+        $blog->status = 1;
 
         if (request('image')) {
             $inputs['image'] = request('image')->store('uploads', 'public');
