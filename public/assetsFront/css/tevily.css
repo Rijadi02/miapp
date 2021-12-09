@@ -7722,6 +7722,12 @@ span[dir="rtl"] {
     line-height: 52px !important;
 }
 
+span.marker {
+    font-family: Uthmani;
+    display: inline-block;
+    font-size: 28px !important;
+}
+
 .next-ads {
     position: absolute;
     bottom: 15px;
