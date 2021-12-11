@@ -1,5 +1,13 @@
 <x-home-master>
     @section('content')
+        <meta property="og:image" content="{{ asset('assetsFront/images/mi.jpg') }}"/>
+
+
+        <meta property="og:url" content="<?php echo url('/'); ?>" />
+
+        <meta property="og:title" content="Muslimani Ideal" />
+
+
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&display=swap" rel="stylesheet">
@@ -197,7 +205,7 @@
             </div>
         </section>
 
-        <section class="brand-one">
+        {{-- <section class="brand-one">
             <div class="singapore-tour-right-shape"
                 style="background-image: url({{ asset('assetsFront/images/shapes/singapore-tour-right-shape.svg') }})">
             </div>
@@ -265,7 +273,7 @@
                     </a>
                 </ul>
             </div>
-        </section>
+        </section> --}}
 
         <!--News Two Start-->
         <section class="news-two pb-5">
