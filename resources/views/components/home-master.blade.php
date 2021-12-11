@@ -332,7 +332,7 @@
                         <a href="https://www.buymeacoffee.com/muslimani.ideal"><img
                                 src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=muslimani.ideal&button_colour=FF5F5F&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00"></a>
 
-                        <p class="mt-3 mb-1">Dorzo në qendrën Ether:</p>
+                        <p class="mt-3 mb-1">Dorzo në akademinë Ether <a href="tel:+38349133540">(+383 49 133 540)</a>:</p>
 
                         <iframe
                         style="max-height: 280px;border: 1px solid #00000030;"
