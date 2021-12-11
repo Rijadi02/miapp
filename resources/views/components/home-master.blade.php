@@ -324,15 +324,15 @@
                 <div class="news-details__content col-lg-6">
 
 
-                    <h4 class="news-details__title  mb-4">Për Kosovë</h4>
+                    <h4 class="news-details__title  mb-4">Ndihmoje Muslimanin Ideal!</h4>
 
                     <div class="mt-4">
-                        <p class="mt-3 mb-1">Blej Për muslimanin ideal një kafe!</p>
+                        <p class="mt-3 mb-1">Mos e pij një kafe, jepe n’dawet!</p>
 
                         <a href="https://www.buymeacoffee.com/muslimani.ideal"><img
                                 src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=muslimani.ideal&button_colour=FF5F5F&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00"></a>
 
-                        <p class="mt-3 mb-1">Dorzo në qender</p>
+                        <p class="mt-3 mb-1">Dorzo në qendrën Ether:</p>
 
                         <iframe
                         style="max-height: 280px;border: 1px solid #00000030;"
@@ -347,7 +347,7 @@
                 <div class="news-details__content col-lg-5 mt-5 mt-lg-0">
 
 
-                    <h1 class="news-details__title  mb-4">Per Jashtë</h1>
+                    <h1 class="news-details__title  mb-4">Për gurbetqarët</h1>
 
                     <div class="gfm-embed" data-url="https://www.gofundme.com/f/muslimani-ideal/widget/large/">
                     </div><script defer src="https://www.gofundme.com/static/js/embed.js"></script>
