@@ -1,12 +1,15 @@
 <x-home-master>
-    @section('content')
+    @section('meta')
         <meta property="og:image" content="{{ asset('assetsFront/images/mi.jpg') }}"/>
-
 
         <meta property="og:url" content="<?php echo url('/'); ?>" />
 
         <meta property="og:title" content="Muslimani Ideal" />
+    @endsection
 
+    @section('content')
+
+    
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
