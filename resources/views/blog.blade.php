@@ -67,7 +67,7 @@
                             <li><a ><i class="far fa-user-circle"></i>{{ $blog->author}}</a></li>
                         </ul>
 
-                        <h1 class="news-details__title mt-4 mb-4">{{ $blog->title}}</h1>
+                        <h1 class="news-details__title mt-1 mb-4">{{ $blog->title}}</h1>
                         {!! $blog->content !!}
                     </div>
 
