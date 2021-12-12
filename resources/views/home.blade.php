@@ -130,8 +130,8 @@
                     </div>
                 </div>
             </div>
-            <div class="gallery-one__container-box clearfix pt-5 pt-md-3">
-                <ul class="list-unstyled gallery-one__content clearfix pt-5">
+            <div class="gallery-one__container-box clearfix pt-3">
+                <ul class="list-unstyled gallery-one__content clearfix pt-0 pt-md-5">
                     <?php $post_index = 0; ?>
                     @foreach ($posts as $post)
                         <?php $post_index++; ?>
@@ -279,7 +279,7 @@
         </section> --}}
 
         <!--News Two Start-->
-        <section class="news-two pb-4 pb-lg-5">
+        <section class="news-two pb-3 pb-lg-5">
             <div class="container pb-5">
                 <div class="row">
                     <div class="col-xl-4">

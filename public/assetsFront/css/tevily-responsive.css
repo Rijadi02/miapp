@@ -423,7 +423,7 @@
     .about-one {
         position: relative;
         display: block;
-        padding: 0;
+        padding: 0 0 40px;
     }
     .page-header__top {
         padding: 64px 0;
