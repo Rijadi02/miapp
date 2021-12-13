@@ -162,12 +162,12 @@
                 </div>
             </div>
         </section> --}}
-        <section class="contact-page-google-map">
+        {{-- <section class="contact-page-google-map">
             <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d366.7236850412683!2d21.170050949227686!3d42.66581636733797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13549f20d08017f9%3A0xa879d246924d6aea!2sAfrim%20Loxha%2C%20Prishtin%C3%AB!5e0!3m2!1sen!2s!4v1637766434622!5m2!1sen!2s"
                 class="contact-page-google-map__one" allowfullscreen=""></iframe>
 
-        </section>
+        </section> --}}
 
 
     @endsection('content')
