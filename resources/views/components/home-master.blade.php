@@ -221,11 +221,11 @@
                                 <div class="footer-widget__column footer-widget__newsletter">
                                     <h3 class="footer-widget__title">One Hadith Ueb-i dhe Extention</h3>
                                     <form class="footer-widget__newsletter-form mc-form"
-                                        data-url="https://xyz.us18.list-manage.com/subscribe/post?u=20e91746ef818cd941998c598&id=cc0ee8140e">
+                                        data-url="">
                                         <div class="footer-widget__newsletter-input-box">
-                                            <a href="https://t.me/muslimani_ideal" class="about-one__btn thm-btn">One
+                                            <a href="https://onehadith.org/" class="about-one__btn thm-btn">One
                                                 Hadith Ueb</a>
-                                            <a href="https://t.me/muslimani_ideal"
+                                            <a href="https://chrome.google.com/webstore/detail/one-hadith/kjkmpppbjhcllohbcjeclghdfhbcnkfa"
                                                 class="about-one__btn thm-btn mt-3">One Hadith Extention</a>
                                         </div>
                                     </form>
