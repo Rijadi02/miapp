@@ -58,8 +58,8 @@
                                     <div class="inner row pt-5">
                                        
                                         @if ($lectures->count() == 0)
-                                        <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp animated" data-wow-delay="100ms"
-                                            style="visibility: visible; animation-delay: 100ms; animation-name: fadeInUp;">
+                                        <div class="col-xl-4 col-lg-6 col-md-6" 
+                                            >
                                             <!--Popular Tours Two Single-->
                                             <div class="popular-tours__single">
                                                 <div class="popular-tours__content" style="border-top: 1px solid #ebe6de">
@@ -70,7 +70,7 @@
                                     @endif
 
                                         @foreach ($lectures as $lecture)
-                                        <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp animated" data-wow-delay="100ms"
+                                        <div class="col-xl-4 col-lg-6 col-md-6 fadeInUp animated"
                                         style="visibility: visible; animation-delay: 100ms; animation-name: fadeInUp;">
                                         <!--Popular Tours Two Single-->
                                         <div class="popular-tours__single">
