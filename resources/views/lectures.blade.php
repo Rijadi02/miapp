@@ -1,11 +1,18 @@
 <x-home-master>
+
+    @section('meta')
+        <meta property="og:image" content="{{ asset('assetsFront/images/mi.jpg') }}"/>
+
+        <meta property="og:url"content="<?php echo url('/'); ?>/derse/prishtinë" />
+
+        <meta property="og:title" content="Derset në Prishtinë" />
+    @endsection
+
     @section('content')
 
         <div class="stricky-header stricked-menu main-menu">
             <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
         </div><!-- /.stricky-header -->
-
-
 
         <!--Page Header Start-->
         <section class="page-header">
@@ -56,9 +63,9 @@
                                     <?php $lectures = $day->lectures->where('city_id', $city->id); ?>
 
                                     <div class="inner row pt-5">
-                                       
+
                                         @if ($lectures->count() == 0)
-                                        <div class="col-xl-4 col-lg-6 col-md-6" 
+                                        <div class="col-xl-4 col-lg-6 col-md-6"
                                             >
                                             <!--Popular Tours Two Single-->
                                             <div class="popular-tours__single">
@@ -75,10 +82,10 @@
                                         <!--Popular Tours Two Single-->
                                         <div class="popular-tours__single">
                                             <div class="popular-tours__img">
-        
+
                                                 <?php $url = url('/') . '/dersi/' . $lecture->id; ?>
-        
-        
+
+
                                                 <img style="object-fit: cover;aspect-ratio:1" src="/storage/{{ $lecture->lecturer->image }}" alt="">
                                                 <div class="popular-tours__icon">
                                                     <a href="https://www.facebook.com/dialog/share?app_id=1266109583813461&display=popup&href=<?php echo $url; ?>&redirect_uri=<?php echo $url; ?>" target="_blank">
@@ -99,7 +106,7 @@
                                                 </div>
                                             </div>
                                             <div class="popular-tours__content">
-        
+
                                                 <h3 class="popular-tours__title"><a href="{{route('lecture',$lecture->id)}}">{{ $lecture->title }}
                                                     </a></h3>
                                                 <ul class="footer-widget__about-contact list-unstyled">
@@ -118,9 +125,9 @@
                                                         <div class="mx-2">
                                                             <a >{{ $lecture->time }}</a>
                                                         </div>
-        
+
                                                     </li>
-        
+
                                                     <li>
                                                         <div class="icon ">
                                                             <i class="fas fa-users"></i>
@@ -128,16 +135,16 @@
                                                         <div class="mx-2">
                                                             <a>{{ $lecture->allowance }}</a>
                                                         </div>
-        
+
                                                     </li>
-        
+
                                                 </ul>
                                                 <div class="d-flex mt-3">
                                                     <a class="ders ders{{ $lecture->status == "1" ? "--active" : "" }} " >{{ $lecture->status == "1" ? "Mbahet" : "Nuk Mbahet" }}</a>
                                                     <a style="font-size: 15px" class="ms-3">{{ $lecture->date }}</a>
-        
+
                                                 </div>
-        
+
                                             </div>
                                         </div>
                                     </div>

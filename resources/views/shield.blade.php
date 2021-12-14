@@ -1,6 +1,14 @@
 <x-home-master>
     @section('content')
 
+    @section('meta')
+    <meta property="og:image" content="{{ asset('assetsFront/images/mi.jpg') }}"/>
+
+    <meta property="og:url"content="<?php echo url('/'); ?>/mburoja" />
+
+    <meta property="og:title" content="Mburoja e Muslimanit" />
+    @endsection
+
         <div class="stricky-header stricked-menu main-menu">
             <div class="sticky-header__content"></div><!-- /.sticky-header__content -->
         </div><!-- /.stricky-header -->
