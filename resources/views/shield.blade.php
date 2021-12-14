@@ -40,7 +40,7 @@
                         <div  class="destinations-one__single">
                             <a href="{{ route('chapters', 'mëngjes-dhe-mbrëmje') }}" class="destinations-one__img">
                                 <img class="mburoja"
-                                    src="https://images.unsplash.com/photo-1536373766806-c56c9acd7fd5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80">
+                                    src="{{asset('assetsFront/images/mburoja/mengjes.jpg')}}">
                                 <div class="destinations-one__content">
                                     <h2 class="destinations-one__title"><a
                                             href="{{ route('chapters', 'mëngjes-dhe-mbrëmje') }}">Mëngjes dhe
@@ -60,7 +60,7 @@
                                 <div class="destinations-one__single">
                                     <a href="{{ route('chapters', 'shtëpia-dhe-familja') }}" class="destinations-one__img">
                                         <img class="mburoja2-2"
-                                            src="https://images.unsplash.com/photo-1574259392081-dbe3c19cd15e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=776&q=80"
+                                            src="{{asset('assetsFront/images/mburoja/shtepia.jpg')}}"
                                             alt="">
                                         <div class="destinations-one__content">
                                             {{-- <p class="destinations-one__sub-title">Wildlife</p> --}}
@@ -79,7 +79,7 @@
                                 <div class="destinations-one__single">
                                     <a href="{{ route('chapters', 'udhëtim') }}" class="destinations-one__img">
                                         <img class="mburoja"
-                                            src="https://images.unsplash.com/photo-1469286663112-f58a16c6f075?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80"
+                                            src="{{asset('assetsFront/images/mburoja/udhetim.jpg')}}"
                                             alt="">
                                         <div class="destinations-one__content">
                                             <h2 class="destinations-one__title"><a
@@ -96,7 +96,7 @@
                                 <div class="destinations-one__single">
                                     <a href="{{ route('chapters', 'ushqim-dhe-pije') }}" class="destinations-one__img">
                                         <img class="mburoja"
-                                            src="https://images.unsplash.com/photo-1566698629409-787a68fc5724?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80"
+                                            src="{{asset('assetsFront/images/mburoja/ushqim.jpg')}}"
                                             alt="">
                                         <div class="destinations-one__content">
                                             <h2 class="destinations-one__title"><a
@@ -116,7 +116,7 @@
                         <div class="destinations-one__single">
                             <a href="{{ route('chapters', 'gëzim-dhe-shqetësim') }}" class="destinations-one__img">
                                 <img class="mburoja"
-                                    src="https://images.unsplash.com/photo-1498889444388-e67ea62c464b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80"
+                                    src="{{asset('assetsFront/images/mburoja/gezim.jpg')}}"
                                     alt="">
                                 <div class="destinations-one__content">
                                     {{-- <p class="destinations-one__sub-title">Adventure</p> --}}
@@ -135,7 +135,7 @@
                         <div class="destinations-one__single">
                             <a href="{{ route('chapters', 'namazi') }}" class="destinations-one__img">
                                 <img class="mburoja3" class="mburoja mburoja-cards"
-                                    src="https://images.unsplash.com/photo-1589495180659-8bcc1c5d4908?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80"
+                                    src="{{asset('assetsFront/images/mburoja/namazi.jpg')}}"
                                     alt="">
                                 <div class="destinations-one__content">
                                     {{-- <p class="destinations-one__sub-title">Adventure</p> --}}
@@ -158,7 +158,7 @@
                         <div class="destinations-one__single">
                             <a href="{{ route('chapters', 'falënderimi-ndaj-Allahut') }}" class="destinations-one__img">
                                 <img class="mburoja mburoja-cards"
-                                    src="https://images.unsplash.com/photo-1554230333-6fee16f4a12b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                                    src="{{asset('assetsFront/images/mburoja/falenderimi.jpg')}}"
                                     alt="">
                                 <div class="destinations-one__content">
                                     <h2 class="destinations-one__title"><a
@@ -176,7 +176,7 @@
                         <div class="destinations-one__single">
                             <a href="{{ route('chapters', 'mirësjellja') }}" class="destinations-one__img">
                                 <img class="mburoja2"
-                                    src="https://images.unsplash.com/photo-1510022079733-8b58aca7c4a9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80"
+                                    src="{{asset('assetsFront/images/mburoja/miresjellja.jpg')}}"
                                     alt="">
                                 <div class="destinations-one__content">
                                     <h2 class="destinations-one__title"><a
@@ -194,7 +194,7 @@
                         <div class="destinations-one__single">
                             <a href="{{ route('chapters', 'haxh-dhe-umre') }}" class="destinations-one__img">
                                 <img class="mburoja mburoja-cards"
-                                    src="https://images.unsplash.com/photo-1592326871020-04f58c1a52f3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80"
+                                    src="{{asset('assetsFront/images/mburoja/haxh.jpg')}}"
                                     alt="">
                                 <div class="destinations-one__content">
                                     <h2 class="destinations-one__title"><a
@@ -212,7 +212,7 @@
                         <div class="destinations-one__single">
                             <a href="{{ route('chapters', 'natyra') }}" class="destinations-one__img">
                                 <img class="mburoja2"
-                                    src="https://images.unsplash.com/photo-1625472603517-1b0dc72846ab?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+                                    src="{{asset('assetsFront/images/mburoja/natyra.jpg')}}"
                                     alt="">
                                 <div class="destinations-one__content">
                                     <h2 class="destinations-one__title"><a
@@ -230,7 +230,7 @@
                         <div class="destinations-one__single">
                             <a href="{{ route('chapters', 'sëmundja-dhe-vdekja') }}" class="destinations-one__img">
                                 <img class="mburoja2"
-                                    src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80"
+                                    src="{{asset('assetsFront/images/mburoja/semundja.jpg')}}"
                                     alt="">
                                 <div class="destinations-one__content">
                                     <h2 class="destinations-one__title"><a

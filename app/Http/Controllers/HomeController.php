@@ -145,11 +145,14 @@ class HomeController extends Controller
     public function lectures($city)
     {
 
+        $time = Carbon::now('GMT+1');
+        $dayOfWeek = intval($time->dayOfWeek);
 
         $days = Day::all();
         $city = City::where('name', '=', $city)->firstOrFail();
         $cities = City::all();
-        return view('lectures', compact('days', 'city', 'cities'));
+        
+        return view('lectures', compact('days', 'city', 'cities', 'dayOfWeek'));
     }
 
     public function lecture($id)
