@@ -112,6 +112,11 @@ class HomeController extends Controller
         return view('shield');
     }
 
+    public function privacy()
+    {
+        return view('privacy');
+    }
+
     public function ads(Request $request)
     {
         $tag = $request->input('tag');

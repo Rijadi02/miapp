@@ -179,9 +179,9 @@
                                             <div class="icon">
                                                 <i class="fas fa-phone-square-alt"></i>
                                             </div>
-                                            <div class="text">
+                                            {{-- <div class="text">
                                                 <a href="tel:+38349133540">+383 49 133 540</a>
-                                            </div>
+                                            </div> --}}
                                         </li>
                                         <li>
                                             <div class="icon">
@@ -293,10 +293,10 @@
                     <i class="fa fa-envelope"></i>
                     <a href="mailto:info@muslimani-ideal.org">info@muslimani-ideal.org</a>
                 </li>
-                <li>
+                {{-- <li>
                     <i class="fa fa-phone-alt"></i>
                     <a href="">+383 49 133 540</a>
-                </li>
+                </li> --}}
             </ul><!-- /.mobile-nav__contact -->
             <div class="mobile-nav__top">
                 <div class="mobile-nav__social">

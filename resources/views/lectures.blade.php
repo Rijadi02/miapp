@@ -31,9 +31,8 @@
                     <div class="page-header__bottom-inner">
                         <ul class="thm-breadcrumb list-unstyled">
                             @foreach ($cities as $citi)
-                                <li><a class="text-white about-one__btn thm-btn mt-3"
-                                        href="{{ route('lectures', $citi->name) }}">{{ $citi->name }}</a></li>
-                                <li><span>_</span></li>
+                                <li><a class="text-white about-one__btn thm-btn mt-3" href="{{ route('lectures', $citi->name) }}">{{ $citi->name }}</a></li>
+                                {{-- <li><span>_</span></li> --}}
                             @endforeach
 
 

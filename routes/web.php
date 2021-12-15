@@ -32,6 +32,7 @@ Route::get('/recitues/{slug}', [App\Http\Controllers\HomeController::class, 'rec
 Route::get('/akademia', [App\Http\Controllers\HomeController::class, 'academy'])->name('academy');
 Route::get('/donacionet', [App\Http\Controllers\HomeController::class, 'donations'])->name('donations');
 Route::post('applications/store', [App\Http\Controllers\AcademyController::class, 'store'])->name('applications.store');
+Route::get('/privacy', [App\Http\Controllers\HomeController::class, 'privacy'])->name('privacy');
 
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'admin'], function () {

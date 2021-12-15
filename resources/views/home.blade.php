@@ -9,7 +9,7 @@
 
     @section('content')
 
-    
+
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -170,7 +170,7 @@
                                 </a>
                             </div>
                             <p class="video-one__tagline">Videot e muslimanit ideal</p>
-                            <h2 class="video-one__title">Muslimanit Ideal poston video në Youtube në baza javore</h2>
+                            <h2 class="video-one__title">Muslimani Ideal poston video në Youtube në baza javore</h2>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6">
@@ -415,7 +415,7 @@
                     <div class="col-xl-12">
                         <div class="book-now__inner">
                             <div class="book-now__left">
-                                <p>Thënie, përkujtime, video</p>
+                                <p>Thënje, përkujtime, video</p>
                                 <h2>Bashkohu me ne në Telegram</h2>
                             </div>
                             <div class="book-now__right">
@@ -427,8 +427,8 @@
             </div>
         </section>
 
-        
-        
+
+
         <!--Book Now End-->
         <script src="{{ asset('js/notify.js') }}"></script>
         <script>
