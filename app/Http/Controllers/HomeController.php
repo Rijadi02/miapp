@@ -94,7 +94,7 @@ class HomeController extends Controller
     public function blog($slug)
     {
         $blog = Blog::where('slug', '=', $slug)->firstOrFail();
-        $blogs = Blog::where('tags', 'Aktive')->orderBy('updated_at', 'desc')->take(5)->get();
+        $blogs = Blog::where('tags', 'Aktive')->orderBy('updated_at', 'desc')->take(3)->get();
         $blog->counter = $blog->counter + 1;
         $blog->save();
         return view('blog', compact('blog', 'blogs'));
