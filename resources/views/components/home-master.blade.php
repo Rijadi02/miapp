@@ -332,12 +332,12 @@
                         <a href="https://www.buymeacoffee.com/muslimani.ideal"><img
                                 src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=muslimani.ideal&button_colour=FF5F5F&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00"></a>
 
-                        <p class="mt-3 mb-1">Dorzo në akademinë Ether <a href="tel:+38349133540">(+383 49 133 540)</a>:</p>
+                        {{-- <p class="mt-3 mb-1">Dorzo në akademinë Ether <a href="tel:+38349133540">(+383 49 133 540)</a>:</p>
 
                         <iframe
                         style="max-height: 280px;border: 1px solid #00000030;"
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d366.7236850412683!2d21.170050949227686!3d42.66581636733797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13549f20d08017f9%3A0xa879d246924d6aea!2sAfrim%20Loxha%2C%20Prishtin%C3%AB!5e0!3m2!1sen!2s!4v1637766434622!5m2!1sen!2s"
-                            class="tour-details-two__location-map" loading="lazy" allowfullscreen></iframe>
+                            class="tour-details-two__location-map" loading="lazy" allowfullscreen></iframe> --}}
 
                     </div>
 
