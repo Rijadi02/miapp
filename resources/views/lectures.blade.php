@@ -64,8 +64,7 @@
                                     <div class="inner row pt-5">
 
                                         @if ($lectures->count() == 0)
-                                        <div class="col-xl-4 col-lg-6 col-md-6"
-                                            >
+                                        <div class="col-xl-4 col-lg-6 col-md-6">
                                             <!--Popular Tours Two Single-->
                                             <div class="popular-tours__single">
                                                 <div class="popular-tours__content" style="border-top: 1px solid #ebe6de">
