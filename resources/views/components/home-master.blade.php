@@ -175,14 +175,14 @@
                                     <p class="footer-widget__about-text">Për çdo këshillë, sugjerim apo kritikë, na
                                         kontaktoni.</p>
                                     <ul class="footer-widget__about-contact list-unstyled">
-                                        <li>
+                                        {{-- <li>
                                             <div class="icon">
                                                 <i class="fas fa-phone-square-alt"></i>
                                             </div>
-                                            {{-- <div class="text">
+                                            <div class="text">
                                                 <a href="tel:+38349133540">+383 49 133 540</a>
-                                            </div> --}}
-                                        </li>
+                                            </div>
+                                        </li> --}}
                                         <li>
                                             <div class="icon">
                                                 <i class="fas fa-envelope"></i>
@@ -219,14 +219,14 @@
 
                             <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
                                 <div class="footer-widget__column footer-widget__newsletter">
-                                    <h3 class="footer-widget__title">One Hadith Ueb-i dhe Extention</h3>
+                                    <h3 class="footer-widget__title">One Hadith Web-i dhe Extension</h3>
                                     <form class="footer-widget__newsletter-form mc-form"
                                         data-url="">
                                         <div class="footer-widget__newsletter-input-box">
                                             <a href="https://onehadith.org/" class="about-one__btn thm-btn">One
-                                                Hadith Ueb</a>
+                                                Hadith Web</a>
                                             <a href="https://chrome.google.com/webstore/detail/one-hadith/kjkmpppbjhcllohbcjeclghdfhbcnkfa"
-                                                class="about-one__btn thm-btn mt-3">One Hadith Extention</a>
+                                                class="about-one__btn thm-btn mt-3">One Hadith Extension</a>
                                         </div>
                                     </form>
                                     <div class="mc-form__response text-center"></div><!-- /.mc-form__response -->
