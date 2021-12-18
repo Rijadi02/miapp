@@ -27,16 +27,16 @@
         <!--Page Header Start-->
         <section class="page-header">
             <div class="page-header__top">
-                <div class="page-header-bg" style="background-image: url(assets/images/backgrounds/page-header-bg.jpg)">
-                </div>
+                <div class="page-header-bg"
+                    style="background-image: url({{ asset('assetsFront/images/backgrounds/derset.jpg') }})"></div>
                 <div class="page-header-bg-overly"></div>
                 <div class="container">
                     <div class="page-header__top-inner">
-                        <h2>Tours List</h2>
+                        <h2>Derse</h2>
                     </div>
                 </div>
             </div>
-            </div>
+           
         </section>
         <!--Page Header End-->
 
