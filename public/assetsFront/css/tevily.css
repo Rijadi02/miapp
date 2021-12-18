@@ -7721,7 +7721,7 @@ ul {
 
 span[dir="rtl"] {
     font-family: Uthmani;
-    display: inline-block;
+    display: block;
     margin-bottom: 18px !important;
     font-size: 32px !important;
     line-height: 52px !important;
