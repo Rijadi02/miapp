@@ -338,9 +338,9 @@
         <!--News Two End-->
 
         <section class="about-two pt-5">
-            <div class="about-two-shape float-bob-y pt-5">
+            {{-- <div class="about-two-shape float-bob-y pt-5">
                 <img src="{{ asset('assetsFront/images/shapes/about-two-shape.png') }}" alt="">
-            </div>
+            </div> --}}
             <div class="container">
                 <div class="row">
                     <div class="col-xl-6">
