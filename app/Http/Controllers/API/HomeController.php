@@ -6,12 +6,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\AdResource;
 use App\Http\Resources\BlogResourse;
+use App\Http\Resources\ChapterResource;
 use App\Http\Resources\PromotionResource;
 use App\Http\Resources\VideoResourse;
 use App\Models\Ad;
 use App\Models\Blog;
+use App\Models\Book;
 use App\Models\Promotion;
 use App\Models\Video;
+use App\Models\Chapter;
 
 class HomeController extends Controller
 {
@@ -30,48 +33,20 @@ class HomeController extends Controller
         ];
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
+    public function content(Chapter $chapter){
+
+        $contents = $chapter->contents;
+        return $contents;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+    public function chapters(Book $book){
+
+        $chapters = $book->chapters;
+        return $chapters;
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function mburoja_json()
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        return  ChapterResource::collection(Chapter::all());
     }
 }

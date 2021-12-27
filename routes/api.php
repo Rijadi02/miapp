@@ -21,3 +21,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::apiResource('/home', HomeController::class);
 
 Route::get('/home', [HomeController::class, 'index']);
+
+//returns all content for a chapter
+Route::get('/contents/{chapter}', [HomeController::class, 'content']);
+
+//returns all chapters for a book
+Route::get('/chapters/{book}', [HomeController::class, 'chapters']);
+
+//return chapters and contents
+Route::get('/json', [HomeController::class, 'mburoja_json']);
