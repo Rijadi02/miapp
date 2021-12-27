@@ -30,3 +30,12 @@ Route::get('/chapters/{book}', [HomeController::class, 'chapters']);
 
 //return chapters and contents
 Route::get('/json', [HomeController::class, 'mburoja_json']);
+
+//return all blogs with pagination
+Route::get('/blogs', [HomeController::class, 'blogs']);
+
+//return all promotions with pagination
+Route::get('/promotions', [HomeController::class, 'promotions']);
+
+//return all videos with pagination
+Route::get('/videos', [HomeController::class, 'videos']);

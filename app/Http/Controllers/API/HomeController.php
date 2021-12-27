@@ -45,6 +45,18 @@ class HomeController extends Controller
         return $chapters;
     }
 
+    public function blogs(){
+        return BlogResourse::collection(Blog::paginate(5));
+    }
+
+    public function promotions(){
+        return PromotionResource::collection(Promotion::paginate(5));
+    }
+
+    public function videos(){
+        return VideoResourse::collection(Video::paginate(5));
+    }
+
     public function mburoja_json()
     {
         return  ChapterResource::collection(Chapter::all());
