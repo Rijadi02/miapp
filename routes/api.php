@@ -50,5 +50,6 @@ Route::get('/blogs/{blog}/search', [HomeController::class, 'blogs_search']);
 //return all videos you searched
 Route::get('/videos/{video}/search', [HomeController::class, 'videos_search']);
 
+
 //returns the chapters you searched
 Route::get('/chapters/{chapter}/search', [HomeController::class, 'chapters_search']);
