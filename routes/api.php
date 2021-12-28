@@ -28,14 +28,27 @@ Route::get('/contents/{chapter}', [HomeController::class, 'content']);
 //returns all chapters for a book
 Route::get('/chapters/{book}', [HomeController::class, 'chapters']);
 
+
 //return chapters and contents
 Route::get('/json', [HomeController::class, 'mburoja_json']);
 
 //return all blogs with pagination
 Route::get('/blogs', [HomeController::class, 'blogs']);
 
+
 //return all promotions with pagination
 Route::get('/promotions', [HomeController::class, 'promotions']);
 
 //return all videos with pagination
 Route::get('/videos', [HomeController::class, 'videos']);
+
+
+
+//returns the blogs you searched
+Route::get('/blogs/{blog}/search', [HomeController::class, 'blogs_search']);
+
+//return all videos you searched
+Route::get('/videos/{video}/search', [HomeController::class, 'videos_search']);
+
+//returns the chapters you searched
+Route::get('/chapters/{chapter}/search', [HomeController::class, 'chapters_search']);

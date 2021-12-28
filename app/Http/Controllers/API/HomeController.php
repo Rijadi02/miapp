@@ -49,6 +49,7 @@ class HomeController extends Controller
         return BlogResourse::collection(Blog::paginate(5));
     }
 
+
     public function promotions(){
         return PromotionResource::collection(Promotion::paginate(5));
     }
@@ -57,8 +58,38 @@ class HomeController extends Controller
         return VideoResourse::collection(Video::paginate(5));
     }
 
+
+
     public function mburoja_json()
     {
         return  ChapterResource::collection(Chapter::all());
     }
+
+    public function chapters_search($name)
+    {
+        // $asset = Worker::find($id);
+        // return $asset->history;
+        $blogs = Chapter::where('name','LIKE','%'.$name.'%')->get();
+        return $blogs;
+    }
+
+    public function videos_search($title)
+    {
+        // $asset = Worker::find($id);
+        // return $asset->history;
+        $blogs = VideoResourse::collection(Video::where('title','LIKE','%'.$title.'%')->get());
+        return $blogs;
+
+    }
+
+
+    public function blogs_search($title)
+    {
+        // $asset = Worker::find($id);
+        // return $asset->history;
+        $blogs = BlogResourse::collection(Blog::where('title','LIKE','%'.$title.'%')->get());
+        return $blogs;
+
+    }
+
 }
