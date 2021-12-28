@@ -56,9 +56,8 @@ class HomeController extends Controller
         // return view('blog', compact('blog', 'blogs'));
          return [
             'articles' => BlogResourse::collection(Blog::where('slug', '=', $slug)->get()),
-            'random' => BlogResourse::collection(Blog::all()->random(3)),
+            'random' => BlogResourse::collection(Blog::whereNotIn('slug', [$blog->slug])->inRandomOrder(3)->limit(3)->get()),
         ];
-
     }
 
 
