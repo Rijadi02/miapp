@@ -46,8 +46,21 @@ class HomeController extends Controller
     }
 
     public function blogs(){
-        return BlogResourse::collection(Blog::paginate(5));
+        return BlogResourse::collection(Blog::where('tags', 'Aktive')->paginate(5));
     }
+
+    public function blog($slug){
+        $blog = Blog::where('slug', '=', $slug)->firstOrFail();
+        $blog->counter = $blog->counter + 1;
+        $blog->save();
+        // return view('blog', compact('blog', 'blogs'));
+         return [
+            'articles' => BlogResourse::collection(Blog::where('slug', '=', $slug)->get()),
+            'random' => BlogResourse::collection(Blog::all()->random(3)),
+        ];
+
+    }
+
 
 
     public function promotions(){
@@ -87,7 +100,7 @@ class HomeController extends Controller
     {
         // $asset = Worker::find($id);
         // return $asset->history;
-        $blogs = BlogResourse::collection(Blog::where('title','LIKE','%'.$title.'%')->get());
+        $blogs = BlogResourse::collection(Blog::where('title','LIKE','%'.$title.'%')->where('tags', 'Aktive')->orderBy('updated_at', 'desc')->get());
         return $blogs;
 
     }

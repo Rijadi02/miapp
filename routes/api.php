@@ -47,6 +47,9 @@ Route::get('/videos', [HomeController::class, 'videos']);
 //returns the blogs you searched
 Route::get('/blogs/{blog}/search', [HomeController::class, 'blogs_search']);
 
+//returns only one blog
+Route::get('/blog/{blog}', [HomeController::class, 'blog']);
+
 //return all videos you searched
 Route::get('/videos/{video}/search', [HomeController::class, 'videos_search']);
 

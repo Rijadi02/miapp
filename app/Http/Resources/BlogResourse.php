@@ -18,6 +18,7 @@ class BlogResourse extends JsonResource
             "id" => $this->id,
             "title" => $this->title,
             "author" => $this->author,
+            "content" => $this->content,
             "image" => $this->image,
             "date" => $this->created_at,
             "linku" => route('blog',$this->slug)
