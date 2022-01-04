@@ -48,7 +48,7 @@ class HomeController extends Controller
 
     public function blogs(){
         
-        $blogs = BlogsResourse::collection(Blog::where('tags', 'Aktive')->paginate(5));
+        $blogs = BlogsResourse::collection(Blog::where('tags', 'Aktive')->orderBy('updated_at', 'desc')->paginate(5));
         return [
             'random_blogs' => BlogsResourse::collection(Blog::where('tags', 'Aktive')->inRandomOrder()->limit(5)->get()),
             'blogs' => $blogs,
@@ -74,7 +74,7 @@ class HomeController extends Controller
     }
 
     public function videos(){
-        $videos = VideoResourse::collection(Video::paginate(5));
+        $videos = VideoResourse::collection(Video::orderBy('updated_at', 'desc')->paginate(5));
         return [
             'random_videos' => VideoResourse::collection(Video::inRandomOrder()->limit(4)->get()),
             'videos' => $videos,
