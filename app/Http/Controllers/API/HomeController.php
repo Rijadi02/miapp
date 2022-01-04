@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\AdResource;
 use App\Http\Resources\BlogResourse;
+use App\Http\Resources\BlogsResourse;
 use App\Http\Resources\ChapterResource;
 use App\Http\Resources\PromotionResource;
 use App\Http\Resources\VideoResourse;
@@ -47,10 +48,10 @@ class HomeController extends Controller
 
     public function blogs(){
         
-        $blogs = BlogResourse::collection(Blog::where('tags', 'Aktive')->paginate(5));
+        $blogs = BlogsResourse::collection(Blog::where('tags', 'Aktive')->paginate(5));
         return [
+            'random_blogs' => BlogsResourse::collection(Blog::where('tags', 'Aktive')->inRandomOrder()->limit(5)->get()),
             'blogs' => $blogs,
-            'random_blogs' => BlogResourse::collection(Blog::where('tags', 'Aktive')->inRandomOrder()->limit(5)->get()),
             'pages' => $blogs->lastPage()
         ];
     }
@@ -62,7 +63,7 @@ class HomeController extends Controller
         // return view('blog', compact('blog', 'blogs'));
          return [
             'article' => BlogResourse::collection(Blog::where('slug', '=', $slug)->get()),
-            'random' => BlogResourse::collection(Blog::whereNotIn('slug', [$blog->slug])->where('tags', 'Aktive')->inRandomOrder(3)->limit(3)->get()),
+            'random' => BlogsResourse::collection(Blog::whereNotIn('slug', [$blog->slug])->where('tags', 'Aktive')->inRandomOrder()->limit(3)->get()),
         ];
     }
 
@@ -73,10 +74,11 @@ class HomeController extends Controller
     }
 
     public function videos(){
-
+        $videos = VideoResourse::collection(Video::paginate(5));
         return [
-            'random_videos' => VideoResourse::collection(Video::all()->random(4)),
-            'videos' =>VideoResourse::collection(Video::paginate(5)),
+            'random_videos' => VideoResourse::collection(Video::inRandomOrder()->limit(4)->get()),
+            'videos' => $videos,
+            'pages' => $videos->lastPage()
         ];
     }
 
