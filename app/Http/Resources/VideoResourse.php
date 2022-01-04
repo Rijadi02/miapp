@@ -18,7 +18,8 @@ class VideoResourse extends JsonResource
             "id" => $this->id,
             "link" => $this->link,
             "title" => $this->title,
-            "date" => $this->date
+            "date" => $this->date,
+            "image" => $this->image,
         ];
     }
 }
