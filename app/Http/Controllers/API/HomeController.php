@@ -46,10 +46,12 @@ class HomeController extends Controller
     }
 
     public function blogs(){
-
+        
+        $blogs = BlogResourse::collection(Blog::where('tags', 'Aktive')->paginate(5));
         return [
-            'random_blogs' => BlogResourse::collection(Blog::where('tags', 'Aktive')->random(4)),
-            'blogs' =>BlogResourse::collection(Blog::where('tags', 'Aktive')->paginate(5)),
+            'blogs' => $blogs,
+            'random_blogs' => BlogResourse::collection(Blog::where('tags', 'Aktive')->inRandomOrder()->limit(5)->get()),
+            'pages' => $blogs->lastPage()
         ];
     }
 
@@ -59,7 +61,7 @@ class HomeController extends Controller
         $blog->save();
         // return view('blog', compact('blog', 'blogs'));
          return [
-            'articles' => BlogResourse::collection(Blog::where('slug', '=', $slug)->get()),
+            'article' => BlogResourse::collection(Blog::where('slug', '=', $slug)->get()),
             'random' => BlogResourse::collection(Blog::whereNotIn('slug', [$blog->slug])->where('tags', 'Aktive')->inRandomOrder(3)->limit(3)->get()),
         ];
     }
