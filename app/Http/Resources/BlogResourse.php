@@ -16,9 +16,9 @@ class BlogResourse extends JsonResource
     {
         return [
             "id" => $this->id,
+            "slug" => $this->slug,
             "title" => $this->title,
             "author" => $this->author,
-            "content" => $this->content,
             "image" => $this->image,
             "date" => $this->created_at,
             "linku" => route('blog',$this->slug)

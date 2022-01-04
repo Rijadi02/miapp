@@ -46,7 +46,11 @@ class HomeController extends Controller
     }
 
     public function blogs(){
-        return BlogResourse::collection(Blog::where('tags', 'Aktive')->paginate(5));
+
+        return [
+            'random_blogs' => BlogResourse::collection(Blog::where('tags', 'Aktive')->random(4)),
+            'blogs' =>BlogResourse::collection(Blog::where('tags', 'Aktive')->paginate(5)),
+        ];
     }
 
     public function blog($slug){
@@ -56,7 +60,7 @@ class HomeController extends Controller
         // return view('blog', compact('blog', 'blogs'));
          return [
             'articles' => BlogResourse::collection(Blog::where('slug', '=', $slug)->get()),
-            'random' => BlogResourse::collection(Blog::whereNotIn('slug', [$blog->slug])->inRandomOrder(3)->limit(3)->get()),
+            'random' => BlogResourse::collection(Blog::whereNotIn('slug', [$blog->slug])->where('tags', 'Aktive')->inRandomOrder(3)->limit(3)->get()),
         ];
     }
 
@@ -67,7 +71,11 @@ class HomeController extends Controller
     }
 
     public function videos(){
-        return VideoResourse::collection(Video::paginate(5));
+
+        return [
+            'random_videos' => VideoResourse::collection(Video::all()->random(4)),
+            'videos' =>VideoResourse::collection(Video::paginate(5)),
+        ];
     }
 
 
