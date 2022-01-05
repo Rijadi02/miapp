@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\HomeController;
+use App\Http\Controllers\API\TimesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -56,3 +57,5 @@ Route::get('/videos/{video}/search', [HomeController::class, 'videos_search']);
 
 //returns the chapters you searched
 Route::get('/chapters/{chapter}/search', [HomeController::class, 'chapters_search']);
+
+Route::get('/times/{year}', [TimesController::class, 'index']);
