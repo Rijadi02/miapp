@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Resources\AdResource;
 use App\Http\Resources\BlogResourse;
+use App\Http\Resources\BlogsResourse;
 use App\Http\Resources\ChapterResource;
 use App\Http\Resources\PromotionResource;
 use App\Http\Resources\VideoResourse;
@@ -33,52 +34,55 @@ class HomeController extends Controller
         ];
     }
 
-    public function content(Chapter $chapter){
+    public function content(Chapter $chapter)
+    {
 
         $contents = $chapter->contents;
         return $contents;
     }
 
-    public function chapters(Book $book){
+    public function chapters(Book $book)
+    {
 
         $chapters = $book->chapters;
         return $chapters;
     }
 
-    public function blogs(){
-
+    public function blogs()
+    {
+        $blogs = BlogsResourse::collection(Blog::where('tags', 'Aktive')->orderBy('updated_at', 'desc')->paginate(5));
         return [
-            'random_blogs' => BlogResourse::collection(Blog::where('tags', 'Aktive')->random(4)),
-            'blogs' =>BlogResourse::collection(Blog::where('tags', 'Aktive')->paginate(5)),
+            'random_blogs' => BlogsResourse::collection(Blog::where('tags', 'Aktive')->inRandomOrder()->limit(4)->get()),
+            'blogs' => $blogs,
+            'pages' => $blogs->lastPage()
         ];
     }
 
-    public function blog($slug){
+    public function blog($slug)
+    {
         $blog = Blog::where('slug', '=', $slug)->firstOrFail();
         $blog->counter = $blog->counter + 1;
         $blog->save();
-        // return view('blog', compact('blog', 'blogs'));
-         return [
-            'articles' => BlogResourse::collection(Blog::where('slug', '=', $slug)->get()),
-            'random' => BlogResourse::collection(Blog::whereNotIn('slug', [$blog->slug])->where('tags', 'Aktive')->inRandomOrder(3)->limit(3)->get()),
+        return [
+            'article' => BlogResourse::collection(Blog::where('slug', '=', $slug)->get())[0],
+            'random' => BlogsResourse::collection(Blog::whereNotIn('slug', [$blog->slug])->where('tags', 'Aktive')->inRandomOrder()->limit(3)->get()),
         ];
     }
 
-
-
-    public function promotions(){
+    public function promotions()
+    {
         return PromotionResource::collection(Promotion::paginate(5));
     }
 
-    public function videos(){
-
+    public function videos()
+    {
+        $videos = VideoResourse::collection(Video::orderBy('updated_at', 'desc')->paginate(5));
         return [
-            'random_videos' => VideoResourse::collection(Video::all()->random(4)),
-            'videos' =>VideoResourse::collection(Video::paginate(5)),
+            'random_videos' => VideoResourse::collection(Video::inRandomOrder()->limit(4)->get()),
+            'videos' => $videos,
+            'pages' => $videos->lastPage()
         ];
     }
-
-
 
     public function mburoja_json()
     {
@@ -87,29 +91,20 @@ class HomeController extends Controller
 
     public function chapters_search($name)
     {
-        // $asset = Worker::find($id);
-        // return $asset->history;
-        $blogs = Chapter::where('name','LIKE','%'.$name.'%')->get();
+        $blogs = Chapter::where('name', 'LIKE', '%' . $name . '%')->get();
         return $blogs;
     }
 
     public function videos_search($title)
     {
-        // $asset = Worker::find($id);
-        // return $asset->history;
-        $blogs = VideoResourse::collection(Video::where('title','LIKE','%'.$title.'%')->get());
-        return $blogs;
-
+        $videos = VideoResourse::collection(Video::where('title', 'LIKE', '%' . $title . '%')->paginate(5));
+        return ["videos" => $videos, 'pages' => $videos->lastPage()];
     }
 
 
     public function blogs_search($title)
     {
-        // $asset = Worker::find($id);
-        // return $asset->history;
-        $blogs = BlogResourse::collection(Blog::where('title','LIKE','%'.$title.'%')->where('tags', 'Aktive')->orderBy('updated_at', 'desc')->get());
-        return $blogs;
-
+        $blogs = BlogsResourse::collection(Blog::where('title', 'LIKE', '%' . $title . '%')->where('tags', 'Aktive')->orderBy('updated_at', 'desc')->paginate(5));
+        return ["blogs" => $blogs, 'pages' => $blogs->lastPage()];
     }
-
 }

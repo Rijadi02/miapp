@@ -137,11 +137,11 @@
                                                     </li>
 
                                                 </ul>
-                                                <div class="d-flex mt-3">
+                                                {{-- <div class="d-flex mt-3">
                                                     <a class="ders ders{{ $lecture->status == "1" ? "--active" : "" }} " >{{ $lecture->status == "1" ? "Mbahet" : "Nuk Mbahet" }}</a>
                                                     <a style="font-size: 15px" class="ms-3">{{ $lecture->date }}</a>
 
-                                                </div>
+                                                </div> --}}
 
                                             </div>
                                         </div>

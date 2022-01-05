@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class VideoResourse extends JsonResource
+class BlogsResourse extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,10 +16,11 @@ class VideoResourse extends JsonResource
     {
         return [
             "id" => $this->id,
-            "link" => $this->link,
+            "slug" => $this->slug,
             "title" => $this->title,
-            "date" => $this->date,
-            "image" => $this->thumbnail,
+            "author" => $this->author,
+            "image" => $this->image,
+            "date" => $this->created_at,
         ];
     }
 }
