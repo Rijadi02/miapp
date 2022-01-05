@@ -6,7 +6,8 @@
 
     <meta property="og:url"content="<?php echo url('/'); ?>/dersi/{{ $lecture->id }}" />
 
-    <meta property="og:title" content="Dersi '{{ $lecture->title}}' {{ $lecture->status == "0" ? "NUK" : "" }} mbahet me daten {{ $lecture->date}}"  />
+    {{-- <meta property="og:title" content="Dersi '{{ $lecture->title}}' {{ $lecture->status == "0" ? "NUK" : "" }} mbahet me daten {{ $lecture->date}}"  /> --}}
+    <meta property="og:title" content="Dersi '{{ $lecture->title}}' nga {{ $lecture->lecturer->name}} do të mbahet"  />
 
     <meta property="og:type" content="lecture" />
 
@@ -36,7 +37,7 @@
                     </div>
                 </div>
             </div>
-           
+
         </section>
         <!--Page Header End-->
 
