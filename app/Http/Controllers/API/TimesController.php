@@ -49,7 +49,7 @@ class TimesController extends Controller
 
             $code = exists($address, "country_code", "");
 
-            if($code == "xk" || $code == "al" || $code == "mk"){
+            if ($code == "xk" || $code == "al" || $code == "mk") {
                 return [
                     "albanian" => true,
                     "country" => $code
@@ -83,7 +83,6 @@ class TimesController extends Controller
             } else {
                 $city = "Nuk është gjetur qyteti!";
             }
-            
         }
 
         $local = [];
@@ -108,7 +107,7 @@ class TimesController extends Controller
                 if ($time->month == "3" && $time->day >= $march) $addone = 1;
                 if ($time->month == "10" && $time->day >= $october) $addone = -1;
 
-                $local[sprintf('%s-%s-%s', $year, $time->month, sprintf("%02d", $time->day))] = [
+                $local[sprintf('%s-%s-%s', $year, sprintf("%02d", $time->month), sprintf("%02d", $time->day))] = [
                     "Imsak" => $add_time($time->imsak, $addone, 0),
                     "Sunrise" => $add_time($time->sunrise, $addone, 2),
                     "Dhuhr" => $add_time($time->dhuhr, $addone, 3),
@@ -140,7 +139,7 @@ class TimesController extends Controller
                 $hijri = $value['date']['hijri'];
                 $timings = $value['timings'];
 
-                $current_date = sprintf('%s-%s-%s', $year, $month, $gregorian['day']);
+                $current_date = sprintf('%s-%s-%s', $year, sprintf("%02d", $month), $gregorian['day']);
 
                 if ($hijri['day'] == "13" || $hijri['day'] == "14" || $hijri['day'] == "15") {
                     array_push($white_days, $current_date);
@@ -171,6 +170,6 @@ class TimesController extends Controller
             }
         }
 
-        return ["timings" => $data, "white_days" => $white_days, "city" => $city];
+        return ["timings" => $data, "white_days" => $white_days, "city" => $city, 'year' => $year];
     }
 }
