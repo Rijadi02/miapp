@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Time;
 use Illuminate\Support\Facades\Http;
 use App\Http\Requests\TimesRequest;
-
+use App\Models\Token;
 use Illuminate\Http\Request;
 
 class TimesController extends Controller
@@ -20,9 +20,17 @@ class TimesController extends Controller
             "countryCorrection" => "",
             "manualCorrections" => "",
             "hijriCorrection" => "",
-            "city" => ""
+            "city" => "",
+            "token" => ""
         ]);
 
+        if (!Token::where('token', '=', $request['token'])->exists()) {
+            $token = new Token();
+            $token->token = $request['token'];
+            $token->save();
+         }
+  
+        
         function exists($request, $value, $set = null)
         {
             return array_key_exists($value, $request) ? $request[$value] : $set;
@@ -172,4 +180,6 @@ class TimesController extends Controller
 
         return ["timings" => $data, "white_days" => $white_days, "city" => $city, 'year' => $year];
     }
+
+
 }
