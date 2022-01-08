@@ -8,28 +8,14 @@ use Illuminate\Support\Facades\Http;
 use App\Http\Requests\TimesRequest;
 use App\Models\Token;
 use Illuminate\Http\Request;
-use ExpoSDK\Expo;
-use ExpoSDK\ExpoMessage;
+use App\Helper\Helper;
+
 class TimesController extends Controller
 {
 
-    public function test()
-    {
-        $messages = [
-            new ExpoMessage([
-                'title' => 'Notification for default recipients',
-                'body' => 'Because "to" property is not defined',
-            ]),
-        ];
-        
-        /**
-         * These recipients are used when ExpoMessage does not have "to" set
-         */
-        $defaultRecipients = [
-            'ExponentPushToken[hxrMsuOdrbAeliRk6f_Fxv]'
-        ];
-        
-        (new Expo)->send($messages)->to($defaultRecipients)->push();
+    public function test(){
+        $data = ['title'=>'Titulli is amazing', 'body'=>'body is even more amazing'];
+        Helper::sendNotification($data);
     }
 
     public function index(int $year)
