@@ -8,9 +8,29 @@ use Illuminate\Support\Facades\Http;
 use App\Http\Requests\TimesRequest;
 use App\Models\Token;
 use Illuminate\Http\Request;
-
+use ExpoSDK\Expo;
+use ExpoSDK\ExpoMessage;
 class TimesController extends Controller
 {
+
+    public function test()
+    {
+        $messages = [
+            new ExpoMessage([
+                'title' => 'Notification for default recipients',
+                'body' => 'Because "to" property is not defined',
+            ]),
+        ];
+        
+        /**
+         * These recipients are used when ExpoMessage does not have "to" set
+         */
+        $defaultRecipients = [
+            'ExponentPushToken[hxrMsuOdrbAeliRk6f_Fxv]'
+        ];
+        
+        (new Expo)->send($messages)->to($defaultRecipients)->push();
+    }
 
     public function index(int $year)
     {
@@ -180,6 +200,8 @@ class TimesController extends Controller
 
         return ["timings" => $data, "white_days" => $white_days, "city" => $city, 'year' => $year];
     }
+
+
 
 
 }
