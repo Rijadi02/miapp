@@ -160,9 +160,19 @@ class TimesController extends Controller
                 }
 
                 if ($country) {
+
+                    // var fajr = country != "mk" ? _imsak + 30 : _sunrise - 30;
+                    $imsak = $local[$current_date]['Imsak'];
+                    $sunrise = $local[$current_date]['Sunrise'];
+
+                    $fajr_mins = $country != "mk" ? 30 : -30;
+
+                    $fajr = date('H:i', strtotime($fajr_mins . " minutes", strtotime($country != "mk" ? $imsak : $sunrise)));
+
                     $data[$current_date] = [
-                        "imsak" => $local[$current_date]['Imsak'],
-                        "sunrise" => $local[$current_date]['Sunrise'],
+                        "imsak" => $imsak,
+                        'fajr' => $fajr,
+                        "sunrise" => $sunrise,
                         "dhuhr" => $local[$current_date]['Dhuhr'],
                         "asr" => $local[$current_date]['Asr'],
                         "maghrib" => $local[$current_date]['Maghrib'],
