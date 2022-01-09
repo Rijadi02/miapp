@@ -184,7 +184,13 @@ class TimesController extends Controller
             }
         }
 
-        return ["timings" => $data, "white_days" => $white_days, "city" => $city, 'year' => $year];
+        return [
+            "timings" => $data,
+            "white_days" => $white_days,
+            "city" => $city,
+            'year' => $year,
+            'request' => $request
+        ];
     }
 
 

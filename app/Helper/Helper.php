@@ -19,7 +19,6 @@ class Helper
         foreach ($tokens as $token){
             array_push($defaultRecipients, $token->token);
         }
-        
         (new Expo)->send($messages)->to($defaultRecipients)->push();
     }
 
