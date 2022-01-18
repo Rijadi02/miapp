@@ -96,7 +96,7 @@
                                                     <i class="fas fa-clock"></i>
                                                 </div>
                                                 <div class="mx-2">
-                                                    <a >{{ $lecture->time }}</a>
+                                                    <b>{{ $lecture->day->name }}</b> {{ $lecture->time }}
                                                 </div>
 
                                             </li>
