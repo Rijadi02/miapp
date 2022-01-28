@@ -15,7 +15,7 @@ class TimesController extends Controller
 
     public function test()
     {
-        $data = ['title' => 'Titulli is amazing', 'body' => 'body is even more amazing'];
+        $data = ['title' => 'Pyetja e ditës!', 'body' => 'Cilin vend ju ka marrë malli ta takoni?!'];
         Helper::sendNotification($data);
     }
 
