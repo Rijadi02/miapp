@@ -44,7 +44,7 @@
 
                 <div class="row ">                    
                     <iframe scrolling="no" src="https://docs.google.com/forms/d/e/1FAIpQLSeuyovQHfN6uwuBUz1n9Y_8yNIvk49i_Sn-YDeXzXN2dnLgGQ/viewform?embedded=true"
-                     style="width: 100%; height:115vh; padding-top: 50px" frameborder="0" marginheight="0" marginwidth="0">Duke u ngarkuar...</iframe>
+                     style="width: 100%; height:150vh; padding-top: 50px" frameborder="0" marginheight="0" marginwidth="0">Duke u ngarkuar...</iframe>
                 </div>
 
            
