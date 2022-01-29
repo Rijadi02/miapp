@@ -1,5 +1,12 @@
 <x-home-master>
 
+    @section('meta')
+    <meta property="og:image" content="{{ asset('assetsFront/images/mi.jpg') }}"/>
+
+    <meta property="og:url" content="<?php echo url('/'); ?>" />
+
+    <meta property="og:title" content="Muslimani Ideal - Pyetësor" />
+    @endsection
     @section('content')
 
         <div class="stricky-header stricked-menu main-menu">
