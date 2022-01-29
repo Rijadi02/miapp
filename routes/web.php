@@ -33,6 +33,7 @@ Route::get('/akademia', [App\Http\Controllers\HomeController::class, 'academy'])
 Route::get('/donacionet', [App\Http\Controllers\HomeController::class, 'donations'])->name('donations');
 Route::post('applications/store', [App\Http\Controllers\AcademyController::class, 'store'])->name('applications.store');
 Route::get('/privacy', [App\Http\Controllers\HomeController::class, 'privacy'])->name('privacy');
+Route::get('/pyetësor', [App\Http\Controllers\HomeController::class, 'poll'])->name('poll');
 
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'admin'], function () {

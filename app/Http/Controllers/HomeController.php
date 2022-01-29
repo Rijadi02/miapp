@@ -214,4 +214,8 @@ class HomeController extends Controller
     {
         return view('donations');
     }
+
+    public function poll(){
+        return view('poll');
+    }
 }
