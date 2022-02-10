@@ -30,7 +30,7 @@ class HomeController extends Controller
             'ads' => PromotionResource::collection(Promotion::all()->random(3)),
             'videos' => VideoResourse::collection(Video::latest()->take(5)->get()),
             'bussinesses' => AdResource::collection(Ad::latest()->take(5)->get()),
-            'blogs' => BlogResourse::collection(Blog::latest()->take(5)->get()),
+            'blogs' => BlogsResourse::collection(Blog::latest()->take(5)->get()),
         ];
     }
 

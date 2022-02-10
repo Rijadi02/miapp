@@ -43,7 +43,7 @@
         
 
                 <div class="row ">                    
-                    <iframe  src="https://docs.google.com/forms/d/e/1FAIpQLSeuyovQHfN6uwuBUz1n9Y_8yNIvk49i_Sn-YDeXzXN2dnLgGQ/viewform?embedded=true"
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeuyovQHfN6uwuBUz1n9Y_8yNIvk49i_Sn-YDeXzXN2dnLgGQ/viewform?embedded=true"
                      style="width: 100%; height:100vh; padding-top: 50px" frameborder="0" marginheight="0" marginwidth="0">Duke u ngarkuar...</iframe>
                 </div>
 
