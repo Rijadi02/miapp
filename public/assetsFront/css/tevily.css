@@ -7707,7 +7707,7 @@ ul {
     transform: scale(0.0);
     transform-origin: center;
     transform-style: preserve-3d;
-    transition: all 0.4s cubic-bezier(0.62, 0.21, 0.45, 1.52);
+    transition: all 0.4s cubic-bezier(0.62, 0.21, 0.45, 1.14);
     z-index: -1;
 }
 
