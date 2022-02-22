@@ -7656,6 +7656,7 @@ ul {
 }
 
 .shield_check span {
+    margin-top: 12px;
     position: relative;
     display: -webkit-box;
     display: flex;
@@ -7666,12 +7667,12 @@ ul {
     text-align: center;
     color: var(--thm-black);
     background-color: #faf5ee;
-    border-radius: 50%;
+    border-radius: 50px;
     font-size: 15px;
     height: 50px;
-    width: 50px;
+    width: 100%;
     transform: rotate(0);
-    -webkit-transition: all 500ms ease;
+    /* -webkit-transition: all 500ms ease; */
     transition: all 500ms ease;
     z-index: 1;
     cursor: pointer;
@@ -7690,7 +7691,8 @@ ul {
 
 .shield_check .active {
     color: var(--thm-base);
-    transform: rotate(360deg);
+    /* transform: rotate(360deg); */
+    border-radius: 50px;
 }
 
 .shield_check span:before {
@@ -7701,7 +7703,7 @@ ul {
     bottom: 0;
     content: "";
     background-color: var(--thm-primary);
-    border-radius: 50%;
+    border-radius: 50px;
     transform: scale(0.0);
     transform-origin: center;
     transform-style: preserve-3d;
