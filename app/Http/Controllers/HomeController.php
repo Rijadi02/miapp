@@ -218,4 +218,5 @@ class HomeController extends Controller
     public function poll(){
         return view('poll');
     }
+    
 }

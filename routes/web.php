@@ -35,6 +35,9 @@ Route::post('applications/store', [App\Http\Controllers\AcademyController::class
 Route::get('/privacy', [App\Http\Controllers\HomeController::class, 'privacy'])->name('privacy');
 Route::get('/pyetësor', [App\Http\Controllers\HomeController::class, 'poll'])->name('poll');
 
+Route::get('/app/privacy', [App\Http\Controllers\AppController::class, 'privacy'])->name('app_privacy');
+Route::get('/app/terms', [App\Http\Controllers\AppController::class, 'terms'])->name('app_terms');
+
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'admin'], function () {
 
