@@ -180,7 +180,7 @@
                                 <div class="card">
                                     <div class="card-body text-center p-lg-5">
                                         {{-- <a href="{{ route('blog.books', $blog->id) }}"> --}}
-                                        <img class="img-fluid mb-4" src="/storage/{{ $blog->image }}" alt="">
+                                        <a href="{{route('blog',$blog->slug)}}"> <img class="img-fluid mb-4" src="/storage/{{ $blog->image }}" alt=""></a>
                                         {{-- </a> --}}
                                         <h5>{{ $blog->title }} | {{ $blog->counter}}</h5>
 
