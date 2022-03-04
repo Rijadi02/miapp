@@ -155,6 +155,7 @@ class TimesController extends Controller
                 'annual' => "true",
                 'year' => $year,
                 'tune' => $manualCorrections,
+                "method" => 3
             ]);
 
             $aladhan = $response->json();
