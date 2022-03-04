@@ -106,6 +106,7 @@ class TimesController extends Controller
                 return date('H:i', strtotime($value . ' hour ' . $minutes . " minutes", strtotime($time)));
             };
 
+
             $tz = new \DateTimeZone('Europe/Paris');
             $transition = $tz->getTransitions(strtotime('1/1/2022'), strtotime('12/31/2022'));
 
@@ -158,6 +159,12 @@ class TimesController extends Controller
                 "method" => 3
             ]);
 
+            function formatTime($time)
+            {
+                return strtotime(explode(" ", $time)[0]);
+            };
+
+
             $aladhan = $response->json();
 
             $data = [];
@@ -171,13 +178,13 @@ class TimesController extends Controller
                     $current_date = sprintf('%s-%s-%s', $year, sprintf("%02d", $month), $gregorian['day']);
 
                     $data[$current_date] = [
-                        "imsak" => date("H:i", strtotime($timings['Imsak'])),
-                        "fajr" => date("H:i", strtotime($timings['Fajr'])),
-                        "sunrise" => date("H:i", strtotime($timings['Sunrise'])),
-                        "dhuhr" => date("H:i", strtotime($timings['Dhuhr'])),
-                        "asr" => date("H:i", strtotime($timings['Asr'])),
-                        "maghrib" => date("H:i", strtotime($timings['Maghrib'])),
-                        "isha" => date("H:i", strtotime($timings['Isha']))
+                        "imsak" => date("H:i", formatTime($timings['Imsak'])),
+                        "fajr" => date("H:i", formatTime($timings['Fajr'])),
+                        "sunrise" => date("H:i", formatTime($timings['Sunrise'])),
+                        "dhuhr" => date("H:i", formatTime($timings['Dhuhr'])),
+                        "asr" => date("H:i", formatTime($timings['Asr'])),
+                        "maghrib" => date("H:i", formatTime($timings['Maghrib'])),
+                        "isha" => date("H:i", formatTime($timings['Isha']))
                     ];
                 }
             }
