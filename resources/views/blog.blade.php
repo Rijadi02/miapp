@@ -108,6 +108,9 @@
 
                 </div>
             </div>
+
+            <a href="miapp://article/{{$blog->slug}}?title={{$blog->title}}&author={{$blog->author}}&image={{$blog->image}}&date={{$blog->date}}">Test</a>
+
             <div class="col-xl-4 col-lg-5">
                 <div class="sidebar">
                     {{-- <div class="sidebar__single sidebar__search">
