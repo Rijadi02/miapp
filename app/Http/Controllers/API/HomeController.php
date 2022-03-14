@@ -26,9 +26,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $random_videos = VideoResourse::collection(Video::all()->random(4));
+        $last_video = VideoResourse::collection(Video::latest()->limit(1)->get());
+        $videos = $last_video->merge($random_videos);
         return [
             'ads' => PromotionResource::collection(Promotion::all()->random(3)),
-            'videos' => VideoResourse::collection(Video::latest()->take(5)->get()),
+            'videos' => $videos,
             'bussinesses' => AdResource::collection(Ad::latest()->take(5)->get()),
             'blogs' => BlogsResourse::collection(Blog::where('tags', 'Aktive')->where('category',0)->take(5)->get()),
         ];
@@ -76,7 +79,7 @@ class HomeController extends Controller
 
     public function videos()
     {
-        $videos = VideoResourse::collection(Video::orderBy('updated_at', 'desc')->paginate(5));
+        $videos = VideoResourse::collection(Video::orderBy('created_at', 'desc')->paginate(5));
         return [
             'random_videos' => VideoResourse::collection(Video::inRandomOrder()->limit(4)->get()),
             'videos' => $videos,
