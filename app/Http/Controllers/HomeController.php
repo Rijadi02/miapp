@@ -81,20 +81,20 @@ class HomeController extends Controller
 
         $media = Media::orderBy('id', 'desc')->firstOrFail();
         $posts = Post::all()->random(5);
-        $blogs = Blog::where('tags', 'Aktive')->orderBy('updated_at', 'desc')->take(5)->get();
+        $blogs = Blog::where('tags', 'Aktive')->where('category',0)->orderBy('updated_at', 'desc')->take(5)->get();
         return view('home', compact('posts', 'blogs', 'media', 'buttons'));
     }
 
     public function blogs()
     {
-        $blogs = Blog::where('tags', 'Aktive')->orderBy('updated_at', 'desc')->paginate(9);
+        $blogs = Blog::where('tags', 'Aktive')->where('category',0)->orderBy('updated_at', 'desc')->paginate(9);
         return view('blogs', compact('blogs'));
     }
 
     public function blog($slug)
     {
         $blog = Blog::where('slug', '=', $slug)->firstOrFail();
-        $blogs = Blog::where('tags', 'Aktive')->orderBy('updated_at', 'desc')->take(3)->get();
+        $blogs = Blog::where('tags', 'Aktive')->where('category',0)->orderBy('updated_at', 'desc')->take(3)->get();
         $blog->counter = $blog->counter + 1;
         $blog->timestamps = false;
         $blog->save();
@@ -218,5 +218,5 @@ class HomeController extends Controller
     public function poll(){
         return view('poll');
     }
-    
+
 }
