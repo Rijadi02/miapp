@@ -64,6 +64,7 @@ Route::get('/test', [TimesController::class, 'test']);
 
 //returns the blogs you searched
 Route::get('/natures/{nature}/search', [HomeController::class, 'nature_search']);
+Route::get('/natures', [HomeController::class, 'natures']);
 
 //returns only one blog
 Route::get('/nature/{nature}', [HomeController::class, 'nature']);
