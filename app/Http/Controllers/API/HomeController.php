@@ -50,9 +50,9 @@ class HomeController extends Controller
 
     public function blogs()
     {
-        $blogs = BlogsResourse::collection(Blog::where('tags', 'Aktive')->where('caregory',0)->orderBy('updated_at', 'desc')->paginate(5));
+        $blogs = BlogsResourse::collection(Blog::where('tags', 'Aktive')->orderBy('updated_at', 'desc')->paginate(5));
         return [
-            'random_blogs' => BlogsResourse::collection(Blog::where('tags', 'Aktive')->where('caregory',0)->inRandomOrder()->limit(4)->get()),
+            'random_blogs' => BlogsResourse::collection(Blog::where('tags', 'Aktive')->inRandomOrder()->limit(4)->get()),
             'blogs' => $blogs,
             'pages' => $blogs->lastPage()
         ];
