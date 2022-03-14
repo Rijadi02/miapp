@@ -54,7 +54,7 @@
 <section class="news-details pt-5">
     <div class="container">
         <div class="row">
-            <div class="col-xl-8 col-lg-7">
+            <div class="col-xl-8 col-lg-7 just-random-thing">
                 <div class="news-details__left">
                     <div class="news-details__img">
                         <img style="object-fit:cover;  object-position: 50% 50%;" src="/storage/{{ $blog->image }}" alt="{{ $blog->title }}">
