@@ -13,6 +13,13 @@
 
     <meta name="description" content="{{ $blog->author }}" />
 
+    <meta property="al:ios:url" content="miapp://article/{{$blog->slug}}?title={{$blog->title}}&author={{$blog->author}}&image={{$blog->image}}&date={{$blog->date}}" />
+    <meta property="al:ios:app_name" content="Muslimani Ideal" />
+
+    <meta property="al:android:url" content="miapp://article/{{$blog->slug}}?title={{$blog->title}}&author={{$blog->author}}&image={{$blog->image}}&date={{$blog->date}}" />
+    <meta property="al:android:app_name" content="Muslimani Ideal" />
+    <meta property="al:android:package" content="com.muslimani.ideal" />
+
     @endsection
 
     @section('content')
