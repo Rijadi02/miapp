@@ -13,12 +13,14 @@
 
         <meta name="description" content="{{ $blog->author }}" />
 
+        <meta property="fb:app_id" content="2022412407917566"/>
+
         <meta property="al:ios:url"
-            content="miapp://articles/article?slug={{ $blog->slug }}&{{ $blog->slug }}&title={{ $blog->title }}&author={{ $blog->author }}&image={{ $blog->image }}&date={{ $blog->updated_at->format('Y-M-D') }}" />
+            content="miapp://articles/article?slug={{ $blog->slug }}&{{ $blog->slug }}&title={{ $blog->title }}&author={{ $blog->author }}&image={{ $blog->image }}&date={{ $blog->updated_at->format('Y-m-d') }}" />
         <meta property="al:ios:app_name" content="Muslimani Ideal" />
 
         <meta property="al:android:url"
-            content="miapp://articles/article?slug={{ $blog->slug }}&{{ $blog->slug }}&title={{ $blog->title }}&author={{ $blog->author }}&image={{ $blog->image }}&date={{ $blog->updated_at->format('Y-M-D') }}" />
+            content="miapp://articles/article?slug={{ $blog->slug }}&{{ $blog->slug }}&title={{ $blog->title }}&author={{ $blog->author }}&image={{ $blog->image }}&date={{ $blog->updated_at->format('Y-m-d') }}" />
         <meta property="al:android:app_name" content="Muslimani Ideal" />
         <meta property="al:android:package" content="com.muslimani.ideal" />
         <meta property="al:web:should_fallback" content="false" />
