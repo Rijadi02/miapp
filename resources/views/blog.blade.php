@@ -21,6 +21,7 @@
             content="miapp://articles/article?slug={{ $blog->slug }}&{{ $blog->slug }}&title={{ $blog->title }}&author={{ $blog->author }}&image={{ $blog->image }}&date={{ $blog->updated_at->format('Y-M-D') }} />
         <meta property="al:android:app_name" content="Muslimani Ideal" />
         <meta property="al:android:package" content="com.muslimani.ideal" />
+        <meta property="al:web:should_fallback" content="false" />
     @endsection
 
     @section('content')
