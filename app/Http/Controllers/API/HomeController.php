@@ -30,7 +30,7 @@ class HomeController extends Controller
             'ads' => PromotionResource::collection(Promotion::all()->random(3)),
             'videos' => VideoResourse::collection(Video::latest()->take(5)->get()),
             'bussinesses' => AdResource::collection(Ad::latest()->take(5)->get()),
-            'blogs' => BlogsResourse::collection(Blog::latest()->take(5)->get()),
+            'blogs' => BlogsResourse::collection(Blog::where('tags', 'Aktive')->where('caregory',0)->take(5)->get()),
         ];
     }
 
@@ -50,9 +50,9 @@ class HomeController extends Controller
 
     public function blogs()
     {
-        $blogs = BlogsResourse::collection(Blog::where('tags', 'Aktive')->orderBy('updated_at', 'desc')->paginate(5));
+        $blogs = BlogsResourse::collection(Blog::where('tags', 'Aktive')->where('caregory',0)->orderBy('updated_at', 'desc')->paginate(5));
         return [
-            'random_blogs' => BlogsResourse::collection(Blog::where('tags', 'Aktive')->inRandomOrder()->limit(4)->get()),
+            'random_blogs' => BlogsResourse::collection(Blog::where('tags', 'Aktive')->where('caregory',0)->inRandomOrder()->limit(4)->get()),
             'blogs' => $blogs,
             'pages' => $blogs->lastPage()
         ];
@@ -65,7 +65,7 @@ class HomeController extends Controller
         $blog->save();
         return [
             'article' => BlogResourse::collection(Blog::where('slug', '=', $slug)->get())[0],
-            'random' => BlogsResourse::collection(Blog::whereNotIn('slug', [$blog->slug])->where('tags', 'Aktive')->inRandomOrder()->limit(3)->get()),
+            'random' => BlogsResourse::collection(Blog::whereNotIn('slug', [$blog->slug])->where('tags', 'Aktive')->where('caregory',0)->inRandomOrder()->limit(3)->get()),
         ];
     }
 
@@ -104,7 +104,7 @@ class HomeController extends Controller
 
     public function blogs_search($title)
     {
-        $blogs = BlogsResourse::collection(Blog::where('title', 'LIKE', '%' . $title . '%')->where('tags', 'Aktive')->orderBy('updated_at', 'desc')->paginate(5));
+        $blogs = BlogsResourse::collection(Blog::where('title', 'LIKE', '%' . $title . '%')->where('tags', 'Aktive')->where('caregory',0)->orderBy('updated_at', 'desc')->paginate(5));
         return ["blogs" => $blogs, 'pages' => $blogs->lastPage()];
     }
 }

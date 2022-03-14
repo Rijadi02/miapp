@@ -21,6 +21,7 @@ class BlogsResourse extends JsonResource
             "author" => $this->author,
             "image" => $this->image,
             "date" => $this->created_at,
+            "category" => $this->category,
         ];
     }
 }

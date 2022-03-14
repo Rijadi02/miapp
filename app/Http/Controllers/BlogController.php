@@ -42,6 +42,7 @@ class BlogController extends Controller
                 'content' => 'required',
                 'image' => 'required',
                 'tags' => 'required',
+                'category' => 'required',
             ]
         );
 
@@ -53,6 +54,7 @@ class BlogController extends Controller
         $blog->author = $data['author'];
         $blog->tags = $data['tags'];
         $blog->content = $data['content'];
+        $blog->category = $data['category'];
 
         if (request('image')) {
             $inputs['image'] = request('image')->store('uploads', 'public');
@@ -121,6 +123,7 @@ class BlogController extends Controller
                 'content' => 'required',
                 'image' => '',
                 'tags' => 'required',
+                'category' => 'required',
             ]
         );
 
@@ -130,6 +133,7 @@ class BlogController extends Controller
         $blog->author = $data['author'];
         $blog->tags = $data['tags'];
         $blog->content = $data['content'];
+        $blog->category = $data['category'];
         $blog->status = 1;
 
         if (request('image')) {
