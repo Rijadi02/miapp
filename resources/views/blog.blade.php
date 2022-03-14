@@ -14,11 +14,11 @@
         <meta name="description" content="{{ $blog->author }}" />
 
         <meta property="al:ios:url"
-            content="miapp://article/{{ $blog->slug }}?title={{ $blog->title }}&author={{ $blog->author }}&image={{ $blog->image }}&date={{ $blog->date }}" />
+            content="miapp://articles/article?slug={{ $blog->slug }}&{{ $blog->slug }}&title={{ $blog->title }}&author={{ $blog->author }}&image={{ $blog->image }}&date={{ $blog->updated_at }} />
         <meta property="al:ios:app_name" content="Muslimani Ideal" />
 
         <meta property="al:android:url"
-            content="miapp://article/{{ $blog->slug }}?title={{ $blog->title }}&author={{ $blog->author }}&image={{ $blog->image }}&date={{ $blog->date }}" />
+            content="miapp://articles/article?slug={{ $blog->slug }}&{{ $blog->slug }}&title={{ $blog->title }}&author={{ $blog->author }}&image={{ $blog->image }}&date={{ $blog->updated_at }} />
         <meta property="al:android:app_name" content="Muslimani Ideal" />
         <meta property="al:android:package" content="com.muslimani.ideal" />
     @endsection
@@ -119,7 +119,7 @@
                     </div>
 
                     <a
-                        href="miapp://articles/article?slug={{ $blog->slug }}&{{ $blog->slug }}&title={{ $blog->title }}&author={{ $blog->author }}&image={{ $blog->image }}&date={{ $blog->date }}">Test</a>
+                        href="miapp://articles/article?slug={{ $blog->slug }}&{{ $blog->slug }}&title={{ $blog->title }}&author={{ $blog->author }}&image={{ $blog->image }}&date={{ $blog->updated_at }}">Test</a>
 
                     <div class="col-xl-4 col-lg-5">
                         <div class="sidebar">
