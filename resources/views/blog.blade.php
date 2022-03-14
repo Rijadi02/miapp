@@ -118,9 +118,6 @@
                         </div>
                     </div>
 
-                    <a
-                        href="miapp://articles/article?slug={{ $blog->slug }}&{{ $blog->slug }}&title={{ $blog->title }}&author={{ $blog->author }}&image={{ $blog->image }}&date={{ $blog->updated_at->format('Y-m-d') }}">Test</a>
-
                     <div class="col-xl-4 col-lg-5">
                         <div class="sidebar">
                             {{-- <div class="sidebar__single sidebar__search">
