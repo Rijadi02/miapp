@@ -14,7 +14,7 @@
         <meta name="description" content="{{ $blog->author }}" />
 
         <meta property="al:ios:url"
-            content="miapp://articles/article?slug={{ $blog->slug }}&{{ $blog->slug }}&title={{ $blog->title }}&author={{ $blog->author }}&image={{ $blog->image }}&date={{ $blog->updated_at->format('Y-M-D') }} />
+            content="miapp://articles/article?slug={{ $blog->slug }}&{{ $blog->slug }}&title={{ $blog->title }}&author={{ $blog->author }}&image={{ $blog->image }}&date={{ $blog->updated_at->format('Y-M-D') }}" />
         <meta property="al:ios:app_name" content="Muslimani Ideal" />
 
         <meta property="al:android:url"
