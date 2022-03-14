@@ -91,6 +91,19 @@
                                     </span>
                                 @enderror
                             </div>
+
+                            <div class="col-lg-12">
+                                <label for="category" class="col-md-12 col-form-label">Kategorija</label>
+                                <select name="category" id="category" class="form-control @error('category') is-invalid @enderror"
+                                    value="{{ old('category') }}">
+                                    <option {{ $blog->category == '0' ? 'selected' : '' }} value="0">Fetare</option>
+                                    <option {{ $blog->category == '1' ? 'selected' : '' }} value="1">Natyre</option>
+                                </select> @error('category')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                             <div class="form-group mt-3">
                                 <button type="submit" class="btn btn-primary">Përditëso</button>
                         </form>
@@ -156,6 +169,21 @@
                                 </select>
 
                                 @error('tags')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                            <div class="col-lg-12">
+                                <label for="category" class="col-md-12 col-form-label">Statusi</label>
+                                <select name="category" id="category" class="form-control @error('category') is-invalid @enderror"
+                                    value="{{ old('category') }}">
+                                    <option value="0" selected>Fetar</option>
+                                    <option value="1">Natyror</option>
+                                </select>
+
+                                @error('category')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

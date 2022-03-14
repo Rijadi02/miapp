@@ -60,3 +60,10 @@ Route::get('/chapters/{chapter}/search', [HomeController::class, 'chapters_searc
 
 Route::get('/times/{year}', [TimesController::class, 'index']);
 Route::get('/test', [TimesController::class, 'test']);
+
+
+//returns the blogs you searched
+Route::get('/natures/{nature}/search', [HomeController::class, 'nature_search']);
+
+//returns only one blog
+Route::get('/nature/{nature}', [HomeController::class, 'nature']);

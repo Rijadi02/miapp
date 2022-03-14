@@ -65,6 +65,7 @@ class HomeController extends Controller
     {
         $blog = Blog::where('slug', '=', $slug)->firstOrFail();
         $blog->counter = $blog->counter + 1;
+        $blog->timestamps = false;
         $blog->save();
         return [
             'article' => BlogResourse::collection(Blog::where('slug', '=', $slug)->get())[0],
@@ -108,6 +109,24 @@ class HomeController extends Controller
     public function blogs_search($title)
     {
         $blogs = BlogsResourse::collection(Blog::where('title', 'LIKE', '%' . $title . '%')->where('tags', 'Aktive')->where('caregory',0)->orderBy('updated_at', 'desc')->paginate(5));
+        return ["blogs" => $blogs, 'pages' => $blogs->lastPage()];
+    }
+
+    public function nature($slug)
+    {
+        $blog = Blog::where('slug', '=', $slug)->firstOrFail();
+        $blog->counter = $blog->counter + 1;
+        $blog->timestamps = false;
+        $blog->save();
+        return [
+            'article' => BlogResourse::collection(Blog::where('slug', '=', $slug)->get())[0],
+            'random' => BlogsResourse::collection(Blog::whereNotIn('slug', [$blog->slug])->where('tags', 'Aktive')->where('caregory',1)->inRandomOrder()->limit(3)->get()),
+        ];
+    }
+
+    public function nature_search($title)
+    {
+        $blogs = BlogsResourse::collection(Blog::where('title', 'LIKE', '%' . $title . '%')->where('tags', 'Aktive')->where('caregory',1)->orderBy('updated_at', 'desc')->paginate(5));
         return ["blogs" => $blogs, 'pages' => $blogs->lastPage()];
     }
 }
