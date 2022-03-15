@@ -7764,8 +7764,9 @@ span.marker {
 }
 
 .news-details__content h3 {
-    font-size: 20px;
-    margin-bottom: 8px;
+    font-size: 22px;
+    margin-bottom: 12px;
+    margin-top: 48px;
 }
 
 .news-details__content p {

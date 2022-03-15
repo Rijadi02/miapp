@@ -13,7 +13,7 @@
 
         <meta name="description" content="{{ $blog->author }}" />
 
-        <meta property="fb:app_id" content="2022412407917566"/>
+        <meta property="fb:app_id" content="2022412407917566" />
 
         <meta property="al:ios:url"
             content="miapp://articles/article?slug={{ $blog->slug }}&{{ $blog->slug }}&title={{ $blog->title }}&author={{ $blog->author }}&image={{ $blog->image }}&date={{ $blog->updated_at->format('Y-m-d') }}" />
@@ -31,32 +31,34 @@
         </div><!-- /.stricky-header -->
 
 
-        {{-- <script>
-           function isMobile() {
-            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        <script>
+            function isMobile() {
+                var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-            // Windows Phone must come first because its UA also contains "Android"
-            if (/windows phone/i.test(userAgent)) {
-                return true;
+                // Windows Phone must come first because its UA also contains "Android"
+                if (/windows phone/i.test(userAgent)) {
+                    return true;
+                }
+
+                if (/android/i.test(userAgent)) {
+                    return true;
+                }
+
+                // iOS detection from: http://stackoverflow.com/a/9039885/177710
+                if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                    return true;
+                }
+
+                return false;
             }
+            window.onload = (event) => {
+                if (isMobile()) {
+                    window.location =
+                        "miapp://articles/article?slug={{ $blog->slug }}&{{ $blog->slug }}&title={{ $blog->title }}&author={{ $blog->author }}&image={{ $blog->image }}&date={{ $blog->updated_at->format('Y-m-d') }}";
 
-            if (/android/i.test(userAgent)) {
-                return true;
-            }
-
-            // iOS detection from: http://stackoverflow.com/a/9039885/177710
-            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                return true;
-            }
-
-            return false;
-        }
-        if(isMobile()){
-            window.location = "miapp://articles/article?slug={{ $blog->slug }}&{{ $blog->slug }}&title={{ $blog->title }}&author={{ $blog->author }}&image={{ $blog->image }}&date={{ $blog->updated_at->format('Y-m-d') }}";
-
-        }
-            
-        </script> --}}
+                }
+            };
+        </script>
 
         <!--Page Header Start-->
         <section class="page-header">
@@ -97,7 +99,8 @@
                                     src="/storage/{{ $blog->image }}" alt="{{ $blog->title }}">
                                 <div class="news-one__date">
                                     <p>{{ $blog->updated_at->format('d') }} <br>
-                                        <span>{{ $blog->updated_at->format('M') }}</span></p>
+                                        <span>{{ $blog->updated_at->format('M') }}</span>
+                                    </p>
                                 </div>
                             </div>
                             <div class="news-details__content">
@@ -169,7 +172,8 @@
                                                 <h3>
                                                     <a href="#" class="sidebar__post-content_meta"><i
                                                             class="far fa-user-circle"></i>{{ $bloga->author }}</a>
-                                                    <a href="{{ route('blog', $bloga->slug) }}">{{ $bloga->title }}</a>
+                                                    <a
+                                                        href="{{ route('blog', $bloga->slug) }}">{{ $bloga->title }}</a>
                                                 </h3>
                                             </div>
                                         </li>
