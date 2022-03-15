@@ -51,8 +51,8 @@
 
     <link rel="stylesheet" href="{{ asset('assetsFront/arabic-fonts.css') }}" />
     <!-- template styles -->
-    <link rel="stylesheet" href="{{ asset('assetsFront/css/tevily.css?v=1.01') }}" />
-    <link rel="stylesheet" href="{{ asset('assetsFront/css/tevily-responsive.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assetsFront/css/tevily.css?v=1.02') }}" />
+    <link rel="stylesheet" href="{{ asset('assetsFront/css/tevily-responsive.css?v=1.01') }}" />
 
 
     @yield('meta')

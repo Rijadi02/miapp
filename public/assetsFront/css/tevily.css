@@ -7788,3 +7788,9 @@ span.marker {
 .news-one__img img {
     aspect-ratio: 0.7;
 }
+
+.news-details__content img {
+    width: 100%!important;
+    height: 100%!important;
+    border-radius: 10px;
+}
