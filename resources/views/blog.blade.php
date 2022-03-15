@@ -53,8 +53,7 @@
             }
             window.onload = (event) => {
                 if (isMobile()) {
-                    window.location =
-                        "miapp://articles/article?slug={{ $blog->slug }}&title={{ $blog->title }}&author={{ $blog->author }}&image={{ $blog->image }}&date={{ $blog->updated_at->format('Y-m-d') }}&category={{ $blog->category }}&redirect=true";
+                    window.location = encodeURIComponent("miapp://articles/article?slug={{ $blog->slug }}&title={{ $blog->title }}&author={{ $blog->author }}&image={{ $blog->image }}&date={{ $blog->updated_at->format('Y-m-d') }}&category={{ $blog->category }}&redirect=true");
 
                 }
             };
