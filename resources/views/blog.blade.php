@@ -31,7 +31,7 @@
         </div><!-- /.stricky-header -->
 
 
-        <script>
+        {{-- <script>
            function isMobile() {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
@@ -56,7 +56,7 @@
 
         }
             
-        </script>
+        </script> --}}
 
         <!--Page Header Start-->
         <section class="page-header">
