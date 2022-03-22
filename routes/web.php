@@ -40,6 +40,10 @@ Route::get('/app/terms', [App\Http\Controllers\AppController::class, 'terms'])->
 
 Route::get('/times/{country}', [App\Http\Controllers\HomeController::class, 'times'])->name('times');
 
+Route::get("/app", function () {
+    return redirect('http://onelink.to/muslimani-ideal');
+})->name("app");
+
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'admin'], function () {
 
