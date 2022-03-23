@@ -219,4 +219,24 @@ class HomeController extends Controller
         return view('poll');
     }
 
+    public function times($contry){
+        $times = Time::where('country', $contry);
+
+        $janar = Time::where('country', $contry)->where('month', 1)->get();
+        $shkurt = Time::where('country', $contry)->where('month', 2)->get();
+      
+        $mars = Time::where('country', $contry)->where('month', 3)->get();
+        $prill = Time::where('country', $contry)->where('month', 4)->get();
+        $maj = Time::where('country', $contry)->where('month', 5)->get();
+        $qeshor = Time::where('country', $contry)->where('month', 6)->get();
+        $korrik = Time::where('country', $contry)->where('month', 7)->get();
+        $gusht = Time::where('country', $contry)->where('month', 8)->get();
+        $shtator = Time::where('country', $contry)->where('month', 9)->get();
+        $tetor = Time::where('country', $contry)->where('month', 10)->get();
+        $nentor = Time::where('country', $contry)->where('month', 11)->get();
+        $dhjetor = Time::where('country', $contry)->where('month', 12)->get();
+        
+
+        return view('times', compact('times','janar','shkurt','mars','prill','maj','qeshor','korrik','gusht','shtator','tetor','nentor','dhjetor'));
+    }
 }

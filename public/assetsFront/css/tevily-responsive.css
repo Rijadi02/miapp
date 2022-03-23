@@ -1034,9 +1034,3 @@
         color: var(--thm-base);
     }
 }
-
-
-.col-xl-8.col-lg-7.just-random-thing img {
-    width: 100%!important;
-    height: 100%!important;
-}

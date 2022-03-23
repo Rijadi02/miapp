@@ -7764,8 +7764,9 @@ span.marker {
 }
 
 .news-details__content h3 {
-    font-size: 20px;
-    margin-bottom: 8px;
+    font-size: 22px;
+    margin-bottom: 12px;
+    margin-top: 48px;
 }
 
 .news-details__content p {
@@ -7786,4 +7787,10 @@ span.marker {
 
 .news-one__img img {
     aspect-ratio: 0.7;
+}
+
+.news-details__content img {
+    width: 100%!important;
+    height: 100%!important;
+    border-radius: 10px;
 }
