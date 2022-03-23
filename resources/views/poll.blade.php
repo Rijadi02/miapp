@@ -1,11 +1,11 @@
 <x-home-master>
 
     @section('meta')
-    <meta property="og:image" content="{{ asset('assetsFront/images/mi.jpg') }}"/>
+    <meta property="og:image" content="{{ asset('assetsFront/images/thumbs-plan.jpg') }}"/>
 
     <meta property="og:url" content="<?php echo url('/'); ?>" />
 
-    <meta property="og:title" content="Muslimani Ideal - Pyetësor" />
+    <meta property="og:title" content="Muslimani Ideal - Ramadan Planner" />
     @endsection
     @section('content')
 
@@ -17,11 +17,11 @@
         <section class="page-header">
             <div class="page-header__top">
                 <div class="page-header-bg"
-                    style="background-image: url({{ asset('assetsFront/images/backgrounds/poll.jpg') }})"></div>
+                    style="background-image: url({{ asset('assetsFront/images/mock-plan.jpg') }})"></div>
                 <div class="page-header-bg-overly"></div>
                 <div class="container">
                     <div class="page-header__top-inner">
-                        <h2>Pyetësor</h2>
+                        <h2>Planifikuesi për Ramazan</h2>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@
                         <ul class="thm-breadcrumb list-unstyled">
                             <li><a href="{{ route('home')}}">Ballina</a></li>
                             <li><span>.</span></li>
-                            <li class="active">Pyetësor</li>
+                            <li class="active">Planifikuesi për Ramazan</li>
                         </ul>
                     </div>
                 </div>
@@ -40,17 +40,17 @@
         <!--Page Header End-->
 
         <!--Tours List Start-->
-        
 
-                <div class="row ">                    
-                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeuyovQHfN6uwuBUz1n9Y_8yNIvk49i_Sn-YDeXzXN2dnLgGQ/viewform?embedded=true"
-                     style="width: 100%; height:100vh; padding-top: 50px" frameborder="0" marginheight="0" marginwidth="0">Duke u ngarkuar...</iframe>
+
+                <div class="row ">
+                    {{-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdk4YUC1XsA4WgtiN8XAYYoCCOke58mxxk-oFgp6z7ryA2Cqg/viewform?embedded=true" width="640" height="1022" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe> --}}
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdk4YUC1XsA4WgtiN8XAYYoCCOke58mxxk-oFgp6z7ryA2Cqg/viewform?embedded=true" style="width: 100%; height:100vh; padding-top: 50px" frameborder="0" marginheight="0" marginwidth="0">Duke u ngarkuar...</iframe>
                 </div>
 
-           
 
 
-       
+
+
 
         {{-- <div class="search-popup">
             <div class="search-popup__overlay search-toggler"></div>
