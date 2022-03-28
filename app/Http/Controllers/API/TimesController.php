@@ -15,7 +15,7 @@ class TimesController extends Controller
 
     public function test()
     {
-        $data = ['title' => 'Pyetja e ditës!', 'body' => 'Cilin vend ju ka marrë malli ta takoni?!'];
+        $data = ['title' => 'Problem me njoftimet!', 'body' => 'Problemi me njoftime në iOS do të rregullohet gjatë javës inshaaAllah.'];
         Helper::sendNotification($data);
     }
 
