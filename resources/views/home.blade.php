@@ -73,19 +73,7 @@
                                 <div class="about-one__img">
                                     <img src="{{ asset('assetsFront/images/resources/about-one-img-2.png') }}" alt="">
                                 </div>
-                                {{-- <div class="about-one__call">
-                                    <div class="about-one__call-icon">
-                                        <span class="icon-phone-call"></span>
-                                    </div>
-                                    <div class="about-one__call-number">
-                                        <p>Book Tour Now</p>
-                                        <h4><a href="tel:666-888-0000">666 888 0000</a></h4>
-                                    </div>
-                                </div>
-                                <div class="about-one__discount">
-                                    <h2>30%</h2>
-                                    <h3>Discount</h3>
-                                </div> --}}
+
                             </div>
                         </div>
                     </div>
@@ -148,6 +136,61 @@
                         </a>
                     @endforeach
                 </ul>
+            </div>
+
+            <div class="container pb-5">
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div class="about-one__right">
+                            <div class="section-title text-left">
+                                <span class="section-title__tagline">Shkarko applikacionin</span>
+                                <h2 class="section-title__title">Applikacioni "Muslimani Ideal"</h2>
+                            </div>
+                            <p class="about-one__right-text">Muslimani Ideal është medium islam, i cili synim kryesor e ka
+                                përhapjen e fesë së Allahut në të gjitha rrjetet sociale. Përmes këtij mediumi tentojmë të
+                                hapim pakëz dritë në këtë errësirë të madhe. </p>
+                            <ul class="list-unstyled about-one__points">
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                    <div class="text">
+                                        <p>Video me përmbajtje këshilluese Youtube</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                    <div class="text">
+                                        <p>Përkujtime në Facebook, Instagram dhe Telegram</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                    <div class="text">
+                                        <p>Davet fizik përmes librave dhe fletushkave</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <a href="https://www.youtube.com/c/MuslimaniIdeal" class="about-one__btn thm-btn">Na ndiqni në
+                                Youtube</a>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6 wow fadeInLeft" data-wow-duration="1500ms">
+                        <div class="about-one__left">
+                            <div class="about-one__img-box">
+                                <div class="about-one__img">
+                                    <img src="{{ asset('assetsFront/images/phones.png') }}" alt="">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
