@@ -68,3 +68,6 @@ Route::get('/natures', [HomeController::class, 'natures']);
 
 //returns only one blog
 Route::get('/nature/{nature}', [HomeController::class, 'nature']);
+
+
+Route::get('/app/downloads', [HomeController::class, 'tokens']);

@@ -16,6 +16,7 @@ use App\Models\Book;
 use App\Models\Promotion;
 use App\Models\Video;
 use App\Models\Chapter;
+use App\Models\Token;
 
 class HomeController extends Controller
 {
@@ -138,5 +139,12 @@ class HomeController extends Controller
     {
         $blogs = BlogsResourse::collection(Blog::where('title', 'LIKE', '%' . $title . '%')->where('tags', 'Aktive')->where('category' , 1)->orderBy('updated_at', 'desc')->paginate(5));
         return ["blogs" => $blogs, 'pages' => $blogs->lastPage()];
+    }
+
+
+    public function tokens()
+    {
+        $tokens = Token::count();
+        dd($tokens);
     }
 }
