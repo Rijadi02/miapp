@@ -90,7 +90,7 @@
                             @csrf
 
                             <div class="col-lg-12">
-                                <label for="telegram" class="col-md-12 col-form-label">Add telegram</label>
+                                <label for="telegram" class="col-md-12 col-form-label"><a href="https://t.me/muslimani_ideal">Add telegram</a></label></label>
                                 <input id="telegram" type="number" name="telegram"
                                     class="form-control @error('telegram') is-invalid @enderror"
                                     value="{{ old('telegram') }}" autocomplete="telegram">
@@ -114,7 +114,7 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <label for="instagram" class="col-md-12 col-form-label">Add instagram</label>
+                                <label for="instagram" class="col-md-12 col-form-label"><a href="https://www.instagram.com/muslimani_ideal/?__a=1"> Add instagram</a></label>
                                 <input id="instagram" type="number" name="instagram"
                                     class="form-control @error('instagram') is-invalid @enderror"
                                     value="{{ old('instagram') }}" autocomplete="instagram">
