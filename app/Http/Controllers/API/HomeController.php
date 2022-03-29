@@ -145,6 +145,6 @@ class HomeController extends Controller
     public function tokens()
     {
         $tokens = Token::count();
-        return $tokens;
+        return $tokens - 180;
     }
 }
