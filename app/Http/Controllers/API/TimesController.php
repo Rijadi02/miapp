@@ -15,7 +15,7 @@ class TimesController extends Controller
 
     public function send()
     {
-        $data = ['title' => 'A i do mbi 3 milion sevape? - GARA FILLOJ!', 'body' => 'Video e re!', "data" => ["url" => "https://youtu.be/MTzWSw2JzhU"]];
+        $data = ['title' => 'A i do mbi 3 milion sevape? - GARA FILLOJ!', 'body' => 'Muslimani Ideal - Video e re!', "data" => ["url" => "https://youtu.be/MTzWSw2JzhU"]];
         Helper::sendNotification($data);
     }
 
