@@ -13,9 +13,9 @@ use App\Helper\Helper;
 class TimesController extends Controller
 {
 
-    public function test()
+    public function send()
     {
-        $data = ['title' => 'Problem me njoftimet!', 'body' => 'Problemi me njoftime në iOS do të rregullohet gjatë javës inshaaAllah.'];
+        $data = ['title' => 'A i do mbi 3 milion sevape? - GARA FILLOJ!', 'body' => 'Video e re!', "data" => ["url" => "https://youtu.be/MTzWSw2JzhU"]];
         Helper::sendNotification($data);
     }
 

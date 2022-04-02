@@ -49,9 +49,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-notify@0.5.4/dist/simple-notify.min.css" />
     <link rel="stylesheet" href="{{ asset('css/notify.css') }}" />
 
-    <link rel="stylesheet" href="{{ asset('assetsFront/arabic-fonts.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assetsFront/arabic-fonts.css?v=1.01') }}" />
     <!-- template styles -->
-    <link rel="stylesheet" href="{{ asset('assetsFront/css/tevily.css?v=1.02') }}" />
+    <link rel="stylesheet" href="{{ asset('assetsFront/css/tevily.css?v=1.03') }}" />
     <link rel="stylesheet" href="{{ asset('assetsFront/css/tevily-responsive.css?v=1.01') }}" />
 
 
