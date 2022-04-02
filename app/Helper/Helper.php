@@ -14,6 +14,16 @@ class Helper
         /**
          * These recipients are used when ExpoMessage does not have "to" set
          */
+
+        Expo::addDevicesNotRegisteredHandler(function ($tokens) {
+            foreach ($tokens as $token){
+                $token = Token::where('token', $token)->first()->get();
+                $token->created_at = 0;
+                $token->save();
+            }
+        });
+
+
         $tokens = Token::all();
         $defaultRecipients = [];
         foreach ($tokens as $token){
