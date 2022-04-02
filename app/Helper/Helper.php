@@ -17,7 +17,7 @@ class Helper
 
         Expo::addDevicesNotRegisteredHandler(function ($tokens) {
             foreach ($tokens as $token){
-                $token = Token::where('token', $token)->first()->get();
+                $token = Token::where('token', $token)->firstOrFail();
                 $token->created_at = 0;
                 $token->save();
             }
