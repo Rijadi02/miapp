@@ -115,26 +115,6 @@
                     </div>
                 </div>
             </div>
-            <div class="gallery-one__container-box clearfix pt-3">
-                <ul class="list-unstyled gallery-one__content clearfix pt-0 pt-md-5">
-                    <?php $post_index = 0; ?>
-                    @foreach ($posts as $post)
-                        <?php $post_index++; ?>
-                        <a href="{{ $post->link }}">
-                            <li class="wow fadeInUp {{ $post_index > 3 ? 'd-none d-md-inline-block' : '' }}"
-                                data-wow-delay="100ms">
-                                <div class="gallery-one__img-box">
-                                    <img src="/storage/{{ $post->image }}" alt="">
-                                    <div class="gallery-one__iocn">
-                                        <i class="fab fa-instagram"></i>
-                                    </div>
-                                </div>
-                            </li>
-                        </a>
-                    @endforeach
-                </ul>
-            </div>
-
             <div class="container pb-5">
                 <div class="row">
                     <div class="col-xl-6">
@@ -221,6 +201,27 @@
                     </div>
                 </div>
             </div>
+            <div class="gallery-one__container-box clearfix pt-3">
+                <ul class="list-unstyled gallery-one__content clearfix pt-0 pt-md-5">
+                    <?php $post_index = 0; ?>
+                    @foreach ($posts as $post)
+                        <?php $post_index++; ?>
+                        <a href="{{ $post->link }}">
+                            <li class="wow fadeInUp {{ $post_index > 3 ? 'd-none d-md-inline-block' : '' }}"
+                                data-wow-delay="100ms">
+                                <div class="gallery-one__img-box">
+                                    <img src="/storage/{{ $post->image }}" alt="">
+                                    <div class="gallery-one__iocn">
+                                        <i class="fab fa-instagram"></i>
+                                    </div>
+                                </div>
+                            </li>
+                        </a>
+                    @endforeach
+                </ul>
+            </div>
+
+          
         </section>
 
 
