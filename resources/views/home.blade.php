@@ -1,6 +1,6 @@
 <x-home-master>
     @section('meta')
-        <meta property="og:image" content="{{ asset('assetsFront/images/mi.jpg') }}"/>
+        <meta property="og:image" content="{{ asset('assetsFront/images/mi.jpg') }}" />
 
         <meta property="og:url" content="<?php echo url('/'); ?>" />
 
@@ -8,9 +8,6 @@
     @endsection
 
     @section('content')
-
-
-
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&display=swap" rel="stylesheet">
@@ -138,24 +135,26 @@
                 </ul>
             </div>
 
-            {{-- <div class="container pb-5">
+            <div class="container pb-5">
                 <div class="row">
                     <div class="col-xl-6">
                         <div class="about-one__right">
                             <div class="section-title text-left">
-                                <span class="section-title__tagline">Shkarko applikacionin</span>
-                                <h2 class="section-title__title">Applikacioni "Muslimani Ideal"</h2>
+                                <span class="section-title__tagline">Muslimani Ideal App</span>
+                                <h2 class="section-title__title">Shoqëruesi juaj drejt Allahut!</h2>
                             </div>
-                            <p class="about-one__right-text">Muslimani Ideal është medium islam, i cili synim kryesor e ka
-                                përhapjen e fesë së Allahut në të gjitha rrjetet sociale. Përmes këtij mediumi tentojmë të
-                                hapim pakëz dritë në këtë errësirë të madhe. </p>
-                            <ul class="list-unstyled about-one__points">
+                           <p class="about-one__right-text mb-4">Një platformë interesante dhe të dobishme për jetën e muslimanëve. Një punë modeste afërsisht njëvjeçare të cilën tashmë do ta keni në duart tuaja. </p> 
+                                
+                              
+                                
+                            <ul class="list-unstyled about-two__list mb-4 me-4">
+                                
                                 <li>
                                     <div class="icon">
                                         <i class="fa fa-check"></i>
                                     </div>
                                     <div class="text">
-                                        <p>Video me përmbajtje këshilluese Youtube</p>
+                                        <p>Kohët e namazit</p>
                                     </div>
                                 </li>
                                 <li>
@@ -163,7 +162,7 @@
                                         <i class="fa fa-check"></i>
                                     </div>
                                     <div class="text">
-                                        <p>Përkujtime në Facebook, Instagram dhe Telegram</p>
+                                        <p>Kurani i integruar</p>
                                     </div>
                                 </li>
                                 <li>
@@ -171,12 +170,42 @@
                                         <i class="fa fa-check"></i>
                                     </div>
                                     <div class="text">
-                                        <p>Davet fizik përmes librave dhe fletushkave</p>
+                                        <p>Drejtimi i kibles</p>
                                     </div>
                                 </li>
+                                
                             </ul>
-                            <a href="https://www.youtube.com/c/MuslimaniIdeal" class="about-one__btn thm-btn">Na ndiqni në
-                                Youtube</a>
+
+                            <ul class="list-unstyled about-two__list  mb-4">
+                                
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                    <div class="text">
+                                        <p>Përkujtime</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                    <div class="text">
+                                        <p>Dhikret ditore</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                    <div class="text">
+                                        <p>Artikuj, video e të tjera</p>
+                                    </div>
+                                </li>
+                                
+                            </ul>
+                       
+                            <a href="https://www.muslimani-ideal.org/app" class="about-one__btn thm-btn">Shkarko falas</a>
                         </div>
                     </div>
 
@@ -191,7 +220,7 @@
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div>
         </section>
 
 
@@ -224,25 +253,29 @@
                                         {{-- <span class="icon-deer"></span> --}}
                                         <img src="{{ asset('assetsFront/images/icons/chat.svg') }}"></img>
                                     </div>
-                                    <h4 class="video-one__icon-box-title"><a href="https://www.youtube.com/c/MuslimaniIdeal">Video <br> Këshilluese</a></h4>
+                                    <h4 class="video-one__icon-box-title"><a
+                                            href="https://www.youtube.com/c/MuslimaniIdeal">Video <br> Këshilluese</a></h4>
                                 </li>
                                 <li>
                                     <div class="video-one__icon-box">
                                         <img src="{{ asset('assetsFront/images/icons/paper.svg') }}"></img>
                                     </div>
-                                    <h4 class="video-one__icon-box-title"><a href="https://www.youtube.com/c/MuslimaniIdeal">Video <br> Motivuese</a></h4>
+                                    <h4 class="video-one__icon-box-title"><a
+                                            href="https://www.youtube.com/c/MuslimaniIdeal">Video <br> Motivuese</a></h4>
                                 </li>
                                 <li>
                                     <div class="video-one__icon-box">
                                         <img src="{{ asset('assetsFront/images/icons/pen.svg') }}"></img>
                                     </div>
-                                    <h4 class="video-one__icon-box-title"><a href="https://www.youtube.com/c/MuslimaniIdeal">Video <br> Edukative</a></h4>
+                                    <h4 class="video-one__icon-box-title"><a
+                                            href="https://www.youtube.com/c/MuslimaniIdeal">Video <br> Edukative</a></h4>
                                 </li>
                                 <li>
                                     <div class="video-one__icon-box">
                                         <img src="{{ asset('assetsFront/images/icons/book.svg') }}"></img>
                                     </div>
-                                    <h4 class="video-one__icon-box-title"><a href="https://www.youtube.com/c/MuslimaniIdeal">Bazat e <br> Besimit</a></h4>
+                                    <h4 class="video-one__icon-box-title"><a
+                                            href="https://www.youtube.com/c/MuslimaniIdeal">Bazat e <br> Besimit</a></h4>
                                 </li>
                             </ul>
                         </div>
@@ -342,32 +375,31 @@
                                 <!--News One Single-->
                                 @foreach ($blogs as $blog)
                                     <div class="news-one__single wow fadeInUp" data-wow-delay="100ms">
-                                        <a href="{{route('blog',$blog->slug)}}">
-                                        <div class="news-one__img">
-                                            <img style="object-fit: cover;"
-                                                src="/storage/{{ $blog->image }}" alt="">
-                                            <a href="{{route('blog',$blog->slug)}}">
-                                                <span class="news-one__plus"></span>
-                                            </a>
-                                            <div class="news-one__date">
-                                                <p>{{ $blog->updated_at->format('d') }} <br>
-                                                    <span>{{ $blog->updated_at->format('M') }}</span>
-                                                </p>
+                                        <a href="{{ route('blog', $blog->slug) }}">
+                                            <div class="news-one__img">
+                                                <img style="object-fit: cover;" src="/storage/{{ $blog->image }}" alt="">
+                                                <a href="{{ route('blog', $blog->slug) }}">
+                                                    <span class="news-one__plus"></span>
+                                                </a>
+                                                <div class="news-one__date">
+                                                    <p>{{ $blog->updated_at->format('d') }} <br>
+                                                        <span>{{ $blog->updated_at->format('M') }}</span>
+                                                    </p>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="news-one__content">
-                                            <ul class="list-unstyled news-one__meta">
-                                                <li><a href="{{route('blog',$blog->slug)}}"><i
-                                                            class="far fa-user-circle"></i>{{ $blog->author }}</a>
-                                                </li>
-                                                {{-- <li><a href="news-details.html"><i class="far fa-comments"></i>2
+                                            <div class="news-one__content">
+                                                <ul class="list-unstyled news-one__meta">
+                                                    <li><a href="{{ route('blog', $blog->slug) }}"><i
+                                                                class="far fa-user-circle"></i>{{ $blog->author }}</a>
+                                                    </li>
+                                                    {{-- <li><a href="news-details.html"><i class="far fa-comments"></i>2
                                                     Comments</a>
                                             </li> --}}
-                                            </ul>
-                                            <h3 class="news-one__title">
-                                                <a href="{{route('blog',$blog->slug)}}">{{ $blog->title }}</a>
-                                            </h3>
-                                        </div>
+                                                </ul>
+                                                <h3 class="news-one__title">
+                                                    <a href="{{ route('blog', $blog->slug) }}">{{ $blog->title }}</a>
+                                                </h3>
+                                            </div>
                                         </a>
                                     </div>
                                 @endforeach
@@ -397,7 +429,7 @@
                     <div class="col-xl-6">
                         <div class="about-two__right">
                             <div class="section-title text-left">
-                                <span class="section-title__tagline">Kontribuo për Muslimanin Ideal                                </span>
+                                <span class="section-title__tagline">Kontribuo për Muslimanin Ideal </span>
                                 <h2 class="section-title__title">Përkrah davetin</h2>
                             </div>
                             <div class="about-two__tour-points">
@@ -498,7 +530,6 @@
                 @endforeach
             });
         </script>
-
     @endsection
 
 </x-home-master>
