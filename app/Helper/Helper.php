@@ -30,10 +30,13 @@ class Helper
             array_push($defaultRecipients, $token->token);
         }
 
-        $chunks = array_chunk( $defaultRecipients , 80 );
-
+        $chunks = array_chunk( $defaultRecipients , 90 );
+        $i = 0;
         foreach ($chunks as $chunk){
             (new Expo)->send($messages)->to($chunk)->push();
+            $i++;
+            echo $i;
+            sleep(10);
         }
     }
 
