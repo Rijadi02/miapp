@@ -15,7 +15,7 @@ class TimesController extends Controller
 
     public function send()
     {
-        $data = ['title' => 'Allahu të thërret - PENDOHU! - Hoxhë Enis Rama', 'body' => 'Muslimani Ideal - Video e re!', "data" => ["url" => "https://youtu.be/7Poznb7_koI"]];
+        $data = ['title' => 'Si ta dijmë a kemi sëmundje në zemër?', 'body' => 'Muslimani Ideal - Video e re!', "data" => ["url" => "https://www.youtube.com/watch?v=zUIsmH2kuQ4&"]];
         Helper::sendNotification($data);
     }
 

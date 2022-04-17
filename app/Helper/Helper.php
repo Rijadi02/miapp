@@ -30,13 +30,23 @@ class Helper
             array_push($defaultRecipients, $token->token);
         }
 
-        $chunks = array_chunk( $defaultRecipients , 90 );
+        set_time_limit(1000000);
+
+        $chunks = array_chunk($defaultRecipients , 90);
         $i = 0;
         foreach ($chunks as $chunk){
+            // $j = 0;
+            // $tokenat = Token::whereIn('token', $chunk)->get();
+            // foreach ($tokenat as $tokeni){
+            //     $tokeni->token = $i . $j;
+            //     $tokeni->save();   
+            //     $j++;
+            // }
+            // // dd($tokenat);
             (new Expo)->send($messages)->to($chunk)->push();
             $i++;
             echo $i;
-            sleep(10);
+            sleep(100);
         }
     }
 
