@@ -10,7 +10,7 @@ class Helper
     public function sendNotification($data)
     {
         $messages = [new ExpoMessage($data)];
-        
+
         /**
          * These recipients are used when ExpoMessage does not have "to" set
          */
@@ -24,7 +24,9 @@ class Helper
         // });
 
 
-        $tokens = Token::all();
+        // $tokens = Token::all();
+        $tokens = Token::where('status',0)->get();
+
         $defaultRecipients = [];
         foreach ($tokens as $token){
             array_push($defaultRecipients, $token->token);
@@ -35,14 +37,16 @@ class Helper
         $chunks = array_chunk($defaultRecipients , 90);
         $i = 0;
         foreach ($chunks as $chunk){
-            // $j = 0;
-            // $tokenat = Token::whereIn('token', $chunk)->get();
-            // foreach ($tokenat as $tokeni){
-            //     $tokeni->token = $i . $j;
-            //     $tokeni->save();   
-            //     $j++;
-            // }
+
+
+            $tokenat = Token::whereIn('token', $chunk)->get();
+            foreach ($tokenat as $tokeni){
+                $tokeni->status = 0;
+                $tokeni->save();
+            }
+
             // // dd($tokenat);
+
             (new Expo)->send($messages)->to($chunk)->push();
             $i++;
             echo $i;
