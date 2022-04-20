@@ -41,7 +41,7 @@ class Helper
 
             $tokenat = Token::whereIn('token', $chunk)->get();
             foreach ($tokenat as $tokeni){
-                $tokeni->status = 0;
+                $tokeni->status = 1;
                 $tokeni->save();
             }
 
