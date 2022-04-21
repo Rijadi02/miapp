@@ -39,11 +39,8 @@ class Helper
         foreach ($chunks as $chunk){
 
 
-            $tokenat = Token::whereIn('token', $chunk)->get();
-            foreach ($tokenat as $tokeni){
-                $tokeni->status = 1;
-                $tokeni->save();
-            }
+            Token::whereIn('token', $chunk)->update(['status' => 1]);
+         
 
             // // dd($tokenat);
 
