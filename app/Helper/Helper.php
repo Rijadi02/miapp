@@ -47,7 +47,7 @@ class Helper
             (new Expo)->send($messages)->to($chunk)->push();
             $i++;
             echo $i;
-            sleep(100);
+            sleep(10);
         }
     }
 
