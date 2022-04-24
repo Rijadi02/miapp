@@ -109,7 +109,7 @@
             </div>
             <div class="col-lg-1"></div>
 
-            <div class="news-details__content col-lg-5 mt-5 mt-lg-0 pb-5">
+            <div class="news-details__content col-lg-5 mt-4 mt-lg-0 pb-5">
 
 
                 <h1 class="news-details__title  mb-4">Për gurbetqarët</h1>
