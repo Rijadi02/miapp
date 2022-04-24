@@ -239,4 +239,9 @@ class HomeController extends Controller
 
         return view('times', compact('times','janar','shkurt','mars','prill','maj','qeshor','korrik','gusht','shtator','tetor','nentor','dhjetor'));
     }
+
+    public function dhuro(){
+        return view('dhuro');
+    }
+
 }
