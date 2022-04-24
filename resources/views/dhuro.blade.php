@@ -14,7 +14,11 @@
         href="{{ asset('assetsFront/images/favicons/favicon-16x16.png') }}" />
     <link rel="manifest" href="{{ asset('assetsFront/images/favicons/site.webmanifest') }}" />
 
+    <meta property="og:image" content="{{ asset('assetsFront/images/mi.jpg') }}" />
 
+    <meta property="og:url" content="<?php echo url('/'); ?>" />
+
+    <meta property="og:title" content="Muslimani Ideal" />
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
