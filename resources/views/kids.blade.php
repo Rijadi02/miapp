@@ -252,7 +252,7 @@
                                         <div class="col-8">
                                             <p>Kompjuter</br>
 
-                                                Monitor</br>
+                                               
 
                                                 Sistem zërimi</br>
 
@@ -262,9 +262,9 @@
                                             <p>Totali</p>
                                         </div>
                                         <div class="col-4">
-                                            <p><strong>2200€</br>
+                                            <p><strong>2500€</br>
 
-                                                    300€</br>
+                                                    
 
                                                     520€</br>
 
