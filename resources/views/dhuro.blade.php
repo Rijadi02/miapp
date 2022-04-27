@@ -111,7 +111,7 @@
                                 </div>
                                 <p>Të gjitha paratë e mbledhura shkojnë për davet, në projektet e Muslimanit Ideal.</p>
                                 <h3 class="sidebar__title mt-4">Kontribo tani</h3>
-                                            <p class="mt-3 mb-3">Mos e pij një kafe, jepe n’dawet!</p>
+                                            <p class="mt-3 mb-3">Mos e pij një kafe, jepe n’davet!</p>
     
                                             <a href="https://www.buymeacoffee.com/muslimani.ideal"><img
                                                     src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=muslimani.ideal&button_colour=FF5F5F&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00"></a>
