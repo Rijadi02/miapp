@@ -276,7 +276,7 @@
                                         <hr style="margin-top:5px; opacity:0.1">
                                         </hr>
                                         <h3 class="sidebar__title mt-3">Kontribo tani</h3>
-                                        <p class="mt-3 mb-3">Mos e pij një kafe, jepe n’dawet!</p>
+                                        <p class="mt-3 mb-3">Mos e pi një kafe, jepe n’dawet!</p>
 
                                         <a href="https://www.buymeacoffee.com/muslimani.ideal"><img
                                                 src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=muslimani.ideal&button_colour=FF5F5F&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00"></a>
@@ -286,7 +286,7 @@
 
                 <div class="gfm-embed" data-url="https://www.gofundme.com/f/muslimani-ideal/widget/medium/"></div>
                 <script defer src="https://www.gofundme.com/static/js/embed.js"></script>
-                                        <p class="mt-4 mx-1" style="opacity: 0.8">Për metoda tjera, na kontaktoni
+                                        <p class="mt-4 mx-1" style="opacity: 0.8">Për metoda të tjera, na kontaktoni
                                             në rrjetet sociale!
 
                                           <div class="news-details__social-list">
