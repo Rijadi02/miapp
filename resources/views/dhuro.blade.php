@@ -78,53 +78,74 @@
 <body>
 
 
-    <nav class="main-menu clearfix ms-4 ms-lg-5">
-        <div class="main-menu-wrapper__logo">
-            <a href="{{ route('home') }}"><img style="width: 115px"
-                    src="{{ asset('assetsFront/images/resources/logo.png') }}" alt=""></a>
-        </div>
-    </nav>
+  
 
     <div class="container mt-4">
 
-        <div class="row">
+        <div class="container mt-4">
 
-            <div class="news-details__content col-lg-6">
-
-
-                <h4 class="news-details__title  mb-4">Ndihmoje Muslimanin Ideal!</h4>
-
-                <div class="mt-4">
-                    <p class="mt-3 mb-3">Mos e pij një kafe, jepe n’dawet!</p>
-
-                    <a href="https://www.buymeacoffee.com/muslimani.ideal"><img
-                            src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=muslimani.ideal&button_colour=FF5F5F&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00"></a>
-                    <p class="mt-4" style="opacity: 0.8">Për metoda tjera, na kontaktoni në rrjetet sociale!
-                    </p>
-                    {{-- <p class="mt-3 mb-1">Dorzo në akademinë Ether <a href="tel:+38349133540">(+383 49 133 540)</a>:</p>
-
-                        <iframe
-                        style="max-height: 280px;border: 1px solid #00000030;"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d366.7236850412683!2d21.170050949227686!3d42.66581636733797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13549f20d08017f9%3A0xa879d246924d6aea!2sAfrim%20Loxha%2C%20Prishtin%C3%AB!5e0!3m2!1sen!2s!4v1637766434622!5m2!1sen!2s"
-                            class="tour-details-two__location-map" loading="lazy" allowfullscreen></iframe> --}}
-
+            <section class="about-one">
+                {{-- <div class="about-one-shape-1 wow slideInLeft" data-wow-delay="100ms" data-wow-duration="2500ms">
+                    <img src="{{ asset('assetsFront/images/shapes/about-one-shape-1.png') }}" alt="">
                 </div>
-
-            </div>
-            <div class="col-lg-1"></div>
-
-            <div class="news-details__content col-lg-5 mt-4 mt-lg-0 pb-5">
-
-
-                <h1 class="news-details__title  mb-4">Për gurbetqarët</h1>
-
-                <div class="gfm-embed" data-url="https://www.gofundme.com/f/muslimani-ideal/widget/large/"></div>
-                <script defer src="https://www.gofundme.com/static/js/embed.js"></script>
-
-
-
-            </div>
-
+                <div class="about-one-shape-2 float-bob-y"><img
+                        src="{{ asset('assetsFront/images/shapes/about-one-shape-2.png') }}" alt="">
+                </div> --}}
+                <div class="container pb-5">
+                    <div class="row">
+                        <div class="col-lg-6 px-0 wow fadeInLeft" data-wow-duration="1500ms">
+                            <div class="about-one__left">
+                                <div class="about-one__img-box">
+                                    <div class="about-one__img">
+                                        <img src="{{ asset('assetsFront/images/dhuro.jpg') }}" alt="">
+                                    </div>
+    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 px-0">
+                            <div class="about-one__right">
+                                <div class="section-title text-left">
+                                    {{-- <span class="section-title__tagline">Kush jemi ne?</span> --}}
+                                    <h2 class="section-title__title">Përkrah davetin</h2>
+                                </div>
+                                <p>Të gjitha paratë e mbledhura shkojnë për davet, në projektet e Muslimanit Ideal.</p>
+                                <h3 class="sidebar__title mt-4">Kontribo tani</h3>
+                                            <p class="mt-3 mb-3">Mos e pij një kafe, jepe n’dawet!</p>
+    
+                                            <a href="https://www.buymeacoffee.com/muslimani.ideal"><img
+                                                    src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=muslimani.ideal&button_colour=FF5F5F&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00"></a>
+                                            
+                                                    <h3 class="sidebar__title mt-5 mb-4">Për gurbetqarët</h3>
+                                                    
+    
+                    <div class="gfm-embed" data-url="https://www.gofundme.com/f/muslimani-ideal/widget/medium/"></div>
+                    <script defer src="https://www.gofundme.com/static/js/embed.js"></script>
+                                            <p class="mt-4 mx-1" style="opacity: 0.8">Për metoda tjera, na kontaktoni
+                                                në rrjetet sociale!
+    
+                                              <div class="news-details__social-list">
+                                             
+                                                    <a href="https://www.facebook.com/MuslimaniIdealM/"><i class="fab fa-facebook"></i></a>
+                                                   
+                                                    <a href="https://www.instagram.com/muslimani_ideal/"><i class="fab fa-instagram"></i></a>
+                                                </div>
+                                            </p>
+    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+           
+    
+    
+    
+            </section>
+    
+    
+    
+    
         </div>
 
 
