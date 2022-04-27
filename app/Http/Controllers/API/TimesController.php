@@ -15,7 +15,7 @@ class TimesController extends Controller
 
     public function send()
     {
-        $data = ['title' => 'Nata e sadakasë! KONTRIBO TANI!', 'body' => 'Kiliko këtu', "data" => ["url" => "https://muslimani-ideal.org/kids"]];
+        $data = ['title' => 'Nata e sadakasë! KONTRIBO TANI!', 'body' => 'Kiliko këtu', "data" => ["url" => "https://muslimani-ideal.org/dhuro"]];
         Helper::sendNotification($data);
     }
 
