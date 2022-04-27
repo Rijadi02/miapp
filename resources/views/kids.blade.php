@@ -55,7 +55,7 @@
 
     <link rel="stylesheet" href="{{ asset('assetsFront/arabic-fonts.css?v=1.01') }}" />
     <!-- template styles -->
-    <link rel="stylesheet" href="{{ asset('assetsFront/css/tevily.css?v=1.03') }}" />
+    <link rel="stylesheet" href="{{ asset('assetsFront/css/tevily.css?v=1.04') }}" />
     <link rel="stylesheet" href="{{ asset('assetsFront/css/tevily-responsive.css?v=1.01') }}" />
 
 
