@@ -247,7 +247,7 @@
                             <div class="sidebar">
 
                                 <div id="kontribo" class="sidebar__single py-4 py-lg-5 sidebar__post">
-                                    <p>Paisjet për projektin:</p>
+                                    <p>Pajisjet për MI Kids:</p>
                                     <dic class="row">
                                         <div class="col-8">
                                             <p>Kompjuter</br>
