@@ -46,6 +46,7 @@ Route::get("/app", function () {
 
 
 Route::get('/dhuro', [App\Http\Controllers\HomeController::class, 'dhuro'])->name('dhuro');
+Route::get('/kids', [App\Http\Controllers\HomeController::class, 'kids'])->name('kids');
 
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'admin'], function () {

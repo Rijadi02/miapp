@@ -169,7 +169,7 @@ ul {
 }
 
 .thm-btn:hover {
-    color: var(--thm-base);
+    color: var(--thm-base) !important;
 }
 
 .section-title {

@@ -244,4 +244,9 @@ class HomeController extends Controller
         return view('dhuro');
     }
 
+    public function kids(){
+        return view('kids');
+    }
+
+
 }
