@@ -15,7 +15,7 @@ class TimesController extends Controller
 
     public function send()
     {
-        $data = ['title' => 'KU JANË PASUESIT E SUNETIT?', 'body' => 'Video e re - Kiliko këtu', "data" => ["url" => "https://www.youtube.com/watch?v=z9mkPwWuovw"]];
+        $data = ['title' => '13 ditët e fundit e të Dërguarit, ﷺ - Shenjat e para të sëmundjes!', 'body' => 'Video e re - Kiliko këtu', "data" => ["url" => "https://www.youtube.com/watch?v=ZqAYXZ-DmsY"]];
         Helper::sendNotification($data);
     }
 
