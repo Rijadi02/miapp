@@ -15,7 +15,7 @@ class TimesController extends Controller
 
     public function send()
     {
-        $data = ['title' => '13 ditët e fundit e të Dërguarit, ﷺ - Shenjat e para të sëmundjes!', 'body' => 'Video e re - Kiliko këtu', "data" => ["url" => "https://www.youtube.com/watch?v=ZqAYXZ-DmsY"]];
+        $data = ['title' => 'Ti që e poston gruan në Internet! | Kush është Dejuthi?', 'body' => 'Video e re - Kiliko këtu', "data" => ["url" => "https://www.youtube.com/watch?v=rBJTpcP4F8Q"]];
         Helper::sendNotification($data);
     }
 
