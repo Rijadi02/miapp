@@ -80,11 +80,7 @@ function ontTimeUpdate(number) {
 }
 
 function handleSeekBar(number) {
-    console.log(seekbar(number).value);
     source(number).currentTime = seekbar(number).value;
-    console.log(source(number).currentTime);
-
-    // ontTimeUpdate(number);
 }
 
 // repeat
