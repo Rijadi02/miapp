@@ -389,7 +389,7 @@
         }
     </script>
 
-    <script src="{{ asset('js/player.js') }}"></script>
+    <script src="{{ asset('js/player.js?v=1.01') }}"></script>
     <script src="{{ asset('assetsFront/vendors/jquery/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('assetsFront/vendors/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assetsFront/vendors/jarallax/jarallax.min.js') }}"></script>
