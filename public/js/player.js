@@ -58,10 +58,17 @@ function addZeros(number) {
 }
 
 function onSourceLoad(number) {
-    seekbar(number).max = source(number).duration;
-    var ds = parseInt(source(number).duration % 60);
-    var dm = parseInt((source(number).duration / 60) % 60);
-    duration(number).innerHTML = dm + ":" + addZeros(ds);
+    var dur = source(number).duration;
+    seekbar(number).max = dur;
+    console.log(number, dur);
+    var ds = parseInt(dur % 60);
+    var dm = parseInt((dur/ 60) % 60);
+    var dh = parseInt(((dur / 60) / 60) % 60);
+    if(dur >= 3600){
+        duration(number).innerHTML = dh + ":" + addZeros(dm) + ":" + addZeros(ds);
+    }else{
+        duration(number).innerHTML = dm + ":" + addZeros(ds);
+    }
     sources.push(number);
 }
 
@@ -73,7 +80,11 @@ function ontTimeUpdate(number) {
 }
 
 function handleSeekBar(number) {
+    console.log(seekbar(number).value);
     source(number).currentTime = seekbar(number).value;
+    console.log(source(number).currentTime);
+
+    // ontTimeUpdate(number);
 }
 
 // repeat
