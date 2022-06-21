@@ -33,7 +33,7 @@ Route::get('/akademia', [App\Http\Controllers\HomeController::class, 'academy'])
 Route::get('/donacionet', [App\Http\Controllers\HomeController::class, 'donations'])->name('donations');
 Route::post('applications/store', [App\Http\Controllers\AcademyController::class, 'store'])->name('applications.store');
 Route::get('/privacy', [App\Http\Controllers\HomeController::class, 'privacy'])->name('privacy');
-// Route::get('/planifikuesi', [App\Http\Controllers\HomeController::class, 'poll'])->name('poll');
+Route::get('/biznes', [App\Http\Controllers\HomeController::class, 'poll'])->name('poll');
 
 Route::get('/app/privacy', [App\Http\Controllers\AppController::class, 'privacy'])->name('app_privacy');
 Route::get('/app/terms', [App\Http\Controllers\AppController::class, 'terms'])->name('app_terms');
@@ -43,6 +43,8 @@ Route::get('/times/{country}', [App\Http\Controllers\HomeController::class, 'tim
 Route::get("/app", function () {
     return redirect('http://onelink.to/muslimani-ideal');
 })->name("app");
+
+Route::get('/playlists', [App\Http\Controllers\HomeController::class, 'playlists'])->name('playlists');
 
 
 Route::get('/dhuro', [App\Http\Controllers\HomeController::class, 'dhuro'])->name('dhuro');

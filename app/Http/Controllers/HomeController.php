@@ -119,6 +119,11 @@ class HomeController extends Controller
         return view('privacy');
     }
 
+    public function playlists()
+    {
+        return view('playlists');
+    }
+
     public function ads(Request $request)
     {
         $tag = $request->input('tag');
@@ -224,7 +229,7 @@ class HomeController extends Controller
 
         $janar = Time::where('country', $contry)->where('month', 1)->get();
         $shkurt = Time::where('country', $contry)->where('month', 2)->get();
-      
+
         $mars = Time::where('country', $contry)->where('month', 3)->get();
         $prill = Time::where('country', $contry)->where('month', 4)->get();
         $maj = Time::where('country', $contry)->where('month', 5)->get();
@@ -235,7 +240,7 @@ class HomeController extends Controller
         $tetor = Time::where('country', $contry)->where('month', 10)->get();
         $nentor = Time::where('country', $contry)->where('month', 11)->get();
         $dhjetor = Time::where('country', $contry)->where('month', 12)->get();
-        
+
 
         return view('times', compact('times','janar','shkurt','mars','prill','maj','qeshor','korrik','gusht','shtator','tetor','nentor','dhjetor'));
     }
