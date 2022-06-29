@@ -59,7 +59,7 @@ Route::get('/videos/{video}/search', [HomeController::class, 'videos_search']);
 Route::get('/chapters/{chapter}/search', [HomeController::class, 'chapters_search']);
 
 Route::get('/times/{year}', [TimesController::class, 'index']);
-Route::get('/send/hmn', [TimesController::class, 'send']);
+Route::get('/send/ditet', [TimesController::class, 'send']);
 
 
 //returns the blogs you searched

@@ -15,7 +15,11 @@ class TimesController extends Controller
 
     public function send()
     {
-        $data = ['title' => "Intevistë me hoxhën Muharrem Ismaili", 'body' => 'Hoxhallarët, më ndryshe', "data" => ["url" => "https://www.youtube.com/watch?v=cnvQtHLrVP0"]];
+        $data = [
+            'title' => "Dhjetë ditët më të mira të vitit!", 
+            'body' => 'Shfrytëzoni më së miri - fillojnë nga sot!', 
+            // "data" => ["url" => "https://www.youtube.com/watch?v=cnvQtHLrVP0"]
+        ];
         Helper::sendNotification($data);
     }
 
