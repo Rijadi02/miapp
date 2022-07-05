@@ -16,9 +16,9 @@ class TimesController extends Controller
     public function send()
     {
         $data = [
-            'title' => "Dhjetë ditët më të mira të vitit!", 
-            'body' => 'Shfrytëzoni më së miri - fillojnë nga sot!', 
-            // "data" => ["url" => "https://www.youtube.com/watch?v=cnvQtHLrVP0"]
+            'title' => "Kush ishte Ibn Tejmije rahimehullah?", 
+            'body' => 'Video e re - Muslimani Ideal', 
+            "data" => ["url" => "https://www.youtube.com/watch?v=SFFUd_p-s1o"]
         ];
         Helper::sendNotification($data);
     }
