@@ -59,7 +59,9 @@ Route::get('/videos/{video}/search', [HomeController::class, 'videos_search']);
 Route::get('/chapters/{chapter}/search', [HomeController::class, 'chapters_search']);
 
 Route::get('/times/{year}', [TimesController::class, 'index']);
-Route::get('/send/ibn', [TimesController::class, 'send']);
+Route::get('/send/agjero', [TimesController::class, 'send']);
+Route::get('/status/zero', [TimesController::class, 'status_to_zero']);
+
 
 
 //returns the blogs you searched

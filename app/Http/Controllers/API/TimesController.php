@@ -16,11 +16,16 @@ class TimesController extends Controller
     public function send()
     {
         $data = [
-            'title' => "Kush ishte Ibn Tejmije rahimehullah?", 
-            'body' => 'Video e re - Muslimani Ideal', 
-            "data" => ["url" => "https://www.youtube.com/watch?v=SFFUd_p-s1o"]
+            'title' => "Agjëro nesër!", 
+            'body' => 'Agjerimi i ditës së Arafatit shlyen mëkatet e dy viteve.', 
+            // "data" => ["url" => "https://www.youtube.com/watch?v=SFFUd_p-s1o"]
         ];
         Helper::sendNotification($data);
+    }
+
+    public function status_to_zero(){
+        $tokens = Token::where("status", 1)->update(['status' => 0]);
+        return 'done';
     }
 
     public function index(int $year)
