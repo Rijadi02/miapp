@@ -44,6 +44,10 @@ Route::get("/app", function () {
     return redirect('http://onelink.to/muslimani-ideal');
 })->name("app");
 
+Route::get("/ether", function () {
+    return redirect('https://www.youtube.com/channel/UCHCyPhsKU-TRbR7cFWvv89w');
+})->name("app");
+
 Route::get('/playlists', [App\Http\Controllers\HomeController::class, 'playlists'])->name('playlists');
 
 
