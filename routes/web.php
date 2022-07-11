@@ -46,7 +46,7 @@ Route::get("/app", function () {
 
 Route::get("/ether", function () {
     return redirect('https://www.youtube.com/channel/UCHCyPhsKU-TRbR7cFWvv89w');
-})->name("app");
+})->name("ether");
 
 Route::get('/playlists', [App\Http\Controllers\HomeController::class, 'playlists'])->name('playlists');
 
