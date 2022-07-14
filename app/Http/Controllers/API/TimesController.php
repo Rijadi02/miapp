@@ -16,9 +16,9 @@ class TimesController extends Controller
     public function send()
     {
         $data = [
-            'title' => "Agjëro nesër!", 
-            'body' => 'Agjerimi i ditës së Arafatit shlyen mëkatet e dy viteve.', 
-            // "data" => ["url" => "https://www.youtube.com/watch?v=SFFUd_p-s1o"]
+            'title' => "ALLAHU T'KA PA", 
+            'body' => 'Këto fjalë mund të ta ndryshojnë jetën!', 
+            "data" => ["url" => "https://www.youtube.com/watch?v=PMPvIFWqn7o"]
         ];
         Helper::sendNotification($data);
     }
