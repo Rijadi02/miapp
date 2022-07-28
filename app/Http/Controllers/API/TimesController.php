@@ -16,9 +16,9 @@ class TimesController extends Controller
     public function send()
     {
         $data = [
-            'title' => "ALLAHU T'KA PA", 
-            'body' => 'Këto fjalë mund të ta ndryshojnë jetën!', 
-            "data" => ["url" => "https://www.youtube.com/watch?v=PMPvIFWqn7o"]
+            'title' => "Femrat që nuk do ta nuhasin erën e Xhennetit!", 
+            'body' => 'Video e re - Muslimani Ideal', 
+            "data" => ["url" => "https://www.youtube.com/watch?v=Z0rfyp8ftg8"]
         ];
         Helper::sendNotification($data);
     }
