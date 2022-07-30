@@ -16,9 +16,9 @@ class TimesController extends Controller
     public function send()
     {
         $data = [
-            'title' => "Femrat që nuk do ta nuhasin erën e Xhennetit!", 
-            'body' => 'Video e re - Muslimani Ideal', 
-            "data" => ["url" => "https://www.youtube.com/watch?v=Z0rfyp8ftg8"]
+            'title' => "O lënës i namazit!", 
+            'body' => 'Kliko këtu', 
+            "data" => ["url" => "https://muslimani-ideal.org/artikulli/o-lenes-i-namazit"]
         ];
         Helper::sendNotification($data);
     }

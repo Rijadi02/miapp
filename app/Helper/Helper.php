@@ -7,7 +7,7 @@ use App\Models\Token;
 
 class Helper
 {
-    public function sendNotification($data)
+    public static  function sendNotification($data)
     {
         $messages = [new ExpoMessage($data)];
 
@@ -25,30 +25,19 @@ class Helper
 
 
         // $tokens = Token::all();
-        $tokens = Token::where('status',0)->get();
+        $tokens = Token::where('status',0)->limit(90)->get();
 
         $defaultRecipients = [];
         foreach ($tokens as $token){
             array_push($defaultRecipients, $token->token);
         }
 
-        set_time_limit(1000000);
-
-        $chunks = array_chunk($defaultRecipients , 90);
-        $i = 0;
-        foreach ($chunks as $chunk){
-
-
-            Token::whereIn('token', $chunk)->update(['status' => 1]);
-         
-
-            // // dd($tokenat);
-
-            (new Expo)->send($messages)->to($chunk)->push();
-            $i++;
-            echo $i;
-            sleep(10);
-        }
+        
+        Token::whereIn('token', $defaultRecipients)->update(['status' => 1]);
+        
+        (new Expo)->send($messages)->to($defaultRecipients)->push();
+        
+        echo Token::where('status', 1)->count();
     }
 
 }
