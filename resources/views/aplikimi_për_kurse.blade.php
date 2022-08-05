@@ -1,7 +1,7 @@
 
 
 <head>
-    <meta property="og:image" content="{{ asset('assetsFront/images/dhuro.png') }}"/>
+    <meta property="og:image" content="{{ asset('assetsFront/images/aplikimi.jpg') }}"/>
 
     <meta property="og:url" content="<?php echo url('/'); ?>" />
 
