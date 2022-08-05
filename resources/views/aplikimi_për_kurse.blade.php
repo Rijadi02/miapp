@@ -5,7 +5,7 @@
 
     <meta property="og:url" content="<?php echo url('/'); ?>" />
 
-    <meta property="og:title" content="Muslimani Ideal - Regjistro Biznes" />
+    <meta property="og:title" content="Muslimani Ideal - Aplikimi për kurse" />
 </head>
 <body>
     <script>
