@@ -224,6 +224,11 @@ class HomeController extends Controller
         return view('poll');
     }
 
+    public function aplikimi_për_kurse(){
+        return view('aplikimi_për_kurse');
+    }
+
+
     public function times($contry){
         $times = Time::where('country', $contry);
 
