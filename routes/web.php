@@ -34,7 +34,7 @@ Route::get('/donacionet', [App\Http\Controllers\HomeController::class, 'donation
 Route::post('applications/store', [App\Http\Controllers\AcademyController::class, 'store'])->name('applications.store');
 Route::get('/privacy', [App\Http\Controllers\HomeController::class, 'privacy'])->name('privacy');
 Route::get('/biznes', [App\Http\Controllers\HomeController::class, 'poll'])->name('poll');
-Route::get('/aplikimi_për_kurse', [App\Http\Controllers\HomeController::class, 'aplikimi_për_kurse'])->name('aplikimi_për_kurse');
+Route::get('/aplikimi_për_kurse', [App\Http\Controllers\HomeController::class, 'aplikio'])->name('aplikimi_për_kurse');
 
 Route::get('/app/privacy', [App\Http\Controllers\AppController::class, 'privacy'])->name('app_privacy');
 Route::get('/app/terms', [App\Http\Controllers\AppController::class, 'terms'])->name('app_terms');
