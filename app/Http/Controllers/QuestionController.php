@@ -40,7 +40,7 @@ class QuestionController extends Controller
             ]
         );
 
-        $question_model = new \App\Models\question();
+        $question_model = new \App\Models\Question();
         $question_model->question =  $data['question'];
         $question_model->save();
 
