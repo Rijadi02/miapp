@@ -54,6 +54,11 @@ Route::get('/playlists', [App\Http\Controllers\HomeController::class, 'playlists
 
 Route::get('/dhuro', [App\Http\Controllers\HomeController::class, 'dhuro'])->name('dhuro');
 Route::get('/kids', [App\Http\Controllers\HomeController::class, 'kids'])->name('kids');
+Route::get('/pyetje', [App\Http\Controllers\QuestionController::class, 'index'])->name('questions.index');
+Route::post('/pyetje/store', [App\Http\Controllers\QuestionController::class, 'store'])->name('questions.store');
+Route::get('/view/pyetje', [App\Http\Controllers\QuestionController::class, 'show'])->name('questions.show');
+Route::post('/pyetje/{question}/update', [App\Http\Controllers\QuestionController::class, 'update'])->name('questions.update');
+Route::delete('/pyetje/{question}/delete', [App\Http\Controllers\QuestionController::class, 'destroy'])->name('questions.delete');
 
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'admin'], function () {
