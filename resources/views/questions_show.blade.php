@@ -23,6 +23,7 @@
                                                 <div class="inner">
 
                                                     <p class="transliteration">{!! ($question->question) !!}</p>
+                                                    <p class="transliteration">{!! \Carbon\Carbon::parse($question->created_at)->diffForHumans() !!}</p>
                                                     <div class="row">
                                                         <div class="col-lg-12">
                                                             <div class="d-flex">
