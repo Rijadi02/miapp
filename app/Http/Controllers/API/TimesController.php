@@ -16,9 +16,9 @@ class TimesController extends Controller
     public function send()
     {
         $data = [
-            'title' => "Ke me i dalë Allahut përpara! - MEDITUESE", 
+            'title' => "Ti ke nevojë për Allahun!", 
             'body' => 'Kliko këtu - Video', 
-            "data" => ["url" => "https://www.youtube.com/watch?v=jgVTdfJvnHc"]
+            "data" => ["url" => "https://www.youtube.com/watch?v=dIFIh-9nTHI"]
         ];
         Helper::sendNotification($data);
     }
