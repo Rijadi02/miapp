@@ -16,9 +16,9 @@ class TimesController extends Controller
     public function send()
     {
         $data = [
-            'title' => "Ti ke nevojë për Allahun!", 
-            'body' => 'Kliko këtu - Video', 
-            "data" => ["url" => "https://www.youtube.com/watch?v=dIFIh-9nTHI"]
+            'title' => "I HUAJ NË KËTË DUNJA",
+            'body' => 'Kliko këtu - Video',
+            "data" => ["url" => "https://www.youtube.com/watch?v=PFTUylmyxbc"]
         ];
         Helper::sendNotification($data);
     }
@@ -80,7 +80,7 @@ class TimesController extends Controller
                 ];
             }
 
-            
+
 
             $town = "";
 
@@ -173,11 +173,11 @@ class TimesController extends Controller
             $address = $locationiq['address'];
 
             $code = exists($address, "country_code", "");
-            
+
             if ($code == "sa") {
                 $method = 4;
             }
-        
+
 
             $response = Http::withOptions(['verify' => false])->get('https://api.aladhan.com/v1/calendar', [
                 'latitude' => $locations[0],
