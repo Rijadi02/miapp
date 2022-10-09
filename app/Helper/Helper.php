@@ -15,13 +15,9 @@ class Helper
          * These recipients are used when ExpoMessage does not have "to" set
          */
 
-        // Expo::addDevicesNotRegisteredHandler(function ($tokens) {
-        //     foreach ($tokens as $token){
-        //         $token = Token::where('token', $token)->firstOrFail();
-        //         $token->created_at = "2022-01-01";
-        //         $token->save();
-        //     }
-        // });
+        Expo::addDevicesNotRegisteredHandler(function ($tokens) {
+            Token::whereIn('token', $tokens)->update(['active' => 0]);
+        });
 
 
         // $tokens = Token::all();
@@ -32,11 +28,11 @@ class Helper
             array_push($defaultRecipients, $token->token);
         }
 
-        
+
         Token::whereIn('token', $defaultRecipients)->update(['status' => 1]);
-        
+
         (new Expo)->send($messages)->to($defaultRecipients)->push();
-        
+
         echo Token::where('status', 1)->count();
     }
 
