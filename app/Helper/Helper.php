@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Helper;
+
 use ExpoSDK\Expo;
 use ExpoSDK\ExpoMessage;
 use App\Models\Token;
@@ -21,10 +22,10 @@ class Helper
 
 
         // $tokens = Token::all();
-        $tokens = Token::where('status',0)->limit(90)->get();
+        $tokens = Token::where('status', 0)->where('active', 1)->limit(90)->get();
 
         $defaultRecipients = [];
-        foreach ($tokens as $token){
+        foreach ($tokens as $token) {
             array_push($defaultRecipients, $token->token);
         }
 
@@ -35,7 +36,4 @@ class Helper
 
         echo Token::where('status', 1)->count();
     }
-
 }
-
-
