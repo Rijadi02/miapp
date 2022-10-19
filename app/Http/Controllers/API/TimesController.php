@@ -16,9 +16,9 @@ class TimesController extends Controller
     public function send()
     {
         $data = [
-            'title' => "Lufta kundër shamisë!", 
-            'body' => 'Kliko këtu - Video', 
-            "data" => ["url" => "https://www.youtube.com/watch?v=Ltt4J4LNfgY"]
+            'title' => "Biseda jote me Allahun",
+            'body' => 'Kliko këtu - Video',
+            "data" => ["url" => "https://www.youtube.com/watch?v=v1-GEGcGdx8"]
         ];
         Helper::sendNotification($data);
     }
@@ -58,6 +58,8 @@ class TimesController extends Controller
         $manualCorrections = exists($request, 'manualCorrections', "0,0,0,0,0,0,0,0,0");
         $city = exists($request, 'city');
 
+        $method = 3;
+
         if (!$city) {
             $response = Http::withOptions(['verify' => false])->get('https://us1.locationiq.com/v1/reverse.php', [
                 "key" => "pk.7f8ae0d2b1e9576ae11b2cfedcdfb4a6",
@@ -77,6 +79,8 @@ class TimesController extends Controller
                     "country" => $code
                 ];
             }
+
+
 
             $town = "";
 
@@ -159,13 +163,29 @@ class TimesController extends Controller
                 ];
             }
         } else {
+            $locationiq = Http::withOptions(['verify' => false])->get('https://us1.locationiq.com/v1/reverse.php', [
+                "key" => "pk.7f8ae0d2b1e9576ae11b2cfedcdfb4a6",
+                'lat' => $locations[0],
+                'lon' => $locations[1],
+                'format' => "json",
+            ]);
+
+            $address = $locationiq['address'];
+
+            $code = exists($address, "country_code", "");
+
+            if ($code == "sa") {
+                $method = 4;
+            }
+
+
             $response = Http::withOptions(['verify' => false])->get('https://api.aladhan.com/v1/calendar', [
                 'latitude' => $locations[0],
                 'longitude' => $locations[1],
                 'annual' => "true",
                 'year' => $year,
                 'tune' => $manualCorrections,
-                "method" => 3
+                "method" => $method
             ]);
 
             function formatTime($time)
