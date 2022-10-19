@@ -49,6 +49,11 @@ Route::get("/ether", function () {
     return redirect('https://www.youtube.com/channel/UCHCyPhsKU-TRbR7cFWvv89w');
 })->name("ether");
 
+Route::get("/ether/location", function () {
+    return redirect('https://www.google.com/maps/place/Afrim+Loxha,+Prishtin%C3%AB/@42.6658164,21.1700509,94m/data=!3m1!1e3!4m5!3m4!1s0x13549f20d08017f9:0xa879d246924d6aea!8m2!3d42.6657966!4d21.1705453');
+})->name("ether/location");
+
+
 Route::get('/playlists', [App\Http\Controllers\HomeController::class, 'playlists'])->name('playlists');
 
 
