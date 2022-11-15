@@ -23,6 +23,7 @@ class ContentResource extends JsonResource
             'arabic' =>  $this->arabic,
             'reference' =>  $this->reference,
             'hadith' =>  $this->hadith,
+            'audio' =>  $this->audio,
         ];
     }
 }

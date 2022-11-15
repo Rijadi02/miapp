@@ -46,6 +46,7 @@ class ContentController extends Controller
                 'arabic' => '',
                 'reference' => '',
                 'hadith' => '',
+                'audio' => '',
             ]
         );
 
@@ -61,6 +62,10 @@ class ContentController extends Controller
         $content->arabic = $data['arabic'];
         $content->chapter_id = $chapter;
 
+        if (request('audio')) {
+            $inputs['audio'] = request('audio')->store('uploads', 'public');
+            $content->audio = $inputs['audio'];
+        }
         $content->save();
 
         // if ($content->isDirty('title')) {
