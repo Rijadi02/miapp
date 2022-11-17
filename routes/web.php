@@ -50,7 +50,7 @@ Route::get("/ether", function () {
 })->name("ether");
 
 Route::get("/ether/location", function () {
-    return redirect('https%3A%2F%2Fwww.google.com%2Fmaps%2Fplace%2F42%C2%B039%2758.4%22N%2B21%C2%B010%2714.6%22E%2F%4042.6661667%2C21.1705754%2C54m%2Fdata%3D%213m1%211e3%214m5%213m4%211s0x0%3A0xcdf919dac2e96b0a%218m2%213d42.666218%214d21.170722');
+    return redirect('https://www.google.com/maps/place/42°39\'58.4"N+21°10\'14.6"E/@42.6661667,21.1705754,54m/data=!3m1!1e3!4m5!3m4!1s0x0:0xcdf919dac2e96b0a!8m2!3d42.666218!4d21.170722');
 })->name("ether/location");
 
 
