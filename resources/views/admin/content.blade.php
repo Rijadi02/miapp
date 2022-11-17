@@ -117,6 +117,18 @@
                             @enderror
                         </div>
 
+                        <div class="col-lg-12">
+                            <label for="audio" class="col-md-12 col-form-label">Audio</label>
+                            <input id="audio" type="file" name="audio"
+                                class="form-control @error('audio') is-invalid @enderror"
+                                value="{{ old('audio' ?? $content->audio )}}" autocomplete="audio">
+                            @error('audio')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
 
                         <div class="form-group mt-3">
                             <button type="submit" class="btn btn-primary">Përditëso Kontentin</button>
@@ -205,6 +217,17 @@
                             @enderror
                         </div>
 
+                        <div class="col-lg-12">
+                            <label for="audio" class="col-md-12 col-form-label">Audio</label>
+                            <input id="audio" type="file" name="audio"
+                                class="form-control @error('audio') is-invalid @enderror"
+                                value="{{ old('audio')}}" autocomplete="audio">
+                            @error('audio')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
 
                         <div class="form-group mt-3">
                             <button type="submit" class="btn btn-primary">Shto Kontentin</button>
