@@ -131,6 +131,11 @@ class ContentController extends Controller
         $content->reference = $data['reference'];
         $content->arabic = $data['arabic'];
 
+        if (request('audio')) {
+            $inputs['audio'] = request('audio')->store('uploads', 'public');
+            $content->audio = $inputs['audio'];
+        }
+        
         $content->save();
 
         // if ($content->isDirty('title')) {
@@ -138,6 +143,9 @@ class ContentController extends Controller
         // } else {
         //     session()->flash('title-add', 'Nothing to add: ' . request('title'));
         // }
+
+        
+  
         $chapter_id = $content->chapter_id;
         return redirect('/admin/chapter/'.$chapter_id.'/contents');
     }
