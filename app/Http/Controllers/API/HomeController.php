@@ -147,4 +147,11 @@ class HomeController extends Controller
         $tokens = Token::count();
         return $tokens - 180;
     }
+
+    public function ads(){
+        $ads = AdResource::collection(Ad::all());
+        return $ads;
+    }
+
 }
+
