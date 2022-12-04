@@ -73,3 +73,5 @@ Route::get('/nature/{nature}', [HomeController::class, 'nature']);
 
 
 Route::get('/app/downloads', [HomeController::class, 'tokens']);
+
+Route::get('/ads', [HomeController::class, 'ads']);

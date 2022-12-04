@@ -16,12 +16,17 @@ class AdResource extends JsonResource
     {
         return [
             "id" => $this->id,
+            "slug" => $this->slug,
             "name" => $this->name,
+            "description" => $this->description,
             "city" => $this->city,
-            "image" => $this->image,
+            "photo" => $this->photo,
+            "gallery" => $this->gallery,
             "address" => $this->address,
-            "linku" => route('ad',$this->slug)
-
+            "phone" => $this->phone,
+            "tags" => $this->tags,
+            "media" => $this->media,
+            "linku" => route('ad',$this->slug),
         ];
     }
 }
