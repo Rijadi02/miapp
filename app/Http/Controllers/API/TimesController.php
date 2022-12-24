@@ -16,8 +16,8 @@ class TimesController extends Controller
     public function send()
     {
         $data = [
-            'title' => "Kënaqu me Islam | Video Motivuese",
-            'body' => 'Kliko këtu',
+            'title' => "A lejohet urimi i festave të fundvitit?",
+            'body' => 'Lexo artikullin',
             "data" => ["url" => "https://www.youtube.com/watch?v=w-e1SyntpJQ"]
         ];
         Helper::sendNotification($data);
