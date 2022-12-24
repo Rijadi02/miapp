@@ -18,7 +18,7 @@ class TimesController extends Controller
         $data = [
             'title' => "A lejohet urimi i festave të fundvitit?",
             'body' => 'Lexo artikullin',
-            "data" => ["url" => "https://www.youtube.com/watch?v=w-e1SyntpJQ"]
+            "data" => ["url" => "https://muslimani-ideal.org/artikulli/dispozita-e-urimit-te-festave-te-jomuslimaneve"]
         ];
         Helper::sendNotification($data);
     }
