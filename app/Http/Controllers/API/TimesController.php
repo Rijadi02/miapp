@@ -39,7 +39,7 @@ class TimesController extends Controller
             "token" => ""
         ]);
 
-        if($request['token']){
+        if(array_key_exists("token", $request)){
             if (!Token::where('token', '=', $request['token'])->exists()) {
                 $token = new Token();
                 $token->token = $request['token'];
