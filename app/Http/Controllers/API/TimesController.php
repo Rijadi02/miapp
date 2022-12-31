@@ -38,12 +38,14 @@ class TimesController extends Controller
             "city" => "",
             "token" => ""
         ]);
-
-        if (!Token::where('token', '=', $request['token'])->exists()) {
-            $token = new Token();
-            $token->token = $request['token'];
-            $token->save();
+        if(array_key_exists("token", $request)){
+            if (!Token::where('token', '=', $request['token'])->exists()) {
+                $token = new Token();
+                $token->token = $request['token'];
+                $token->save();
+            }
         }
+
 
 
         function exists($request, $value, $set = null)
