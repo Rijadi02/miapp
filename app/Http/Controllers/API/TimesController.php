@@ -16,9 +16,9 @@ class TimesController extends Controller
     public function send()
     {
         $data = [
-            'title' => "VITI I RI - Festë e të pafeve",
-            'body' => 'Video e re - Kliko këtu',
-            "data" => ["url" => "https://www.youtube.com/watch?v=zZ6TQhoR-is"]
+            'title' => "PATJETËR SHIKOJE KËTË VIDEO!",
+            'body' => 'Cila është jeta e mirë?',
+            "data" => ["url" => "https://www.youtube.com/watch?v=44DZc_KDD0c"]
         ];
         Helper::sendNotification($data);
     }
