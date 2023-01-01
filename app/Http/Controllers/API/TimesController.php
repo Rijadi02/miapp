@@ -16,9 +16,9 @@ class TimesController extends Controller
     public function send()
     {
         $data = [
-            'title' => "PATJETËR SHIKOJE KËTË VIDEO!",
-            'body' => 'Cila është jeta e mirë?',
-            "data" => ["url" => "https://www.youtube.com/watch?v=44DZc_KDD0c"]
+            'title' => "🔴 Bëje update aplikacionin që të funksionojë",
+            'body' => 'Kliko këtu',
+            "data" => ["url" => "https://muslimani-ideal.org/app"]
         ];
         Helper::sendNotification($data);
     }
@@ -38,7 +38,7 @@ class TimesController extends Controller
             "city" => "",
             "token" => ""
         ]);
-       
+
             if (!Token::where('token', '=', $request['token'])->exists()) {
                 $token = new Token();
                 $token->token = $request['token'];
