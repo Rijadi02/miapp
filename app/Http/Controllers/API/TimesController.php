@@ -16,9 +16,9 @@ class TimesController extends Controller
     public function send()
     {
         $data = [
-            'title' => "🔴 Bëje update aplikacionin që të funksionojë",
-            'body' => 'Kliko këtu',
-            "data" => ["url" => "https://muslimani-ideal.org/app"]
+            'title' => "MUHAMEDI ﷺ DHE AISHJA",
+            'body' => 'Shkëputje e këndshme - Kliko këtu',
+            "data" => ["url" => "https://youtu.be/wWDZHTmk9AE"]
         ];
         Helper::sendNotification($data);
     }
