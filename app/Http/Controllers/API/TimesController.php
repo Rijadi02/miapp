@@ -16,9 +16,9 @@ class TimesController extends Controller
     public function send()
     {
         $data = [
-            'title' => "MUHAMEDI ﷺ DHE AISHJA",
-            'body' => 'Shkëputje e këndshme - Kliko këtu',
-            "data" => ["url" => "https://youtu.be/wWDZHTmk9AE"]
+            'title' => "Krimet e serbëve në Kosovë!",
+            'body' => 'Hoxhallarët apelojnë bojkotimin e produkteve të Serbisë',
+            "data" => ["url" => "https://www.youtube.com/watch?v=yoPdf-1b2fY"]
         ];
         Helper::sendNotification($data);
     }
