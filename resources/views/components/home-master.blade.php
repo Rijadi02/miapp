@@ -112,6 +112,8 @@
                                     <a href="https://t.me/muslimani_ideal"><i class="fab fa-telegram-plane"></i></a>
                                     <a href="https://www.instagram.com/muslimani_ideal/"><i
                                             class="fab fa-instagram"></i></a>
+                                            <a href="https://www.tiktok.com/@muslimani_ideal"><i
+                                                class="fab fa-tiktok"></i></a>
                                 </div>
                                 <div class="main-header__top-right-btn-box">
                                     <a href="javascript:void(0)"
@@ -251,6 +253,8 @@
                                         <a href="https://t.me/muslimani_ideal"><i class="fab fa-telegram-plane"></i></a>
                                         <a href="https://www.instagram.com/muslimani_ideal/"><i
                                                 class="fab fa-instagram"></i></a>
+                                                <a href="https://www.tiktok.com/@muslimani_ideal"><i
+                                                    class="fab fa-tiktok"></i></a>
                                     </div>
                                 </div>
                                 <div class="site-footer__bottom-right">
@@ -304,6 +308,8 @@
                     <a href="https://www.facebook.com/MuslimaniIdealM/" class="fab fa-facebook-square"></a>
                     <a href="https://t.me/muslimani_ideal" class="fab fa-telegram-plane"></a>
                     <a href="https://www.instagram.com/muslimani_ideal/" class="fab fa-instagram"></a>
+                    <a href="https://www.tiktok.com/@muslimani_ideal"><i
+                        class="fab fa-tiktok"></i></a>
                 </div><!-- /.mobile-nav__social -->
             </div><!-- /.mobile-nav__top -->
 
