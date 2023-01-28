@@ -16,9 +16,9 @@ class TimesController extends Controller
     public function send()
     {
         $data = [
-            'title' => "Krimet e serbëve në Kosovë!",
-            'body' => 'Hoxhallarët apelojnë bojkotimin e produkteve të Serbisë',
-            "data" => ["url" => "https://www.youtube.com/watch?v=yoPdf-1b2fY"]
+            'title' => "KU E KE ZEMRËN?",
+            'body' => 'Një video që e ngjallë çdo zemër të ngurtë!',
+            "data" => ["url" => "https://www.youtube.com/watch?v=wmuRbVUlLaU"]
         ];
         Helper::sendNotification($data);
     }
