@@ -196,7 +196,7 @@
                         <div class="about-one__left">
                             <div class="about-one__img-box">
                                 <div class="about-one__img">
-                                    <img src="{{ asset('assetsFront/images/phones.png') }}" alt="">
+                                    <img src="{{ asset('assetsFront/images/planner.svg') }}" alt="">
                                 </div>
 
                             </div>
