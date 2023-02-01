@@ -141,7 +141,8 @@
                                         <li><a href="{{ route('shield') }}">Mburoja</a></li>
                                         <li><a href="{{ route('recitations') }}">Recitime</a></li>
                                         <li><a href="{{ route('lectures', 'prishtinë') }}">Derse</a></li>
-                                        <li><a href="{{ route('academy') }}">Akademia</a></li>
+                                        <a href="https://planifikuesi.com/" class="about-one__btn m-0 ms-lg-5 thm-btn">Planifikuesi</a>
+
                                         {{-- <li><a href="{{ route('ads') }}">Bizneset</a></li> --}}
                                     </ul>
                                 </div>

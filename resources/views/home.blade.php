@@ -115,7 +115,99 @@
                     </div>
                 </div>
             </div>
+
+            {{-- Planner --}}
+
             <div class="container pb-5">
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div class="about-one__right">
+                            <div class="section-title text-left">
+                                <span class="section-title__tagline">Planer Ramazani</span>
+                                <h2 class="section-title__title">Planifikuesi i Ramazanit tënd!</h2>
+                            </div>
+                           <p class="about-one__right-text mb-4">Fletore e punuar me kujdes që të ju ndihmoj në udhëtimin tuaj gjatë këtij Ramazani. Në dy versione, për motra dhe për vëllezër!</p>
+
+
+
+                            <ul class="list-unstyled about-two__list mb-4 me-4">
+
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                    <div class="text">
+                                        <p>Plani ditor</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                    <div class="text">
+                                        <p>Pyetje për reflektim</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                    <div class="text">
+                                        <p>Sfida</p>
+                                    </div>
+                                </li>
+
+                            </ul>
+
+                            <ul class="list-unstyled about-two__list  mb-4">
+
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                    <div class="text">
+                                        <p>Ligjerata</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                    <div class="text">
+                                        <p>Artikuj</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                    <div class="text">
+                                        <p>"Erë Xhenneti" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+                                    </div>
+                                </li>
+
+                            </ul>
+
+                            <a href="https://planifikuesi.com/" class="about-one__btn thm-btn">Porosit tani!</a>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-6 wow fadeInLeft" data-wow-duration="1500ms">
+                        <div class="about-one__left">
+                            <div class="about-one__img-box">
+                                <div class="about-one__img">
+                                    <img src="{{ asset('assetsFront/images/phones.png') }}" alt="">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {{-- Planner --}}
+
+            {{-- <div class="container pb-5">
                 <div class="row">
                     <div class="col-xl-6">
                         <div class="about-one__right">
@@ -123,12 +215,12 @@
                                 <span class="section-title__tagline">Muslimani Ideal App</span>
                                 <h2 class="section-title__title">Shoqëruesi juaj drejt Allahut!</h2>
                             </div>
-                           <p class="about-one__right-text mb-4">Një platformë interesante dhe të dobishme për jetën e muslimanëve. Një punë modeste afërsisht njëvjeçare të cilën tashmë do ta keni në duart tuaja. </p> 
-                                
-                              
-                                
+                           <p class="about-one__right-text mb-4">Një platformë interesante dhe të dobishme për jetën e muslimanëve. Një punë modeste afërsisht njëvjeçare të cilën tashmë do ta keni në duart tuaja. </p>
+
+
+
                             <ul class="list-unstyled about-two__list mb-4 me-4">
-                                
+
                                 <li>
                                     <div class="icon">
                                         <i class="fa fa-check"></i>
@@ -153,11 +245,11 @@
                                         <p>Drejtimi i kibles</p>
                                     </div>
                                 </li>
-                                
+
                             </ul>
 
                             <ul class="list-unstyled about-two__list  mb-4">
-                                
+
                                 <li>
                                     <div class="icon">
                                         <i class="fa fa-check"></i>
@@ -182,9 +274,9 @@
                                         <p>Artikuj, video e të tjera</p>
                                     </div>
                                 </li>
-                                
+
                             </ul>
-                       
+
                             <a href="https://www.muslimani-ideal.org/app" class="about-one__btn thm-btn">Shkarko falas</a>
                         </div>
                     </div>
@@ -200,7 +292,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
+
+
             <div class="gallery-one__container-box clearfix pt-3">
                 <ul class="list-unstyled gallery-one__content clearfix pt-0 pt-md-5">
                     <?php $post_index = 0; ?>
@@ -221,7 +315,7 @@
                 </ul>
             </div>
 
-          
+
         </section>
 
 
