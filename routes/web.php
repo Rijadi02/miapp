@@ -163,4 +163,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
     Route::get('applications', [App\Http\Controllers\AcademyController::class, 'index'])->name('applications.index');
     Route::delete('applications/{application}', [App\Http\Controllers\AcademyController::class, 'destroy'])->name('applications.destroy');
 
+    Route::get('notifications', [App\Http\Controllers\VideoController::class, 'notifications_view'])->name('notification.index');
+    Route::post('notification/send', [App\Http\Controllers\VideoController::class, 'notification'])->name('notification.send');
+
 });
