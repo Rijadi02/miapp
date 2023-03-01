@@ -65,6 +65,8 @@ Route::get('/view/pyetje', [App\Http\Controllers\QuestionController::class, 'sho
 Route::post('/pyetje/{question}/update', [App\Http\Controllers\QuestionController::class, 'update'])->name('questions.update');
 Route::delete('/pyetje/{question}/delete', [App\Http\Controllers\QuestionController::class, 'destroy'])->name('questions.delete');
 
+Route::get('/planifikuesi/dersi/{id}', [App\Http\Controllers\HomeController::class, 'ders'])->name('ders');
+
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'admin'], function () {
 

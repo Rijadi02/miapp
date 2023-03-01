@@ -124,6 +124,11 @@ class HomeController extends Controller
         return view('playlists');
     }
 
+    public function ders()
+    {
+        return redirect("https://planifikuesi.com/derse");
+    }
+
     public function ads(Request $request)
     {
         $tag = $request->input('tag');
