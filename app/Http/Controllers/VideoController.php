@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helper\Helper;
 use App\Models\Video;
 use Illuminate\Http\Request;
 
@@ -138,5 +139,20 @@ class VideoController extends Controller
         $video->delete();
         session()->flash('video-deleted', 'Video deleted: ' . $video->name);
         return back();
+    }
+
+    public function notifications_view()
+    {
+        return view('admin.notification');
+    }
+
+    public function notification(Request $request){
+
+        $data = [
+            'title' => $request->title,
+            'body' => $request->body,
+            "data" => ["url" => $request->url]
+        ];
+        // Helper::sendNotification($data);
     }
 }
