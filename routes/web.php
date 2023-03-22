@@ -65,8 +65,35 @@ Route::get('/view/pyetje', [App\Http\Controllers\QuestionController::class, 'sho
 Route::post('/pyetje/{question}/update', [App\Http\Controllers\QuestionController::class, 'update'])->name('questions.update');
 Route::delete('/pyetje/{question}/delete', [App\Http\Controllers\QuestionController::class, 'destroy'])->name('questions.delete');
 
-Route::get('/planifikuesi/dersi/{id}', [App\Http\Controllers\HomeController::class, 'ders'])->name('ders');
+Route::get("/planifikuesi/dersi/1", function () {
+    return redirect('https://www.youtube.com/watch?v=Lm--2qhyoYg');
+});
 
+Route::get("/planifikuesi/dersi/2", function () {
+    return redirect('https://www.youtube.com/watch?v=00vqk49RF_I');
+});
+
+Route::get("/planifikuesi/dersi/3", function () {
+    return redirect('https://youtu.be/qjGCliuMIso');
+});
+
+Route::get("/planifikuesi/dersi/4", function () {
+    return redirect('https://youtu.be/BgJ0JvWSbHo');
+});
+
+Route::get("/planifikuesi/dersi/5", function () {
+    return redirect('https://youtu.be/MAbh_X568kA');
+});
+
+Route::get("/planifikuesi/dersi/6", function () {
+    return redirect('https://youtu.be/3YHFuhrkHMg');
+});
+
+
+Route::get("/planifikuesi/dersi/7", function () {
+    return redirect('https://youtu.be/bHyHAPl4nf0');
+});
+Route::get('/planifikuesi/dersi/1', [App\Http\Controllers\HomeController::class, 'ders'])->name('ders');
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'admin'], function () {
 
