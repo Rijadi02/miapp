@@ -21,7 +21,7 @@ Route::get('/artikulli/{slug}', [App\Http\Controllers\HomeController::class, 'bl
 // Route::get('/bizneset', [App\Http\Controllers\HomeController::class, 'ads'])->name('ads');
 Route::get('/bizneset/{slug}', [App\Http\Controllers\HomeController::class, 'ad'])->name('ad');
 Route::get('/derse/{city}', [App\Http\Controllers\HomeController::class, 'lectures'])->name('lectures');
-
+Route::get('/dersi/{id}', [App\Http\Controllers\HomeController::class, 'lecture'])->name('lecture');
 Route::get('/mburoja', [App\Http\Controllers\HomeController::class, 'shield'])->name('shield');
 Route::get('/{book}/kapitujt', [App\Http\Controllers\HomeController::class, 'chapters'])->name('chapters');
 Route::get('/{chapter}/duatë', [App\Http\Controllers\HomeController::class, 'content'])->name('content');
@@ -93,7 +93,7 @@ Route::get("/planifikuesi/dersi/6", function () {
 Route::get("/planifikuesi/dersi/7", function () {
     return redirect('https://youtu.be/bHyHAPl4nf0');
 });
-Route::get('/planifikuesi/dersi/1', [App\Http\Controllers\HomeController::class, 'ders'])->name('ders');
+
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'admin'], function () {
 
