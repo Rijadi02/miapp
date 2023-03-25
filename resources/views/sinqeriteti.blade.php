@@ -18,7 +18,7 @@
       property="og:description"
       content="Shpjegim i librit të Imam Ibën Ebi Dunja nga hoxhë Fitim Gërguri"
     />
-    <meta name="og:image" itemprop="image" content="{{ asset('assetsFront/images/mi-kids.jpg') }}" />
+    <meta name="og:image" itemprop="image" content="{{ asset('assetsFront/images/sinqeriteti.jpeg') }}" />
     <meta property="og:updated_time" content="1675208881" />
 
     <!-- Twitter -->
@@ -29,7 +29,7 @@
       property="twitter:description"
       content="Shpjegim i librit të Imam Ibën Ebi Dunja nga hoxhë Fitim Gërguri"
     />
-    <meta property="twitter:image" content="{{ asset('assetsFront/images/mi-kids.jpg') }}" />
+    <meta property="twitter:image" content="{{ asset('assetsFront/images/sinqeriteti.jpeg') }}" />
 
 
     <title>Porosit - Njeti dhe Sinqeriteti</title>
