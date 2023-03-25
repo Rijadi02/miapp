@@ -263,5 +263,8 @@ class HomeController extends Controller
         return view('kids');
     }
 
+    public function sinqeriteti(){
+        return view('sinqeriteti');
+    }
 
 }

@@ -62,6 +62,8 @@ Route::get('/kids', [App\Http\Controllers\HomeController::class, 'kids'])->name(
 Route::get('/pyetje', [App\Http\Controllers\QuestionController::class, 'index'])->name('questions.index');
 Route::post('/pyetje/store', [App\Http\Controllers\QuestionController::class, 'store'])->name('questions.store');
 Route::get('/view/pyetje', [App\Http\Controllers\QuestionController::class, 'show'])->name('questions.show');
+Route::get('/sinqeriteti-dhe-njeti', [App\Http\Controllers\HomeController::class, 'sinqeriteti'])->name('sinqeritei');
+
 Route::post('/pyetje/{question}/update', [App\Http\Controllers\QuestionController::class, 'update'])->name('questions.update');
 Route::delete('/pyetje/{question}/delete', [App\Http\Controllers\QuestionController::class, 'destroy'])->name('questions.delete');
 
