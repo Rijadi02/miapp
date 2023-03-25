@@ -17,7 +17,7 @@ class TimesController extends Controller
     {
         $data = [
             'title' => "Sonte ndërrohet ora!",
-            'body' => 'Sabahu hyn në: 5:19',
+            'body' => 'Sabahu hyn në: 5:19 (Kosovë)',
             "data" => []
         ];
         Helper::sendNotification($data);
