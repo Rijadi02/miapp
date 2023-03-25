@@ -123,7 +123,7 @@ class TimesController extends Controller
 
 
             $tz = new \DateTimeZone('Europe/Paris');
-            $transition = $tz->getTransitions(strtotime('1/1/2022'), strtotime('12/31/2022'));
+            $transition = $tz->getTransitions(strtotime('1/1/' . $year), strtotime('12/31/' . $year));
 
             $march = date("d", strtotime($transition[1]['time']));
             $october = date("d", strtotime($transition[2]['time']));
