@@ -16,8 +16,8 @@ class TimesController extends Controller
     public function send()
     {
         $data = [
-            'title' => "Vetëm edhe sot!",
-            'body' => 'Planifikuesi për Ramazan - Porosit Tani!',
+            'title' => "Sonte ndërrohet ora!",
+            'body' => 'Sabahu hyn në: 5:19',
             "data" => ["url" => "https://planifikuesi.com/"]
         ];
         Helper::sendNotification($data);
