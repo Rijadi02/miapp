@@ -32,7 +32,7 @@
     <meta property="twitter:image" content="{{ asset('assetsFront/images/sinqeriteti.jpeg') }}" />
 
 
-    <title>Porosit - Njeti dhe Sinqeriteti</title>
+    <title>Porosit - Sinqeriteti dhe Nijeti</title>
     <!-- Favicon -->
 
 
