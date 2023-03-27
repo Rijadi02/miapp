@@ -87,9 +87,9 @@ Route::get("/planifikuesi/dersi/5", function () {
     return redirect('https://youtu.be/00vqk49RF_I');
 });
 
-// Route::get("/planifikuesi/dersi/6", function () {
-//     return redirect('https://youtu.be/3YHFuhrkHMg');
-// });
+Route::get("/planifikuesi/dersi/6", function () {
+    return redirect('https://www.youtube.com/watch?v=9kOVlXFXUs0');
+});
 
 
 Route::get("/planifikuesi/dersi/7", function () {
