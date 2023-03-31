@@ -104,7 +104,7 @@ Route::get("/planifikuesi/dersi/8", function () {
     return redirect('https://www.youtube.com/watch?v=ptd_59m36T0');
 });
 
-Route::get("/planifikuesi/dersi/", function () {
+Route::get("/planifikuesi/dersi/9", function () {
     return redirect('https://youtu.be/2wt3aO2T-bk');
 });
 
