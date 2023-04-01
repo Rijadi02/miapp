@@ -16,9 +16,9 @@ class TimesController extends Controller
     public function send()
     {
         $data = [
-            'title' => "Sonte ndërrohet ora!",
-            'body' => 'Sabahu hyn në: 5:19 (Kosovë)',
-            "data" => []
+            'title' => "Allahu krenohet me ty! - Hoxhë Enis Rama",
+            'body' => 'Video e re - Kliko këtu',
+            "data" => ["url" => "https://youtu.be/OWLweRY-ZCo"]
         ];
         Helper::sendNotification($data);
     }
