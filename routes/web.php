@@ -87,9 +87,9 @@ Route::get("/planifikuesi/dersi/5", function () {
     return redirect('https://youtu.be/00vqk49RF_I');
 });
 
-// Route::get("/planifikuesi/dersi/6", function () {
-//     return redirect('https://youtu.be/3YHFuhrkHMg');
-// });
+Route::get("/planifikuesi/dersi/6", function () {
+    return redirect('https://www.youtube.com/watch?v=9kOVlXFXUs0');
+});
 
 
 Route::get("/planifikuesi/dersi/7", function () {
@@ -98,6 +98,18 @@ Route::get("/planifikuesi/dersi/7", function () {
 
 Route::get("/planifikuesi/dersi/31", function () {
     return redirect('https://www.youtube.com/watch?v=OvL8ppQvhM4');
+});
+
+Route::get("/planifikuesi/dersi/8", function () {
+    return redirect('https://www.youtube.com/watch?v=ptd_59m36T0');
+});
+
+Route::get("/planifikuesi/dersi/9", function () {
+    return redirect('https://youtu.be/2wt3aO2T-bk');
+});
+
+Route::get("/planifikuesi/dersi/10", function () {
+    return redirect('https://youtu.be/sFMYKsXahIk');
 });
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'admin'], function () {
