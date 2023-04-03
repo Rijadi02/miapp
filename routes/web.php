@@ -116,6 +116,10 @@ Route::get("/planifikuesi/dersi/11", function () {
     return redirect('https://youtu.be/9SFcY6CLoOM');
 });
 
+Route::get("/planifikuesi/dersi/12", function () {
+    return redirect('https://youtu.be/BCNJFm1DnxI');
+});
+
 Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'admin'], function () {
 
     Route::get('categories', [App\Http\Controllers\CategoryController::class, 'index'])->name('category.index');
