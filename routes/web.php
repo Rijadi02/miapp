@@ -36,6 +36,9 @@ Route::get('/privacy', [App\Http\Controllers\HomeController::class, 'privacy'])-
 Route::get('/biznes', [App\Http\Controllers\HomeController::class, 'poll'])->name('poll');
 Route::get('/apliko', [App\Http\Controllers\HomeController::class, 'aplikimi_për_kurse'])->name('aplikimi_për_kurse');
 
+Route::get('/ihram/privacy', [App\Http\Controllers\HomeController::class, 'ihramPrivacy'])->name('ihramPrivacy');
+
+
 Route::get('/app/privacy', [App\Http\Controllers\AppController::class, 'privacy'])->name('app_privacy');
 Route::get('/app/terms', [App\Http\Controllers\AppController::class, 'terms'])->name('app_terms');
 

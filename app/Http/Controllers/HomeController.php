@@ -119,6 +119,11 @@ class HomeController extends Controller
         return view('privacy');
     }
 
+    public function ihramPrivacy()
+    {
+        return view('ihramPrivacy');
+    }
+
     public function playlists()
     {
         return view('playlists');
