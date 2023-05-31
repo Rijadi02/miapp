@@ -57,6 +57,9 @@ Route::get("/ether", function () {
     return redirect('https://www.google.com/maps/place/42°39\'58.4"N+21°10\'14.6"E/@42.6661667,21.1705754,54m/data=!3m1!1e3!4m5!3m4!1s0x0:0xcdf919dac2e96b0a!8m2!3d42.666218!4d21.170722');
 })->name("ether");
 
+Route::get("/ether/location", function () {
+    return redirect('https://www.google.com/maps/place/42°39\'58.4"N+21°10\'14.6"E/@42.6661667,21.1705754,54m/data=!3m1!1e3!4m5!3m4!1s0x0:0xcdf919dac2e96b0a!8m2!3d42.666218!4d21.170722');
+})->name("ether-location");
 
 Route::get('/playlists', [App\Http\Controllers\HomeController::class, 'playlists'])->name('playlists');
 
