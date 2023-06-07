@@ -50,16 +50,16 @@ Route::get("/app", function () {
 })->name("app");
 
 Route::get("/ihram", function () {
-    return redirect('http://onelink.to/ihram-app');
-})->name("app");
+    return redirect('https://onelink.to/mt8hxx');
+})->name("ihram");
 
 Route::get("/irham", function () {
-    return redirect('http://onelink.to/ihram-app');
-})->name("app");
+    return redirect('https://onelink.to/mt8hxx');
+})->name("ihrami");
 
 Route::get("/iram", function () {
-    return redirect('http://onelink.to/ihram-app');
-})->name("app");
+    return redirect('https://onelink.to/mt8hxx');
+})->name("ihramii");
 
 // Route::get("/ether", function () {
 //     return redirect('https://www.youtube.com/channel/UCHCyPhsKU-TRbR7cFWvv89w');
