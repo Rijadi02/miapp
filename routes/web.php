@@ -49,6 +49,18 @@ Route::get("/app", function () {
     return redirect('http://onelink.to/muslimani-ideal');
 })->name("app");
 
+Route::get("/ihram", function () {
+    return redirect('http://onelink.to/ihram-app');
+})->name("app");
+
+Route::get("/irham", function () {
+    return redirect('http://onelink.to/ihram-app');
+})->name("app");
+
+Route::get("/iram", function () {
+    return redirect('http://onelink.to/ihram-app');
+})->name("app");
+
 // Route::get("/ether", function () {
 //     return redirect('https://www.youtube.com/channel/UCHCyPhsKU-TRbR7cFWvv89w');
 // })->name("ether");
