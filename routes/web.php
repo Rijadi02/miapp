@@ -50,15 +50,15 @@ Route::get("/app", function () {
 })->name("app");
 
 Route::get("/ihram", function () {
-    return redirect('https://onelink.to/mt8hxx');
+    return redirect('https://tosto.re/ihram');
 })->name("ihram");
 
 Route::get("/irham", function () {
-    return redirect('https://onelink.to/mt8hxx');
+    return redirect('https://tosto.re/ihram');
 })->name("ihrami");
 
 Route::get("/iram", function () {
-    return redirect('https://onelink.to/mt8hxx');
+    return redirect('https://tosto.re/ihram');
 })->name("ihramii");
 
 // Route::get("/ether", function () {
