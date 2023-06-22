@@ -150,7 +150,10 @@
                             Akademia
                         </a>
 
-
+                        <a class="nav-link" href="{{ route('notification.index') }}">
+                            <div class="nav-link-icon"><i class="fa fa-bell"></i></div>
+                            Notifikimet
+                        </a>
                         {{-- <a class="nav-link" href="{{ route('brands.index') }}">
                             <div class="nav-link-icon"><i class="fas fa-copyright"></i></div>
                             Brands

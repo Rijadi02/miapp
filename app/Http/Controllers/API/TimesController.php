@@ -15,10 +15,15 @@ class TimesController extends Controller
 
     public function send()
     {
+
+        $notification = Notification::latest()->first();
+
+        dd($notification->title . " --- " . $notification->description . " --- " . $notification->url);
+
         $data = [
-            'title' => "Prej besimtarëve kishte BURRA!",
-            'body' => 'Video e re - Kliko këtu',
-            "data" => ["url" => "https://www.youtube.com/watch?v=3XzSYcVNj3k"]
+            'title' => $notification->title,
+            'body' => $notification->description,
+            "data" => ["url" => $notification->url]
         ];
         Helper::sendNotification($data);
     }
