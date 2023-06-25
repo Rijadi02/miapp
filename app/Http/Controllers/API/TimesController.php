@@ -19,7 +19,7 @@ class TimesController extends Controller
 
         $notification = Notification::latest()->first();
 
-        dd($notification->title . " --- " . $notification->description . " --- " . $notification->link);
+        // dd($notification->title . " --- " . $notification->description . " --- " . $notification->link);
 
         $data = [
             'title' => $notification->title,

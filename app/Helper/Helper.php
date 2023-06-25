@@ -22,7 +22,7 @@ class Helper
 
 
         // $tokens = Token::all();
-        $tokens = Token::where('status', 0)->where('active', 1)->limit(90)->get();
+        $tokens = Token::where('status', 0)->where('active', 1)->limit(1)->get();
 
         $defaultRecipients = [];
         foreach ($tokens as $token) {
