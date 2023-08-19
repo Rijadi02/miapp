@@ -61,6 +61,12 @@ Route::get("/iram", function () {
     return redirect('https://tosto.re/ihram');
 })->name("ihramii");
 
+
+Route::get("/namazi", function () {
+    return redirect('https://www.youtube.com/watch?v=ZNNuwSb2ChY');
+})->name("app");
+
+
 // Route::get("/ether", function () {
 //     return redirect('https://www.youtube.com/channel/UCHCyPhsKU-TRbR7cFWvv89w');
 // })->name("ether");
