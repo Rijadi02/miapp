@@ -64,7 +64,7 @@ Route::get("/iram", function () {
 
 Route::get("/namazi", function () {
     return redirect('https://www.youtube.com/watch?v=ZNNuwSb2ChY');
-})->name("app");
+})->name("namazi");
 
 
 // Route::get("/ether", function () {
