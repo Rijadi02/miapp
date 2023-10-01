@@ -15,7 +15,6 @@ use App\Models\Blog;
 use App\Models\Book;
 use App\Models\Promotion;
 use App\Models\Video;
-use App\Models\Blog;
 use App\Models\Chapter;
 use App\Models\Token;
 
