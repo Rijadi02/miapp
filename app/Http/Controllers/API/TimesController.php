@@ -9,6 +9,7 @@ use App\Http\Requests\TimesRequest;
 use App\Models\Token;
 use Illuminate\Http\Request;
 use App\Helper\Helper;
+use App\Models\Notification;
 
 class TimesController extends Controller
 {
@@ -18,12 +19,12 @@ class TimesController extends Controller
 
         $notification = Notification::latest()->first();
 
-        dd($notification->title . " --- " . $notification->description . " --- " . $notification->url);
+        // dd($notification->title . " --- " . $notification->description . " --- " . $notification->link);
 
         $data = [
             'title' => $notification->title,
             'body' => $notification->description,
-            "data" => ["url" => $notification->url]
+            "data" => ["url" => $notification->link]
         ];
         Helper::sendNotification($data);
     }
