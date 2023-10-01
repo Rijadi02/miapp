@@ -154,7 +154,18 @@ class HomeController extends Controller
     }
 
     public function article_views(){
-        return $blogs = Blog::where('id', '>' , 0)->sum('counter');
+
+        $blogs = Blog::where('id', '>' , 0)->sum('counter');
+
+        $blogs = 100;
+
+        $shtadhetshi = (70 / 100) * $blogs;
+
+        $mbetja = $shtadhetshi/2;
+
+        $blogs = $blogs - $mbetja;
+
+        return $blogs;
     }
 
 }
