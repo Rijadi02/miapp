@@ -118,7 +118,7 @@
 
             {{-- Planner --}}
 
-            <div class="container pb-5">
+            {{-- <div class="container pb-5">
                 <div class="row">
                     <div class="col-xl-6">
                         <div class="about-one__right">
@@ -203,7 +203,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             {{-- Planner --}}
 
