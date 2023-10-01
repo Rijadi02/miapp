@@ -15,6 +15,7 @@ use App\Models\Blog;
 use App\Models\Book;
 use App\Models\Promotion;
 use App\Models\Video;
+use App\Models\Article;
 use App\Models\Chapter;
 use App\Models\Token;
 
@@ -156,6 +157,6 @@ class HomeController extends Controller
     public function article_views(){
         return $articles = Article::where('id', '>' , 0)->sum('counter');
     }
-    
+
 }
 
