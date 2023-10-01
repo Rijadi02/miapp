@@ -153,5 +153,9 @@ class HomeController extends Controller
         return $ads;
     }
 
+    public function article_views(){
+        return $articles = Article::where('id', '>' , 0)->sum('counter');
+    }
+    
 }
 
