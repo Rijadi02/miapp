@@ -109,7 +109,7 @@
                                             class="fab fa-youtube"></i></a>
                                     <a href="https://www.facebook.com/MuslimaniIdealM/"><i
                                             class="fab fa-facebook"></i></a>
-                                    <a href="https://t.me/muslimani_ideal"><i class="fab fa-telegram-plane"></i></a>
+                                    <a href="https://t.me/MuslimaniIdeal"><i class="fab fa-telegram-plane"></i></a>
                                     <a href="https://www.instagram.com/muslimani_ideal/"><i
                                             class="fab fa-instagram"></i></a>
                                             <a href="https://www.tiktok.com/@muslimani_ideal"><i
@@ -251,7 +251,7 @@
                                                 class="fab fa-youtube"></i></a>
                                         <a href="https://www.facebook.com/MuslimaniIdealM/"><i
                                                 class="fab fa-facebook"></i></a>
-                                        <a href="https://t.me/muslimani_ideal"><i class="fab fa-telegram-plane"></i></a>
+                                        <a href="https://t.me/MuslimaniIdeal"><i class="fab fa-telegram-plane"></i></a>
                                         <a href="https://www.instagram.com/muslimani_ideal/"><i
                                                 class="fab fa-instagram"></i></a>
                                                 <a href="https://www.tiktok.com/@muslimani_ideal"><i
@@ -307,7 +307,7 @@
                 <div class="mobile-nav__social">
                     <a href="https://www.youtube.com/c/MuslimaniIdeal" class="fab fa-youtube"></a>
                     <a href="https://www.facebook.com/MuslimaniIdealM/" class="fab fa-facebook-square"></a>
-                    <a href="https://t.me/muslimani_ideal" class="fab fa-telegram-plane"></a>
+                    <a href="https://t.me/MuslimaniIdeal" class="fab fa-telegram-plane"></a>
                     <a href="https://www.instagram.com/muslimani_ideal/" class="fab fa-instagram"></a>
                     <a href="https://www.tiktok.com/@muslimani_ideal"><i
                         class="fab fa-tiktok"></i></a>

@@ -90,7 +90,7 @@
                             @csrf
 
                             <div class="col-lg-12">
-                                <label for="telegram" class="col-md-12 col-form-label"><a href="https://t.me/muslimani_ideal">Add telegram</a></label></label>
+                                <label for="telegram" class="col-md-12 col-form-label"><a href="https://t.me/MuslimaniIdeal">Add telegram</a></label></label>
                                 <input id="telegram" type="number" name="telegram"
                                     class="form-control @error('telegram') is-invalid @enderror"
                                     value="{{ old('telegram') }}" autocomplete="telegram">

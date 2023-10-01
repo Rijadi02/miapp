@@ -272,4 +272,9 @@ class HomeController extends Controller
         return view('sinqeriteti');
     }
 
+    public function article_views(){
+
+        return $articles = Article::where('id', '>' , 0)->sum('counter');
+    }
+
 }

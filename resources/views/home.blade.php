@@ -589,7 +589,7 @@
                                 <h2>Bashkohu me ne në Telegram</h2>
                             </div>
                             <div class="book-now__right">
-                                <a href="https://t.me/muslimani_ideal" class="thm-btn book-now__btn">Kanali në Telegram</a>
+                                <a href="https://t.me/MuslimaniIdeal" class="thm-btn book-now__btn">Kanali në Telegram</a>
                             </div>
                         </div>
                     </div>
