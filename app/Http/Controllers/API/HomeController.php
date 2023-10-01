@@ -157,8 +157,6 @@ class HomeController extends Controller
 
         $blogs = Blog::where('id', '>' , 0)->sum('counter');
 
-        $blogs = 100;
-
         $shtadhetshi = (70 / 100) * $blogs;
 
         $mbetja = $shtadhetshi/2;
