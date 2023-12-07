@@ -16,6 +16,10 @@ class QuestionController extends Controller
         return view('questions');
     }
 
+    public function telegram_index(){
+        return view('questions');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
