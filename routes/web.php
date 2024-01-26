@@ -221,6 +221,13 @@ Route::get("/planifikuesi/dersi/29", function () {
     return redirect('https://www.youtube.com/watch?v=gmALDiWrSQc');
 });
 
+Route::get("/gfm", function () {
+    return redirect('https://www.gofundme.com/f/muslimani-ideal');
+});
+
+Route::get("/bmc", function () {
+    return redirect('https://www.buymeacoffee.com/muslimani.ideal');
+});
 
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'admin'], function () {
