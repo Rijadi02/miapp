@@ -154,6 +154,11 @@
                             <div class="nav-link-icon"><i class="fa fa-bell"></i></div>
                             Notifikimet
                         </a>
+
+                        <a class="nav-link" href="{{ route('index.with.answer') }}">
+                            <div class="nav-link-icon"><i class="fa fa-question"></i></div>
+                            Pyetjet
+                        </a>
                         {{-- <a class="nav-link" href="{{ route('brands.index') }}">
                             <div class="nav-link-icon"><i class="fas fa-copyright"></i></div>
                             Brands

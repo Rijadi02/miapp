@@ -331,4 +331,12 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
     Route::post('notification/add', [App\Http\Controllers\NotificationController::class, 'store'])->name('notification.add');
 
     Route::post('notification/send', [App\Http\Controllers\VideoController::class, 'notification'])->name('notification.send');
+
+    Route::get('index_with_answer', [App\Http\Controllers\QuestionController::class, 'index_with_answer'])->name('index.with.answer');
+    Route::post('store_with_answer', [App\Http\Controllers\QuestionController::class, 'store_with_answer'])->name('store.with.answer');
+    Route::post('edit_with_answer/{question}', [App\Http\Controllers\QuestionController::class, 'edit_with_answer'])->name('edit.with.answer');
+    Route::post('update_with_answer/{question}', [App\Http\Controllers\QuestionController::class, 'update_with_answer'])->name('update.with.answer');
+    Route::delete('questions/{question}', [App\Http\Controllers\QuestionController::class, 'destroy'])->name('question.destroy');
+    Route::patch('questions/{question}/update', [App\Http\Controllers\QuestionController::class, 'update'])->name('question.update');
+    Route::get('questions/{question}/edit',  [App\Http\Controllers\QuestionController::class, 'edit'])->name('question.edit');
 });

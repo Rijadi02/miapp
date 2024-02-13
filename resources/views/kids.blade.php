@@ -252,7 +252,7 @@
                                         <div class="col-8">
                                             <p>Kompjuter</br>
 
-                                               
+
 
                                                 Sistem zërimi</br>
 
@@ -264,7 +264,7 @@
                                         <div class="col-4">
                                             <p><strong>2500€</br>
 
-                                                    
+
 
                                                     520€</br>
 
@@ -280,9 +280,9 @@
 
                                         <a href="https://www.buymeacoffee.com/muslimani.ideal"><img
                                                 src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=muslimani.ideal&button_colour=FF5F5F&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00"></a>
-                                        
+
                                                 <h3 class="sidebar__title mt-5 mb-4">Për gurbetqarët</h3>
-                                                
+
 
                 <div class="gfm-embed" data-url="https://www.gofundme.com/f/muslimani-ideal/widget/medium/"></div>
                 <script defer src="https://www.gofundme.com/static/js/embed.js"></script>
@@ -290,10 +290,10 @@
                                             në rrjetet sociale!
 
                                           <div class="news-details__social-list">
-                                         
+
                                                 <a href="https://www.facebook.com/MuslimaniIdealM/"><i class="fab fa-facebook"></i></a>
-                                               
-                                                <a href="https://www.instagram.com/muslimani_ideal/"><i class="fab fa-instagram"></i></a>
+
+                                                <a href="https://www.instagram.com/muslimanii_ideal/"><i class="fab fa-instagram"></i></a>
                                             </div>
                                         </p>
 

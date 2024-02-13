@@ -13,10 +13,9 @@
                                         <line x1="3" y1="9" x2="21" y2="9"></line>
                                         <line x1="9" y1="21" x2="9" y2="9"></line>
                                     </svg></div>
-                                Media
+                                Pyetjet
                             </h1>
-                            <div class="page-header-subtitle">Këtu shtohen numri i njerzve qe e ndjekin MI-ne ne media te ndryshme, e qe do të vendosen në webfaqe dhe në
-                                applikacion.</div>
+                            <div class="page-header-subtitle">Këtu shtohen pyetjet dhe pergjigjiet nga hoxha.</div>
                         </div>
                     </div>
                 </div>
@@ -25,20 +24,19 @@
 
         <div class="container">
             <div class="card mb-5 mt-5">
-                <div class="card-header">Mediat</div>
+                <div class="card-header">Shto Pyetje</div>
                 <div class="card-body">
-                    @if (isset($media))
-                        <form method="POST" action="{{ route('media.update', $media->id) }}"
-                            enctype="multipart/form-data">
+                    @if (isset($question))
+                        <form method="POST" action="{{ route('update.with.answer', $question->id) }}" enctype="multipart/form-data">
                             @csrf
-                            @method('PATCH')
+                            @method('POST')
 
                             <div class="col-lg-12">
-                                <label for="telegram" class="col-md-12 col-form-label">Antaret e Telegram-it</label>
-                                <input id="telegram" type="number" name="telegram"
-                                    class="form-control @error('telegram') is-invalid @enderror"
-                                    value="{{ old('telegram') ?? $media->telegram }}" autocomplete="telegram">
-                                @error('telegram')
+                                <label for="question" class="col-md-12 col-form-label">Pyetja</label>
+                                <input id="question" type="text" name="question"
+                                    class="form-control @error('question') is-invalid @enderror"
+                                    value="{{ old('question') ?? $question->question }}" autocomplete="question">
+                                @error('question')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -46,11 +44,11 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <label for="facebook" class="col-md-12 col-form-label">Pelqimet ne Facebook</label>
-                                <input id="facebook" type="number" name="facebook"
-                                    class="form-control @error('facebook') is-invalid @enderror"
-                                    value="{{ old('facebook') ?? $media->facebook }}" autocomplete="facebook">
-                                @error('facebook')
+                                <label for="tags" class="col-md-12 col-form-label">Tags</label>
+                                <input id="tags" type="text" name="tags"
+                                    class="form-control @error('question') is-invalid @enderror"
+                                    value="{{ old('tags') ?? $question->tags }}" autocomplete="tags">
+                                @error('tags')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -58,11 +56,10 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <label for="instagram" class="col-md-12 col-form-label">Ndjekësti ne Instagram</label>
-                                <input id="instagram" type="number" name="instagram"
-                                    class="form-control @error('instagram') is-invalid @enderror"
-                                    value="{{ old('instagram') ?? $media->instagram }}" autocomplete="instagram">
-                                @error('instagram')
+                                <label for="answer" class="col-md-12 col-form-label">Shkrimi i pergjigjies</label>
+                                <textarea id="answer" name="answer"
+                                    class="form-control @error('answer') is-invalid @enderror">{{ $question->answer }}</textarea>
+                                @error('answer')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -70,31 +67,35 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <label for="youtube" class="col-md-12 col-form-label">Abonimet ne Youtube</label>
-                                <input id="youtube" type="number" name="youtube"
-                                    class="form-control @error('youtube') is-invalid @enderror"
-                                    value="{{ old('youtube') ?? $media->youtube }}" autocomplete="youtube">
-                                @error('youtube')
+                                <label for="status" class="col-md-12 col-form-label">Statusi</label>
+                                <select name="status" id="status" class="form-control @error('status') is-invalid @enderror"
+                                    value="{{ old('status') }}">
+                                    <option {{ $question->status == '0' ? 'selected' : '' }} value="0">Pasive</option>
+                                    <option {{ $question->status == '1' ? 'selected' : '' }} value="1">E pergjigjur</option>
+                                    <option {{ $question->status == '2' ? 'selected' : '' }} value="2">Web</option>
+                                </select> @error('status')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
+
+
                             <div class="form-group mt-3">
                                 <button type="submit" class="btn btn-primary">Përditëso</button>
                         </form>
 
                     @else
 
-                        <form method="POST" action="{{ route('media.store') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('store.with.answer') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="col-lg-12">
-                                <label for="telegram" class="col-md-12 col-form-label"><a href="https://t.me/MuslimaniIdeal">Add telegram</a></label></label>
-                                <input id="telegram" type="number" name="telegram"
-                                    class="form-control @error('telegram') is-invalid @enderror"
-                                    value="{{ old('telegram') }}" autocomplete="telegram">
-                                @error('telegram')
+                                <label for="question" class="col-md-12 col-form-label">Pyetja</label>
+                                <input id="question" type="text" name="question"
+                                    class="form-control @error('question') is-invalid @enderror" value="{{ old('question') }}"
+                                    autocomplete="question">
+                                @error('question')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -102,42 +103,49 @@
                             </div>
 
                             <div class="col-lg-12">
-                                <label for="facebook" class="col-md-12 col-form-label">Add facebook</label>
-                                <input id="facebook" type="number" name="facebook"
-                                    class="form-control @error('facebook') is-invalid @enderror"
-                                    value="{{ old('facebook') }}" autocomplete="facebook">
-                                @error('facebook')
+                                <label for="tags" class="col-md-12 col-form-label">Tags</label>
+                                <input id="tags" type="text" name="tags"
+                                    class="form-control @error('tags') is-invalid @enderror" value="{{ old('tags') }}"
+                                    autocomplete="tags">
+                                @error('tags')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
 
+
                             <div class="col-lg-12">
-                                <label for="instagram" class="col-md-12 col-form-label"><a href="https://www.instagram.com/muslimanii_ideal/?__a=1"> Add instagram</a></label>
-                                <input id="instagram" type="number" name="instagram"
-                                    class="form-control @error('instagram') is-invalid @enderror"
-                                    value="{{ old('instagram') }}" autocomplete="instagram">
-                                @error('instagram')
+                                <label for="answer" class="col-md-12 col-form-label">Shkrimi i pergjigjies</label>
+                                <textarea id="answer" name="answer"
+                                    class="form-control @error('answer') is-invalid @enderror">{{ old('answer') }}</textarea>
+                                @error('answer')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
 
+
                             <div class="col-lg-12">
-                                <label for="youtube" class="col-md-12 col-form-label">Add youtube</label>
-                                <input id="youtube" type="number" name="youtube"
-                                    class="form-control @error('youtube') is-invalid @enderror"
-                                    value="{{ old('youtube') }}" autocomplete="youtube">
-                                @error('youtube')
+                                <label for="status" class="col-md-12 col-form-label">Statusi</label>
+                                <select name="status" id="status" class="form-control @error('status') is-invalid @enderror"
+                                    value="{{ old('status') }}">
+                                    <option value="0">Pasive</option>
+                                    <option value="1">E pergjigjur</option>
+                                    <option value="2" selected>Web</option>
+                                </select>
+
+                                @error('status')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
+
+
                             <div class="form-group mt-3">
-                                <button type="submit" class="btn btn-primary">Add</button>
+                                <button type="submit" class="btn btn-primary">Shto pyetje</button>
                         </form>
                     @endif
 
@@ -146,7 +154,7 @@
         </div>
 
         <div class="card">
-            <div class="card-header">Të gjitë mediat</div>
+            <div class="card-header">Të gjitë pyetjet</div>
             <div class="card-body">
                 <div class="datatable" style="overflow-x:auto;">
 
@@ -154,38 +162,38 @@
                         width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Telegram</th>
-                                <th>Facebook</th>
-                                <th>Instagram</th>
-                                <th>Youtube</th>
-                                <th>Modifikimet</th>
+                                <th>Pyetja</th>
+                                <th>Tags</th>
+                                <th>Counter</th>
+                                <th>Status</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>Telegram</th>
-                                <th>Facebook</th>
-                                <th>Instagram</th>
-                                <th>Youtube</th>
-                                <th>Modifikimet</th>
+                                <th>Pyetja</th>
+                                <th>Tags</th>
+                                <th>Counter</th>
+                                <th>Status</th>
+                                <th>Actions</th>
                             </tr>
                         </tfoot>
                         <tbody>
-                            @foreach ($medias as $media)
+                            @foreach ($questions as $question)
 
                                 <tr>
-                                    <td>{{ $media->telegram}}</td>
-                                    <td>{{ $media->facebook }}</td>
-                                    <td>{{ $media->instagram }}</td>
-                                    <td>{{ $media->youtube }}</td>
+                                    <td>{{ $question->question}}</td>
+                                    <td>{{ $question->tags }}</td>
+                                    <td>{{ $question->counter }}</td>
+                                    <td>{{ $question->status }}</td>
 
 
                                     <td>
                                         <a class="btn btn-datatable btn-icon btn-transparent-dark mr-2"
-                                            href="{{ route('media.edit', $media->id) }}"><i
+                                            href="{{ route('question.edit', $question->id) }}"><i
                                                 data-feather="edit"></i></a>
 
-                                        <div class="modal fade" id="exampleModal{{ $media->id }}" tabindex="-1"
+                                        <div class="modal fade" id="exampleModal{{ $question->id }}" tabindex="-1"
                                             role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
@@ -198,7 +206,7 @@
                                                     <div class="modal-footer"><button class="btn btn-secondary"
                                                             type="button" data-dismiss="modal">Mbyll</button>
                                                         <form method="POST"
-                                                            action="{{ route('media.destroy', $media->id) }}">
+                                                            action="{{ route('question.destroy', $question->id) }}">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button class="btn btn-danger" type="submit">Shlyej</button>
@@ -209,7 +217,7 @@
                                         </div>
 
                                         <button class="btn btn-datatable btn-icon btn-transparent-dark" type="submit"
-                                            data-toggle="modal" data-target="#exampleModal{{ $media->id }}"><i
+                                            data-toggle="modal" data-target="#exampleModal{{ $question->id }}"><i
                                                 data-feather="trash-2"></i></button>
 
 
@@ -227,7 +235,42 @@
             </div>
         </div>
 
+
+
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+        <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+        <script>
+            CKEDITOR.replace('answer');
+        </script>
+
+        <script>
+            $(function() {
+                // Multiple images preview with JavaScript
+                var multiImgPreview = function(input, imgPreviewPlaceholder) {
+
+                    if (input.files) {
+                        var filesAmount = input.files.length;
+
+                        for (i = 0; i < filesAmount; i++) {
+                            var reader = new FileReader();
+
+                            reader.onload = function(event) {
+                                $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(
+                                    imgPreviewPlaceholder);
+                            }
+
+                            reader.readAsDataURL(input.files[i]);
+                        }
+                    }
+
+                };
+
+                $('#images').on('change', function() {
+                    multiImgPreview(this, 'div.imgPreview');
+                });
+            });
+        </script>
 
     @endsection
 
