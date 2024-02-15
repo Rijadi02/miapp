@@ -229,6 +229,9 @@ Route::get("/bmc", function () {
     return redirect('https://www.buymeacoffee.com/muslimani.ideal');
 });
 
+Route::get("/konak", function () {
+    return redirect('https://maps.app.goo.gl/Te97nbneA76YpSt29');
+});
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'admin'], function () {
 
