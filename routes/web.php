@@ -94,32 +94,32 @@ Route::post('/pyetje/{question}/update', [App\Http\Controllers\QuestionControlle
 Route::delete('/pyetje/{question}/delete', [App\Http\Controllers\QuestionController::class, 'destroy'])->name('questions.delete');
 
 Route::get("/planifikuesi/dersi/1", function () {
-    return redirect('https://www.youtube.com/watch?v=Lm--2qhyoYg');
+    return redirect('https://youtu.be/ftO1y6ayQmw');
 });
 
 Route::get("/planifikuesi/dersi/2", function () {
-    return redirect('https://www.youtube.com/watch?v=00vqk49RF_I');
+    return redirect('https://youtu.be/KKkppln4GwI');
 });
 
 Route::get("/planifikuesi/dersi/3", function () {
-    return redirect('https://youtu.be/qjGCliuMIso');
+    return redirect('https://youtu.be/kQp66y1i9PQ');
 });
 
 Route::get("/planifikuesi/dersi/4", function () {
-    return redirect('https://www.youtube.com/watch?v=xIcDiGKginM');
+    return redirect('https://youtu.be/4ustuDtxX-k');
 });
 
 Route::get("/planifikuesi/dersi/5", function () {
-    return redirect('https://youtu.be/00vqk49RF_I');
+    return redirect('https://youtu.be/NaxtsN0spw4');
 });
 
 Route::get("/planifikuesi/dersi/6", function () {
-    return redirect('https://www.youtube.com/watch?v=9kOVlXFXUs0');
+    return redirect('https://youtu.be/-i_XYb5V-f8');
 });
 
 
 Route::get("/planifikuesi/dersi/7", function () {
-    return redirect('https://www.youtube.com/watch?v=MAbh_X568kA');
+    return redirect('https://youtu.be/4d1TMGX29hU');
 });
 
 Route::get("/planifikuesi/dersi/31", function () {
@@ -127,98 +127,98 @@ Route::get("/planifikuesi/dersi/31", function () {
 });
 
 Route::get("/planifikuesi/dersi/8", function () {
-    return redirect('https://www.youtube.com/watch?v=ptd_59m36T0');
+    return redirect('https://youtu.be/ev0niScq7PE');
 });
 
 Route::get("/planifikuesi/dersi/9", function () {
-    return redirect('https://youtu.be/2wt3aO2T-bk');
+    return redirect('https://youtu.be/aQsnA7GV6uI');
 });
 
 Route::get("/planifikuesi/dersi/10", function () {
-    return redirect('https://youtu.be/sFMYKsXahIk');
+    return redirect('https://youtu.be/HsDEZHsM3T0');
 });
 
 Route::get("/planifikuesi/dersi/11", function () {
-    return redirect('https://youtu.be/9SFcY6CLoOM');
+    return redirect('https://youtu.be/Z5LFneDkeQk');
 });
 
 Route::get("/planifikuesi/dersi/12", function () {
-    return redirect('https://youtu.be/BCNJFm1DnxI');
+    return redirect('https://youtu.be/_i0ZE9lQWmI');
 });
 
 Route::get("/planifikuesi/dersi/13", function () {
-    return redirect('https://youtu.be/qkkdUfah6jU');
+    return redirect('https://youtu.be/qhYVdJUkuWM');
 });
 
 Route::get("/planifikuesi/dersi/14", function () {
-    return redirect('https://youtu.be/klN9bJ-rgzo');
+    return redirect('https://youtu.be/m7hQ-FejQZc');
 });
 
 Route::get("/planifikuesi/dersi/15", function () {
-    return redirect('https://www.youtube.com/watch?v=CrK-yyNRKFg');
+    return redirect('https://youtu.be/ReFIs3R-tBE');
 });
 
 Route::get("/planifikuesi/dersi/16", function () {
-    return redirect('https://www.youtube.com/watch?v=w-P4ENJpTXc');
+    return redirect('https://youtu.be/4dU_ACbSeq8');
 });
 
 Route::get("/planifikuesi/dersi/17", function () {
-    return redirect('https://www.youtube.com/watch?v=KsS9ke53xaI');
+    return redirect('https://youtu.be/_AEwfp8k8ws');
 });
 
 Route::get("/planifikuesi/dersi/18", function () {
-    return redirect('https://youtu.be/sAnEQGXClWw');
+    return redirect('https://youtu.be/qmS8ouI30-Q');
 });
 
 Route::get("/planifikuesi/dersi/19", function () {
-    return redirect('https://youtu.be/sbloCZGY36A');
+    return redirect('https://youtu.be/K0BcH2GWfW4');
 });
 
 
 Route::get("/planifikuesi/dersi/20", function () {
-    return redirect('https://youtu.be/9pRXtCvCbNk');
+    return redirect('https://youtu.be/GFpJSeFLosc');
 });
 
 Route::get("/planifikuesi/dersi/21", function () {
-    return redirect('https://youtu.be/-Xc38_EfEtQ');
+    return redirect('https://youtu.be/IZP_sq7PaTw');
 });
 
 Route::get("/planifikuesi/dersi/22", function () {
-    return redirect('https://youtu.be/qjGCliuMIso');
+    return redirect('https://youtu.be/ZNpN8R1GVes');
 });
 
 Route::get("/planifikuesi/dersi/23", function () {
-    return redirect('https://www.youtube.com/watch?v=NV6KVXd6PfQ');
+    return redirect('https://youtu.be/_pMI3hYVm28');
 });
 //namazi me xhemat
 Route::get("/planifikuesi/dersi/24", function () {
-    return redirect('https://www.youtube.com/watch?v=aS2dqzfgQ7Y');
+    return redirect('https://youtu.be/xyyWY25VGS8');
 });
 
 //mbulesa
 Route::get("/planifikuesi/dersi/30", function () {
-    return redirect('https://www.youtube.com/watch?v=v7NbOP9LR0Q');
+    return redirect('https://youtu.be/7dYCgvvP6wE');
 });
 
 Route::get("/planifikuesi/dersi/25", function () {
-    return redirect('https://www.youtube.com/watch?v=B7CRd3ljygA');
+    return redirect('https://youtu.be/mF4jerXW9bo');
 });
 
 //per naten e kadrit
 Route::get("/planifikuesi/dersi/26", function () {
-    return redirect('https://youtu.be/oCYjC9_L66U');
+    return redirect('https://youtu.be/k8bZPmKhUJM');
 });
 
 Route::get("/planifikuesi/dersi/27", function () {
-    return redirect('https://youtu.be/W7jSgCoXPno');
+    return redirect('https://youtu.be/lUBHC95md1w');
 });
 
 Route::get("/planifikuesi/dersi/28", function () {
-    return redirect('https://youtu.be/H7r7ahwMlKE');
+    return redirect('https://youtu.be/2oAAgGstuIA');
 });
 
 Route::get("/planifikuesi/dersi/29", function () {
-    return redirect('https://www.youtube.com/watch?v=gmALDiWrSQc');
+    return redirect('https://youtu.be/xc2oR_xncxw');
 });
 
 Route::get("/gfm", function () {
@@ -232,6 +232,11 @@ Route::get("/bmc", function () {
 Route::get("/konak", function () {
     return redirect('https://maps.app.goo.gl/Te97nbneA76YpSt29');
 });
+
+Route::get("/planifikuesi/nefsi", function () {
+    return redirect('https://www.youtube.com/watch?v=UJcNLzZaUiw');
+});
+
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'admin'], function () {
 
