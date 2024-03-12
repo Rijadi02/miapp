@@ -17,7 +17,7 @@ use App\Models\Promotion;
 use App\Models\Video;
 use App\Models\Chapter;
 use App\Models\Token;
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -79,7 +79,8 @@ class HomeController extends Controller
 
     public function promotions()
     {
-        $promotions = Promotion::whereDate('until', '<', Carbon::today())->get();
+        $currentDateTime = DB::raw('NOW()');
+        $promotions = Promotion::whereDate('until', '>=', $currentDateTime)->get();
         return PromotionResource::collection($promotions);
     }
 
