@@ -32,12 +32,15 @@ class HomeController extends Controller
         $last_video = VideoResourse::collection(Video::latest()->limit(1)->get());
         $videos = $last_video->merge($random_videos);
         $blogs = BlogsResourse::collection(Blog::where('tags', 'Aktive')->where('category',0)->inRandomOrder()->limit(5)->get());
+
+        $currentDateTime = DB::raw('NOW()');
+        $promotion = Promotion::whereDate('until', '>=', $currentDateTime)::inRandomOrder()->first();
         // $blogs->prepend(new BlogsResourse(Blog::findorfail(95)));
         return [
-            'ads' => PromotionResource::collection(Promotion::all()->random(3)),
             'videos' => $videos,
             'bussinesses' => AdResource::collection(Ad::latest()->take(5)->get()),
             'blogs' =>  $blogs,
+            'ad' => $promotion,
         ];
     }
 
