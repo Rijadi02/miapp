@@ -34,7 +34,7 @@ class HomeController extends Controller
         $blogs = BlogsResourse::collection(Blog::where('tags', 'Aktive')->where('category',0)->inRandomOrder()->limit(5)->get());
 
         $currentDateTime = DB::raw('NOW()');
-        $promotion = Promotion::whereDate('until', '>=', $currentDateTime)::inRandomOrder()->first();
+        $promotion = Promotion::whereDate('until', '>=', $currentDateTime)->inRandomOrder()->first();
         // $blogs->prepend(new BlogsResourse(Blog::findorfail(95)));
         return [
             'videos' => $videos,
