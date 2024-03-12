@@ -78,7 +78,8 @@ class HomeController extends Controller
 
     public function promotions()
     {
-        return PromotionResource::collection(Promotion::paginate(5));
+        $promotions = Promotion::whereDate('until', '<', Carbon::today())->get();
+        return PromotionResource::collection($promotions);
     }
 
     public function videos()
