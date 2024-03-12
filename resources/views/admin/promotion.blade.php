@@ -59,7 +59,7 @@
 
                             <div class="col-lg-12">
                                 <label for="until" class="col-md-12 col-form-label">Kohëzgjatja</label>
-                                <input id="until" type="date" name="until"
+                                <input id="until" type="datetime-local" name="until"
                                     class="form-control @error('until') is-invalid @enderror"
                                     value="{{ old('until') ?? $promotion->until }}" autocomplete="until">
                                 @error('until')
