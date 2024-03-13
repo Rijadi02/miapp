@@ -14,7 +14,7 @@ class PromotionController extends Controller
      */
     public function index()
     {
-        $promotions = Promotion::all();
+        $promotions = Promotion::orderBy('id','desc')->get();
         return view('admin/promotion', compact('promotions'));
     }
 
@@ -41,9 +41,9 @@ class PromotionController extends Controller
                 'name' => '',
                 'image' => 'required',
                 'until' => 'required',
-                'link' => 'required',
+                'link' => '',
                 'image' => 'required',
-
+                'status' => 'required',
             ]
         );
 
@@ -51,12 +51,11 @@ class PromotionController extends Controller
         $promotion->name = $data['name'];
         $promotion->until = $data['until'];
         $promotion->link = $data['link'];
+        $promotion->status = $data['status'];
 
         if (request('image')) {
             $inputs['image'] = request('image')->store('uploads', 'public');
             $promotion->image = $inputs['image'];
-        } else {
-            $promotion->image = 'null';
         }
 
         $promotion->save();
@@ -100,26 +99,25 @@ class PromotionController extends Controller
         $data = request()->validate(
             [
                 'name' => '',
-                'image' => 'required',
+                'image' => '',
                 'until' => 'required',
                 'link' => 'required',
                 'image' => '',
-
+                'status' => 'required'
             ]
         );
 
         $promotion->name = $data['name'];
         $promotion->until = $data['until'];
         $promotion->link = $data['link'];
+        $promotion->status = $data['status'];
 
         if (request('image')) {
             $inputs['image'] = request('image')->store('uploads', 'public');
             $promotion->image = $inputs['image'];
-        } else {
-            $promotion->image = 'null';
         }
 
-        $promotion->save();
+        $promotion->update();
 
         return redirect('/admin/promotions');
 

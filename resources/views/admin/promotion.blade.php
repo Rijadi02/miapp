@@ -81,6 +81,21 @@
                                     </span>
                                 @enderror
                             </div>
+
+                            <div class="col-lg-12">
+                                <label for="status" class="col-md-12 col-form-label">Statusi</label>
+                                <select name="status" id="status" class="form-control @error('status') is-invalid @enderror"
+                                    value="{{ old('status') }}">
+                                    <option {{ $promotion->status == '0' ? 'selected' : '' }} value="0">Pasive</option>
+                                    <option {{ $promotion->status == '1' ? 'selected' : '' }} value="1">Aktive</option>
+                                </select> @error('status')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+
                             <div class="form-group mt-3">
                                 <button type="submit" class="btn btn-primary">Përditëso reklamen</button>
                         </form>
@@ -118,7 +133,7 @@
 
                             <div class="col-lg-12">
                                 <label for="until" class="col-md-12 col-form-label">Kohëzgjatja</label>
-                                <input id="until" type="date" name="until"
+                                <input id="until" type="datetime-local" name="until"
                                     class="form-control @error('until') is-invalid @enderror"
                                     value="{{ old('until') }}" autocomplete="until">
                                 @error('until')
@@ -140,6 +155,22 @@
                                     </span>
                                 @enderror
                             </div>
+
+                            <div class="col-lg-12">
+                                <label for="status" class="col-md-12 col-form-label">Statusi</label>
+                                <select name="status" id="status" class="form-control @error('status') is-invalid @enderror"
+                                    value="{{ old('status') }}">
+                                    <option value="0">Pasive</option>
+                                    <option value="1">Aktive</option>
+                                </select>
+
+                                @error('status')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
                             <div class="form-group mt-3 ">
                                 <button type="submit" class="btn btn-primary ">Shto reklamen</button>
                         </form>
@@ -160,6 +191,8 @@
                                 <th>Emri</th>
                                 <th>Kohëzgjatja</th>
                                 <th>Linku</th>
+                                <th>Status</th>
+                                <th>Fotoja</th>
                                 <th>Modifikimet</th>
 
 
@@ -170,6 +203,8 @@
                                 <th>Emri</th>
                                 <th>Kohëzgjatja</th>
                                 <th>Linku</th>
+                                <th>Status</th>
+                                <th>Fotoja</th>
                                 <th>Modifikimet</th>
 
                             </tr>
@@ -182,6 +217,8 @@
                             <td>{{ $promotion->name }}</td>
                             <td>{{ $promotion->until }}</td>
                             <td>{{ $promotion->link }}</td>
+                            <td>{{ $promotion->status }}</td>
+                            <td><a href="/storage/{{ $promotion->image }}">Foto</a></td>
 
                             <td>
                                 <a class="btn btn-datatable btn-icon btn-transparent-dark mr-2"

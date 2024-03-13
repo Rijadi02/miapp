@@ -17,10 +17,10 @@ class Promotions extends Migration
             $table->increments('id');
             $table->string('name')->nullable();
             $table->string('image');
-            $table->date('until');
+            $table->datetime('until');
             // $table->integer('ad_id')->unsigned();
             // $table->foreign('ad_id')->references('id')->on("ads")->onDelete("cascade");
-            $table->string('link');
+            $table->string('link')->nullable();
 
             $table->timestamps();
         });
