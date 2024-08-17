@@ -347,4 +347,9 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
     Route::delete('questions/{question}', [App\Http\Controllers\QuestionController::class, 'destroy'])->name('question.destroy');
     Route::patch('questions/{question}/update', [App\Http\Controllers\QuestionController::class, 'update'])->name('question.update');
     Route::get('questions/{question}/edit',  [App\Http\Controllers\QuestionController::class, 'edit'])->name('question.edit');
+
+    Route::get('finance', [App\Http\Controllers\FinanceController::class, 'index'])->name('finance.index');
+    Route::get('sum', [App\Http\Controllers\FinanceController::class, 'sum'])->name('sum.index');
+    Route::post('finance/store', [App\Http\Controllers\FinanceController::class, 'store'])->name('finance.store');
+
 });
