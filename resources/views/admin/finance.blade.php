@@ -39,7 +39,7 @@
                                     <option value="Graniti">Graniti</option>
                                     <option value="Ardi">Ardi</option>
                                     <option value="Albani">Albani</option>
-
+                                    <option value="Eralbi">Eralbi</option>
                                 </select>
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">

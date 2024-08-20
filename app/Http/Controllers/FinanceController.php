@@ -32,7 +32,7 @@ class FinanceController extends Controller
     }
 
     public function sum(){
-        $names = ['Rijadi', 'Graniti', 'Ardi', 'Albani'];
+        $names = ['Rijadi', 'Graniti', 'Ardi', 'Albani', 'Eralbi'];
 
         $results = [];
 
