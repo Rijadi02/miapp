@@ -78,6 +78,7 @@
                                     value="{{ old('type') }}">
                                     <option value="Hyrje">Hyrje</option>
                                     <option value="Dalje">Dalje</option>
+                                    <option value="Premtuara">Premtuara</option>
 
                                 </select>
                                 @error('type')
