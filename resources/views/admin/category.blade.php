@@ -159,13 +159,13 @@
                                                 aria-label="Close"><span aria-hidden="true">×</span></button>
                                         </div>
                                         <div class="modal-body">Kjo to ta shlyej kategorinë dhe të gjitha të dhënat të asocuara me të si : Librat, Kapitujt e atyre librave dhe Konetenti</div>
-                                        <div class="modal-footer"><button class="btn btn-secondary" type="button"
+                                        {{-- <div class="modal-footer"><button class="btn btn-secondary" type="button"
                                                 data-dismiss="modal">Mbyll</button>
                                             <form method="POST" action="{{ route('category.destroy', $category->id) }}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button class="btn btn-danger" type="submit">Shlyej</button>
-                                        </div>
+                                        </div> --}}
                                         </form>
                                     </div>
                                 </div>

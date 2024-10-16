@@ -146,8 +146,8 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-        $book->delete();
-        session()->flash('book-deleted', 'Book deleted: ' . $book->name);
+        // $book->delete();
+        // session()->flash('book-deleted', 'Book deleted: ' . $book->name);
         return back();
     }
 }

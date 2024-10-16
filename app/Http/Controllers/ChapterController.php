@@ -132,8 +132,8 @@ class ChapterController extends Controller
      */
     public function destroy(Chapter $chapter)
     {
-        $chapter->delete();
-        session()->flash('chapter-deleted', 'Chapter deleted: ' . $chapter->name);
+        // $chapter->delete();
+        // session()->flash('chapter-deleted', 'Chapter deleted: ' . $chapter->name);
         return back();
     }
 }

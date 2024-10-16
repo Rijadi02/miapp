@@ -138,8 +138,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        $category->delete();
-        session()->flash('category-deleted', 'Category deleted: ' . $category->name);
+        // $category->delete();
+        // session()->flash('category-deleted', 'Category deleted: ' . $category->name);
         return back();
     }
 }
