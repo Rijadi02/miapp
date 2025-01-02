@@ -201,7 +201,11 @@ class HomeController extends Controller
     public function recitations()
     {
         $reciters = Reciter::all();
-        $recitations = Recitation::inRandomOrder()->limit(10)->get();
+        $recitations = Recitation::where('status', true)
+                                  ->inRandomOrder()
+                                  ->limit(10)
+                                  ->get();
+
         return view('recitations', compact('recitations', 'reciters'));
     }
 
@@ -209,7 +213,8 @@ class HomeController extends Controller
     {
         $reciters = Reciter::all();
         $reciter = Reciter::where('slug', '=', $slug)->firstOrFail();
-        $recitations = $reciter->recitations;
+        $recitations = $reciter->recitations()->where('status', true)->get();
+
         return view('recitations', compact('recitations', 'reciters'));
     }
 

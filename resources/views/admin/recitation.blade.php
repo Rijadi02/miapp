@@ -94,6 +94,20 @@
                                     </span>
                                 @enderror
                             </div>
+
+                            <div class="col-lg-12">
+                                <label for="status" class="col-md-12 col-form-label">Statusi</label>
+                                <select name="status" id="status" class="form-control @error('status') is-invalid @enderror"
+                                    value="{{ old('status') }}">
+                                    <option {{ $recitation->status == '0' ? 'selected' : '' }} value="0">Pasive</option>
+                                    <option {{ $recitation->status == '1' ? 'selected' : '' }} value="1">Aktive</option>
+                                </select> @error('status')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
                             <div class="form-group mt-3">
                                 <button type="submit" class="btn btn-primary">Përditëso</button>
                         </form>
@@ -162,6 +176,23 @@
                                     </span>
                                 @enderror
                             </div>
+
+                            <div class="col-lg-12">
+                                <label for="status" class="col-md-12 col-form-label">Statusi</label>
+                                <select name="status" id="status" class="form-control @error('status') is-invalid @enderror"
+                                    value="{{ old('status') }}">
+                                    <option value="0">Pasive</option>
+                                    <option selected value="1">Aktive</option>
+                                </select>
+
+                                @error('status')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+
                             <div class="form-group mt-3">
                                 <button type="submit" class="btn btn-primary">Shto recitim</button>
                         </form>

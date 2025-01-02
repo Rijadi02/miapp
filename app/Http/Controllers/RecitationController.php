@@ -42,6 +42,7 @@ class RecitationController extends Controller
                 'title' => 'required',
                 'surah' => 'required',
                 'ayahs' => 'required',
+                'status' => 'required',
                 'link' => '',
                 'audio' => '',
 
@@ -55,6 +56,7 @@ class RecitationController extends Controller
         $recitation->surah = $data['surah'];
         $recitation->ayahs = $data['ayahs'];
         $recitation->link = $data['link'];
+        $recitation->status = $data['status'];
 
         if (request('audio')) {
             $inputs['audio'] = request('audio')->store('uploads', 'public');
@@ -113,6 +115,7 @@ class RecitationController extends Controller
                 'title' => 'required',
                 'surah' => 'required',
                 'ayahs' => 'required',
+                'status' => 'required',
                 'link' => '',
                 'audio' => '',
 
@@ -123,6 +126,7 @@ class RecitationController extends Controller
         $recitation->surah = $data['surah'];
         $recitation->ayahs = $data['ayahs'];
         $recitation->link = $data['link'];
+        $recitation->status = $data['status'];
 
         if (request('audio')) {
             $inputs['audio'] = request('audio')->store('uploads', 'public');
@@ -140,7 +144,7 @@ class RecitationController extends Controller
         // }
 
         $reciter_id = $recitation->reciter_id;
-        return redirect('/admin/reciter/'.$reciter_id.'/recitations');
+        return redirect('/admin/reciter/' . $reciter_id . '/recitations');
     }
 
     /**
