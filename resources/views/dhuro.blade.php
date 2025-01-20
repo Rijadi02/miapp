@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Muslimani Ideal</title>
     <!-- favicons Icons -->
-    <link rel="apple-touch-icon" sizes="180x180"
-        href="{{ asset('assetsFront/images/favicons/apple-touch-icon.png') }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assetsFront/images/favicons/apple-touch-icon.png') }}" />
     <link rel="icon" type="image/png" sizes="32x32"
         href="{{ asset('assetsFront/images/favicons/favicon-32x32.png') }}" />
     <link rel="icon" type="image/png" sizes="16x16"
@@ -32,8 +31,7 @@
     <link rel="stylesheet" href="{{ asset('assetsFront/vendors/animate/custom-animate.css') }}" />
     <link rel="stylesheet" href="{{ asset('assetsFront/vendors/fontawesome/css/all.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assetsFront/vendors/jarallax/jarallax.css') }}" />
-    <link rel="stylesheet"
-        href="{{ asset('assetsFront/vendors/jquery-magnific-popup/jquery.magnific-popup.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assetsFront/vendors/jquery-magnific-popup/jquery.magnific-popup.css') }}" />
     <link rel="stylesheet" href="{{ asset('assetsFront/vendors/nouislider/nouislider.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assetsFront/vendors/nouislider/nouislider.pips.css') }}" />
     <link rel="stylesheet" href="{{ asset('assetsFront/vendors/odometer/odometer.min.css') }}" />
@@ -111,26 +109,35 @@
                                 </div>
                                 <p>Të gjitha paratë e mbledhura shkojnë për davet, në projektet e Muslimanit Ideal.</p>
                                 <h3 class="sidebar__title mt-4">Kontribo tani</h3>
-                                            <p class="mt-3 mb-3">Mos e pi një kafe, jepe n’davet!</p>
+                                <p class="mt-3 mb-3">Mos e pi një kafe, jepe n’davet!</p>
 
-                                            <a href="https://www.buymeacoffee.com/muslimani.ideal"><img
-                                                    src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=muslimani.ideal&button_colour=FF5F5F&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00"></a>
-
-                                                    <h3 class="sidebar__title mt-5 mb-4">Për gurbetqarët</h3>
+                                <a href="https://www.buymeacoffee.com/muslimani.ideal"><img
+                                        src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=muslimani.ideal&button_colour=FF5F5F&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00"></a>
 
 
-                    <div class="gfm-embed" data-url="https://www.gofundme.com/f/muslimani-ideal/widget/medium/"></div>
-                    <script defer src="https://www.gofundme.com/static/js/embed.js"></script>
-                                            <p class="mt-4 mx-1" style="opacity: 0.8">Për metoda të tjera, na kontaktoni
-                                                në rrjetet sociale!
+                                <h3 class="sidebar__title mt-4">Për krypto (TRC20):</h3>
+                                <h2 class="sidebar__title mt-4">TGbeKoFqjT1CCWzXhHBqoLxfcaZtZbUD94</h2>
 
-                                              <div class="news-details__social-list">
 
-                                                    <a href="https://www.facebook.com/MuslimaniIdealM/"><i class="fab fa-facebook"></i></a>
+                                <h3 class="sidebar__title mt-5 mb-4">Për gurbetqarët</h3>
 
-                                                    <a href="https://www.instagram.com/muslimanii_ideal/"><i class="fab fa-instagram"></i></a>
-                                                </div>
-                                            </p>
+                                <div class="gfm-embed"
+                                    data-url="https://www.gofundme.com/f/muslimani-ideal/widget/medium/"></div>
+
+                                <script defer src="https://www.gofundme.com/static/js/embed.js"></script>
+
+                                <p class="mt-4 mx-1" style="opacity: 0.8">Për metoda të tjera, na kontaktoni
+                                    në rrjetet sociale!
+
+                                <div class="news-details__social-list">
+
+                                    <a href="https://www.facebook.com/MuslimaniIdealM/"><i
+                                            class="fab fa-facebook"></i></a>
+
+                                    <a href="https://www.instagram.com/muslimanii_ideal/"><i
+                                            class="fab fa-instagram"></i></a>
+                                </div>
+                                </p>
 
                             </div>
                         </div>
