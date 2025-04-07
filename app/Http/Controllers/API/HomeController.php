@@ -31,7 +31,27 @@ class HomeController extends Controller
         $random_videos = VideoResourse::collection(Video::all()->random(4));
         $last_video = VideoResourse::collection(Video::latest()->limit(1)->get());
         $videos = $last_video->merge($random_videos);
-        $blogs = BlogsResourse::collection(Blog::where('tags', 'Aktive')->where('category',0)->inRandomOrder()->limit(5)->get());
+
+
+// Get the most recent blog post
+        $latestBlog = Blog::where('tags', 'Aktive')
+            ->where('category', 0)
+            ->orderBy('updated_at', 'desc')
+            ->first();
+
+        // Get 4 random blogs excluding the most recent one
+        $otherBlogs = Blog::where('tags', 'Aktive')
+            ->where('category', 0)
+            ->where('id', '<>', $latestBlog->id)
+            ->inRandomOrder()
+            ->limit(4)
+            ->get();
+
+        // Merge the latest blog at the beginning
+        $blogsCollection = collect([$latestBlog])->merge($otherBlogs);
+
+        // Wrap the collection with your blogs resource
+        $blogs = BlogsResourse::collection($blogsCollection);
 
         $currentDateTime = DB::raw('NOW()');
         $promotion = Promotion::whereDate('until', '>=', $currentDateTime)->inRandomOrder()->first();
