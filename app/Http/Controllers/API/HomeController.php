@@ -33,22 +33,23 @@ class HomeController extends Controller
         $videos = $last_video->merge($random_videos);
 
 
-// Get the most recent blog post
-        $latestBlog = Blog::where('tags', 'Aktive')
+// Get the 3 most recent blog posts
+        $latestBlogs = Blog::where('tags', 'Aktive')
             ->where('category', 0)
             ->orderBy('updated_at', 'desc')
-            ->first();
-
-        // Get 4 random blogs excluding the most recent one
-        $otherBlogs = Blog::where('tags', 'Aktive')
-            ->where('category', 0)
-            ->where('id', '<>', $latestBlog->id)
-            ->inRandomOrder()
-            ->limit(4)
+            ->limit(3)
             ->get();
 
-        // Merge the latest blog at the beginning
-        $blogsCollection = collect([$latestBlog])->merge($otherBlogs);
+        // Get 4 random blogs excluding the most recent ones
+        $otherBlogs = Blog::where('tags', 'Aktive')
+            ->where('category', 0)
+            ->whereNotIn('id', $latestBlogs->pluck('id'))
+            ->inRandomOrder()
+            ->limit(2)
+            ->get();
+
+        // Merge the latest blogs at the beginning
+        $blogsCollection = $latestBlogs->merge($otherBlogs);
 
         // Wrap the collection with your blogs resource
         $blogs = BlogsResourse::collection($blogsCollection);
