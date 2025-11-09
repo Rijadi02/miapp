@@ -29,8 +29,8 @@ class DashboardController extends Controller
             'contents_count' => Content::count(),
         ];
 
-        // Get last 10 media entries for chart
-        $mediaData = Media::orderBy('created_at', 'desc')->take(10)->get()->reverse();
+        // Get all media entries for chart (ordered chronologically)
+        $mediaData = Media::orderBy('created_at', 'asc')->get();
 
         $chartData = [
             'labels' => [],

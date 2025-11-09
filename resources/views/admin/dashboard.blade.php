@@ -274,7 +274,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <i class="fas fa-chart-line mr-1"></i>
-                                Ndjekësit në Rrjetet Sociale - Rritja në kohë (10 më të fundit)
+                                Ndjekësit në Rrjetet Sociale - Rritja në kohë
                             </div>
                             <div class="card-body">
                                 <div style="position: relative; height: 400px; width: 100%;">
