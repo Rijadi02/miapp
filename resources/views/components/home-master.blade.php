@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Muslimani Ideal</title>
     <!-- favicons Icons -->
-    <link rel="apple-touch-icon" sizes="180x180"
-        href="{{ asset('assetsFront/images/favicons/apple-touch-icon.png') }}" />
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assetsFront/images/favicons/apple-touch-icon.png') }}" />
     <link rel="icon" type="image/png" sizes="32x32"
         href="{{ asset('assetsFront/images/favicons/favicon-32x32.png') }}" />
     <link rel="icon" type="image/png" sizes="16x16"
@@ -28,8 +27,7 @@
     <link rel="stylesheet" href="{{ asset('assetsFront/vendors/animate/custom-animate.css') }}" />
     <link rel="stylesheet" href="{{ asset('assetsFront/vendors/fontawesome/css/all.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assetsFront/vendors/jarallax/jarallax.css') }}" />
-    <link rel="stylesheet"
-        href="{{ asset('assetsFront/vendors/jquery-magnific-popup/jquery.magnific-popup.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assetsFront/vendors/jquery-magnific-popup/jquery.magnific-popup.css') }}" />
     <link rel="stylesheet" href="{{ asset('assetsFront/vendors/nouislider/nouislider.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('assetsFront/vendors/nouislider/nouislider.pips.css') }}" />
     <link rel="stylesheet" href="{{ asset('assetsFront/vendors/odometer/odometer.min.css') }}" />
@@ -112,8 +110,8 @@
                                     <a href="https://t.me/MuslimaniIdeal"><i class="fab fa-telegram-plane"></i></a>
                                     <a href="https://www.instagram.com/muslimanii_ideal/"><i
                                             class="fab fa-instagram"></i></a>
-                                            <a href="https://www.tiktok.com/@muslimani_ideal"><i
-                                                class="fab fa-tiktok"></i></a>
+                                    <a href="https://www.tiktok.com/@muslimani.ideal"><i
+                                            class="fab fa-tiktok"></i></a>
                                 </div>
                                 <div class="main-header__top-right-btn-box">
                                     <a href="javascript:void(0)"
@@ -131,7 +129,8 @@
                             <div class="main-menu-wrapper__left w-100 clearfix">
                                 <div class="main-menu-wrapper__logo">
                                     <a href="{{ route('home') }}"><img style="width: 115px"
-                                            src="{{ asset('assetsFront/images/resources/logo.png') }}" alt=""></a>
+                                            src="{{ asset('assetsFront/images/resources/logo.png') }}"
+                                            alt=""></a>
                                 </div>
                                 <div class="main-menu-wrapper__main-menu" style="float: right">
                                     <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
@@ -223,8 +222,7 @@
                             <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
                                 <div class="footer-widget__column footer-widget__newsletter">
                                     <h3 class="footer-widget__title">One Hadith Web-i dhe Extension</h3>
-                                    <form class="footer-widget__newsletter-form mc-form"
-                                        data-url="">
+                                    <form class="footer-widget__newsletter-form mc-form" data-url="">
                                         <div class="footer-widget__newsletter-input-box">
                                             <a href="https://onehadith.org/" class="about-one__btn thm-btn">One
                                                 Hadith Web</a>
@@ -251,11 +249,12 @@
                                                 class="fab fa-youtube"></i></a>
                                         <a href="https://www.facebook.com/MuslimaniIdealM/"><i
                                                 class="fab fa-facebook"></i></a>
-                                        <a href="https://t.me/MuslimaniIdeal"><i class="fab fa-telegram-plane"></i></a>
+                                        <a href="https://t.me/MuslimaniIdeal"><i
+                                                class="fab fa-telegram-plane"></i></a>
                                         <a href="https://www.instagram.com/muslimanii_ideal/"><i
                                                 class="fab fa-instagram"></i></a>
-                                                <a href="https://www.tiktok.com/@muslimani_ideal"><i
-                                                    class="fab fa-tiktok"></i></a>
+                                        <a href="https://www.tiktok.com/@muslimani.ideal"><i
+                                                class="fab fa-tiktok"></i></a>
                                     </div>
                                 </div>
                                 <div class="site-footer__bottom-right">
@@ -287,7 +286,8 @@
 
             <div class="logo-box">
                 <a href="index.html" aria-label="logo image"><img style="width: 115px"
-                        src="{{ asset('assetsFront/images/resources/logo-2.png') }}" width="155" alt="" /></a>
+                        src="{{ asset('assetsFront/images/resources/logo-2.png') }}" width="155"
+                        alt="" /></a>
             </div>
             <!-- /.logo-box -->
             <div class="mobile-nav__container"></div>
@@ -309,8 +309,7 @@
                     <a href="https://www.facebook.com/MuslimaniIdealM/" class="fab fa-facebook-square"></a>
                     <a href="https://t.me/MuslimaniIdeal" class="fab fa-telegram-plane"></a>
                     <a href="https://www.instagram.com/muslimanii_ideal/" class="fab fa-instagram"></a>
-                    <a href="https://www.tiktok.com/@muslimani_ideal"><i
-                        class="fab fa-tiktok"></i></a>
+                    <a href="https://www.tiktok.com/@muslimani.ideal"><i class="fab fa-tiktok"></i></a>
                 </div><!-- /.mobile-nav__social -->
             </div><!-- /.mobile-nav__top -->
 
@@ -325,7 +324,8 @@
     <div class="search-popup">
         <div class="search-popup__overlay search-toggler"></div>
         <!-- /.search-popup__overlay -->
-        <div class="search-popup__content p-4 pt-5 p-md-5 card" style="max-width: 1280px; overflow: auto; max-height: 90vh">
+        <div class="search-popup__content p-4 pt-5 p-md-5 card"
+            style="max-width: 1280px; overflow: auto; max-height: 90vh">
             <div class="row ">
 
                 <div class="news-details__content col-lg-6">
@@ -357,7 +357,8 @@
                     <h1 class="news-details__title  mb-4">Për gurbetqarët</h1>
 
                     <div class="gfm-embed" data-url="https://www.gofundme.com/f/muslimani-ideal/widget/large/">
-                    </div><script defer src="https://www.gofundme.com/static/js/embed.js"></script>
+                    </div>
+                    <script defer src="https://www.gofundme.com/static/js/embed.js"></script>
 
 
                 </div>

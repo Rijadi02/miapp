@@ -108,6 +108,8 @@ Route::get("/konak", function () {
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'admin'], function () {
 
+    Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
+
     Route::get('categories', [App\Http\Controllers\CategoryController::class, 'index'])->name('category.index');
     Route::post('categories/store', [App\Http\Controllers\CategoryController::class, 'store'])->name('category.store');
     Route::delete('categories/{category}', [App\Http\Controllers\CategoryController::class, 'destroy'])->name('category.destroy');
@@ -219,5 +221,4 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
     Route::get('finance', [App\Http\Controllers\FinanceController::class, 'index'])->name('finance.index');
     Route::get('sum', [App\Http\Controllers\FinanceController::class, 'sum'])->name('sum.index');
     Route::post('finance/store', [App\Http\Controllers\FinanceController::class, 'store'])->name('finance.store');
-
 });

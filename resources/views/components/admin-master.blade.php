@@ -28,8 +28,8 @@
 <body class="nav-fixed">
     <nav class="topnav navbar navbar-expand shadow navbar-light bg-white" id="sidenavAccordion">
         <a class="navbar-brand" href="index.html">Muslimani Ideal</a>
-        <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle" href="#"><i
-                data-feather="menu"></i></button>
+        <button class="btn btn-icon btn-transparent-dark order-1 order-lg-0 mr-lg-2" id="sidebarToggle"
+            href="#"><i data-feather="menu"></i></button>
         {{-- <form class="form-inline mr-auto d-none d-md-block">
                 <div class="input-group input-group-joined input-group-solid">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
@@ -40,8 +40,9 @@
             </form> --}}
         <ul class="navbar-nav align-items-center ml-auto">
             <li class="nav-item dropdown no-caret mr-3 d-md-none">
-                <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="searchDropdown" href="#" role="button"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i data-feather="search"></i></a>
+                <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="searchDropdown" href="#"
+                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                        data-feather="search"></i></a>
                 <!-- Dropdown - Search-->
                 <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--fade-in-up"
                     aria-labelledby="searchDropdown">
@@ -69,7 +70,7 @@
                             src="https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png" />
                         <div class="dropdown-user-details">
                             <div class="dropdown-user-details-name">{{ Auth::user()->name }}</div>
-                                <div class="dropdown-user-details-email">{{ Auth::user()->email }}</div>
+                            <div class="dropdown-user-details-email">{{ Auth::user()->email }}</div>
                         </div>
                     </h6>
                     <div class="dropdown-divider"></div>
@@ -95,6 +96,11 @@
                 <div class="sidenav-menu">
                     <div class="nav accordion" id="accordionSidenav">
                         <div class="sidenav-menu-heading">Nav</div>
+                        <a class="nav-link" href="{{ route('dashboard.index') }}">
+                            <div class="nav-link-icon"><i class="fas fa-chart-pie"></i></div>
+                            Dashboard
+                        </a>
+
                         <a class="nav-link" href="{{ route('category.index') }}">
                             <div class="nav-link-icon"><i class="fa fa-chart-line"></i></div>
                             Kategoritë
@@ -287,7 +293,8 @@
             <footer class="footer mt-auto footer-light">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-6 small">Copyright &copy; <a href="http://tachyondev.tech/"> Muslimani Ideal </a>
+                        <div class="col-md-6 small">Copyright &copy; <a href="http://tachyondev.tech/"> Muslimani
+                                Ideal </a>
                             <?php echo date('Y'); ?></div>
                         <div class="col-md-6 text-md-right small">
                             <a href="#!">Politikat e privatësisë</a>
