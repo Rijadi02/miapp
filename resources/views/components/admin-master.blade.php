@@ -165,6 +165,11 @@
                             <div class="nav-link-icon"><i class="fa fa-question"></i></div>
                             Pyetjet
                         </a>
+
+                        <a class="nav-link" href="{{ route('translation.index') }}">
+                            <div class="nav-link-icon"><i class="fas fa-language"></i></div>
+                            Përkthimet
+                        </a>
                         {{-- <a class="nav-link" href="{{ route('brands.index') }}">
                             <div class="nav-link-icon"><i class="fas fa-copyright"></i></div>
                             Brands

@@ -9,6 +9,7 @@ use App\Models\Promotion;
 use App\Models\Recitation;
 use App\Models\Content;
 use App\Models\Media;
+use App\Models\Translation;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -62,9 +63,37 @@ class DashboardController extends Controller
             ];
         }
 
-        $recentBlogs = Blog::orderBy('created_at', 'desc')->take(5)->get();
-        $recentQuestions = Question::orderBy('created_at', 'desc')->take(5)->get();
+        $translations = Translation::with(['versions' => function ($query) {
+            $query->orderBy('version_number', 'desc')->limit(1);
+        }])
+            ->orderBy('updated_at', 'desc')
+            ->get()
+            ->map(function ($translation) {
+                // Count letters without HTML tags
+                $textWithoutHtml = strip_tags($translation->albanian_text ?? '');
+                $letterCount = mb_strlen($textWithoutHtml);
 
-        return view('admin.dashboard', compact('stats', 'chartData', 'latestMedia', 'growthRates', 'recentBlogs', 'recentQuestions'));
+                // Get last saved timestamp (use latest version if exists, otherwise use translation updated_at)
+                $latestVersion = $translation->versions->first();
+                $lastSaved = $latestVersion
+                    ? $latestVersion->updated_at
+                    : $translation->updated_at;
+
+                // Get files
+                $arabicFiles = $translation->arabic_files ?? [];
+                $albanianFile = $translation->albanian_file;
+                $allFiles = array_merge($arabicFiles, $albanianFile ? [$albanianFile] : []);
+
+                return [
+                    'translator' => $translation->translator,
+                    'title' => $translation->title,
+                    'letter_count' => $letterCount,
+                    'last_saved' => $lastSaved,
+                    'files' => $allFiles,
+                    'code' => $translation->code,
+                ];
+            });
+
+        return view('admin.dashboard', compact('stats', 'chartData', 'latestMedia', 'growthRates', 'translations'));
     }
 }

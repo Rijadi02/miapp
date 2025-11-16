@@ -205,65 +205,49 @@
             </div>
 
             <div class="row">
-                <div class="col-xl-6 mb-4">
+                <div class="col-xl-12 mb-4">
                     <div class="card h-100">
                         <div class="card-header">
-                            <i class="fas fa-newspaper mr-1"></i>
-                            Blogjet më të fundit
+                            <i class="fas fa-language mr-1"></i>
+                            Përkthimet
                         </div>
                         <div class="card-body">
-                            <div class="list-group list-group-flush">
-                                @forelse($recentBlogs as $blog)
-                                    <div class="list-group-item">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h6 class="mb-1">{{ Str::limit($blog->title, 50) }}</h6>
-                                            <small class="text-muted">{{ $blog->created_at->format('d/m/Y') }}</small>
-                                        </div>
-                                        <small class="text-muted">
-                                            <i class="fas fa-eye"></i> {{ $blog->counter ?? 0 }} shikime
-                                        </small>
-                                    </div>
-                                @empty
-                                    <p class="text-muted">Nuk ka blogje ende.</p>
-                                @endforelse
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Përkthyesi</th>
+                                            <th>Emri i përkthimit</th>
+                                            <th>Numri i shkronjave</th>
+                                            <th>Koha e fundit e ruajtjes</th>
+                                            <th>Vizito</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @forelse($translations as $translation)
+                                            <tr>
+                                                <td>{{ $translation['translator'] }}</td>
+                                                <td>{{ $translation['title'] }}</td>
+                                                <td>{{ number_format($translation['letter_count']) }}</td>
+                                                <td>{{ $translation['last_saved'] ? $translation['last_saved']->format('d/m/Y H:i:s') : 'N/A' }}
+                                                </td>
+                                                <td>
+                                                    <a href="{{ route('translation.workspace', $translation['code']) }}"
+                                                        class="btn btn-sm btn-primary">
+                                                       Përkthimi
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        @empty
+                                            <tr>
+                                                <td colspan="5" class="text-center text-muted">Nuk ka përkthime ende.
+                                                </td>
+                                            </tr>
+                                        @endforelse
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                        @if ($recentBlogs->count() > 0)
-                            <div class="card-footer">
-                                <a class="small" href="{{ route('blog.index') }}">Shiko të gjitha →</a>
-                            </div>
-                        @endif
-                    </div>
-                </div>
-
-                <div class="col-xl-6 mb-4">
-                    <div class="card h-100">
-                        <div class="card-header">
-                            <i class="fas fa-question mr-1"></i>
-                            Pyetjet më të fundit
-                        </div>
-                        <div class="card-body">
-                            <div class="list-group list-group-flush">
-                                @forelse($recentQuestions as $question)
-                                    <div class="list-group-item">
-                                        <div class="d-flex w-100 justify-content-between">
-                                            <h6 class="mb-1">{{ Str::limit($question->question, 50) }}</h6>
-                                            <small class="text-muted">{{ $question->created_at->format('d/m/Y') }}</small>
-                                        </div>
-                                        <small class="text-muted">
-                                            {{ $question->name ?? 'Anonim' }}
-                                        </small>
-                                    </div>
-                                @empty
-                                    <p class="text-muted">Nuk ka pyetje ende.</p>
-                                @endforelse
-                            </div>
-                        </div>
-                        @if ($recentQuestions->count() > 0)
-                            <div class="card-footer">
-                                <a class="small" href="{{ route('index.with.answer') }}">Shiko të gjitha →</a>
-                            </div>
-                        @endif
                     </div>
                 </div>
             </div>

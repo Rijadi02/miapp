@@ -90,6 +90,15 @@ Route::post('/pyetje/store', [App\Http\Controllers\QuestionController::class, 's
 Route::get('/view/pyetje', [App\Http\Controllers\QuestionController::class, 'show'])->name('questions.show');
 Route::get('porosit/sinqeriteti', [App\Http\Controllers\HomeController::class, 'sinqeriteti'])->name('sinqeritei');
 
+// Translation Workspace Routes
+Route::get('/perkthim', [App\Http\Controllers\TranslationWorkspaceController::class, 'index'])->name('translation.entry');
+Route::post('/perkthim/validate', [App\Http\Controllers\TranslationWorkspaceController::class, 'validateCode'])->name('translation.validate');
+Route::get('/perkthim/workspace/{code}', [App\Http\Controllers\TranslationWorkspaceController::class, 'workspace'])->name('translation.workspace');
+Route::post('/perkthim/workspace/{code}/auto-save', [App\Http\Controllers\TranslationWorkspaceController::class, 'autoSave'])->name('translation.autosave');
+Route::get('/perkthim/workspace/{code}/version/{versionId}', [App\Http\Controllers\TranslationWorkspaceController::class, 'loadVersion'])->name('translation.version');
+Route::post('/perkthim/workspace/{code}/change-file', [App\Http\Controllers\TranslationWorkspaceController::class, 'changeArabicFile'])->name('translation.changefile');
+Route::post('/perkthim/workspace/{code}/upload-files', [App\Http\Controllers\TranslationWorkspaceController::class, 'uploadFiles'])->name('translation.uploadfiles');
+
 Route::post('/pyetje/{question}/update', [App\Http\Controllers\QuestionController::class, 'update'])->name('questions.update');
 Route::delete('/pyetje/{question}/delete', [App\Http\Controllers\QuestionController::class, 'destroy'])->name('questions.delete');
 
@@ -221,4 +230,10 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
     Route::get('finance', [App\Http\Controllers\FinanceController::class, 'index'])->name('finance.index');
     Route::get('sum', [App\Http\Controllers\FinanceController::class, 'sum'])->name('sum.index');
     Route::post('finance/store', [App\Http\Controllers\FinanceController::class, 'store'])->name('finance.store');
+
+    Route::get('translations', [App\Http\Controllers\TranslationController::class, 'index'])->name('translation.index');
+    Route::post('translations/store', [App\Http\Controllers\TranslationController::class, 'store'])->name('translation.store');
+    Route::delete('translations/{translation}', [App\Http\Controllers\TranslationController::class, 'destroy'])->name('translation.destroy');
+    Route::patch('translations/{translation}/update', [App\Http\Controllers\TranslationController::class, 'update'])->name('translation.update');
+    Route::get('translations/{translation}/edit',  [App\Http\Controllers\TranslationController::class, 'edit'])->name('translation.edit');
 });
