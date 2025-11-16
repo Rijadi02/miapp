@@ -234,7 +234,7 @@
                                                 <td>
                                                     <a href="{{ route('translation.workspace', $translation['code']) }}"
                                                         class="btn btn-sm btn-primary">
-                                                       Përkthimi
+                                                        Përkthimi
                                                     </a>
                                                 </td>
                                             </tr>

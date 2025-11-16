@@ -230,6 +230,9 @@
             <div class="panel-header">
                 <span><i class="fas fa-edit"></i> Përkthimi në Shqip</span>
                 <div>
+                    <button class="btn btn-sm btn-orange me-2" id="manualSaveBtn" onclick="manualSave()">
+                        <i class="fas fa-save"></i> Ruaj
+                    </button>
                     <span class="me-2" style="font-size: 12px; font-weight: normal;">
                         Versioni: <span
                             id="currentVersion">{{ $versions->first()->version_number ?? 'Fillestare' }}</span>
@@ -373,6 +376,11 @@
         const translationCode = '{{ $translation->code }}';
         const hasFiles = {{ $translation->arabic_files && count($translation->arabic_files) > 0 ? 'true' : 'false' }};
 
+        // Helper function to get plain text length
+        function getPlainTextLength(html) {
+            return html.replace(/<[^>]*>/g, '').trim().length;
+        }
+
         // Initialize CKEditor
         CKEDITOR.replace('albanian_text', {
             height: '100%',
@@ -455,11 +463,6 @@
                 resizeEditor();
             });
 
-            // Helper function to get plain text length
-            function getPlainTextLength(html) {
-                return html.replace(/<[^>]*>/g, '').trim().length;
-            }
-
             // Function to check and save if period was added
             function checkAndSave() {
                 if (isSaving) return; // Prevent duplicate saves
@@ -540,6 +543,57 @@
                 },
                 error: function(xhr) {
                     console.error('Auto-save failed:', xhr);
+                }
+            });
+        }
+
+        // Manual save function
+        function manualSave() {
+            if (!editor) {
+                alert('Editori nuk është gati ende. Ju lutem prisni pak.');
+                return;
+            }
+
+            const content = editor.getData();
+            const btn = $('#manualSaveBtn');
+
+            // Disable button and show loading state
+            btn.prop('disabled', true);
+            btn.html('<i class="fas fa-spinner fa-spin"></i> Duke ruajtur...');
+
+            $.ajax({
+                url: `/perkthim/workspace/${translationCode}/auto-save`,
+                method: 'POST',
+                data: {
+                    _token: $('meta[name="csrf-token"]').attr('content'),
+                    albanian_text: content
+                },
+                success: function(response) {
+                    if (response.success) {
+                        showSaveIndicator();
+                        // Update to show current saved version
+                        $('#currentVersion').text(response.version_number);
+
+                        // Add to version list in modal
+                        prependVersionToModal(response.version_number, response.created_at, response
+                            .version_id);
+
+                        // Update last content tracking
+                        lastContent = content;
+                        lastTextLength = getPlainTextLength(content);
+                    }
+
+                    // Re-enable button
+                    btn.prop('disabled', false);
+                    btn.html('<i class="fas fa-save"></i> Ruaj');
+                },
+                error: function(xhr) {
+                    console.error('Manual save failed:', xhr);
+                    alert('Gabim gjatë ruajtjes. Ju lutem provoni përsëri.');
+
+                    // Re-enable button
+                    btn.prop('disabled', false);
+                    btn.html('<i class="fas fa-save"></i> Ruaj');
                 }
             });
         }
