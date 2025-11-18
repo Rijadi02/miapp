@@ -449,14 +449,17 @@
             // Listen for period key press (keyCode 190)
             // Use contentDom to ensure editor is fully ready (important when plugins are loaded)
             editor.on('contentDom', function() {
+                console.log('contentDom event fired - attaching keydown listener');
                 var editable = editor.editable();
 
                 editable.on('keydown', function(evt) {
                     var domEvent = evt.data.$;
                     const keyCode = domEvent.keyCode || domEvent.which;
+                    console.log('keydown event - keyCode:', keyCode);
 
                     // Check if period (.) was pressed
                     if (keyCode === 190) {
+                        console.log('Period (.) key detected!');
                         // Clear any existing timeout
                         if (saveTimeout) {
                             clearTimeout(saveTimeout);
@@ -464,6 +467,7 @@
 
                         // Wait for the period to be inserted, then check and save
                         saveTimeout = setTimeout(function() {
+                            console.log('Timeout fired - calling checkAndSave');
                             checkAndSave();
                         }, 200);
                     } else {
@@ -480,9 +484,11 @@
             // Fallback: Also listen on editor level in case contentDom doesn't fire
             editor.on('key', function(evt) {
                 const keyCode = evt.data.keyCode;
+                console.log('editor key event - keyCode:', keyCode);
 
                 // Check if period (.) was pressed
                 if (keyCode === 190) {
+                    console.log('Period (.) key detected in editor key event!');
                     // Clear any existing timeout
                     if (saveTimeout) {
                         clearTimeout(saveTimeout);
@@ -490,6 +496,7 @@
 
                     // Wait for the period to be inserted, then check and save
                     saveTimeout = setTimeout(function() {
+                        console.log('Timeout fired from editor key event - calling checkAndSave');
                         checkAndSave();
                     }, 200);
                 }
@@ -539,17 +546,29 @@
 
             // Function to check and save if period was added
             function checkAndSave() {
-                if (isSaving) return; // Prevent duplicate saves
+                console.log('checkAndSave called');
+                console.log('isSaving:', isSaving);
+
+                if (isSaving) {
+                    console.log('Already saving, skipping...');
+                    return; // Prevent duplicate saves
+                }
 
                 const content = editor.getData();
                 const textContent = content.replace(/<[^>]*>/g, '').trim();
                 const currentTextLength = textContent.length;
 
+                console.log('Current text length:', currentTextLength);
+                console.log('Last text length:', lastTextLength);
+                console.log('Text ends with period:', textContent.slice(-1) === '.');
+
                 // Check if text length increased and ends with period
                 if (currentTextLength > lastTextLength && textContent.slice(-1) === '.') {
+                    console.log('Conditions met - text increased and ends with period');
                     const now = Date.now();
                     // Prevent saves within 500ms of each other
                     if (now - lastSaveTime > 500) {
+                        console.log('Time check passed, calling autoSave');
                         isSaving = true;
                         lastSaveTime = now;
 
@@ -561,9 +580,13 @@
                         // Reset saving flag after a delay
                         setTimeout(function() {
                             isSaving = false;
+                            console.log('isSaving reset to false');
                         }, 600);
+                    } else {
+                        console.log('Time check failed - too soon since last save');
                     }
                 } else {
+                    console.log('Conditions not met - updating tracking only');
                     lastTextLength = currentTextLength;
                     lastContent = content;
                 }
@@ -573,6 +596,7 @@
 
         // Auto-save function
         function autoSave(content) {
+            console.log('autoSave function called with content length:', content.length);
             $.ajax({
                 url: `/perkthim/workspace/${translationCode}/auto-save`,
                 method: 'POST',
@@ -581,6 +605,7 @@
                     albanian_text: content
                 },
                 success: function(response) {
+                    console.log('Auto-save success:', response);
                     if (response.success) {
                         showSaveIndicator();
                         // Update to show current saved version
