@@ -435,23 +435,43 @@
                 'r.a.e': 'رضي الله عنها'
             };
 
+            console.log('Shortcuts initialized:', shortcuts);
+
             // Function to check and replace shortcuts
             function checkAndReplaceShortcuts() {
+                console.log('=== checkAndReplaceShortcuts called ===');
                 try {
                     var selection = editor.getSelection();
-                    if (!selection) return;
+                    console.log('Selection:', selection);
+                    if (!selection) {
+                        console.log('No selection found');
+                        return;
+                    }
 
                     var ranges = selection.getRanges();
-                    if (!ranges || ranges.length === 0) return;
+                    console.log('Ranges:', ranges);
+                    if (!ranges || ranges.length === 0) {
+                        console.log('No ranges found');
+                        return;
+                    }
 
                     var range = ranges[0];
-                    if (!range) return;
+                    console.log('Range:', range);
+                    if (!range) {
+                        console.log('No range found');
+                        return;
+                    }
 
                     var textNode = range.startContainer;
-                    if (!textNode || textNode.type !== CKEDITOR.NODE_TEXT) return;
+                    console.log('Text node:', textNode, 'Type:', textNode ? textNode.type : 'null');
+                    if (!textNode || textNode.type !== CKEDITOR.NODE_TEXT) {
+                        console.log('Not a text node');
+                        return;
+                    }
 
                     var text = textNode.getText();
                     var cursorPos = range.startOffset;
+                    console.log('Text:', text, 'Cursor position:', cursorPos);
 
                     // Check for each shortcut
                     for (var shortcut in shortcuts) {
@@ -460,8 +480,10 @@
 
                         if (startPos >= 0) {
                             var precedingText = text.substring(startPos, cursorPos);
+                            console.log('Checking shortcut:', shortcut, 'Preceding text:', precedingText);
 
                             if (precedingText === shortcut) {
+                                console.log('MATCH FOUND! Replacing:', shortcut, 'with:', shortcuts[shortcut]);
                                 // Replace the shortcut with the replacement text
                                 var replacement = shortcuts[shortcut];
                                 var newText = text.substring(0, startPos) + replacement + text.substring(cursorPos);
@@ -473,6 +495,7 @@
                                 range.setEnd(textNode, startPos + replacement.length);
                                 selection.selectRanges([range]);
 
+                                console.log('Replacement complete');
                                 break;
                             }
                         }
@@ -485,9 +508,11 @@
             // Listen for space or enter key to trigger replacement
             editor.on('key', function(evt) {
                 var keyCode = evt.data.keyCode;
+                console.log('Key pressed, keyCode:', keyCode);
 
                 // Space (32) or Enter (13)
                 if (keyCode === 32 || keyCode === 13) {
+                    console.log('Space or Enter detected, checking for shortcuts...');
                     setTimeout(function() {
                         checkAndReplaceShortcuts();
                     }, 10);
