@@ -8,6 +8,7 @@
     <title>Hapësira e Përkthimit - {{ $translation->title }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.cdnfonts.com/css/kfgqpc-hafs-uthmanic-script" rel="stylesheet">
     <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
     <style>
         body {
@@ -216,6 +217,11 @@
             background: #fff3e0;
             border-left: 3px solid #f88922;
         }
+
+        /* Arabic font for CKEditor */
+        .cke_editable {
+            font-family: 'KFGQPC HAFS Uthmanic Script', sans-serif;
+        }
     </style>
 </head>
 
@@ -415,6 +421,11 @@
 
         CKEDITOR.instances.albanian_text.on('instanceReady', function() {
             editor = CKEDITOR.instances.albanian_text;
+
+            // Apply Arabic font to editor content
+            var editable = editor.editable();
+            editable.setStyle('font-family', '\'KFGQPC HAFS Uthmanic Script\', sans-serif');
+
             lastContent = editor.getData();
             let lastTextLength = getPlainTextLength(lastContent);
             let saveTimeout = null;
