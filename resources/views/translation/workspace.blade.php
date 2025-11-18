@@ -226,17 +226,8 @@
         /* Custom RTL/LTR button styles */
         .cke_button__rtl .cke_button_label,
         .cke_button__ltr .cke_button_label {
-            font-size: 12px;
-        }
-
-        .cke_button__rtl .cke_button_icon:before {
-            content: '⇐';
-            font-size: 16px;
-        }
-
-        .cke_button__ltr .cke_button_icon:before {
-            content: '⇒';
-            font-size: 16px;
+            font-size: 11px;
+            padding: 0 4px;
         }
     </style>
 </head>
@@ -430,23 +421,40 @@
                 // RTL Button
                 editor.addCommand('setRtl', {
                     exec: function(editor) {
-                        var selection = editor.getSelection();
-                        var ranges = selection.getRanges();
+                        try {
+                            var selection = editor.getSelection();
+                            if (!selection) return;
 
-                        for (var i = 0; i < ranges.length; i++) {
-                            var range = ranges[i];
-                            var paragraph = range.getCommonAncestor();
+                            var ranges = selection.getRanges();
+                            if (!ranges || ranges.length === 0) return;
 
-                            while (paragraph && paragraph.type === CKEDITOR.NODE_ELEMENT &&
-                                !paragraph.is('p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li',
-                                    'td', 'th')) {
-                                paragraph = paragraph.getParent();
+                            for (var i = 0; i < ranges.length; i++) {
+                                try {
+                                    var range = ranges[i];
+                                    if (!range) continue;
+
+                                    var paragraph = range.getCommonAncestor();
+                                    if (!paragraph) continue;
+
+                                    while (paragraph && paragraph.type === CKEDITOR.NODE_ELEMENT &&
+                                        !paragraph.is('p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5',
+                                            'h6', 'li',
+                                            'td', 'th')) {
+                                        paragraph = paragraph.getParent();
+                                        if (!paragraph) break;
+                                    }
+
+                                    if (paragraph && paragraph.type === CKEDITOR.NODE_ELEMENT) {
+                                        paragraph.setStyle('direction', 'rtl');
+                                        paragraph.setStyle('text-align', 'right');
+                                    }
+                                } catch (e) {
+                                    console.error('Error in setRtl command:', e);
+                                    continue;
+                                }
                             }
-
-                            if (paragraph && paragraph.type === CKEDITOR.NODE_ELEMENT) {
-                                paragraph.setStyle('direction', 'rtl');
-                                paragraph.setStyle('text-align', 'right');
-                            }
+                        } catch (e) {
+                            console.error('Error in setRtl command:', e);
                         }
                     }
                 });
@@ -454,65 +462,56 @@
                 // LTR Button
                 editor.addCommand('setLtr', {
                     exec: function(editor) {
-                        var selection = editor.getSelection();
-                        var ranges = selection.getRanges();
+                        try {
+                            var selection = editor.getSelection();
+                            if (!selection) return;
 
-                        for (var i = 0; i < ranges.length; i++) {
-                            var range = ranges[i];
-                            var paragraph = range.getCommonAncestor();
+                            var ranges = selection.getRanges();
+                            if (!ranges || ranges.length === 0) return;
 
-                            while (paragraph && paragraph.type === CKEDITOR.NODE_ELEMENT &&
-                                !paragraph.is('p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li',
-                                    'td', 'th')) {
-                                paragraph = paragraph.getParent();
+                            for (var i = 0; i < ranges.length; i++) {
+                                try {
+                                    var range = ranges[i];
+                                    if (!range) continue;
+
+                                    var paragraph = range.getCommonAncestor();
+                                    if (!paragraph) continue;
+
+                                    while (paragraph && paragraph.type === CKEDITOR.NODE_ELEMENT &&
+                                        !paragraph.is('p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5',
+                                            'h6', 'li',
+                                            'td', 'th')) {
+                                        paragraph = paragraph.getParent();
+                                        if (!paragraph) break;
+                                    }
+
+                                    if (paragraph && paragraph.type === CKEDITOR.NODE_ELEMENT) {
+                                        paragraph.setStyle('direction', 'ltr');
+                                        paragraph.setStyle('text-align', 'left');
+                                    }
+                                } catch (e) {
+                                    console.error('Error in setLtr command:', e);
+                                    continue;
+                                }
                             }
-
-                            if (paragraph && paragraph.type === CKEDITOR.NODE_ELEMENT) {
-                                paragraph.setStyle('direction', 'ltr');
-                                paragraph.setStyle('text-align', 'left');
-                            }
+                        } catch (e) {
+                            console.error('Error in setLtr command:', e);
                         }
                     }
                 });
 
-                // RTL Button with icon
+                // RTL Button
                 editor.ui.addButton('Rtl', {
-                    label: 'Right to Left (RTL)',
+                    label: 'RTL',
                     command: 'setRtl',
                     toolbar: 'paragraph'
                 });
 
-                // LTR Button with icon
+                // LTR Button
                 editor.ui.addButton('Ltr', {
-                    label: 'Left to Right (LTR)',
+                    label: 'LTR',
                     command: 'setLtr',
                     toolbar: 'paragraph'
-                });
-
-                // Add icons using CSS
-                editor.on('uiReady', function() {
-                    var rtlButton = editor.ui.get('Rtl');
-                    var ltrButton = editor.ui.get('Ltr');
-
-                    if (rtlButton) {
-                        var rtlElement = rtlButton.getElement();
-                        if (rtlElement) {
-                            var icon = rtlElement.findOne('.cke_button_icon');
-                            if (icon) {
-                                icon.setHtml('⇐');
-                            }
-                        }
-                    }
-
-                    if (ltrButton) {
-                        var ltrElement = ltrButton.getElement();
-                        if (ltrElement) {
-                            var icon = ltrElement.findOne('.cke_button_icon');
-                            if (icon) {
-                                icon.setHtml('⇒');
-                            }
-                        }
-                    }
                 });
             }
         });
@@ -559,71 +558,100 @@
 
             // Function to auto-detect and set text direction based on first character
             function autoDetectDirection() {
-                var selection = editor.getSelection();
-                var range = selection.getRanges()[0];
+                try {
+                    var selection = editor.getSelection();
+                    if (!selection) return;
 
-                if (!range) return;
+                    var ranges = selection.getRanges();
+                    if (!ranges || ranges.length === 0) return;
 
-                // Get the paragraph element
-                var paragraph = range.getCommonAncestor();
-                while (paragraph && paragraph.type === CKEDITOR.NODE_ELEMENT &&
-                    !paragraph.is('p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li')) {
-                    paragraph = paragraph.getParent();
-                }
+                    var range = ranges[0];
+                    if (!range) return;
 
-                if (paragraph && paragraph.type === CKEDITOR.NODE_ELEMENT) {
-                    var firstChar = getFirstCharInParagraph(paragraph);
+                    // Get the paragraph element
+                    var paragraph = range.getCommonAncestor();
+                    if (!paragraph) return;
 
-                    if (firstChar && isArabicChar(firstChar)) {
-                        // Set RTL if first character is Arabic
-                        paragraph.setStyle('direction', 'rtl');
-                        paragraph.setStyle('text-align', 'right');
-                    } else if (firstChar && /[a-zA-Z0-9]/.test(firstChar)) {
-                        // Set LTR if first character is Latin/English
-                        paragraph.setStyle('direction', 'ltr');
-                        paragraph.setStyle('text-align', 'left');
+                    while (paragraph && paragraph.type === CKEDITOR.NODE_ELEMENT &&
+                        !paragraph.is('p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li')) {
+                        paragraph = paragraph.getParent();
+                        if (!paragraph) return;
                     }
+
+                    if (paragraph && paragraph.type === CKEDITOR.NODE_ELEMENT) {
+                        var firstChar = getFirstCharInParagraph(paragraph);
+
+                        if (firstChar && isArabicChar(firstChar)) {
+                            // Set RTL if first character is Arabic
+                            paragraph.setStyle('direction', 'rtl');
+                            paragraph.setStyle('text-align', 'right');
+                        } else if (firstChar && /[a-zA-Z0-9]/.test(firstChar)) {
+                            // Set LTR if first character is Latin/English
+                            paragraph.setStyle('direction', 'ltr');
+                            paragraph.setStyle('text-align', 'left');
+                        }
+                    }
+                } catch (e) {
+                    console.error('Error in autoDetectDirection:', e);
                 }
             }
 
-            // Listen for input events to auto-detect direction
+            // Listen for input events to auto-detect direction (only on printable characters)
             editor.on('key', function(evt) {
-                // Delay to allow the character to be inserted first
-                setTimeout(function() {
-                    autoDetectDirection();
-                }, 10);
+                var keyCode = evt.data.keyCode;
+                // Only detect on printable characters (not special keys)
+                if (keyCode >= 32 && keyCode <= 126 || keyCode >= 160) {
+                    // Delay to allow the character to be inserted first
+                    setTimeout(function() {
+                        autoDetectDirection();
+                    }, 50);
+                }
             });
 
             // Also detect on paste
             editor.on('paste', function() {
                 setTimeout(function() {
                     autoDetectDirection();
-                }, 100);
+                }, 150);
             });
 
             // Function to detect direction for all paragraphs in existing content
             function detectDirectionForAllParagraphs() {
-                var editable = editor.editable();
-                var paragraphs = editable.find('p, div, h1, h2, h3, h4, h5, h6, li');
+                try {
+                    var editable = editor.editable();
+                    if (!editable) return;
 
-                for (var i = 0; i < paragraphs.count(); i++) {
-                    var paragraph = paragraphs.getItem(i);
-                    var firstChar = getFirstCharInParagraph(paragraph);
+                    var paragraphs = editable.find('p, div, h1, h2, h3, h4, h5, h6, li');
+                    if (!paragraphs) return;
 
-                    if (firstChar && isArabicChar(firstChar)) {
-                        paragraph.setStyle('direction', 'rtl');
-                        paragraph.setStyle('text-align', 'right');
-                    } else if (firstChar && /[a-zA-Z0-9]/.test(firstChar)) {
-                        paragraph.setStyle('direction', 'ltr');
-                        paragraph.setStyle('text-align', 'left');
+                    for (var i = 0; i < paragraphs.count(); i++) {
+                        try {
+                            var paragraph = paragraphs.getItem(i);
+                            if (!paragraph) continue;
+
+                            var firstChar = getFirstCharInParagraph(paragraph);
+
+                            if (firstChar && isArabicChar(firstChar)) {
+                                paragraph.setStyle('direction', 'rtl');
+                                paragraph.setStyle('text-align', 'right');
+                            } else if (firstChar && /[a-zA-Z0-9]/.test(firstChar)) {
+                                paragraph.setStyle('direction', 'ltr');
+                                paragraph.setStyle('text-align', 'left');
+                            }
+                        } catch (e) {
+                            console.error('Error processing paragraph:', e);
+                            continue;
+                        }
                     }
+                } catch (e) {
+                    console.error('Error in detectDirectionForAllParagraphs:', e);
                 }
             }
 
             // Detect direction for all paragraphs when editor is ready
             setTimeout(function() {
                 detectDirectionForAllParagraphs();
-            }, 200);
+            }, 300);
 
             lastContent = editor.getData();
             let lastTextLength = getPlainTextLength(lastContent);
