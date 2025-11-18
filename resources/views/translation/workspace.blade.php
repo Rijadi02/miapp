@@ -222,13 +222,6 @@
         .cke_editable {
             font-family: 'KFGQPC HAFS Uthmanic Script', sans-serif;
         }
-
-        /* Custom RTL/LTR button styles */
-        .cke_button__rtl .cke_button_label,
-        .cke_button__ltr .cke_button_label {
-            font-size: 11px;
-            padding: 0 4px;
-        }
     </style>
 </head>
 
@@ -394,141 +387,18 @@
             return html.replace(/<[^>]*>/g, '').trim().length;
         }
 
-        // Function to check if a character is Arabic
-        function isArabicChar(char) {
-            return /[\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF\uFB50-\uFDFF\uFE70-\uFEFF]/.test(char);
-        }
-
-        // Function to get the first visible character in a paragraph
-        function getFirstCharInParagraph(element) {
-            if (!element) return '';
-
-            // Get all text content from the element
-            var text = element.getText();
-            text = text.trim();
-
-            // Return first character if available
-            if (text.length > 0) {
-                return text.charAt(0);
-            }
-
-            return '';
-        }
-
-        // Add custom RTL/LTR buttons
-        CKEDITOR.plugins.add('custombidi', {
-            init: function(editor) {
-                // RTL Button
-                editor.addCommand('setRtl', {
-                    exec: function(editor) {
-                        try {
-                            var selection = editor.getSelection();
-                            if (!selection) return;
-
-                            var ranges = selection.getRanges();
-                            if (!ranges || ranges.length === 0) return;
-
-                            for (var i = 0; i < ranges.length; i++) {
-                                try {
-                                    var range = ranges[i];
-                                    if (!range) continue;
-
-                                    var paragraph = range.getCommonAncestor();
-                                    if (!paragraph) continue;
-
-                                    while (paragraph && paragraph.type === CKEDITOR.NODE_ELEMENT &&
-                                        !paragraph.is('p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5',
-                                            'h6', 'li',
-                                            'td', 'th')) {
-                                        paragraph = paragraph.getParent();
-                                        if (!paragraph) break;
-                                    }
-
-                                    if (paragraph && paragraph.type === CKEDITOR.NODE_ELEMENT) {
-                                        paragraph.setStyle('direction', 'rtl');
-                                        paragraph.setStyle('text-align', 'right');
-                                    }
-                                } catch (e) {
-                                    console.error('Error in setRtl command:', e);
-                                    continue;
-                                }
-                            }
-                        } catch (e) {
-                            console.error('Error in setRtl command:', e);
-                        }
-                    }
-                });
-
-                // LTR Button
-                editor.addCommand('setLtr', {
-                    exec: function(editor) {
-                        try {
-                            var selection = editor.getSelection();
-                            if (!selection) return;
-
-                            var ranges = selection.getRanges();
-                            if (!ranges || ranges.length === 0) return;
-
-                            for (var i = 0; i < ranges.length; i++) {
-                                try {
-                                    var range = ranges[i];
-                                    if (!range) continue;
-
-                                    var paragraph = range.getCommonAncestor();
-                                    if (!paragraph) continue;
-
-                                    while (paragraph && paragraph.type === CKEDITOR.NODE_ELEMENT &&
-                                        !paragraph.is('p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5',
-                                            'h6', 'li',
-                                            'td', 'th')) {
-                                        paragraph = paragraph.getParent();
-                                        if (!paragraph) break;
-                                    }
-
-                                    if (paragraph && paragraph.type === CKEDITOR.NODE_ELEMENT) {
-                                        paragraph.setStyle('direction', 'ltr');
-                                        paragraph.setStyle('text-align', 'left');
-                                    }
-                                } catch (e) {
-                                    console.error('Error in setLtr command:', e);
-                                    continue;
-                                }
-                            }
-                        } catch (e) {
-                            console.error('Error in setLtr command:', e);
-                        }
-                    }
-                });
-
-                // RTL Button
-                editor.ui.addButton('Rtl', {
-                    label: 'RTL',
-                    command: 'setRtl',
-                    toolbar: 'paragraph'
-                });
-
-                // LTR Button
-                editor.ui.addButton('Ltr', {
-                    label: 'LTR',
-                    command: 'setLtr',
-                    toolbar: 'paragraph'
-                });
-            }
-        });
-
         // Initialize CKEditor
         CKEDITOR.replace('albanian_text', {
             height: '100%',
             resize_enabled: false,
             removePlugins: 'resize',
-            extraPlugins: 'custombidi',
             toolbar: [{
                     name: 'basicstyles',
                     items: ['Bold', 'Italic', 'Underline', 'Strike']
                 },
                 {
                     name: 'paragraph',
-                    items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Rtl', 'Ltr']
+                    items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent']
                 },
                 {
                     name: 'insert',
@@ -555,103 +425,6 @@
             // Apply Arabic font to editor content
             var editable = editor.editable();
             editable.setStyle('font-family', '\'KFGQPC HAFS Uthmanic Script\', sans-serif');
-
-            // Function to auto-detect and set text direction based on first character
-            function autoDetectDirection() {
-                try {
-                    var selection = editor.getSelection();
-                    if (!selection) return;
-
-                    var ranges = selection.getRanges();
-                    if (!ranges || ranges.length === 0) return;
-
-                    var range = ranges[0];
-                    if (!range) return;
-
-                    // Get the paragraph element
-                    var paragraph = range.getCommonAncestor();
-                    if (!paragraph) return;
-
-                    while (paragraph && paragraph.type === CKEDITOR.NODE_ELEMENT &&
-                        !paragraph.is('p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li')) {
-                        paragraph = paragraph.getParent();
-                        if (!paragraph) return;
-                    }
-
-                    if (paragraph && paragraph.type === CKEDITOR.NODE_ELEMENT) {
-                        var firstChar = getFirstCharInParagraph(paragraph);
-
-                        if (firstChar && isArabicChar(firstChar)) {
-                            // Set RTL if first character is Arabic
-                            paragraph.setStyle('direction', 'rtl');
-                            paragraph.setStyle('text-align', 'right');
-                        } else if (firstChar && /[a-zA-Z0-9]/.test(firstChar)) {
-                            // Set LTR if first character is Latin/English
-                            paragraph.setStyle('direction', 'ltr');
-                            paragraph.setStyle('text-align', 'left');
-                        }
-                    }
-                } catch (e) {
-                    console.error('Error in autoDetectDirection:', e);
-                }
-            }
-
-            // Listen for input events to auto-detect direction (only on printable characters)
-            editor.on('key', function(evt) {
-                var keyCode = evt.data.keyCode;
-                // Only detect on printable characters (not special keys)
-                if (keyCode >= 32 && keyCode <= 126 || keyCode >= 160) {
-                    // Delay to allow the character to be inserted first
-                    setTimeout(function() {
-                        autoDetectDirection();
-                    }, 50);
-                }
-            });
-
-            // Also detect on paste
-            editor.on('paste', function() {
-                setTimeout(function() {
-                    autoDetectDirection();
-                }, 150);
-            });
-
-            // Function to detect direction for all paragraphs in existing content
-            function detectDirectionForAllParagraphs() {
-                try {
-                    var editable = editor.editable();
-                    if (!editable) return;
-
-                    var paragraphs = editable.find('p, div, h1, h2, h3, h4, h5, h6, li');
-                    if (!paragraphs) return;
-
-                    for (var i = 0; i < paragraphs.count(); i++) {
-                        try {
-                            var paragraph = paragraphs.getItem(i);
-                            if (!paragraph) continue;
-
-                            var firstChar = getFirstCharInParagraph(paragraph);
-
-                            if (firstChar && isArabicChar(firstChar)) {
-                                paragraph.setStyle('direction', 'rtl');
-                                paragraph.setStyle('text-align', 'right');
-                            } else if (firstChar && /[a-zA-Z0-9]/.test(firstChar)) {
-                                paragraph.setStyle('direction', 'ltr');
-                                paragraph.setStyle('text-align', 'left');
-                            }
-                        } catch (e) {
-                            console.error('Error processing paragraph:', e);
-                            continue;
-                        }
-                    }
-                } catch (e) {
-                    console.error('Error in detectDirectionForAllParagraphs:', e);
-                }
-            }
-
-            // Detect direction for all paragraphs when editor is ready
-            setTimeout(function() {
-                detectDirectionForAllParagraphs();
-            }, 300);
 
             lastContent = editor.getData();
             let lastTextLength = getPlainTextLength(lastContent);
