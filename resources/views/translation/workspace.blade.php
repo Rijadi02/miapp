@@ -387,12 +387,25 @@
             return html.replace(/<[^>]*>/g, '').trim().length;
         }
 
-        // Initialize CKEditor
+        // Initialize CKEditor with custom config
         CKEDITOR.replace('albanian_text', {
+            customConfig: '', // Disable default config.js
             height: '100%',
             resize_enabled: false,
             removePlugins: 'resize',
-            fontSize_sizes: '8/8px;9/9px;10/10px;11/11px;12/12px;14/14px;16/16px;18/18px;20/20px;22/22px;24/24px;26/26px;28/28px;36/36px;48/48px;72/72px',
+            fontSize_sizes: '8px/8;9px/9;10px/10;11px/11;12px/12;14px/14;16px/16;18px/18;20px/20;22px/22;24px/24;26px/26;28px/28;36px/36;48px/48;72px/72',
+            fontSize_style: {
+                element: 'span',
+                styles: {
+                    'font-size': '#(size)px'
+                },
+                overrides: [{
+                    element: 'font',
+                    attributes: {
+                        'size': null
+                    }
+                }]
+            },
             toolbar: [{
                     name: 'basicstyles',
                     items: ['Bold', 'Italic', 'Underline', 'Strike']
