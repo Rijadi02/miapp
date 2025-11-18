@@ -389,15 +389,14 @@
 
         // Initialize CKEditor with custom config
         CKEDITOR.replace('albanian_text', {
-            customConfig: '', // Disable default config.js
             height: '100%',
             resize_enabled: false,
             removePlugins: 'resize',
-            fontSize_sizes: '8px/8;9px/9;10px/10;11px/11;12px/12;14px/14;16px/16;18px/18;20px/20;22px/22;24px/24;26px/26;28px/28;36px/36;48px/48;72px/72',
+            fontSize_sizes: '8px/8px;9px/9px;10px/10px;11px/11px;12px/12px;14px/14px;16px/16px;18px/18px;20px/20px;22px/22px;24px/24px;26px/26px;28px/28px;36px/36px;48px/48px;72px/72px',
             fontSize_style: {
                 element: 'span',
                 styles: {
-                    'font-size': '#(size)px'
+                    'font-size': '#(size)'
                 },
                 overrides: [{
                     element: 'font',
@@ -435,7 +434,6 @@
 
         CKEDITOR.instances.albanian_text.on('instanceReady', function() {
             editor = CKEDITOR.instances.albanian_text;
-
 
             // Apply Arabic font to editor content
             var editable = editor.editable();
