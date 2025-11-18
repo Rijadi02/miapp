@@ -536,7 +536,7 @@
                                         // Move cursor after replacement
                                         var newRange = editor.createRange();
                                         newRange.setStart(textNode, nodeOffset - patternLength + replacement
-                                        .length);
+                                            .length);
                                         newRange.collapse(true);
                                         editor.getSelection().selectRanges([newRange]);
 
