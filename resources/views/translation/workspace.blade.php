@@ -446,6 +446,55 @@
             let isSaving = false;
             let lastSaveTime = 0;
 
+            // Listen for period key press (keyCode 190)
+            // Use contentDom to ensure editor is fully ready (important when plugins are loaded)
+            editor.on('contentDom', function() {
+                var editable = editor.editable();
+
+                editable.on('keydown', function(evt) {
+                    var domEvent = evt.data.$;
+                    const keyCode = domEvent.keyCode || domEvent.which;
+
+                    // Check if period (.) was pressed
+                    if (keyCode === 190) {
+                        // Clear any existing timeout
+                        if (saveTimeout) {
+                            clearTimeout(saveTimeout);
+                        }
+
+                        // Wait for the period to be inserted, then check and save
+                        saveTimeout = setTimeout(function() {
+                            checkAndSave();
+                        }, 200);
+                    } else {
+                        // Update tracking for other keys
+                        setTimeout(function() {
+                            const content = editor.getData();
+                            lastContent = content;
+                            lastTextLength = getPlainTextLength(content);
+                        }, 50);
+                    }
+                });
+            });
+
+            // Fallback: Also listen on editor level in case contentDom doesn't fire
+            editor.on('key', function(evt) {
+                const keyCode = evt.data.keyCode;
+
+                // Check if period (.) was pressed
+                if (keyCode === 190) {
+                    // Clear any existing timeout
+                    if (saveTimeout) {
+                        clearTimeout(saveTimeout);
+                    }
+
+                    // Wait for the period to be inserted, then check and save
+                    saveTimeout = setTimeout(function() {
+                        checkAndSave();
+                    }, 200);
+                }
+            });
+
             // Make CKEditor fill the container
             function resizeEditor() {
                 const editorContainer = $('.cke_chrome').first();
@@ -520,30 +569,6 @@
                 }
             }
 
-            // Listen for period key press (keyCode 190)
-            editor.on('key', function(evt) {
-                const keyCode = evt.data.keyCode;
-
-                // Check if period (.) was pressed
-                if (keyCode === 190) {
-                    // Clear any existing timeout
-                    if (saveTimeout) {
-                        clearTimeout(saveTimeout);
-                    }
-
-                    // Wait for the period to be inserted, then check and save
-                    saveTimeout = setTimeout(function() {
-                        checkAndSave();
-                    }, 200);
-                } else {
-                    // Update tracking for other keys
-                    setTimeout(function() {
-                        const content = editor.getData();
-                        lastContent = content;
-                        lastTextLength = getPlainTextLength(content);
-                    }, 50);
-                }
-            });
         });
 
         // Auto-save function
