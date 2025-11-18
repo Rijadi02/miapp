@@ -427,7 +427,7 @@
             editable.setStyle('font-family', '\'KFGQPC HAFS Uthmanic Script\', sans-serif');
 
             // Text replacement shortcuts
-            var shortcuts = {
+            const shortcuts = {
                 'a.s': 'ﷺ',
                 'a.z': 'ﷻ',
                 'r.a.m': 'رضي الله عنهم',
@@ -439,133 +439,59 @@
             function checkAndReplaceShortcuts() {
                 try {
                     var selection = editor.getSelection();
-                    if (!selection) return false;
+                    if (!selection) return;
 
-                    var range = selection.getRanges()[0];
-                    if (!range) return false;
+                    var ranges = selection.getRanges();
+                    if (!ranges || ranges.length === 0) return;
 
-                    // Get the current element
-                    var element = range.getCommonAncestor();
-                    if (!element) return false;
+                    var range = ranges[0];
+                    if (!range) return;
 
-                    // Find paragraph or block element
-                    while (element && element.type === CKEDITOR.NODE_ELEMENT &&
-                        !element.is('p', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'li', 'td', 'th', 'body')) {
-                        element = element.getParent();
-                    }
+                    var textNode = range.startContainer;
+                    if (!textNode || textNode.type !== CKEDITOR.NODE_TEXT) return;
 
-                    if (!element) return false;
+                    var text = textNode.getText();
+                    var cursorPos = range.startOffset;
 
-                    // Get plain text from element
-                    var elementText = element.getText();
+                    // Check for each shortcut
+                    for (var shortcut in shortcuts) {
+                        var shortcutLength = shortcut.length;
+                        var startPos = cursorPos - shortcutLength;
 
-                    // Get cursor position by getting text before cursor
-                    var rangeClone = range.clone();
-                    rangeClone.collapse(true);
-                    rangeClone.setStart(element, 0);
-                    var textBeforeCursor = rangeClone.getText();
-                    var cursorPos = textBeforeCursor.length;
+                        if (startPos >= 0) {
+                            var precedingText = text.substring(startPos, cursorPos);
 
-                    // Sort patterns by length (longest first) to match longer patterns first
-                    var sortedPatterns = Object.keys(shortcuts).sort(function(a, b) {
-                        return b.length - a.length;
-                    });
+                            if (precedingText === shortcut) {
+                                // Replace the shortcut with the replacement text
+                                var replacement = shortcuts[shortcut];
+                                var newText = text.substring(0, startPos) + replacement + text.substring(cursorPos);
 
-                    // Check each pattern
-                    for (var i = 0; i < sortedPatterns.length; i++) {
-                        var pattern = sortedPatterns[i];
-                        var replacement = shortcuts[pattern];
-                        var patternLength = pattern.length;
+                                textNode.setText(newText);
 
-                        // Check if pattern exists right before cursor
-                        if (cursorPos >= patternLength) {
-                            var textToCheck = textBeforeCursor.substring(cursorPos - patternLength);
+                                // Move cursor after the replacement
+                                range.setStart(textNode, startPos + replacement.length);
+                                range.setEnd(textNode, startPos + replacement.length);
+                                selection.selectRanges([range]);
 
-                            if (textToCheck === pattern) {
-                                // Find the text node and position
-                                var walker = new CKEDITOR.dom.walker(range);
-                                var startContainer = range.startContainer;
-
-                                // Find text node
-                                var textNode = startContainer;
-                                if (textNode.type !== CKEDITOR.NODE_TEXT) {
-                                    textNode = textNode.getChild(range.startOffset - 1);
-                                }
-
-                                while (textNode && textNode.type !== CKEDITOR.NODE_TEXT) {
-                                    textNode = textNode.getPrevious();
-                                }
-
-                                if (!textNode || textNode.type !== CKEDITOR.NODE_TEXT) {
-                                    // Fallback: use element replacement
-                                    var html = element.getHtml();
-                                    var patternIndex = html.lastIndexOf(pattern);
-                                    if (patternIndex !== -1) {
-                                        var newHtml = html.substring(0, patternIndex) + replacement +
-                                            html.substring(patternIndex + patternLength);
-                                        element.setHtml(newHtml);
-
-                                        // Move cursor to end
-                                        var newRange = editor.createRange();
-                                        newRange.moveToElementEditEnd(element);
-                                        editor.getSelection().selectRanges([newRange]);
-                                        return true;
-                                    }
-                                    continue;
-                                }
-
-                                var nodeText = textNode.getText();
-                                var nodeOffset = range.startOffset;
-
-                                // Adjust offset if needed
-                                if (startContainer !== textNode) {
-                                    nodeOffset = nodeText.length;
-                                }
-
-                                // Check if pattern is in this text node
-                                if (nodeOffset >= patternLength) {
-                                    var nodeTextBefore = nodeText.substring(0, nodeOffset);
-                                    var checkText = nodeTextBefore.substring(nodeTextBefore.length - patternLength);
-
-                                    if (checkText === pattern) {
-                                        // Replace in text node
-                                        var beforePattern = nodeText.substring(0, nodeOffset - patternLength);
-                                        var afterPattern = nodeText.substring(nodeOffset);
-                                        textNode.setText(beforePattern + replacement + afterPattern);
-
-                                        // Move cursor after replacement
-                                        var newRange = editor.createRange();
-                                        newRange.setStart(textNode, nodeOffset - patternLength + replacement
-                                            .length);
-                                        newRange.collapse(true);
-                                        editor.getSelection().selectRanges([newRange]);
-
-                                        return true;
-                                    }
-                                }
+                                break;
                             }
                         }
                     }
                 } catch (e) {
                     console.error('Error in checkAndReplaceShortcuts:', e);
                 }
-
-                return false;
             }
 
-            // Listen for keyup events to trigger replacement
-            editor.on('contentDom', function() {
-                var editable = editor.editable();
+            // Listen for space or enter key to trigger replacement
+            editor.on('key', function(evt) {
+                var keyCode = evt.data.keyCode;
 
-                editable.on('keyup', function(evt) {
-                    var keyCode = evt.data.$.keyCode;
-                    // Trigger on space (32), period (190), or enter (13)
-                    if (keyCode === 32 || keyCode === 190 || keyCode === 13) {
-                        setTimeout(function() {
-                            checkAndReplaceShortcuts();
-                        }, 10);
-                    }
-                }, null, null, 1);
+                // Space (32) or Enter (13)
+                if (keyCode === 32 || keyCode === 13) {
+                    setTimeout(function() {
+                        checkAndReplaceShortcuts();
+                    }, 10);
+                }
             });
 
             lastContent = editor.getData();
