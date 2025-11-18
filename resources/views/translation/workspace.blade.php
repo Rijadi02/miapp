@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.cdnfonts.com/css/kfgqpc-hafs-uthmanic-script" rel="stylesheet">
     <script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
-    <script src="https://cdn.ckeditor.com/4.22.0/standard/plugins/font/plugin.js"></script>
     <style>
         body {
             background: #f5f5f5;
