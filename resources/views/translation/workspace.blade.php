@@ -392,6 +392,7 @@
             height: '100%',
             resize_enabled: false,
             removePlugins: 'resize',
+            fontSize_sizes: '8/8px;9/9px;10/10px;11/11px;12/12px;14/14px;16/16px;18/18px;20/20px;22/22px;24/24px;26/26px;28/28px;36/36px;48/48px;72/72px',
             toolbar: [{
                     name: 'basicstyles',
                     items: ['Bold', 'Italic', 'Underline', 'Strike']
@@ -425,99 +426,6 @@
             // Apply Arabic font to editor content
             var editable = editor.editable();
             editable.setStyle('font-family', '\'KFGQPC HAFS Uthmanic Script\', sans-serif');
-
-            // Text replacement shortcuts
-            const shortcuts = {
-                'a.s': 'ﷺ',
-                'a.z': 'ﷻ',
-                'r.a.m': 'رضي الله عنهم',
-                'r.a.u': 'رضى الله عنه',
-                'r.a.e': 'رضي الله عنها'
-            };
-
-            console.log('Shortcuts initialized:', shortcuts);
-
-            // Function to check and replace shortcuts
-            function checkAndReplaceShortcuts() {
-                console.log('=== checkAndReplaceShortcuts called ===');
-                try {
-                    var selection = editor.getSelection();
-                    console.log('Selection:', selection);
-                    if (!selection) {
-                        console.log('No selection found');
-                        return;
-                    }
-
-                    var ranges = selection.getRanges();
-                    console.log('Ranges:', ranges);
-                    if (!ranges || ranges.length === 0) {
-                        console.log('No ranges found');
-                        return;
-                    }
-
-                    var range = ranges[0];
-                    console.log('Range:', range);
-                    if (!range) {
-                        console.log('No range found');
-                        return;
-                    }
-
-                    var textNode = range.startContainer;
-                    console.log('Text node:', textNode, 'Type:', textNode ? textNode.type : 'null');
-                    if (!textNode || textNode.type !== CKEDITOR.NODE_TEXT) {
-                        console.log('Not a text node');
-                        return;
-                    }
-
-                    var text = textNode.getText();
-                    var cursorPos = range.startOffset;
-                    console.log('Text:', text, 'Cursor position:', cursorPos);
-
-                    // Check for each shortcut
-                    for (var shortcut in shortcuts) {
-                        var shortcutLength = shortcut.length;
-                        var startPos = cursorPos - shortcutLength;
-
-                        if (startPos >= 0) {
-                            var precedingText = text.substring(startPos, cursorPos);
-                            console.log('Checking shortcut:', shortcut, 'Preceding text:', precedingText);
-
-                            if (precedingText === shortcut) {
-                                console.log('MATCH FOUND! Replacing:', shortcut, 'with:', shortcuts[shortcut]);
-                                // Replace the shortcut with the replacement text
-                                var replacement = shortcuts[shortcut];
-                                var newText = text.substring(0, startPos) + replacement + text.substring(cursorPos);
-
-                                textNode.setText(newText);
-
-                                // Move cursor after the replacement
-                                range.setStart(textNode, startPos + replacement.length);
-                                range.setEnd(textNode, startPos + replacement.length);
-                                selection.selectRanges([range]);
-
-                                console.log('Replacement complete');
-                                break;
-                            }
-                        }
-                    }
-                } catch (e) {
-                    console.error('Error in checkAndReplaceShortcuts:', e);
-                }
-            }
-
-            // Listen for space or enter key to trigger replacement
-            editor.on('key', function(evt) {
-                var keyCode = evt.data.keyCode;
-                console.log('Key pressed, keyCode:', keyCode);
-
-                // Space (32) or Enter (13)
-                if (keyCode === 32 || keyCode === 13) {
-                    console.log('Space or Enter detected, checking for shortcuts...');
-                    setTimeout(function() {
-                        checkAndReplaceShortcuts();
-                    }, 10);
-                }
-            });
 
             lastContent = editor.getData();
             let lastTextLength = getPlainTextLength(lastContent);
