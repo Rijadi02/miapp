@@ -393,7 +393,8 @@
             resize_enabled: false,
             removePlugins: 'resize',
             extraPlugins: 'font',
-            fontSize_sizes: '8px/8px;9px/9px;10px/10px;11px/11px;12px/12px;14px/14px;16px/16px;18px/18px;20px/20px;22px/22px;24px/24px;26px/26px;28px/28px;36px/36px;48px/48px;72px/72px',
+            language: 'en', // Force English to avoid missing language file errors
+            fontSize_sizes: '8/8px;9/9px;10/10px;11/11px;12/12px;14/14px;16/16px;18/18px;20/20px;22/22px;24/24px;26/26px;28/28px;36/36px;48/48px;72/72px',
             fontSize_style: {
                 element: 'span',
                 styles: {
@@ -718,7 +719,11 @@
                 success: function(response) {
                     if (response.success) {
                         // Simply replace the text in CKEditor
-                        editor.setData(response.albanian_text);
+                        if (editor && typeof editor.setData === 'function') {
+                            editor.setData(response.albanian_text);
+                        } else {
+                            console.error('Editor not ready or setData not available');
+                        }
 
                         // Update UI to show which version is being viewed
                         $('#currentVersion').text('Shikon: v' + response.version_number);
