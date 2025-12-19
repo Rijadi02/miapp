@@ -112,10 +112,6 @@
                 <a href="#" class="category-link">Toys & Games</a>
             </div>
 
-            <div class="free-delivery-box">
-                <h4>MI Kids</h4>
-                <p>Mësimet më të bukura për më të vegjëlit tanë.</p>
-            </div>
         </div>
 
         <!-- Page Content -->
