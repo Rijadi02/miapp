@@ -119,6 +119,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
 
     Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->middleware('role:admin')->name('dashboard.index');
     Route::get('kids-dashboard', [App\Http\Controllers\KidsDashboardController::class, 'index'])->middleware('role:kids')->name('kids.dashboard');
+    Route::post('rooms', [App\Http\Controllers\KidsDashboardController::class, 'store'])->middleware('role:kids')->name('rooms.store');
 
     Route::group(['middleware' => 'role:admin'], function() {
         Route::get('register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
