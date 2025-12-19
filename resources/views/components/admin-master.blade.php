@@ -176,6 +176,7 @@
                                 <a class="nav-link" href="{{ route('type.index') }}">Biznes Kategoritë</a>
                                 <a class="nav-link" href="{{ route('applications.index') }}">Akademia</a>
                                 <a class="nav-link" href="{{ route('index.with.answer') }}">Pyetjet</a>
+                                <a class="nav-link" href="{{ url('admin/register') }}">Regjistro</a>
                             </nav>
                         </div>
 

@@ -1,11 +1,26 @@
-@extends('layouts.app')
+@extends('components.admin-master')
 
 @section('content')
-<div class="container">
+<header class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10">
+    <div class="container">
+        <div class="page-header-content pt-4">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-auto mt-4">
+                    <h1 class="page-header-title">
+                        <div class="page-header-icon"><i data-feather="user-plus"></i></div>
+                        Regjistro Përdorues të Ri
+                    </h1>
+                    <div class="page-header-subtitle">Krijo një llogari të re për Admin ose Fëmijë.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container mt-n10">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+        <div class="col-lg-8">
+            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                <div class="card-header justify-content-center"><h3 class="font-weight-light my-4">Regjistrimi</h3></div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
