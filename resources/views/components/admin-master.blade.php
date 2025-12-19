@@ -106,20 +106,11 @@
                             Kategoritë
                         </a>
 
-                        <a class="nav-link" href="{{ route('video.index') }}">
-                            <div class="nav-link-icon"><i class="fa fa-video"></i></div>
-                            Videot
-                        </a>
+                        {{-- Moved to Të tjera group --}}
 
-                        <a class="nav-link" href="{{ route('reciter.index') }}">
-                            <div class="nav-link-icon"><i class="fa fa-volume-up"></i></div>
-                            Recituesit
-                        </a>
 
-                        <a class="nav-link" href="{{ route('lecturer.index') }}">
-                            <div class="nav-link-icon"><i class="fa fa-microphone-alt"></i></div>
-                            Hoxhallarët
-                        </a>
+                        {{-- Moved to Të tjera group --}}
+
 
                         {{-- <a class="nav-link" href="{{ route('ad.index') }}">
                             <div class="nav-link-icon"><i class="fa fa-poll"></i></div>
@@ -131,40 +122,32 @@
                             Blogjet
                         </a>
 
-                        <a class="nav-link" href="{{ route('post.index') }}">
-                            <div class="nav-link-icon"><i class="fab fa-instagram"></i></div>
-                            Instagram
-                        </a>
+                        {{-- Moved to Të tjera group --}}
+
 
                         <a class="nav-link" href="{{ route('media.index') }}">
                             <div class="nav-link-icon"><i class="fas fa-tv"></i></div>
                             Media
                         </a>
 
-                        <a class="nav-link" href="{{ route('type.index') }}">
-                            <div class="nav-link-icon"><i class="fa fa-sitemap"></i></div>
-                            Biznes Kategoritë
-                        </a>
+                        {{-- Moved to Të tjera group --}}
+
 
                         <a class="nav-link" href="{{ route('promotion.index') }}">
                             <div class="nav-link-icon"><i class="fa fa-ad"></i></div>
                             Reklamat
                         </a>
 
-                        <a class="nav-link" href="{{ route('applications.index') }}">
-                            <div class="nav-link-icon"><i class="fa fa-university"></i></div>
-                            Akademia
-                        </a>
+                        {{-- Moved to Të tjera group --}}
+
 
                         <a class="nav-link" href="{{ route('notification.index') }}">
                             <div class="nav-link-icon"><i class="fa fa-bell"></i></div>
                             Notifikimet
                         </a>
 
-                        <a class="nav-link" href="{{ route('index.with.answer') }}">
-                            <div class="nav-link-icon"><i class="fa fa-question"></i></div>
-                            Pyetjet
-                        </a>
+                        {{-- Moved to Të tjera group --}}
+
 
                         <a class="nav-link" href="{{ route('translation.index') }}">
                             <div class="nav-link-icon"><i class="fas fa-language"></i></div>
@@ -173,8 +156,29 @@
 
                         <a class="nav-link" href="{{ route('tools.index') }}">
                             <div class="nav-link-icon"><i class="fas fa-tools"></i></div>
-                            Tools
+                            Veglat AI
                         </a>
+
+                        <hr class="dropdown-divider">
+
+                        <!-- Collapsing Menu for Other Items -->
+                        <a class="nav-link collapsed" href="javascript:void(0);" data-toggle="collapse" data-target="#collapseMisc" aria-expanded="false" aria-controls="collapseMisc">
+                            <div class="nav-link-icon"><i class="fas fa-ellipsis-h"></i></div>
+                            Më shumë
+                            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseMisc" data-parent="#accordionSidenav">
+                            <nav class="sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{ route('video.index') }}">Videot</a>
+                                <a class="nav-link" href="{{ route('reciter.index') }}">Recituesit</a>
+                                <a class="nav-link" href="{{ route('lecturer.index') }}">Hoxhallarët</a>
+                                <a class="nav-link" href="{{ route('post.index') }}">Instagram</a>
+                                <a class="nav-link" href="{{ route('type.index') }}">Biznes Kategoritë</a>
+                                <a class="nav-link" href="{{ route('applications.index') }}">Akademia</a>
+                                <a class="nav-link" href="{{ route('index.with.answer') }}">Pyetjet</a>
+                            </nav>
+                        </div>
+
 
                         {{-- <a class="nav-link" href="{{ route('brands.index') }}">
                             <div class="nav-link-icon"><i class="fas fa-copyright"></i></div>

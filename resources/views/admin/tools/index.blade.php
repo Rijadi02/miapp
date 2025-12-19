@@ -7,9 +7,10 @@
                         <div class="col-auto mt-4">
                             <h1 class="page-header-title">
                                 <div class="page-header-icon"><i data-feather="tool"></i></div>
-                                Tools
+                                Veglat AI
                             </h1>
-                            <div class="page-header-subtitle">Upload and manage JS tools (ZIP files). These will be extracted and accessible for use.</div>
+                            <div class="page-header-subtitle">Ngarkoni dhe menaxhoni veglat JS (ZIP). Këto do të ekstraktohen dhe do të jenë të qasshme për përdorim.</div>
+
                         </div>
                     </div>
                 </div>
