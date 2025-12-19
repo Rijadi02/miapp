@@ -115,7 +115,7 @@ Route::get("/konak", function () {
 });
 
 
-Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'admin'], function () {
+Route::group(['namespace' => 'Admin', 'middleware' => ['auth', 'role:admin'], 'prefix' => 'admin'], function () {
 
     Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
 
@@ -237,3 +237,15 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
     Route::patch('translations/{translation}/update', [App\Http\Controllers\TranslationController::class, 'update'])->name('translation.update');
     Route::get('translations/{translation}/edit',  [App\Http\Controllers\TranslationController::class, 'edit'])->name('translation.edit');
 });
+
+Route::group(['middleware' => ['auth', 'role:kids,admin']], function () {
+    // Routes accessible by BOTH kids and admin
+    Route::get('/kids-special', function() {
+        return "Welcome Kids and Admins!";
+    })->name('kids.special');
+});
+
+Route::group(['middleware' => ['auth', 'role:kids']], function () {
+    // Routes accessible ONLY by kids (if any)
+});
+
