@@ -170,6 +170,12 @@
                             <div class="nav-link-icon"><i class="fas fa-language"></i></div>
                             Përkthimet
                         </a>
+
+                        <a class="nav-link" href="{{ route('tools.index') }}">
+                            <div class="nav-link-icon"><i class="fas fa-tools"></i></div>
+                            Tools
+                        </a>
+
                         {{-- <a class="nav-link" href="{{ route('brands.index') }}">
                             <div class="nav-link-icon"><i class="fas fa-copyright"></i></div>
                             Brands

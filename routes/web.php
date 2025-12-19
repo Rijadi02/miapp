@@ -236,6 +236,10 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth', 'role:admin'], 'p
     Route::delete('translations/{translation}', [App\Http\Controllers\TranslationController::class, 'destroy'])->name('translation.destroy');
     Route::patch('translations/{translation}/update', [App\Http\Controllers\TranslationController::class, 'update'])->name('translation.update');
     Route::get('translations/{translation}/edit',  [App\Http\Controllers\TranslationController::class, 'edit'])->name('translation.edit');
+
+    Route::get('tools', [App\Http\Controllers\ToolController::class, 'index'])->name('tools.index');
+    Route::post('tools/store', [App\Http\Controllers\ToolController::class, 'store'])->name('tools.store');
+    Route::delete('tools/{tool}', [App\Http\Controllers\ToolController::class, 'destroy'])->name('tools.destroy');
 });
 
 Route::group(['middleware' => ['auth', 'role:kids,admin']], function () {
