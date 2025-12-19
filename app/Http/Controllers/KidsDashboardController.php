@@ -11,7 +11,7 @@ class KidsDashboardController extends Controller
     public function index()
     {
         $rooms = Room::with('creator')->latest()->get();
-        $users = User::all(); // To allow assigning users
+        $users = User::where('role', User::ROLE_KIDS)->get();
         return view('kids.dashboard', compact('rooms', 'users'));
     }
 
@@ -20,14 +20,20 @@ class KidsDashboardController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'thumbnail' => 'nullable|string', // Could be URL or file path
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'assigned_at' => 'nullable|exists:users,id',
         ]);
+
+        $thumbnailPath = null;
+        if ($request->hasFile('thumbnail')) {
+            $thumbnailPath = $request->file('thumbnail')->store('rooms', 'public');
+            $thumbnailPath = '/storage/' . $thumbnailPath;
+        }
 
         Room::create([
             'title' => $request->title,
             'description' => $request->description,
-            'thumbnail' => $request->thumbnail,
+            'thumbnail' => $thumbnailPath,
             'assigned_at' => $request->assigned_at,
             'created_by' => auth()->id(),
         ]);

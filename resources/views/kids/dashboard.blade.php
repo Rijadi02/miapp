@@ -39,7 +39,7 @@
         <div class="modal-content border-0" style="border-radius: 24px; overflow: hidden;">
             <div class="modal-body p-5">
                 <h2 class="font-weight-bold mb-4" style="font-family: 'Outfit', sans-serif;">Create New Room</h2>
-                <form action="{{ route('rooms.store') }}" method="POST">
+                <form action="{{ route('rooms.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group mb-4">
                         <label class="small font-weight-bold text-uppercase text-muted">Title</label>
@@ -50,8 +50,8 @@
                         <textarea name="description" class="form-control border-0 bg-light" placeholder="A brief description..." style="border-radius: 12px; padding: 1.5rem;"></textarea>
                     </div>
                     <div class="form-group mb-4">
-                        <label class="small font-weight-bold text-uppercase text-muted">Thumbnail URL</label>
-                        <input type="text" name="thumbnail" class="form-control border-0 bg-light" placeholder="https://..." style="border-radius: 12px; padding: 1.5rem;">
+                        <label class="small font-weight-bold text-uppercase text-muted">Thumbnail Image</label>
+                        <input type="file" name="thumbnail" class="form-control border-0 bg-light" style="border-radius: 12px; padding: 0.75rem 1.5rem; height: auto;">
                     </div>
                     <div class="form-group mb-5">
                         <label class="small font-weight-bold text-uppercase text-muted">Assign To</label>
