@@ -14,24 +14,21 @@
     
     <style>
         :root {
-            --kids-primary: #4f46e5;
-            --kids-secondary: #6366f1;
-            --kids-bg: #4f46e5;
-            --kids-text: #ffffff;
-            --kids-card-bg: #ffffff;
-            --kids-card-text: #1f2937;
-            --kids-muted: #9ca3af;
+            --kids-primary: #fb923c;
+            --kids-bg: #ffffff;
+            --kids-sidebar-text: #000000;
+            --kids-muted: #6b7280;
         }
 
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--kids-bg);
             background-image: 
-                radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
-                radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
-                radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+                radial-gradient(at 0% 0%, rgba(251, 146, 60, 0.05) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, rgba(251, 146, 60, 0.1) 0, transparent 50%),
+                radial-gradient(at 50% 100%, rgba(251, 146, 60, 0.02) 0, transparent 50%);
             background-attachment: fixed;
-            color: var(--kids-text);
+            color: #1f2937;
             min-height: 100vh;
             margin: 0;
             display: flex;
@@ -40,60 +37,62 @@
         #wrapper {
             display: flex;
             width: 100%;
-            padding: 3rem;
+            padding: 4rem;
         }
 
         /* Sidebar Styling */
         #sidebar-wrapper {
-            width: 280px;
+            width: 250px;
             padding-right: 2rem;
             flex-shrink: 0;
         }
 
         .sidebar-heading {
             font-family: 'Outfit', sans-serif;
-            font-size: 0.75rem;
-            letter-spacing: 0.1em;
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.6);
-            margin-bottom: 2rem;
-            font-weight: 700;
+            color: #000000;
+            margin-bottom: 2.5rem;
+            font-weight: 800;
         }
 
         .category-link {
             display: block;
-            color: rgba(255, 255, 255, 0.8);
+            color: #000000;
             text-decoration: none !important;
-            padding: 0.5rem 0;
-            font-size: 0.9rem;
+            padding: 0.6rem 0;
+            font-size: 0.95rem;
             font-weight: 500;
             transition: all 0.2s ease;
+            opacity: 0.7;
         }
 
         .category-link:hover, .category-link.active {
-            color: white;
-            font-weight: 600;
+            opacity: 1;
+            font-weight: 700;
+            transform: translateX(5px);
         }
 
         .free-delivery-box {
-            margin-top: 3rem;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
-            padding: 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 4rem;
+            background: rgba(251, 146, 60, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(251, 146, 60, 0.2);
         }
 
         .free-delivery-box h4 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
+            font-size: 1.15rem;
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            color: #000000;
         }
 
         .free-delivery-box p {
-            font-size: 0.8rem;
-            opacity: 0.7;
-            line-height: 1.4;
+            font-size: 0.85rem;
+            color: #4b5563;
+            line-height: 1.5;
             margin: 0;
         }
 
@@ -102,72 +101,15 @@
             flex-grow: 1;
         }
 
-        .top-nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 3rem;
-        }
-
-        .breadcrumb-custom {
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            display: flex;
-            align-items: center;
-        }
-
-        .breadcrumb-custom a {
-            color: rgba(255, 255, 255, 0.6);
-            text-decoration: none;
-        }
-
-        .breadcrumb-custom i {
-            margin: 0 0.75rem;
-            font-size: 0.6rem;
-            opacity: 0.4;
-        }
-
-        .breadcrumb-custom span {
-            color: white;
-            font-weight: 600;
-        }
-
-        .filters {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .filter-item {
-            font-family: 'Outfit', sans-serif;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .main-title {
-            font-family: 'Outfit', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            margin-bottom: 2rem;
-        }
-
         /* Responsive */
         @media (max-width: 992px) {
             #wrapper {
                 flex-direction: column;
-                padding: 1.5rem;
+                padding: 2rem;
             }
             #sidebar-wrapper {
                 width: 100%;
-                margin-bottom: 2rem;
+                margin-bottom: 3rem;
                 padding-right: 0;
             }
         }
@@ -192,30 +134,13 @@
             </div>
 
             <div class="free-delivery-box">
-                <h4>Free Delivery</h4>
-                <p>Designers are meant to be loved, not to be understood.</p>
+                <h4>MI Kids</h4>
+                <p>Mësimet më të bukura për më të vegjëlit tanë.</p>
             </div>
         </div>
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
-            <div class="top-nav">
-                <div class="breadcrumb-custom">
-                    <a href="#">Home</a>
-                    <i class="fas fa-chevron-right"></i>
-                    <a href="#">Furniture</a>
-                    <i class="fas fa-chevron-right"></i>
-                    <span>Hallway</span>
-                </div>
-
-                <div class="filters">
-                    <div class="filter-item">Price <i class="fas fa-sort"></i></div>
-                    <div class="filter-item">New <i class="fas fa-sort"></i></div>
-                </div>
-            </div>
-
-            <div class="main-title">New</div>
-
             @yield('content')
         </div>
     </div>
