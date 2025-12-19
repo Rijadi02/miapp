@@ -24,9 +24,10 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--kids-bg);
             background-image: 
-                radial-gradient(at 0% 0%, rgba(251, 146, 60, 0.05) 0, transparent 50%), 
-                radial-gradient(at 100% 0%, rgba(251, 146, 60, 0.1) 0, transparent 50%),
-                radial-gradient(at 50% 100%, rgba(251, 146, 60, 0.02) 0, transparent 50%);
+                radial-gradient(at 0% 0%, rgba(251, 146, 60, 0.1) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, rgba(251, 146, 60, 0.15) 0, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(251, 146, 60, 0.1) 0, transparent 70%),
+                radial-gradient(at 0% 100%, rgba(251, 146, 60, 0.05) 0, transparent 50%);
             background-attachment: fixed;
             color: #1f2937;
             min-height: 100vh;
@@ -74,28 +75,6 @@
             transform: translateX(5px);
         }
 
-        .free-delivery-box {
-            margin-top: 4rem;
-            background: rgba(251, 146, 60, 0.1);
-            border-radius: 16px;
-            padding: 2rem;
-            border: 1px solid rgba(251, 146, 60, 0.2);
-        }
-
-        .free-delivery-box h4 {
-            font-size: 1.15rem;
-            font-weight: 800;
-            margin-bottom: 0.75rem;
-            color: #000000;
-        }
-
-        .free-delivery-box p {
-            font-size: 0.85rem;
-            color: #4b5563;
-            line-height: 1.5;
-            margin: 0;
-        }
-
         /* Page Content Styling */
         #page-content-wrapper {
             flex-grow: 1;
@@ -119,7 +98,7 @@
     <div id="wrapper">
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
-            <div class="sidebar-heading">Categories</div>
+            <div class="sidebar-heading">{{ Auth::user()->name }}</div>
             <div class="categories-list">
                 <a href="#" class="category-link active">All</a>
                 <a href="#" class="category-link">Men</a>

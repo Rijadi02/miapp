@@ -32,7 +32,7 @@
         background-size: cover;
         background-position: center;
         border-radius: 32px;
-        height: 500px;
+        height: 300px;
         position: relative;
         overflow: hidden;
         transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
@@ -47,11 +47,11 @@
     .item-overlay {
         position: absolute;
         inset: 0;
-        background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 40%, transparent 100%);
+        background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        padding: 2.5rem;
+        padding: 2rem;
     }
 
     .item-content {
