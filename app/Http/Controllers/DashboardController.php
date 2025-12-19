@@ -16,6 +16,10 @@ class DashboardController extends Controller
 {
     public function index()
     {
+        if (auth()->user()->isKids()) {
+            return view('kids.dashboard');
+        }
+
         $blogsCount = Blog::count();
         $totalBlogViews = Blog::sum('counter');
 

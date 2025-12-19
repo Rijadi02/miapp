@@ -74,7 +74,7 @@
                         </div>
                     </h6>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{{ route('register') }}">
+                    <a class="dropdown-item" href="{{ url('admin/register') }}">
                         <div class="dropdown-item-icon"><i data-feather="settings"></i></div>
                         Regjistro
                     </a>
