@@ -117,7 +117,8 @@ Route::get("/konak", function () {
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'admin'], function () {
 
-    Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->middleware('role:admin,kids')->name('dashboard.index');
+    Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->middleware('role:admin')->name('dashboard.index');
+    Route::get('kids-dashboard', [App\Http\Controllers\KidsDashboardController::class, 'index'])->middleware('role:kids')->name('kids.dashboard');
 
     Route::group(['middleware' => 'role:admin'], function() {
         Route::get('register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
