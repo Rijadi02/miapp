@@ -41,9 +41,17 @@ class ToolController extends Controller
 
         // Extract ZIP if exists
         if ($tool->files) {
-            $this->extractTool($tool);
+            $originalName = pathinfo($tool->files, PATHINFO_FILENAME);
+            // Remove the timestamp prefix if it exists (assuming time() . '_' format)
+            if (strpos($originalName, '_') !== false) {
+                $subfolder = substr($originalName, strpos($originalName, '_') + 1);
+            } else {
+                $subfolder = $originalName;
+            }
+
+            $this->extractTool($tool, $subfolder);
             // Save the link where it extracted the files
-            $tool->link = url('tools/' . $tool->id);
+            $tool->link = url('tools/' . $tool->id . '/' . $subfolder . '/index.html');
             $tool->save();
         }
 
@@ -71,10 +79,10 @@ class ToolController extends Controller
         return back()->with('success', 'Tool deleted successfully.');
     }
 
-    private function extractTool(Tool $tool)
+    private function extractTool(Tool $tool, $subfolder)
     {
         $zipPath = public_path('uploads/tools/' . $tool->files);
-        $extractPath = public_path('tools/' . $tool->id);
+        $extractPath = public_path('tools/' . $tool->id . '/' . $subfolder);
 
         if (!File::isDirectory($extractPath)) {
             File::makeDirectory($extractPath, 0755, true);
