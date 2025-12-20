@@ -14,6 +14,11 @@ class AssetController extends Controller
         return view('kids.assets.index', compact('assets'));
     }
 
+    public function apiIndex()
+    {
+        return response()->json(Asset::latest()->get());
+    }
+
     public function store(Request $request)
     {
         $request->validate([

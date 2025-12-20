@@ -26,27 +26,28 @@ class KidsDashboardController extends Controller
     public function connect(Request $request, Room $room)
     {
         $request->validate([
-            'character_ids' => 'required|array',
-            'character_ids.*' => 'exists:characters,id',
+            'ids' => 'required|array',
+            'type' => 'required|string|in:character,asset',
         ]);
 
-        foreach ($request->character_ids as $characterId) {
-            // Check if already connected to avoid duplicates if necessary
+        $modelClass = $request->type === 'character' ? Character::class : Asset::class;
+
+        foreach ($request->ids as $id) {
             $exists = $room->connections()
-                ->where('type', Character::class)
-                ->where('connection_id', $characterId)
+                ->where('type', $modelClass)
+                ->where('connection_id', $id)
                 ->exists();
 
             if (!$exists) {
                 $room->connections()->create([
-                    'type' => Character::class,
-                    'connection_id' => $characterId,
+                    'type' => $modelClass,
+                    'connection_id' => $id,
                     'assigned_by' => auth()->id(),
                 ]);
             }
         }
 
-        return redirect()->back()->with('success', 'Characters added to room successfully!');
+        return redirect()->back()->with('success', ucfirst($request->type) . 's added to room successfully!');
     }
 
     public function store(Request $request)

@@ -133,6 +133,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
     
     // API for AJAX
     Route::get('api/characters', [CharacterController::class, 'apiIndex'])->middleware('role:kids')->name('api.characters');
+    Route::get('api/assets', [AssetController::class, 'apiIndex'])->middleware('role:kids')->name('api.assets');
 
     Route::group(['middleware' => 'role:admin'], function() {
         Route::get('register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
