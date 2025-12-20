@@ -24,12 +24,12 @@
             <div class="modal-content border-0" style="border-radius: 24px; overflow: hidden;">
                 <div class="modal-body p-5">
                     <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h2 class="font-weight-bold mb-0" style="font-family: 'Outfit', sans-serif;">Edit Character</h2>
-                        <form action="{{ route('characters.destroy', $character) }}" method="POST" onsubmit="return confirm('A jeni të sigurt që dëshironi të fshini këtë karakter?');">
+                        <h2 class="font-weight-bold mb-0" style="font-family: 'Outfit', sans-serif;">Përditëso Personazhin</h2>
+                        <form action="{{ route('characters.destroy', $character) }}" method="POST" onsubmit="return confirm('A jeni të sigurt që dëshironi të fshini këtë personazh?');">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-link text-danger p-0" style="font-weight: 600; text-decoration: none;">
-                                <i class="fas fa-trash-alt mr-2"></i> Delete Character
+                                <i class="fas fa-trash-alt mr-2"></i> Fshi Personazhin
                             </button>
                         </form>
                     </div>
@@ -40,19 +40,19 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group mb-4">
-                                    <label class="small font-weight-bold text-uppercase text-muted">Name</label>
+                                    <label class="small font-weight-bold text-uppercase text-muted">Emri</label>
                                     <input type="text" name="name" class="form-control border-0 bg-light" value="{{ $character->name }}" required style="border-radius: 12px; padding: 1.5rem;">
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group mb-4">
-                                    <label class="small font-weight-bold text-uppercase text-muted">Age</label>
+                                    <label class="small font-weight-bold text-uppercase text-muted">Mosha</label>
                                     <input type="text" name="age" class="form-control border-0 bg-light" value="{{ $character->age }}" style="border-radius: 12px; padding: 1.5rem;">
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group mb-4">
-                                    <label class="small font-weight-bold text-uppercase text-muted">Gender</label>
+                                    <label class="small font-weight-bold text-uppercase text-muted">Gjinia</label>
                                     <select name="gender" class="form-control border-0 bg-light" style="border-radius: 12px; height: auto; padding: 1rem 1.5rem;">
                                         <option value="Mashkull" {{ $character->gender == 'Mashkull' ? 'selected' : '' }}>Mashkull</option>
                                         <option value="Femer" {{ $character->gender == 'Femer' ? 'selected' : '' }}>Femer</option>
@@ -62,31 +62,31 @@
                         </div>
 
                         <div class="form-group mb-4">
-                            <label class="small font-weight-bold text-uppercase text-muted">Short Description (15 words)</label>
+                            <label class="small font-weight-bold text-uppercase text-muted">Përshkrim i Shkurtër (15 fjalë)</label>
                             <textarea name="short_description" class="form-control border-0 bg-light" rows="2" style="border-radius: 12px; padding: 1.5rem;">{{ $character->short_description }}</textarea>
                         </div>
 
                         <div class="form-group mb-4">
-                            <label class="small font-weight-bold text-uppercase text-muted">Detailed Description</label>
+                            <label class="small font-weight-bold text-uppercase text-muted">Përshkrim i Detajuar</label>
                             <textarea name="detailed_description" class="form-control border-0 bg-light" rows="4" style="border-radius: 12px; padding: 1.5rem;">{{ $character->detailed_description }}</textarea>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group mb-4">
-                                    <label class="small font-weight-bold text-uppercase text-muted">Thumbnail Image (leave empty to keep current)</label>
+                                    <label class="small font-weight-bold text-uppercase text-muted">Imazhi (lëreni bosh për të ruajtur aktualin)</label>
                                     <input type="file" name="thumbnail" class="form-control border-0 bg-light" style="border-radius: 12px; padding: 0.75rem 1.5rem; height: auto;">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group mb-4">
-                                    <label class="small font-weight-bold text-uppercase text-muted">Assets (leave empty to keep current)</label>
+                                    <label class="small font-weight-bold text-uppercase text-muted">Asetet (lëreni bosh për të ruajtur aktualet)</label>
                                     <input type="file" name="assets[]" multiple class="form-control border-0 bg-light" style="border-radius: 12px; padding: 0.75rem 1.5rem; height: auto;">
                                 </div>
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary btn-block py-3 font-weight-bold" style="border-radius: 16px; background: #3b82f6; border: none;">Save Changes</button>
+                        <button type="submit" class="btn btn-primary btn-block py-3 font-weight-bold" style="border-radius: 16px; background: #3b82f6; border: none;">Ruaj Ndryshimet</button>
                     </form>
                 </div>
             </div>
@@ -100,7 +100,7 @@
             <div class="item-card add-card">
                 <div class="add-content text-primary">
                     <i class="fas fa-plus fa-3x mb-3"></i>
-                    <h3 class="item-title mb-0">Add Character</h3>
+                    <h3 class="item-title mb-0">Shto Personazh</h3>
                 </div>
             </div>
         </a>
@@ -112,25 +112,25 @@
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content border-0" style="border-radius: 24px; overflow: hidden;">
             <div class="modal-body p-5">
-                <h2 class="font-weight-bold mb-4" style="font-family: 'Outfit', sans-serif;">New Character</h2>
+                <h2 class="font-weight-bold mb-4" style="font-family: 'Outfit', sans-serif;">Personazh i Ri</h2>
                 <form action="{{ route('characters.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group mb-4">
-                                <label class="small font-weight-bold text-uppercase text-muted">Name</label>
-                                <input type="text" name="name" class="form-control border-0 bg-light" placeholder="Character Name" required style="border-radius: 12px; padding: 1.5rem;">
+                                <label class="small font-weight-bold text-uppercase text-muted">Emri</label>
+                                <input type="text" name="name" class="form-control border-0 bg-light" placeholder="Emri i Personazhit" required style="border-radius: 12px; padding: 1.5rem;">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group mb-4">
-                                <label class="small font-weight-bold text-uppercase text-muted">Age</label>
-                                <input type="text" name="age" class="form-control border-0 bg-light" placeholder="Age" style="border-radius: 12px; padding: 1.5rem;">
+                                <label class="small font-weight-bold text-uppercase text-muted">Mosha</label>
+                                <input type="text" name="age" class="form-control border-0 bg-light" placeholder="Mosha" style="border-radius: 12px; padding: 1.5rem;">
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group mb-4">
-                                <label class="small font-weight-bold text-uppercase text-muted">Gender</label>
+                                <label class="small font-weight-bold text-uppercase text-muted">Gjinia</label>
                                 <select name="gender" class="form-control border-0 bg-light" style="border-radius: 12px; height: auto; padding: 1rem 1.5rem;">
                                     <option value="Mashkull">Mashkull</option>
                                     <option value="Femer">Femer</option>
@@ -140,31 +140,31 @@
                     </div>
 
                     <div class="form-group mb-4">
-                        <label class="small font-weight-bold text-uppercase text-muted">Short Description (15 words)</label>
-                        <textarea name="short_description" class="form-control border-0 bg-light" rows="2" placeholder="Brief summary..." style="border-radius: 12px; padding: 1.5rem;"></textarea>
+                        <label class="small font-weight-bold text-uppercase text-muted">Përshkrim i Shkurtër (15 fjalë)</label>
+                        <textarea name="short_description" class="form-control border-0 bg-light" rows="2" placeholder="Përmbledhje e shkurtër..." style="border-radius: 12px; padding: 1.5rem;"></textarea>
                     </div>
 
                     <div class="form-group mb-4">
-                        <label class="small font-weight-bold text-uppercase text-muted">Detailed Description</label>
-                        <textarea name="detailed_description" class="form-control border-0 bg-light" rows="4" placeholder="Full story..." style="border-radius: 12px; padding: 1.5rem;"></textarea>
+                        <label class="small font-weight-bold text-uppercase text-muted">Përshkrim i Detajuar</label>
+                        <textarea name="detailed_description" class="form-control border-0 bg-light" rows="4" placeholder="Historia e plotë..." style="border-radius: 12px; padding: 1.5rem;"></textarea>
                     </div>
 
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group mb-4">
-                                <label class="small font-weight-bold text-uppercase text-muted">Thumbnail Image</label>
+                                <label class="small font-weight-bold text-uppercase text-muted">Imazhi</label>
                                 <input type="file" name="thumbnail" class="form-control border-0 bg-light" required style="border-radius: 12px; padding: 0.75rem 1.5rem; height: auto;">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group mb-4">
-                                <label class="small font-weight-bold text-uppercase text-muted">Assets (PDF, Video, Images)</label>
+                                <label class="small font-weight-bold text-uppercase text-muted">Asetet (PDF, Video, Imazhe)</label>
                                 <input type="file" name="assets[]" multiple class="form-control border-0 bg-light" style="border-radius: 12px; padding: 0.75rem 1.5rem; height: auto;">
                             </div>
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-block py-3 font-weight-bold" style="border-radius: 16px; background: #3b82f6; border: none;">Create Character</button>
+                    <button type="submit" class="btn btn-primary btn-block py-3 font-weight-bold" style="border-radius: 16px; background: #3b82f6; border: none;">Krijo Personazh</button>
                 </form>
             </div>
         </div>

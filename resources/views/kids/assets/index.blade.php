@@ -50,12 +50,12 @@
                     @elseif($asset->type == 'pdf')
                         <div class="pdf-file-box">
                             <i class="fas fa-file-pdf fa-3x text-danger mb-2"></i>
-                            <div class="small font-weight-bold">PDF Document</div>
+                            <div class="small font-weight-bold">Dokument PDF</div>
                         </div>
                     @else
                         <div class="generic-file-box">
                             <i class="fas {{ $config['icon'] }} fa-3x mb-2" style="color: var(--kids-primary); opacity: 0.5;"></i>
-                            <div class="small font-weight-bold">{{ strtoupper($asset->type) }} File</div>
+                            <div class="small font-weight-bold">Skedar {{ strtoupper($asset->type) }}</div>
                         </div>
                     @endif
                 </div>
@@ -63,9 +63,9 @@
 
             <div class="asset-footer px-4 py-3 d-flex justify-content-between align-items-center">
                 @php
-                    $actionText = 'Download';
-                    if($asset->type == 'pdf') $actionText = 'Open PDF';
-                    if($asset->type == 'image') $actionText = 'View Image';
+                    $actionText = 'Shkarko';
+                    if($asset->type == 'pdf') $actionText = 'Hap PDF';
+                    if($asset->type == 'image') $actionText = 'Shiko Imazhin';
                 @endphp
                 
                 <div class="d-flex align-items-center">
@@ -97,12 +97,12 @@
                 <div class="modal-content border-0" style="border-radius: 28px; overflow: hidden;">
                     <div class="modal-body p-5">
                         <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h2 class="font-weight-bold mb-0" style="font-family: 'Outfit', sans-serif;">Edit Asset</h2>
+                            <h2 class="font-weight-bold mb-0" style="font-family: 'Outfit', sans-serif;">Përditëso Asetin</h2>
                             <form action="{{ route('assets.destroy', $asset) }}" method="POST" onsubmit="return confirm('A jeni të sigurt që dëshironi të fshini këtë aset?');">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-link text-danger p-0" style="font-weight: 600; text-decoration: none;">
-                                    <i class="fas fa-trash-alt mr-2"></i> Delete Asset
+                                    <i class="fas fa-trash-alt mr-2"></i> Fshi Asetin
                                 </button>
                             </form>
                         </div>
@@ -111,38 +111,38 @@
                             @csrf
                             @method('PATCH')
                             <div class="form-group mb-4">
-                                <label class="small font-weight-bold text-uppercase text-muted">Title</label>
+                                <label class="small font-weight-bold text-uppercase text-muted">Titulli</label>
                                 <input type="text" name="title" class="form-control border-0 bg-light" value="{{ $asset->title }}" required style="border-radius: 12px; padding: 1.5rem;">
                             </div>
                             
                             <div class="form-group mb-4">
-                                <label class="small font-weight-bold text-uppercase text-muted">Description</label>
+                                <label class="small font-weight-bold text-uppercase text-muted">Përshkrimi</label>
                                 <textarea name="description" class="form-control border-0 bg-light" rows="3" required style="border-radius: 12px; padding: 1.5rem;">{{ $asset->description }}</textarea>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group mb-4">
-                                        <label class="small font-weight-bold text-uppercase text-muted">Type</label>
+                                        <label class="small font-weight-bold text-uppercase text-muted">Lloji</label>
                                         <select name="type" class="form-control border-0 bg-light" style="border-radius: 12px; height: auto; padding: 1rem 1.5rem;">
-                                            <option value="image" {{ $asset->type == 'image' ? 'selected' : '' }}>Image</option>
+                                            <option value="image" {{ $asset->type == 'image' ? 'selected' : '' }}>Imazh</option>
                                             <option value="audio" {{ $asset->type == 'audio' ? 'selected' : '' }}>Audio</option>
                                             <option value="video" {{ $asset->type == 'video' ? 'selected' : '' }}>Video</option>
                                             <option value="pdf" {{ $asset->type == 'pdf' ? 'selected' : '' }}>PDF</option>
-                                            <option value="text" {{ $asset->type == 'text' ? 'selected' : '' }}>Text/Doc</option>
-                                            <option value="zip" {{ $asset->type == 'zip' ? 'selected' : '' }}>ZIP/Files</option>
+                                            <option value="text" {{ $asset->type == 'text' ? 'selected' : '' }}>Tekst/Dok</option>
+                                            <option value="zip" {{ $asset->type == 'zip' ? 'selected' : '' }}>ZIP/Skedarë</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group mb-4">
-                                        <label class="small font-weight-bold text-uppercase text-muted">File (leave empty to keep current)</label>
+                                        <label class="small font-weight-bold text-uppercase text-muted">Skedari (lëreni bosh për të ruajtur aktualin)</label>
                                         <input type="file" name="asset_file" class="form-control border-0 bg-light" style="border-radius: 12px; padding: 0.75rem 1.5rem; height: auto;">
                                     </div>
                                 </div>
                             </div>
 
-                            <button type="submit" class="btn btn-primary btn-block py-3 font-weight-bold" style="border-radius: 16px; background: var(--kids-primary); border: none; font-size: 1.1rem;">Save Changes</button>
+                            <button type="submit" class="btn btn-primary btn-block py-3 font-weight-bold" style="border-radius: 16px; background: var(--kids-primary); border: none; font-size: 1.1rem;">Ruaj Ndryshimet</button>
                         </form>
                     </div>
                 </div>
@@ -178,7 +178,7 @@
             <div class="asset-card add-asset-card">
                 <div class="add-content text-primary text-center">
                     <i class="fas fa-plus-circle fa-4x mb-3"></i>
-                    <h3 class="asset-title mb-0" style="color: var(--kids-primary);">Add Asset</h3>
+                    <h3 class="asset-title mb-0" style="color: var(--kids-primary);">Shto Aset</h3>
                 </div>
             </div>
         </a>
@@ -190,42 +190,42 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content border-0" style="border-radius: 28px; overflow: hidden;">
             <div class="modal-body p-5">
-                <h2 class="font-weight-bold mb-4" style="font-family: 'Outfit', sans-serif;">New Asset</h2>
+                <h2 class="font-weight-bold mb-4" style="font-family: 'Outfit', sans-serif;">Aset i Ri</h2>
                 <form action="{{ route('assets.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group mb-4">
-                        <label class="small font-weight-bold text-uppercase text-muted">Title</label>
-                        <input type="text" name="title" class="form-control border-0 bg-light" placeholder="Asset Title" required style="border-radius: 12px; padding: 1.5rem;">
+                        <label class="small font-weight-bold text-uppercase text-muted">Titulli</label>
+                        <input type="text" name="title" class="form-control border-0 bg-light" placeholder="Titulli i Asetit" required style="border-radius: 12px; padding: 1.5rem;">
                     </div>
                     
                     <div class="form-group mb-4">
-                        <label class="small font-weight-bold text-uppercase text-muted">Description</label>
-                        <textarea name="description" class="form-control border-0 bg-light" rows="3" placeholder="Description..." required style="border-radius: 12px; padding: 1.5rem;"></textarea>
+                        <label class="small font-weight-bold text-uppercase text-muted">Përshkrimi</label>
+                        <textarea name="description" class="form-control border-0 bg-light" rows="3" placeholder="Përshkrimi..." required style="border-radius: 12px; padding: 1.5rem;"></textarea>
                     </div>
 
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group mb-4">
-                                <label class="small font-weight-bold text-uppercase text-muted">Type</label>
+                                <label class="small font-weight-bold text-uppercase text-muted">Lloji</label>
                                 <select name="type" class="form-control border-0 bg-light" style="border-radius: 12px; height: auto; padding: 1rem 1.5rem;">
-                                    <option value="image">Image</option>
+                                    <option value="image">Imazh</option>
                                     <option value="audio">Audio</option>
                                     <option value="video">Video</option>
                                     <option value="pdf">PDF</option>
-                                    <option value="text">Text/Doc</option>
-                                    <option value="zip">ZIP/Files</option>
+                                    <option value="text">Tekst/Dok</option>
+                                    <option value="zip">ZIP/Skedarë</option>
                                 </select>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group mb-4">
-                                <label class="small font-weight-bold text-uppercase text-muted">File</label>
+                                <label class="small font-weight-bold text-uppercase text-muted">Skedari</label>
                                 <input type="file" name="asset" class="form-control border-0 bg-light" required style="border-radius: 12px; padding: 0.75rem 1.5rem; height: auto;">
                             </div>
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-block py-3 font-weight-bold" style="border-radius: 16px; background: var(--kids-primary); border: none; font-size: 1.1rem;">Upload Asset</button>
+                    <button type="submit" class="btn btn-primary btn-block py-3 font-weight-bold" style="border-radius: 16px; background: var(--kids-primary); border: none; font-size: 1.1rem;">Ngarko Asetin</button>
                 </form>
             </div>
         </div>

@@ -15,6 +15,7 @@ class Asset extends Model
         'type',
         'asset',
         'created_by',
+        'episode_id',
     ];
 
     public function creator()

@@ -20,8 +20,12 @@ class KidsDashboardController extends Controller
 
     public function show(Room $room)
     {
+        $characters = Character::latest()->get();
+        $assets = Asset::whereNull('episode_id')->latest()->get(); // Only room assets
+        $users = User::all(); // For assignment
+        
         $room->load(['connections.connection', 'creator']);
-        return view('kids.rooms.show', compact('room'));
+        return view('kids.rooms.show', compact('room', 'characters', 'assets', 'users'));
     }
 
     public function connect(Request $request, Room $room)
@@ -53,11 +57,19 @@ class KidsDashboardController extends Controller
 
     public function storeEpisode(Request $request, Room $room)
     {
-        $episode = \App\Models\Episode::create([
-            'title' => 'New Episode',
-            'description' => 'Add text here',
-            'text' => 'Add long text here',
-            'key' => 'EP-' . strtoupper(\Illuminate\Support\Str::random(6)),
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'assigned_to' => 'nullable|exists:users,id',
+            'character_ids' => 'nullable|array',
+        ]);
+
+        $episode = Episode::create([
+            'title' => $request->title,
+            'description' => 'Një përshkrim i shkurtër...',
+            'text' => 'Teksti i detajuar...',
+            'key' => 'EP' . strtoupper(\Illuminate\Support\Str::random(6)),
+            'assigned_to' => $request->assigned_to,
+            'character_ids' => $request->character_ids ?? [],
         ]);
 
         $room->connections()->create([
@@ -72,17 +84,16 @@ class KidsDashboardController extends Controller
         ]);
     }
 
-    public function updateEpisode(Request $request, \App\Models\Episode $episode)
+    public function updateEpisode(Request $request, Episode $episode)
     {
         $request->validate([
-            'title' => 'sometimes|string|max:255',
-            'description' => 'sometimes|string',
-            'text' => 'sometimes|string',
-            'key' => 'sometimes|string',
+            'title' => 'required|string|max:255',
+            'assigned_to' => 'nullable|exists:users,id',
+            'character_ids' => 'nullable|array',
         ]);
-
-        $episode->update($request->only(['title', 'description', 'text', 'key']));
-
+        
+        $episode->update($request->only(['title', 'description', 'text', 'key', 'assigned_to', 'character_ids']));
+        
         return response()->json(['success' => true]);
     }
 

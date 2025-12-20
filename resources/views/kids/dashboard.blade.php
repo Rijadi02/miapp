@@ -11,7 +11,7 @@
                         <h3 class="item-title">{{ $room->title }}</h3>
                         <p class="item-description">{{ $room->description }}</p>
                         <div class="item-footer">
-                            <span class="item-creator">{{ $room->creator->name ?? 'Unknown' }}</span>
+                            <span class="item-creator">{{ $room->creator->name ?? 'I panjohur' }}</span>
                         </div>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
             <div class="item-card add-card">
                 <div class="add-content">
                     <i class="fas fa-plus fa-3x mb-3"></i>
-                    <h3 class="item-title mb-0">Create Room</h3>
+                    <h3 class="item-title mb-0">Krijo Dhomë</h3>
                 </div>
             </div>
         </a>
@@ -38,31 +38,31 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content border-0" style="border-radius: 24px; overflow: hidden;">
             <div class="modal-body p-5">
-                <h2 class="font-weight-bold mb-4" style="font-family: 'Outfit', sans-serif;">Create New Room</h2>
+                <h2 class="font-weight-bold mb-4" style="font-family: 'Outfit', sans-serif;">Krijo Dhomë të Re</h2>
                 <form action="{{ route('rooms.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group mb-4">
-                        <label class="small font-weight-bold text-uppercase text-muted">Title</label>
-                        <input type="text" name="title" class="form-control border-0 bg-light" placeholder="Room Title" required style="border-radius: 12px; padding: 1.5rem;">
+                        <label class="small font-weight-bold text-uppercase text-muted">Titulli</label>
+                        <input type="text" name="title" class="form-control border-0 bg-light" placeholder="Titulli i Dhomës" required style="border-radius: 12px; padding: 1.5rem;">
                     </div>
                     <div class="form-group mb-4">
-                        <label class="small font-weight-bold text-uppercase text-muted">Description</label>
-                        <textarea name="description" class="form-control border-0 bg-light" placeholder="A brief description..." style="border-radius: 12px; padding: 1.5rem;"></textarea>
+                        <label class="small font-weight-bold text-uppercase text-muted">Përshkrimi</label>
+                        <textarea name="description" class="form-control border-0 bg-light" placeholder="Një përshkrim i shkurtër..." style="border-radius: 12px; padding: 1.5rem;"></textarea>
                     </div>
                     <div class="form-group mb-4">
-                        <label class="small font-weight-bold text-uppercase text-muted">Thumbnail Image</label>
+                        <label class="small font-weight-bold text-uppercase text-muted">Imazhi i Kopertinës</label>
                         <input type="file" name="thumbnail" class="form-control border-0 bg-light" style="border-radius: 12px; padding: 0.75rem 1.5rem; height: auto;">
                     </div>
                     <div class="form-group mb-5">
-                        <label class="small font-weight-bold text-uppercase text-muted">Assign To</label>
+                        <label class="small font-weight-bold text-uppercase text-muted">Caktoji</label>
                         <select name="assigned_at" class="form-control border-0 bg-light" style="border-radius: 12px; height: auto; padding: 1rem 1.5rem;">
-                            <option value="">None</option>
+                            <option value="">Asnjë</option>
                             @foreach($users as $user)
                             <option value="{{ $user->id }}">{{ $user->name }}</option>
                             @endforeach
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-dark btn-block py-3 font-weight-bold" style="border-radius: 16px; background: #fb923c; border: none;">Create Room</button>
+                    <button type="submit" class="btn btn-dark btn-block py-3 font-weight-bold" style="border-radius: 16px; background: #fb923c; border: none;">Krijo Dhomë</button>
                 </form>
             </div>
         </div>

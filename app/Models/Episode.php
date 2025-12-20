@@ -13,7 +13,25 @@ class Episode extends Model
         'title',
         'description',
         'text',
+        'description',
+        'text',
         'key',
+        'character_ids',
+        'assigned_to',
+    ];
+
+    public function assets()
+    {
+        return $this->hasMany(Asset::class);
+    }
+
+    public function assignedUser()
+    {
+        return $this->belongsTo(User::class, 'assigned_to');
+    }
+
+    protected $casts = [
+        'character_ids' => 'array',
     ];
 
     public function roomConnections()

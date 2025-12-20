@@ -10,13 +10,13 @@ class AssetController extends Controller
 {
     public function index()
     {
-        $assets = Asset::latest()->get();
+        $assets = Asset::whereNull('episode_id')->latest()->get();
         return view('kids.assets.index', compact('assets'));
     }
 
     public function apiIndex()
     {
-        return response()->json(Asset::latest()->get());
+        return response()->json(Asset::whereNull('episode_id')->latest()->get());
     }
 
     public function store(Request $request)
@@ -42,7 +42,7 @@ class AssetController extends Controller
             'created_by' => auth()->id(),
         ]);
 
-        return redirect()->back()->with('success', 'Asset created successfully!');
+        return redirect()->back()->with('success', 'Asseti u krijua me sukses!');
     }
 
     public function update(Request $request, Asset $asset)
@@ -67,7 +67,7 @@ class AssetController extends Controller
 
         $asset->update($data);
 
-        return redirect()->back()->with('success', 'Asset updated successfully!');
+        return redirect()->back()->with('success', 'Asseti u përditësua me sukses!');
     }
 
     public function destroy(Asset $asset)
@@ -78,6 +78,6 @@ class AssetController extends Controller
             ->delete();
 
         $asset->delete();
-        return redirect()->back()->with('success', 'Asset deleted successfully!');
+        return redirect()->back()->with('success', 'Asseti u fshi me sukses!');
     }
 }
