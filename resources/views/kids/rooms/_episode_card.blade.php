@@ -18,16 +18,45 @@
         <div class="description-container">
             <input type="text" class="form-control border-0 p-0 mb-2 episode-description text-muted" value="{{ $episode->description }}" style="font-size: 0.95rem; background: transparent; box-shadow: none;" placeholder="Përshkrim i shkurtër...">
             
-            <div class="row align-items-center mb-2">
-                <div class="col-md-6">
-                    <label class="small font-weight-bold text-muted mb-1" style="font-size: 0.75rem; text-transform: uppercase;">Caktuar për:</label>
-                    <select class="form-control border-0 bg-light episode-assigned p-2" style="border-radius: 8px; font-size: 0.85rem; height: auto;">
-                        <option value="">Askujt</option>
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <!-- Assigned To Avatar Dropdown -->
+                <div class="dropdown">
+                    <div class="" type="button" id="assignedToDropdown{{ $episode->id }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        @if($episode->assignedUser)
+                            <div class="rounded-circle" style="width: 32px; height: 32px; overflow: hidden; cursor: pointer; border: 2px solid #10b981;" title="Caktuar: {{ $episode->assignedUser->name }}">
+                                <img src="{{ $episode->assignedUser->profile_picture_url }}" class="w-100 h-100" style="object-fit: cover;">
+                            </div>
+                        @else
+                            <div class="rounded-circle bg-light d-flex align-items-center justify-content-center text-muted" style="width: 32px; height: 32px; cursor: pointer; border: 1px dashed #ccc;" title="Cakto një përdorues">
+                                <i class="fas fa-user-plus small"></i>
+                            </div>
+                        @endif
+                    </div>
+                    <div class="dropdown-menu border-0 shadow-lg" aria-labelledby="assignedToDropdown{{ $episode->id }}" style="border-radius: 12px; min-width: 200px;">
+                        <h6 class="dropdown-header font-weight-bold">Cakto Tek</h6>
+                        <button class="dropdown-item d-flex align-items-center py-2 episode-assign-option" type="button" data-val="" data-id="{{ $episode->id }}">
+                            <div class="rounded-circle bg-light mr-2 d-flex align-items-center justify-content-center" style="width: 24px; height: 24px;">
+                                <i class="fas fa-times small text-muted"></i>
+                            </div>
+                            <span class="small font-weight-bold text-muted">Hiq caktimin</span>
+                        </button>
+                        <div class="dropdown-divider"></div>
                         @foreach($users as $user)
-                            <option value="{{ $user->id }}" {{ $episode->assigned_to == $user->id ? 'selected' : '' }}>{{ $user->name }}</option>
+                            <button class="dropdown-item d-flex align-items-center py-2 episode-assign-option" type="button" data-val="{{ $user->id }}" data-id="{{ $episode->id }}">
+                                <div class="rounded-circle mr-2 overflow-hidden" style="width: 24px; height: 24px;">
+                                    <img src="{{ $user->profile_picture_url }}" class="w-100 h-100" style="object-fit: cover;">
+                                </div>
+                                <span class="small font-weight-bold {{ $episode->assigned_to == $user->id ? 'text-success' : '' }}">{{ $user->name }}</span>
+                            </button>
                         @endforeach
-                    </select>
+                    </div>
+                    <!-- Hidden input for auto-save logic -->
+                    <input type="hidden" class="episode-assigned" value="{{ $episode->assigned_to }}">
                 </div>
+
+                <button class="btn btn-link p-0 text-muted expand-btn" style="font-size: 0.85rem; font-weight: 600; text-decoration: none;">
+                    Zgjero <i class="fas fa-chevron-down ml-1"></i>
+                </button>
             </div>
 
             <div class="long-text-expandable" style="display: none;">
@@ -36,19 +65,10 @@
                     <label class="small font-weight-bold text-muted mb-2">Teksti i Detajuar</label>
                     <textarea class="form-control border-0 p-0 episode-text" style="font-size: 0.95rem; min-height: 100px; background: transparent; box-shadow: none;" placeholder="Teksti i detajuar...">{{ $episode->text }}</textarea>
                 </div>
-
-                <div class="mb-4">
-                    <label class="small font-weight-bold text-muted mb-2">Personazhet e Episodit</label>
-                    <div class="row">
-                        @foreach($roomCharacters as $char)
-                            <div class="col-6 mb-2">
-                                <label class="d-flex align-items-center p-2 rounded bg-light" style="cursor: pointer; transition: all 0.2s;">
-                                    <input type="checkbox" class="mr-2 episode-character-checkbox" value="{{ $char->id }}" {{ in_array($char->id, $episode->character_ids ?? []) ? 'checked' : '' }}>
-                                    <span style="font-size: 0.85rem; font-weight: 600;">{{ $char->name }}</span>
-                                </label>
-                            </div>
-                        @endforeach
-                    </div>
+                
+                <div class="mb-3">
+                    <label class="small font-weight-bold text-muted mb-2">Prompts / Udhëzime</label>
+                    <textarea class="form-control border-0 bg-light p-3 episode-promts" style="font-size: 0.9rem; min-height: 80px; border-radius: 12px; resize: vertical;" placeholder="Shkruaj prompts ose udhëzime këtu...">{{ $episode->promts }}</textarea>
                 </div>
 
                 <div class="mt-4">

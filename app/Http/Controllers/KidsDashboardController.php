@@ -22,7 +22,8 @@ class KidsDashboardController extends Controller
     {
         $characters = Character::latest()->get();
         $assets = Asset::whereNull('episode_id')->latest()->get(); // Only room assets
-        $users = User::all(); // For assignment
+        // Filter only 'kids' users
+        $users = User::where('role', User::ROLE_KIDS)->get();
         
         $room->load(['connections.connection', 'creator']);
         return view('kids.rooms.show', compact('room', 'characters', 'assets', 'users'));
@@ -38,19 +39,6 @@ class KidsDashboardController extends Controller
         $modelClass = $request->type === 'character' ? Character::class : Asset::class;
 
         foreach ($request->ids as $id) {
-            $exists = $room->connections()
-                ->where('type', $modelClass)
-                ->where('connection_id', $id)
-                ->exists();
-
-            if (!$exists) {
-                $room->connections()->create([
-                    'type' => $modelClass,
-                    'connection_id' => $id,
-                    'assigned_by' => auth()->id(),
-                ]);
-            }
-        }
 
         return redirect()->back()->with('success', ucfirst($request->type) . 's added to room successfully!');
     }
@@ -60,7 +48,7 @@ class KidsDashboardController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'assigned_to' => 'nullable|exists:users,id',
-            'character_ids' => 'nullable|array',
+            'promts' => 'nullable|string',
         ]);
 
         $episode = Episode::create([
@@ -69,19 +57,15 @@ class KidsDashboardController extends Controller
             'text' => 'Teksti i detajuar...',
             'key' => 'EP' . strtoupper(\Illuminate\Support\Str::random(6)),
             'assigned_to' => $request->assigned_to,
-            'character_ids' => $request->character_ids ?? [],
+            'promts' => $request->promts,
         ]);
 
         $room->connections()->create([
-            'type' => \App\Models\Episode::class,
+            'connection_type' => 'App\Models\Episode',
             'connection_id' => $episode->id,
-            'assigned_by' => auth()->id(),
         ]);
 
-        return response()->json([
-            'success' => true,
-            'episode' => $episode
-        ]);
+        return response()->json(['success' => true]);
     }
 
     public function updateEpisode(Request $request, Episode $episode)
@@ -89,10 +73,10 @@ class KidsDashboardController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'assigned_to' => 'nullable|exists:users,id',
-            'character_ids' => 'nullable|array',
+            'promts' => 'nullable|string',
         ]);
         
-        $episode->update($request->only(['title', 'description', 'text', 'key', 'assigned_to', 'character_ids']));
+        $episode->update($request->only(['title', 'description', 'text', 'key', 'assigned_to', 'promts']));
         
         return response()->json(['success' => true]);
     }

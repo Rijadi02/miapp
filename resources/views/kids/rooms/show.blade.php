@@ -10,9 +10,6 @@
             <p class="text-muted mb-0">{{ $room->description }}</p>
         </div>
         <div class="d-flex align-items-center">
-            <button id="expand-all-btn" class="btn btn-outline-success mr-3" style="border-radius: 12px; font-weight: 700; font-size: 0.85rem; border: 2px solid #10b981; color: #10b981; transition: all 0.3s ease;">
-                <i class="fas fa-expand-arrows-alt mr-2"></i> Zgjero të Gjitha
-            </button>
             <a href="{{ route('kids.dashboard') }}" class="btn btn-link text-muted p-0" style="font-weight: 600; text-decoration: none;">
                 <i class="fas fa-arrow-left mr-2"></i> Kthehu te Paneli
             </a>
@@ -441,14 +438,27 @@
             });
         });
 
-        $(document).on('click', '.episode-card', function(e) {
-            // Don't expand if clicking on inputs/textarea
-            if ($(e.target).is('input, textarea')) return;
+        // Create/Update Logic for Assigned To dropdown
+        $(document).on('click', '.episode-assign-option', function() {
+            const val = $(this).data('val');
+            const episodeId = $(this).data('id');
+            const card = $(this).closest('.episode-card');
             
-            const card = $(this);
+            // Update hidden input and trigger change (auto-save)
+            card.find('.episode-assigned').val(val).trigger('change');
+            
+            // UI Update (quick feedback) can be improved but page reload handles it for now usually, 
+            // OR we can rely on AJAX refresh if implemented. 
+            // For now, let's just reload to update the avatar visually or use a simple heuristic.
+            location.reload(); 
+        });
+
+        // Expand logic - ONLY on button click
+        $(document).on('click', '.expand-btn', function(e) {
+            e.stopPropagation(); // prevent bubbling
+            const btn = $(this);
+            const card = btn.closest('.episode-card');
             const expandable = card.find('.long-text-expandable');
-            const btn = card.find('.expand-btn');
-            const icon = btn.find('i');
             
             expandable.slideToggle(300, function() {
                 if (expandable.is(':visible')) {
@@ -461,19 +471,13 @@
 
         // Auto-save logic
         let autoSaveTimer;
-        $(document).on('input change', '.episode-title, .episode-key, .episode-description, .episode-text, .episode-assigned, .episode-character-checkbox', function() {
+        $(document).on('input change', '.episode-title, .episode-key, .episode-description, .episode-text, .episode-promts', function() {
             const input = $(this);
             const card = input.closest('.episode-card');
             const episodeId = card.data('id');
             
             clearTimeout(autoSaveTimer);
             autoSaveTimer = setTimeout(function() {
-                // Collect checked characters
-                let characterIds = [];
-                card.find('.episode-character-checkbox:checked').each(function() {
-                    characterIds.push($(this).val());
-                });
-
                 const data = {
                     _token: "{{ csrf_token() }}",
                     _method: "PATCH",
@@ -481,8 +485,8 @@
                     key: card.find('.episode-key').val(),
                     description: card.find('.episode-description').val(),
                     text: card.find('.episode-text').val(),
+                    promts: card.find('.episode-promts').val(),
                     assigned_to: card.find('.episode-assigned').val(),
-                    character_ids: characterIds
                 };
 
                 $.ajax({
@@ -495,23 +499,10 @@
                 });
             }, 1000);
         });
-        // Expand All logic
-        $('#expand-all-btn').on('click', function() {
-            const btn = $(this);
-            const expandables = $('.long-text-expandable');
-            const isExpanding = !btn.hasClass('expanded');
-            
-            if (isExpanding) {
-                expandables.slideDown(300);
-                $('.expand-btn').html('Mbyll <i class="fas fa-chevron-up ml-1"></i>');
-                btn.html('<i class="fas fa-compress-arrows-alt mr-2"></i> Mbyll të Gjitha');
-                btn.addClass('expanded');
-            } else {
-                expandables.slideUp(300);
-                $('.expand-btn').html('Zgjero <i class="fas fa-chevron-down ml-1"></i>');
-                btn.html('<i class="fas fa-expand-arrows-alt mr-2"></i> Zgjero të Gjitha');
-                btn.removeClass('expanded');
-            }
+
+        $(document).on('change', '.episode-assigned', function() {
+             // This is handled by input change above, but specific logic for dropdown trigger
+             // Just ensuring logic flows into shared handler.
         });
     });
 </script>

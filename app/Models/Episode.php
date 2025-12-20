@@ -16,7 +16,7 @@ class Episode extends Model
         'description',
         'text',
         'key',
-        'character_ids',
+        'promts',
         'assigned_to',
     ];
 
@@ -29,10 +29,6 @@ class Episode extends Model
     {
         return $this->belongsTo(User::class, 'assigned_to');
     }
-
-    protected $casts = [
-        'character_ids' => 'array',
-    ];
 
     public function roomConnections()
     {
