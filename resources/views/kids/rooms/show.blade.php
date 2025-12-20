@@ -465,16 +465,51 @@
         // Create/Update Logic for Assigned To dropdown
         $(document).on('click', '.episode-assign-option', function() {
             const val = $(this).data('val');
+            const img = $(this).data('img');
+            const name = $(this).data('name');
             const episodeId = $(this).data('id');
             const card = $(this).closest('.episode-card');
             
             // Update hidden input and trigger change (auto-save)
             card.find('.episode-assigned').val(val).trigger('change');
             
-            // UI Update (quick feedback) can be improved but page reload handles it for now usually, 
-            // OR we can rely on AJAX refresh if implemented. 
-            // For now, let's just reload to update the avatar visually or use a simple heuristic.
-            location.reload(); 
+            // UI Update - Instant Feedback
+            const avatarContainer = card.find('.assigned-avatar-container');
+            const avatarImg = card.find('.assigned-avatar-img');
+            const avatarIcon = card.find('.assigned-avatar-icon');
+            
+            if (val) {
+                // If user selected
+                avatarImg.attr('src', img).removeClass('d-none');
+                avatarIcon.addClass('d-none'); // Hide icon if present
+                
+                // Style container for selected state
+                avatarContainer.css({
+                    'border': '2px solid #10b981',
+                    'background-color': 'transparent'
+                });
+                avatarContainer.attr('title', 'Caktuar: ' + name);
+            } else {
+                // If assignment removed
+                avatarImg.addClass('d-none');
+                avatarIcon.removeClass('d-none'); // Show plus icon
+                
+                // Style container for empty state
+                avatarContainer.css({
+                    'border': '1px dashed #ccc',
+                    'background-color': '#f8f9fa' // bg-light
+                });
+                avatarContainer.attr('title', 'Cakto një përdorues');
+            }
+        });
+
+        // Boost Z-Index on Dropdown Show
+        $(document).on('show.bs.dropdown', '.episode-card .dropdown', function () {
+            $(this).closest('.episode-card').css('z-index', 100);
+        });
+
+        $(document).on('hidden.bs.dropdown', '.episode-card .dropdown', function () {
+            $(this).closest('.episode-card').css('z-index', 1);
         });
 
         // Expand logic - ONLY on button click

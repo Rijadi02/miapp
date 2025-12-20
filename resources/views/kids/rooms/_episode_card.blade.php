@@ -1,4 +1,4 @@
-<div class="card border-0 shadow-sm mb-3 episode-card" data-id="{{ $episode->id }}" style="border-radius: 16px; overflow: visible; transition: all 0.3s ease;">
+<div class="card border-0 shadow-sm mb-3 episode-card" data-id="{{ $episode->id }}" style="border-radius: 16px; overflow: visible; transition: all 0.3s ease; z-index: 1;">
     <div class="card-header bg-white border-0 py-3 d-flex justify-content-between align-items-center" style="border-radius: 16px 16px 0 0;">
         <div class="d-flex align-items-center" style="flex: 1; min-width: 0;">
             <div class="mr-3" style="width: 4px; height: 32px; background: #10b981; border-radius: 4px;"></div>
@@ -11,20 +11,21 @@
         <div class="d-flex align-items-center ml-3">
              <!-- Assigned To Avatar Dropdown -->
              <div class="dropdown mr-3">
-                <div class="" type="button" id="assignedToDropdown{{ $episode->id }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="" type="button" id="assignedToDropdown{{ $episode->id }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="position: relative; z-index: 1002;">
                     @if($episode->assignedUser)
-                        <div class="rounded-circle" style="width: 32px; height: 32px; overflow: hidden; cursor: pointer; border: 2px solid #10b981;" title="Caktuar: {{ $episode->assignedUser->name }}">
-                            <img src="{{ $episode->assignedUser->profile_picture_url }}" class="w-100 h-100" style="object-fit: cover;">
+                        <div class="rounded-circle assigned-avatar-container" style="width: 32px; height: 32px; overflow: hidden; cursor: pointer; border: 2px solid #10b981;" title="Caktuar: {{ $episode->assignedUser->name }}">
+                            <img src="{{ $episode->assignedUser->profile_picture_url }}" class="w-100 h-100 assigned-avatar-img" style="object-fit: cover;">
                         </div>
                     @else
-                        <div class="rounded-circle bg-light d-flex align-items-center justify-content-center text-muted" style="width: 32px; height: 32px; cursor: pointer; border: 1px dashed #ccc;" title="Cakto një përdorues">
-                            <i class="fas fa-user-plus small"></i>
+                        <div class="rounded-circle bg-light d-flex align-items-center justify-content-center text-muted assigned-avatar-container" style="width: 32px; height: 32px; cursor: pointer; border: 1px dashed #ccc;" title="Cakto një përdorues">
+                            <i class="fas fa-user-plus small assigned-avatar-icon"></i>
+                            <img src="" class="w-100 h-100 assigned-avatar-img d-none" style="object-fit: cover;">
                         </div>
                     @endif
                 </div>
                 <div class="dropdown-menu dropdown-menu-right border-0 shadow-lg" aria-labelledby="assignedToDropdown{{ $episode->id }}" style="border-radius: 12px; min-width: 200px; z-index: 1050;">
                     <h6 class="dropdown-header font-weight-bold">Cakto Tek</h6>
-                    <button class="dropdown-item d-flex align-items-center py-2 episode-assign-option" type="button" data-val="" data-id="{{ $episode->id }}">
+                    <button class="dropdown-item d-flex align-items-center py-2 episode-assign-option" type="button" data-val="" data-id="{{ $episode->id }}" data-img="" data-name="">
                         <div class="rounded-circle bg-light mr-2 d-flex align-items-center justify-content-center" style="width: 24px; height: 24px;">
                             <i class="fas fa-times small text-muted"></i>
                         </div>
@@ -32,7 +33,7 @@
                     </button>
                     <div class="dropdown-divider"></div>
                     @foreach($users as $user)
-                        <button class="dropdown-item d-flex align-items-center py-2 episode-assign-option" type="button" data-val="{{ $user->id }}" data-id="{{ $episode->id }}">
+                        <button class="dropdown-item d-flex align-items-center py-2 episode-assign-option" type="button" data-val="{{ $user->id }}" data-id="{{ $episode->id }}" data-img="{{ $user->profile_picture_url }}" data-name="{{ $user->name }}">
                             <div class="rounded-circle mr-2 overflow-hidden" style="width: 24px; height: 24px;">
                                 <img src="{{ $user->profile_picture_url }}" class="w-100 h-100" style="object-fit: cover;">
                             </div>
@@ -62,7 +63,7 @@
                 <hr>
                 <div class="mb-3">
                     <label class="small font-weight-bold text-muted mb-2">Teksti i Detajuar</label>
-                    <textarea class="form-control border-0 p-0 episode-text" style="font-size: 0.95rem; min-height: 100px; background: transparent; box-shadow: none;" placeholder="Teksti i detajuar...">{{ $episode->text }}</textarea>
+                    <textarea class="form-control border-0 p-3 episode-text" style="font-size: 0.95rem; min-height: 300px; background: #f8fafc; border-radius: 12px; box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);" placeholder="Teksti i detajuar...">{{ $episode->text }}</textarea>
                 </div>
                 
                 <div class="mt-4">
