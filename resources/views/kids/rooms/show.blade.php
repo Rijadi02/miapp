@@ -136,6 +136,7 @@
     }
 </style>
 
+@push('scripts')
 <script>
     $(document).ready(function() {
         $('#addConnectionModal').on('show.bs.modal', function() {
@@ -176,4 +177,5 @@
         });
     });
 </script>
+@endpush
 @endsection
