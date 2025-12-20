@@ -9,10 +9,6 @@
                 <div class="item-overlay">
                     <div class="item-content">
                         <h3 class="item-title">{{ $character->name }}</h3>
-                        <div class="item-info mb-3">
-                            <span class="badge badge-light px-3 py-2 mr-2" style="border-radius: 12px; font-weight: 700;">{{ $character->age }} Yrs</span>
-                            <span class="badge badge-light px-3 py-2" style="border-radius: 12px; font-weight: 700;">{{ strtoupper($character->gender) }}</span>
-                        </div>
                         <p class="item-description">
                             {{ Str::words($character->short_description, 15) }}
                         </p>
@@ -111,7 +107,7 @@
         background-size: cover;
         background-position: center;
         border-radius: 32px;
-        height: 300px;
+        height: 360px;
         position: relative;
         overflow: hidden;
         transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
