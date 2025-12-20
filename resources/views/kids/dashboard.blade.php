@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     @foreach($rooms as $room)
-    <div class="col-xl-4 col-md-6 mb-5">
+    <div class="col-xl-3 col-md-6 mb-5">
         <a href="#" class="item-card-link">
             <div class="item-card" style="background-image: url('{{ $room->thumbnail ?? 'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4' }}');">
                 <div class="item-overlay">
@@ -21,7 +21,7 @@
     @endforeach
 
     <!-- Add New Room Card -->
-    <div class="col-xl-4 col-md-6 mb-5">
+    <div class="col-xl-3 col-md-6 mb-5">
         <a href="#" class="item-card-link" data-toggle="modal" data-target="#createRoomModal">
             <div class="item-card add-card">
                 <div class="add-content">
@@ -80,7 +80,7 @@
         background-size: cover;
         background-position: center;
         border-radius: 32px;
-        height: 300px;
+        height: 210px;
         position: relative;
         overflow: hidden;
         transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;

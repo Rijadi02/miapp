@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     @foreach($characters as $character)
-    <div class="col-xl-4 col-md-6 mb-5">
+    <div class="col-xl-3 col-md-6 mb-5">
         <a href="#" class="item-card-link">
             <div class="item-card" style="background-image: url('{{ $character->thumbnail }}');">
                 <div class="item-overlay">
@@ -24,7 +24,7 @@
     @endforeach
 
     <!-- Add New Character Card -->
-    <div class="col-xl-4 col-md-6 mb-5">
+    <div class="col-xl-3 col-md-6 mb-5">
         <a href="#" class="item-card-link" data-toggle="modal" data-target="#createCharacterModal">
             <div class="item-card add-card">
                 <div class="add-content text-primary">
@@ -62,7 +62,7 @@
                                 <label class="small font-weight-bold text-uppercase text-muted">Gender</label>
                                 <select name="gender" class="form-control border-0 bg-light" style="border-radius: 12px; height: auto; padding: 1rem 1.5rem;">
                                     <option value="Mashkull">Mashkull</option>
-                                    <option value="Femër">Femër</option>
+                                    <option value="Femer">Femer</option>
                                 </select>
                             </div>
                         </div>
@@ -111,7 +111,7 @@
         background-size: cover;
         background-position: center;
         border-radius: 32px;
-        height: 300px;
+        height: 210px;
         position: relative;
         overflow: hidden;
         transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;

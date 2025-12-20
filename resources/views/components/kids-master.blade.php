@@ -112,6 +112,7 @@
         <div id="sidebar-wrapper">
             <div class="sidebar-heading">{{ Auth::user()->name }}</div>
             <div class="categories-list">
+                <a href="{{ route('kids.dashboard') }}" class="category-link {{ Request::routeIs('kids.dashboard') ? 'active' : '' }}">Dashboard</a>
                 <a href="{{ route('characters.index') }}" class="category-link {{ Request::routeIs('characters.*') ? 'active' : '' }}">Characters</a>
             </div>
 
