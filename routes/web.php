@@ -135,14 +135,6 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
     Route::get('api/characters', [CharacterController::class, 'apiIndex'])->middleware('role:kids')->name('api.characters');
     Route::get('api/assets', [AssetController::class, 'apiIndex'])->middleware('role:kids')->name('api.assets');
 
-    // Temporary fix for incorrect class names in DB
-    Route::get('fix-connections', function() {
-        $count = \DB::table('room_connections')
-            ->where('type', 'App\Http\Controllers\Asset')
-            ->update(['type' => 'App\Models\Asset']);
-        return "Updated $count connections.";
-    });
-
     Route::group(['middleware' => 'role:admin'], function() {
         Route::get('register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
         Route::post('register', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register.submit');
