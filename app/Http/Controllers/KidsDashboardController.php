@@ -39,6 +39,11 @@ class KidsDashboardController extends Controller
         $modelClass = $request->type === 'character' ? Character::class : Asset::class;
 
         foreach ($request->ids as $id) {
+            $room->connections()->firstOrCreate([
+                'connection_type' => $modelClass,
+                'connection_id' => $id,
+            ]);
+        }
 
         return redirect()->back()->with('success', ucfirst($request->type) . 's added to room successfully!');
     }
