@@ -124,8 +124,13 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
     Route::post('rooms', [App\Http\Controllers\KidsDashboardController::class, 'store'])->middleware('role:kids')->name('rooms.store');
     Route::get('characters', [CharacterController::class, 'index'])->middleware('role:kids')->name('characters.index');
     Route::post('characters', [CharacterController::class, 'store'])->middleware('role:kids')->name('characters.store');
+    Route::patch('characters/{character}', [CharacterController::class, 'update'])->middleware('role:kids')->name('characters.update');
+    Route::delete('characters/{character}', [CharacterController::class, 'destroy'])->middleware('role:kids')->name('characters.destroy');
+
     Route::get('assets', [AssetController::class, 'index'])->middleware('role:kids')->name('assets.index');
     Route::post('assets', [AssetController::class, 'store'])->middleware('role:kids')->name('assets.store');
+    Route::patch('assets/{asset}', [AssetController::class, 'update'])->middleware('role:kids')->name('assets.update');
+    Route::delete('assets/{asset}', [AssetController::class, 'destroy'])->middleware('role:kids')->name('assets.destroy');
 
     // Room Show and Connections
     Route::get('rooms/{room}', [App\Http\Controllers\KidsDashboardController::class, 'show'])->middleware('role:kids')->name('rooms.show');

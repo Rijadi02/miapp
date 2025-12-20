@@ -4,7 +4,7 @@
 <div class="row">
     @foreach($characters as $character)
     <div class="col-xl-3 col-md-6 mb-5">
-        <a href="#" class="item-card-link">
+        <a href="#" class="item-card-link" data-toggle="modal" data-target="#editCharacterModal{{ $character->id }}">
             <div class="item-card" style="background-image: url('{{ $character->thumbnail }}');">
                 <div class="item-overlay">
                     <div class="item-content">
@@ -16,6 +16,81 @@
                 </div>
             </div>
         </a>
+    </div>
+
+    <!-- Edit Character Modal -->
+    <div class="modal fade" id="editCharacterModal{{ $character->id }}" tabindex="-1" role="dialog" aria-labelledby="editCharacterModalLabel{{ $character->id }}" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content border-0" style="border-radius: 24px; overflow: hidden;">
+                <div class="modal-body p-5">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="font-weight-bold mb-0" style="font-family: 'Outfit', sans-serif;">Edit Character</h2>
+                        <form action="{{ route('characters.destroy', $character) }}" method="POST" onsubmit="return confirm('A jeni të sigurt që dëshironi të fshini këtë karakter?');">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-link text-danger p-0" style="font-weight: 600; text-decoration: none;">
+                                <i class="fas fa-trash-alt mr-2"></i> Delete Character
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <form action="{{ route('characters.update', $character) }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('PATCH')
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-4">
+                                    <label class="small font-weight-bold text-uppercase text-muted">Name</label>
+                                    <input type="text" name="name" class="form-control border-0 bg-light" value="{{ $character->name }}" required style="border-radius: 12px; padding: 1.5rem;">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group mb-4">
+                                    <label class="small font-weight-bold text-uppercase text-muted">Age</label>
+                                    <input type="text" name="age" class="form-control border-0 bg-light" value="{{ $character->age }}" style="border-radius: 12px; padding: 1.5rem;">
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group mb-4">
+                                    <label class="small font-weight-bold text-uppercase text-muted">Gender</label>
+                                    <select name="gender" class="form-control border-0 bg-light" style="border-radius: 12px; height: auto; padding: 1rem 1.5rem;">
+                                        <option value="Mashkull" {{ $character->gender == 'Mashkull' ? 'selected' : '' }}>Mashkull</option>
+                                        <option value="Femer" {{ $character->gender == 'Femer' ? 'selected' : '' }}>Femer</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label class="small font-weight-bold text-uppercase text-muted">Short Description (15 words)</label>
+                            <textarea name="short_description" class="form-control border-0 bg-light" rows="2" style="border-radius: 12px; padding: 1.5rem;">{{ $character->short_description }}</textarea>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label class="small font-weight-bold text-uppercase text-muted">Detailed Description</label>
+                            <textarea name="detailed_description" class="form-control border-0 bg-light" rows="4" style="border-radius: 12px; padding: 1.5rem;">{{ $character->detailed_description }}</textarea>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group mb-4">
+                                    <label class="small font-weight-bold text-uppercase text-muted">Thumbnail Image (leave empty to keep current)</label>
+                                    <input type="file" name="thumbnail" class="form-control border-0 bg-light" style="border-radius: 12px; padding: 0.75rem 1.5rem; height: auto;">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group mb-4">
+                                    <label class="small font-weight-bold text-uppercase text-muted">Assets (leave empty to keep current)</label>
+                                    <input type="file" name="assets[]" multiple class="form-control border-0 bg-light" style="border-radius: 12px; padding: 0.75rem 1.5rem; height: auto;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block py-3 font-weight-bold" style="border-radius: 16px; background: #3b82f6; border: none;">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
     @endforeach
 

@@ -16,7 +16,7 @@
             $config = $typeConfig[$asset->type] ?? ['bg' => '#f3f4f6', 'badge' => '#e5e7eb', 'icon' => 'fa-file'];
         @endphp
 
-        <div class="asset-card">
+        <div class="asset-card" data-toggle="modal" data-target="#editAssetModal{{ $asset->id }}" style="cursor: pointer;">
             <div class="asset-inner-box p-4" style="background-color: {{ $config['bg'] }};">
                 <span class="badge py-2 px-3 mb-4" style="background: {{ $config['badge'] }}; color: var(--kids-primary); border-radius: 12px; font-weight: 700; text-transform: uppercase; font-size: 0.75rem;">
                     {{ $asset->type }}
@@ -39,12 +39,12 @@
                             <video class="w-100 h-100" muted style="object-fit: cover;">
                                 <source src="{{ $asset->asset }}" type="video/mp4">
                             </video>
-                            <div class="video-play-overlay" data-toggle="modal" data-target="#videoModal{{ $asset->id }}">
+                            <div class="video-play-overlay">
                                 <i class="fas fa-play text-white fa-2x"></i>
                             </div>
                         </div>
                     @elseif($asset->type == 'image')
-                        <div class="image-preview position-relative" style="height: 140px; border-radius: 20px; overflow: hidden; background: #fff; cursor: pointer;" data-toggle="modal" data-target="#imageModal{{ $asset->id }}">
+                        <div class="image-preview position-relative" style="height: 140px; border-radius: 20px; overflow: hidden; background: #fff;">
                             <img src="{{ $asset->asset }}" class="w-100 h-100" style="object-fit: cover;">
                         </div>
                     @elseif($asset->type == 'pdf')
@@ -63,26 +63,72 @@
 
             <div class="asset-footer px-4 py-3 d-flex justify-content-between align-items-center">
                 @php
-                    $actionText = 'Download';
-                    if($asset->type == 'pdf') $actionText = 'Open PDF';
-                    if($asset->type == 'image') $actionText = 'View Image';
+                    $actionText = 'Settings / Edit';
                 @endphp
                 
                 <span class="footer-text font-weight-bold">{{ $actionText }}</span>
                 
-                @if($asset->type == 'pdf')
-                    <a href="{{ $asset->asset }}" target="_blank" class="footer-btn">
-                        <i class="fas fa-external-link-alt"></i>
-                    </a>
-                @elseif($asset->type == 'image')
-                    <a href="#" data-toggle="modal" data-target="#imageModal{{ $asset->id }}" class="footer-btn">
-                        <i class="fas fa-expand"></i>
-                    </a>
-                @else
-                    <a href="{{ $asset->asset }}" download class="footer-btn">
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                @endif
+                <div class="footer-btn">
+                    <i class="fas fa-cog"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Asset Modal -->
+        <div class="modal fade" id="editAssetModal{{ $asset->id }}" tabindex="-1" role="dialog" aria-labelledby="editAssetModalLabel{{ $asset->id }}" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content border-0" style="border-radius: 28px; overflow: hidden;">
+                    <div class="modal-body p-5">
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <h2 class="font-weight-bold mb-0" style="font-family: 'Outfit', sans-serif;">Edit Asset</h2>
+                            <form action="{{ route('assets.destroy', $asset) }}" method="POST" onsubmit="return confirm('A jeni të sigurt që dëshironi të fshini këtë aset?');">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-link text-danger p-0" style="font-weight: 600; text-decoration: none;">
+                                    <i class="fas fa-trash-alt mr-2"></i> Delete Asset
+                                </button>
+                            </form>
+                        </div>
+
+                        <form action="{{ route('assets.update', $asset) }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            @method('PATCH')
+                            <div class="form-group mb-4">
+                                <label class="small font-weight-bold text-uppercase text-muted">Title</label>
+                                <input type="text" name="title" class="form-control border-0 bg-light" value="{{ $asset->title }}" required style="border-radius: 12px; padding: 1.5rem;">
+                            </div>
+                            
+                            <div class="form-group mb-4">
+                                <label class="small font-weight-bold text-uppercase text-muted">Description</label>
+                                <textarea name="description" class="form-control border-0 bg-light" rows="3" required style="border-radius: 12px; padding: 1.5rem;">{{ $asset->description }}</textarea>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-4">
+                                        <label class="small font-weight-bold text-uppercase text-muted">Type</label>
+                                        <select name="type" class="form-control border-0 bg-light" style="border-radius: 12px; height: auto; padding: 1rem 1.5rem;">
+                                            <option value="image" {{ $asset->type == 'image' ? 'selected' : '' }}>Image</option>
+                                            <option value="audio" {{ $asset->type == 'audio' ? 'selected' : '' }}>Audio</option>
+                                            <option value="video" {{ $asset->type == 'video' ? 'selected' : '' }}>Video</option>
+                                            <option value="pdf" {{ $asset->type == 'pdf' ? 'selected' : '' }}>PDF</option>
+                                            <option value="text" {{ $asset->type == 'text' ? 'selected' : '' }}>Text/Doc</option>
+                                            <option value="zip" {{ $asset->type == 'zip' ? 'selected' : '' }}>ZIP/Files</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-4">
+                                        <label class="small font-weight-bold text-uppercase text-muted">File (leave empty to keep current)</label>
+                                        <input type="file" name="asset_file" class="form-control border-0 bg-light" style="border-radius: 12px; padding: 0.75rem 1.5rem; height: auto;">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block py-3 font-weight-bold" style="border-radius: 16px; background: var(--kids-primary); border: none; font-size: 1.1rem;">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
 
