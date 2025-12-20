@@ -442,7 +442,8 @@
                 url: "{{ route('rooms.episodes.store', $room) }}",
                 method: "POST",
                 data: {
-                    _token: "{{ csrf_token() }}"
+                    _token: "{{ csrf_token() }}",
+                    title: "Episod i Ri"
                 },
                 success: function(response) {
                     if (response.success) {
@@ -530,7 +531,7 @@
 
         // Auto-save logic
         let autoSaveTimer;
-        $(document).on('input change', '.episode-title, .episode-key, .episode-description, .episode-text, .episode-promts', function() {
+        $(document).on('input change', '.episode-title, .episode-key, .episode-description, .episode-text, .episode-promts, .episode-assigned', function() {
             const input = $(this);
             const card = input.closest('.episode-card');
             const episodeId = card.data('id');
