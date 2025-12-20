@@ -74,10 +74,12 @@
                         </div>
                     </h6>
                     <div class="dropdown-divider"></div>
+                    @if(Auth::user()->isAdmin())
                     <a class="dropdown-item" href="{{ url('admin/register') }}">
                         <div class="dropdown-item-icon"><i data-feather="settings"></i></div>
                         Regjistro
                     </a>
+                    @endif
 
                     <form method="POST" action="{{ route('logout') }}">
                         @csrf
@@ -101,10 +103,12 @@
                             Dashboard
                         </a>
 
+                        @if(Auth::user()->isAdmin())
                         <a class="nav-link" href="{{ route('users.index') }}">
                             <div class="nav-link-icon"><i class="fas fa-users"></i></div>
                             Përdoruesit
                         </a>
+                        @endif
 
                         <a class="nav-link" href="{{ route('category.index') }}">
                             <div class="nav-link-icon"><i class="fa fa-chart-line"></i></div>
@@ -181,7 +185,9 @@
                                 <a class="nav-link" href="{{ route('type.index') }}">Biznes Kategoritë</a>
                                 <a class="nav-link" href="{{ route('applications.index') }}">Akademia</a>
                                 <a class="nav-link" href="{{ route('index.with.answer') }}">Pyetjet</a>
+                                @if(Auth::user()->isAdmin())
                                 <a class="nav-link" href="{{ url('admin/register') }}">Regjistro</a>
+                                @endif
                             </nav>
                         </div>
 
