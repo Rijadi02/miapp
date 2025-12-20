@@ -23,51 +23,53 @@
         </div>
     @endif
 
-    <div class="row">
-        <!-- Add Button Card -->
-        <div class="col-xl-2 col-lg-3 col-md-4 col-6 mb-4">
-            <div class="card h-100 border-0 shadow-sm add-card" data-toggle="modal" data-target="#addConnectionModal" style="cursor: pointer; border-radius: 16px; transition: all 0.3s ease; min-height: 180px; display: flex; align-items: center; justify-content: center; background: rgba(16, 185, 129, 0.05); border: 2px dashed rgba(16, 185, 129, 0.2) !important;">
-                <div class="text-center">
-                    <div class="mb-3" style="width: 48px; height: 48px; background: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.1);">
-                        <i class="fas fa-plus" style="color: #10b981; font-size: 1.2rem;"></i>
+    <div class="horizontal-scroll-container pb-4">
+        <div class="d-flex flex-nowrap">
+            <!-- Add Button Card -->
+            <div class="mr-4" style="flex: 0 0 160px;">
+                <div class="card h-100 border-0 shadow-sm add-card" data-toggle="modal" data-target="#addConnectionModal" style="cursor: pointer; border-radius: 16px; transition: all 0.3s ease; min-height: 180px; display: flex; align-items: center; justify-content: center; background: rgba(16, 185, 129, 0.05); border: 2px dashed rgba(16, 185, 129, 0.2) !important;">
+                    <div class="text-center">
+                        <div class="mb-3" style="width: 48px; height: 48px; background: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.1);">
+                            <i class="fas fa-plus" style="color: #10b981; font-size: 1.2rem;"></i>
+                        </div>
+                        <span style="font-weight: 700; color: #10b981; font-size: 0.9rem;">Add New</span>
                     </div>
-                    <span style="font-weight: 700; color: #10b981; font-size: 0.9rem;">Add New</span>
                 </div>
             </div>
-        </div>
 
-        <!-- Connection Cards -->
-        @foreach($room->connections as $connection)
-            <div class="col-xl-2 col-lg-3 col-md-4 col-6 mb-4">
-                <div class="card h-100 border-0 shadow-sm item-card" style="border-radius: 16px; overflow: hidden; transition: all 0.3s ease;">
-                    <div style="position: relative; padding-top: 100%;">
-                        @php
-                            $imageUrl = '';
-                            $title = '';
-                            $badge = '';
-                            if ($connection->type === 'App\Models\Character') {
-                                $imageUrl = $connection->connection->thumbnail ?? '/img/placeholder-character.png';
-                                $title = $connection->connection->name;
-                                $badge = 'Character';
-                            } elseif ($connection->type === 'App\Models\Asset') {
-                                $imageUrl = $connection->connection->asset ?? '/img/placeholder-asset.png';
-                                $title = $connection->connection->title;
-                                $badge = 'Asset';
-                            }
-                        @endphp
-                        <img src="{{ $imageUrl }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" alt="{{ $title }}">
-                        <div class="badge-pill px-2 py-1" style="position: absolute; top: 12px; left: 12px; background: rgba(255,255,255,0.9); font-size: 0.65rem; font-weight: 700; color: #374151; backdrop-filter: blur(4px);">
-                            {{ $badge }}
+            <!-- Connection Cards -->
+            @foreach($room->connections as $connection)
+                <div class="mr-4" style="flex: 0 0 160px;">
+                    <div class="card h-100 border-0 shadow-sm item-card" style="border-radius: 16px; overflow: hidden; transition: all 0.3s ease;">
+                        <div style="position: relative; padding-top: 100%;">
+                            @php
+                                $imageUrl = '';
+                                $title = '';
+                                $badge = '';
+                                if ($connection->type === 'App\Models\Character') {
+                                    $imageUrl = $connection->connection->thumbnail ?? '/img/placeholder-character.png';
+                                    $title = $connection->connection->name;
+                                    $badge = 'Character';
+                                } elseif ($connection->type === 'App\Models\Asset') {
+                                    $imageUrl = $connection->connection->asset ?? '/img/placeholder-asset.png';
+                                    $title = $connection->connection->title;
+                                    $badge = 'Asset';
+                                }
+                            @endphp
+                            <img src="{{ $imageUrl }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" alt="{{ $title }}">
+                            <div class="badge-pill px-2 py-1" style="position: absolute; top: 12px; left: 12px; background: rgba(255,255,255,0.9); font-size: 0.65rem; font-weight: 700; color: #374151; backdrop-filter: blur(4px);">
+                                {{ $badge }}
+                            </div>
+                        </div>
+                        <div class="card-body p-3">
+                            <h6 class="mb-0" style="font-weight: 700; font-size: 0.85rem; color: #111827; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                {{ $title }}
+                            </h6>
                         </div>
                     </div>
-                    <div class="card-body p-3">
-                        <h6 class="mb-0" style="font-weight: 700; font-size: 0.85rem; color: #111827; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                            {{ $title }}
-                        </h6>
-                    </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
     </div>
 </div>
 
@@ -103,6 +105,27 @@
 </div>
 
 <style>
+    .horizontal-scroll-container {
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 20px;
+        margin-bottom: -20px;
+    }
+    .horizontal-scroll-container::-webkit-scrollbar {
+        height: 6px;
+    }
+    .horizontal-scroll-container::-webkit-scrollbar-track {
+        background: rgba(16, 185, 129, 0.05);
+        border-radius: 10px;
+    }
+    .horizontal-scroll-container::-webkit-scrollbar-thumb {
+        background: rgba(16, 185, 129, 0.2);
+        border-radius: 10px;
+    }
+    .horizontal-scroll-container::-webkit-scrollbar-thumb:hover {
+        background: rgba(16, 185, 129, 0.4);
+    }
     .add-card:hover {
         transform: translateY(-5px);
         background: rgba(16, 185, 129, 0.08) !important;
