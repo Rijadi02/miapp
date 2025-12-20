@@ -51,6 +51,41 @@ class KidsDashboardController extends Controller
         return redirect()->back()->with('success', ucfirst($request->type) . 's added to room successfully!');
     }
 
+    public function storeEpisode(Request $request, Room $room)
+    {
+        $episode = \App\Models\Episode::create([
+            'title' => 'New Episode',
+            'description' => 'Add text here',
+            'text' => 'Add long text here',
+            'key' => 'EP-' . strtoupper(str_random(6)),
+        ]);
+
+        $room->connections()->create([
+            'type' => \App\Models\Episode::class,
+            'connection_id' => $episode->id,
+            'assigned_by' => auth()->id(),
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'episode' => $episode
+        ]);
+    }
+
+    public function updateEpisode(Request $request, \App\Models\Episode $episode)
+    {
+        $request->validate([
+            'title' => 'sometimes|string|max:255',
+            'description' => 'sometimes|string',
+            'text' => 'sometimes|string',
+            'key' => 'sometimes|string',
+        ]);
+
+        $episode->update($request->only(['title', 'description', 'text', 'key']));
+
+        return response()->json(['success' => true]);
+    }
+
     public function store(Request $request)
     {
         $request->validate([
