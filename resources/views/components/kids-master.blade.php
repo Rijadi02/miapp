@@ -16,6 +16,8 @@
         :root {
             @if(Request::routeIs('characters.*'))
             --kids-primary: #3b82f6;
+            @elseif(Request::routeIs('assets.*'))
+            --kids-primary: #a855f7;
             @else
             --kids-primary: #fb923c;
             @endif
@@ -33,6 +35,12 @@
                 radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.15) 0, transparent 50%),
                 radial-gradient(at 50% 50%, rgba(59, 130, 246, 0.1) 0, transparent 70%),
                 radial-gradient(at 0% 100%, rgba(59, 130, 246, 0.05) 0, transparent 50%);
+            @elseif(Request::routeIs('assets.*'))
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(168, 85, 247, 0.1) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.15) 0, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(168, 85, 247, 0.1) 0, transparent 70%),
+                radial-gradient(at 0% 100%, rgba(168, 85, 247, 0.05) 0, transparent 50%);
             @else
             background-image: 
                 radial-gradient(at 0% 0%, rgba(251, 146, 60, 0.1) 0, transparent 50%), 
@@ -114,6 +122,7 @@
             <div class="categories-list">
                 <a href="{{ route('kids.dashboard') }}" class="category-link {{ Request::routeIs('kids.dashboard') ? 'active' : '' }}">Dashboard</a>
                 <a href="{{ route('characters.index') }}" class="category-link {{ Request::routeIs('characters.*') ? 'active' : '' }}">Characters</a>
+                <a href="{{ route('assets.index') }}" class="category-link {{ Request::routeIs('assets.*') ? 'active' : '' }}">Assets</a>
             </div>
 
         </div>

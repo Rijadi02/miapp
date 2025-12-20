@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CharacterController;
+use App\Http\Controllers\AssetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -123,6 +124,8 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
     Route::post('rooms', [App\Http\Controllers\KidsDashboardController::class, 'store'])->middleware('role:kids')->name('rooms.store');
     Route::get('characters', [CharacterController::class, 'index'])->middleware('role:kids')->name('characters.index');
     Route::post('characters', [CharacterController::class, 'store'])->middleware('role:kids')->name('characters.store');
+    Route::get('assets', [AssetController::class, 'index'])->middleware('role:kids')->name('assets.index');
+    Route::post('assets', [AssetController::class, 'store'])->middleware('role:kids')->name('assets.store');
 
     Route::group(['middleware' => 'role:admin'], function() {
         Route::get('register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
