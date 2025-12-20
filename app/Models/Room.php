@@ -26,4 +26,9 @@ class Room extends Model
     {
         return $this->belongsTo(User::class, 'assigned_at');
     }
+
+    public function episodes()
+    {
+        return $this->hasMany(Episode::class);
+    }
 }
