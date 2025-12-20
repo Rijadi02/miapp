@@ -14,7 +14,11 @@
     
     <style>
         :root {
+            @if(Request::routeIs('characters.*'))
+            --kids-primary: #3b82f6;
+            @else
             --kids-primary: #fb923c;
+            @endif
             --kids-bg: #ffffff;
             --kids-sidebar-text: #000000;
             --kids-muted: #6b7280;
@@ -23,11 +27,19 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--kids-bg);
+            @if(Request::routeIs('characters.*'))
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.1) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.15) 0, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(59, 130, 246, 0.1) 0, transparent 70%),
+                radial-gradient(at 0% 100%, rgba(59, 130, 246, 0.05) 0, transparent 50%);
+            @else
             background-image: 
                 radial-gradient(at 0% 0%, rgba(251, 146, 60, 0.1) 0, transparent 50%), 
                 radial-gradient(at 100% 0%, rgba(251, 146, 60, 0.15) 0, transparent 50%),
                 radial-gradient(at 50% 50%, rgba(251, 146, 60, 0.1) 0, transparent 70%),
                 radial-gradient(at 0% 100%, rgba(251, 146, 60, 0.05) 0, transparent 50%);
+            @endif
             background-attachment: fixed;
             color: #1f2937;
             min-height: 100vh;
@@ -100,16 +112,7 @@
         <div id="sidebar-wrapper">
             <div class="sidebar-heading">{{ Auth::user()->name }}</div>
             <div class="categories-list">
-                <a href="#" class="category-link active">All</a>
-                <a href="#" class="category-link">Men</a>
-                <a href="#" class="category-link">Home Accessories</a>
-                <a href="#" class="category-link">Luggage</a>
-                <a href="#" class="category-link">Outdoor Shoes</a>
-                <a href="#" class="category-link">Kids & Baby</a>
-                <a href="#" class="category-link">Camping & Hiking</a>
-                <a href="#" class="category-link">Water Sports</a>
-                <a href="#" class="category-link">Audio & HiFi</a>
-                <a href="#" class="category-link">Toys & Games</a>
+                <a href="{{ route('characters.index') }}" class="category-link {{ Request::routeIs('characters.*') ? 'active' : '' }}">Characters</a>
             </div>
 
         </div>
