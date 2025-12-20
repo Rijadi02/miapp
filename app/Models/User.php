@@ -27,6 +27,7 @@ class User extends Authenticatable
         'email',
         'password',
         'role',
+        'profile_picture',
     ];
 
 
@@ -67,6 +68,20 @@ class User extends Authenticatable
     public function isKids()
     {
         return $this->role == self::ROLE_KIDS;
+    }
+
+    /**
+     * Get the user's profile picture URL.
+     *
+     * @return string
+     */
+    public function getProfilePictureUrlAttribute()
+    {
+        if ($this->profile_picture) {
+            return asset('storage/' . $this->profile_picture);
+        }
+
+        return 'https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png';
     }
 }
 

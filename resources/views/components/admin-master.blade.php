@@ -62,12 +62,12 @@
                 <a class="btn btn-icon btn-transparent-dark dropdown-toggle" id="navbarDropdownUserImage"
                     href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false"><img class="img-fluid"
-                        src="https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png" /></a>
+                        src="{{ Auth::user()->profile_picture_url }}" /></a>
                 <div class="dropdown-menu dropdown-menu-right border-0 shadow animated--fade-in-up"
                     aria-labelledby="navbarDropdownUserImage">
                     <h6 class="dropdown-header d-flex align-items-center">
                         <img class="dropdown-user-img"
-                            src="https://www.pngitem.com/pimgs/m/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png" />
+                            src="{{ Auth::user()->profile_picture_url }}" />
                         <div class="dropdown-user-details">
                             <div class="dropdown-user-details-name">{{ Auth::user()->name }}</div>
                             <div class="dropdown-user-details-email">{{ Auth::user()->email }}</div>
@@ -99,6 +99,11 @@
                         <a class="nav-link" href="{{ route('dashboard.index') }}">
                             <div class="nav-link-icon"><i class="fas fa-chart-pie"></i></div>
                             Dashboard
+                        </a>
+
+                        <a class="nav-link" href="{{ route('users.index') }}">
+                            <div class="nav-link-icon"><i class="fas fa-users"></i></div>
+                            Përdoruesit
                         </a>
 
                         <a class="nav-link" href="{{ route('category.index') }}">

@@ -261,6 +261,11 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
         Route::patch('translations/{translation}/update', [App\Http\Controllers\TranslationController::class, 'update'])->name('translation.update');
         Route::get('translations/{translation}/edit',  [App\Http\Controllers\TranslationController::class, 'edit'])->name('translation.edit');
 
+        Route::get('users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
+        Route::get('users/{user}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('users.edit');
+        Route::patch('users/{user}/update', [App\Http\Controllers\UserController::class, 'update'])->name('users.update');
+        Route::delete('users/{user}/delete', [App\Http\Controllers\UserController::class, 'destroy'])->name('users.delete');
+
         Route::get('tools', [App\Http\Controllers\ToolController::class, 'index'])->name('tools.index');
         Route::post('tools/store', [App\Http\Controllers\ToolController::class, 'store'])->name('tools.store');
         Route::delete('tools/{tool}', [App\Http\Controllers\ToolController::class, 'destroy'])->name('tools.destroy');
