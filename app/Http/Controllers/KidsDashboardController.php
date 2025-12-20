@@ -7,6 +7,7 @@ use App\Models\Room;
 use App\Models\User;
 use App\Models\RoomConnection;
 use App\Models\Character;
+use App\Models\Asset;
 
 class KidsDashboardController extends Controller
 {

@@ -87,11 +87,22 @@
                     $asset = $connection->connection;
                     $config = $typeConfig[$asset->type] ?? ['bg' => '#f3f4f6', 'badge' => '#e5e7eb', 'icon' => 'fa-file'];
                 @endphp
-                <div class="mr-4" style="flex: 0 0 160px;">
+                <div class="mr-4" style="flex: 0 0 240px;"> <!-- Increased width for players -->
                     <div class="card h-100 border-0 shadow-sm item-card" style="border-radius: 16px; overflow: hidden; transition: all 0.3s ease;">
-                        <div style="position: relative; padding-top: 100%; background-color: {{ $config['bg'] }};">
+                        <div style="position: relative; padding-top: 60%; background-color: {{ $config['bg'] }};">
                             @if($asset->type === 'image')
-                                <img src="{{ $asset->asset }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" alt="{{ $asset->title }}">
+                                <img src="{{ $asset->asset }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" alt="{{ $asset->title }}" data-toggle="modal" data-target="#imageModal{{ $asset->id }}">
+                            @elseif($asset->type === 'video')
+                                <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" muted>
+                                    <source src="{{ $asset->asset }}" type="video/mp4">
+                                </video>
+                                <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.2); cursor: pointer;" data-toggle="modal" data-target="#videoModal{{ $asset->id }}">
+                                    <i class="fas fa-play text-white fa-lg"></i>
+                                </div>
+                            @elseif($asset->type === 'audio')
+                                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas {{ $config['icon'] }} fa-2x" style="color: #10b981; opacity: 0.3;"></i>
+                                </div>
                             @else
                                 <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
                                     <i class="fas {{ $config['icon'] }} fa-2x" style="color: #10b981; opacity: 0.5;"></i>
@@ -102,12 +113,41 @@
                             </div>
                         </div>
                         <div class="card-body p-3">
-                            <h6 class="mb-0" style="font-weight: 700; font-size: 0.85rem; color: #111827; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                            <h6 class="mb-2" style="font-weight: 700; font-size: 0.85rem; color: #111827; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
                                 {{ $asset->title }}
                             </h6>
+                            @if($asset->type === 'audio')
+                                <audio controls style="width: 100%; height: 30px;">
+                                    <source src="{{ $asset->asset }}" type="audio/mpeg">
+                                </audio>
+                            @elseif($asset->type === 'image' || $asset->type === 'pdf')
+                                <a href="{{ $asset->asset }}" target="_blank" class="btn btn-sm btn-light btn-block" style="border-radius: 8px; font-weight: 600; font-size: 0.75rem;">View {{ ucfirst($asset->type) }}</a>
+                            @else
+                                <a href="{{ $asset->asset }}" download class="btn btn-sm btn-light btn-block" style="border-radius: 8px; font-weight: 600; font-size: 0.75rem;">Download</a>
+                            @endif
                         </div>
                     </div>
                 </div>
+
+                <!-- Asset Modals (Video/Image) -->
+                @if($asset->type == 'video')
+                <div class="modal fade" id="videoModal{{ $asset->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                        <div class="modal-content bg-black border-0 overflow-hidden" style="border-radius: 24px;">
+                            <video controls class="w-100"><source src="{{ $asset->asset }}" type="video/mp4"></video>
+                        </div>
+                    </div>
+                </div>
+                @endif
+                @if($asset->type == 'image')
+                <div class="modal fade" id="imageModal{{ $asset->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                        <div class="modal-content border-0 overflow-hidden" style="border-radius: 24px; background: transparent;">
+                            <img src="{{ $asset->asset }}" class="w-100" style="border-radius: 24px;">
+                        </div>
+                    </div>
+                </div>
+                @endif
             @endforeach
         </div>
     </div>
@@ -118,15 +158,23 @@
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content border-0" style="border-radius: 24px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);">
             <div class="modal-header border-0 px-4 pt-4">
-                <h5 class="modal-title" style="font-family: 'Outfit', sans-serif; font-weight: 700;">Add Characters to Room</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <div class="w-100">
+                    <h5 class="modal-title mb-3" style="font-family: 'Outfit', sans-serif; font-weight: 700;">Add Characters to Room</h5>
+                    <div class="input-group" style="background: #f3f4f6; border-radius: 12px; padding: 5px;">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text border-0 bg-transparent text-muted"><i class="fas fa-search"></i></span>
+                        </div>
+                        <input type="text" id="character-search" class="form-control border-0 bg-transparent" placeholder="Search by name..." style="box-shadow: none;">
+                    </div>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; top: 20px; right: 20px;">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <form action="{{ route('rooms.connect', $room) }}" method="POST">
                 @csrf
                 <input type="hidden" name="type" value="character">
-                <div class="modal-body px-4 py-4">
+                <div class="modal-body px-4 py-4" style="max-height: 50vh; overflow-y: auto;">
                     <div id="characters-selector" class="row no-gutters">
                         <div class="col-12 text-center py-5">
                             <div class="spinner-border text-success" role="status"></div>
@@ -147,15 +195,23 @@
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content border-0" style="border-radius: 24px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);">
             <div class="modal-header border-0 px-4 pt-4">
-                <h5 class="modal-title" style="font-family: 'Outfit', sans-serif; font-weight: 700;">Add Assets to Room</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <div class="w-100">
+                    <h5 class="modal-title mb-3" style="font-family: 'Outfit', sans-serif; font-weight: 700;">Add Assets to Room</h5>
+                    <div class="input-group" style="background: #f3f4f6; border-radius: 12px; padding: 5px;">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text border-0 bg-transparent text-muted"><i class="fas fa-search"></i></span>
+                        </div>
+                        <input type="text" id="asset-search" class="form-control border-0 bg-transparent" placeholder="Search by title or type (e.g. video, audio)..." style="box-shadow: none;">
+                    </div>
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; top: 20px; right: 20px;">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <form action="{{ route('rooms.connect', $room) }}" method="POST">
                 @csrf
                 <input type="hidden" name="type" value="asset">
-                <div class="modal-body px-4 py-4">
+                <div class="modal-body px-4 py-4" style="max-height: 50vh; overflow-y: auto;">
                     <div id="assets-selector" class="row no-gutters">
                         <div class="col-12 text-center py-5">
                             <div class="spinner-border text-success" role="status"></div>
@@ -229,70 +285,100 @@
 @push('scripts')
 <script>
     $(document).ready(function() {
-        function loadOptions(modalId, selectorId, apiUrl, inputName) {
+        let allItems = {
+            'addCharacterModal': [],
+            'addAssetModal': []
+        };
+
+        function renderItems(selectorId, items, modalId) {
+            const selector = $(`#${selectorId}`);
+            selector.empty();
+            if (items.length === 0) {
+                selector.html('<div class="col-12 text-center py-5"><p class="text-muted">Nothing found matching your search.</p></div>');
+                return;
+            }
+
+            const typeConfig = {
+                'audio': { bg: '#eff6ff', icon: 'fa-headphones' },
+                'video': { bg: '#fff7ed', icon: 'fa-play-circle' },
+                'pdf':   { bg: '#fdf2f8', icon: 'fa-file-pdf' },
+                'text':  { bg: '#f0fdf4', icon: 'fa-file-alt' },
+                'zip':   { bg: '#f5f3ff', icon: 'fa-file-archive' },
+                'image': { bg: '#ecfeff', icon: 'fa-image' }
+            };
+
+            items.forEach(item => {
+                let thumbHtml = '';
+                let name = item.name || item.title;
+                let config = typeConfig[item.type] || { bg: '#f3f4f6', icon: 'fa-file' };
+
+                if (modalId === 'addCharacterModal') {
+                    thumbHtml = `<img src="${item.thumbnail || '/img/placeholder-character.png'}" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">`;
+                } else {
+                    if (item.type === 'image') {
+                        thumbHtml = `<img src="${item.asset}" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">`;
+                    } else {
+                        thumbHtml = `<div style="position: absolute; top:0; left:0; width:100%; height:100%; display: flex; align-items:center; justify-content:center; background-color: ${config.bg};">
+                                        <i class="fas ${config.icon} fa-lg" style="color: #10b981; opacity: 0.5;"></i>
+                                    </div>`;
+                    }
+                }
+
+                selector.append(`
+                    <div class="col-md-3 col-4 item-option-wrapper" data-name="${name.toLowerCase()}" data-type="${(item.type || '').toLowerCase()}">
+                        <label class="character-option w-100 mb-0">
+                            <input type="checkbox" name="ids[]" value="${item.id}">
+                            <div class="character-card-inner text-center p-2 h-100">
+                                <div style="position: relative; padding-top: 100%; border-radius: 12px; overflow: hidden; margin-bottom: 8px;">
+                                    ${thumbHtml}
+                                </div>
+                                <div style="font-size: 0.75rem; font-weight: 700; color: #111827; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                    ${name}
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                `);
+            });
+        }
+
+        function loadOptions(modalId, selectorId, apiUrl) {
             $(`#${modalId}`).on('show.bs.modal', function() {
                 const selector = $(`#${selectorId}`);
+                if (allItems[modalId].length > 0) return; // Already loaded
+
                 selector.html('<div class="col-12 text-center py-5"><div class="spinner-border text-success" role="status"></div></div>');
                 
                 $.ajax({
                     url: apiUrl,
                     method: "GET",
                     success: function(data) {
-                        selector.empty();
-                        if (data.length === 0) {
-                            selector.html('<div class="col-12 text-center py-5"><p class="text-muted">Nothing found.</p></div>');
-                            return;
-                        }
-
-                        const typeConfig = {
-                            'audio': { bg: '#eff6ff', icon: 'fa-headphones' },
-                            'video': { bg: '#fff7ed', icon: 'fa-play-circle' },
-                            'pdf':   { bg: '#fdf2f8', icon: 'fa-file-pdf' },
-                            'text':  { bg: '#f0fdf4', icon: 'fa-file-alt' },
-                            'zip':   { bg: '#f5f3ff', icon: 'fa-file-archive' },
-                            'image': { bg: '#ecfeff', icon: 'fa-image' }
-                        };
-
-                        data.forEach(item => {
-                            let thumbHtml = '';
-                            let name = item.name || item.title;
-                            let config = typeConfig[item.type] || { bg: '#f3f4f6', icon: 'fa-file' };
-
-                            if (modalId === 'addCharacterModal') {
-                                thumbHtml = `<img src="${item.thumbnail || '/img/placeholder-character.png'}" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">`;
-                            } else {
-                                if (item.type === 'image') {
-                                    thumbHtml = `<img src="${item.asset}" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">`;
-                                } else {
-                                    thumbHtml = `<div style="position: absolute; top:0; left:0; width:100%; height:100%; display: flex; align-items:center; justify-content:center; background-color: ${config.bg};">
-                                                    <i class="fas ${config.icon} fa-lg" style="color: #10b981; opacity: 0.5;"></i>
-                                                </div>`;
-                                }
-                            }
-
-                            selector.append(`
-                                <div class="col-md-3 col-4">
-                                    <label class="character-option w-100 mb-0">
-                                        <input type="checkbox" name="ids[]" value="${item.id}">
-                                        <div class="character-card-inner text-center p-2 h-100">
-                                            <div style="position: relative; padding-top: 100%; border-radius: 12px; overflow: hidden; margin-bottom: 8px;">
-                                                ${thumbHtml}
-                                            </div>
-                                            <div style="font-size: 0.75rem; font-weight: 700; color: #111827; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
-                                                ${name}
-                                            </div>
-                                        </div>
-                                    </label>
-                                </div>
-                            `);
-                        });
+                        allItems[modalId] = data;
+                        renderItems(selectorId, data, modalId);
                     }
                 });
             });
         }
 
-        loadOptions('addCharacterModal', 'characters-selector', "{{ route('api.characters') }}", 'ids[]');
-        loadOptions('addAssetModal', 'assets-selector', "{{ route('api.assets') }}", 'ids[]');
+        // Real-time search
+        $('#character-search').on('input', function() {
+            const query = $(this).val().toLowerCase();
+            const filtered = allItems['addCharacterModal'].filter(item => 
+                item.name.toLowerCase().includes(query)
+            );
+            renderItems('characters-selector', filtered, 'addCharacterModal');
+        });
+
+        $('#asset-search').on('input', function() {
+            const query = $(this).val().toLowerCase();
+            const filtered = allItems['addAssetModal'].filter(item => 
+                item.title.toLowerCase().includes(query) || item.type.toLowerCase().includes(query)
+            );
+            renderItems('assets-selector', filtered, 'addAssetModal');
+        });
+
+        loadOptions('addCharacterModal', 'characters-selector', "{{ route('api.characters') }}");
+        loadOptions('addAssetModal', 'assets-selector', "{{ route('api.assets') }}");
     });
 </script>
 @endpush
