@@ -16,7 +16,7 @@
             $config = $typeConfig[$asset->type] ?? ['bg' => '#f3f4f6', 'badge' => '#e5e7eb', 'icon' => 'fa-file'];
         @endphp
 
-        <div class="asset-card" data-toggle="modal" data-target="#editAssetModal{{ $asset->id }}" style="cursor: pointer;">
+        <div class="asset-card">
             <div class="asset-inner-box p-4" style="background-color: {{ $config['bg'] }};">
                 <span class="badge py-2 px-3 mb-4" style="background: {{ $config['badge'] }}; color: var(--kids-primary); border-radius: 12px; font-weight: 700; text-transform: uppercase; font-size: 0.75rem;">
                     {{ $asset->type }}
@@ -35,7 +35,7 @@
                             </audio>
                         </div>
                     @elseif($asset->type == 'video')
-                        <div class="video-preview position-relative bg-dark" style="height: 140px; border-radius: 20px; overflow: hidden;">
+                        <div class="video-preview position-relative bg-dark" style="height: 140px; border-radius: 20px; overflow: hidden; cursor: pointer;" data-toggle="modal" data-target="#videoModal{{ $asset->id }}">
                             <video class="w-100 h-100" muted style="object-fit: cover;">
                                 <source src="{{ $asset->asset }}" type="video/mp4">
                             </video>
@@ -44,7 +44,7 @@
                             </div>
                         </div>
                     @elseif($asset->type == 'image')
-                        <div class="image-preview position-relative" style="height: 140px; border-radius: 20px; overflow: hidden; background: #fff;">
+                        <div class="image-preview position-relative" style="height: 140px; border-radius: 20px; overflow: hidden; background: #fff; cursor: pointer;" data-toggle="modal" data-target="#imageModal{{ $asset->id }}">
                             <img src="{{ $asset->asset }}" class="w-100 h-100" style="object-fit: cover;">
                         </div>
                     @elseif($asset->type == 'pdf')
@@ -63,12 +63,29 @@
 
             <div class="asset-footer px-4 py-3 d-flex justify-content-between align-items-center">
                 @php
-                    $actionText = 'Settings / Edit';
+                    $actionText = 'Download';
+                    if($asset->type == 'pdf') $actionText = 'Open PDF';
+                    if($asset->type == 'image') $actionText = 'View Image';
                 @endphp
                 
-                <span class="footer-text font-weight-bold">{{ $actionText }}</span>
+                <div class="d-flex align-items-center">
+                    <span class="footer-text font-weight-bold mr-3">{{ $actionText }}</span>
+                    @if($asset->type == 'pdf')
+                        <a href="{{ $asset->asset }}" target="_blank" class="footer-btn">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    @elseif($asset->type == 'image')
+                        <a href="#" data-toggle="modal" data-target="#imageModal{{ $asset->id }}" class="footer-btn">
+                            <i class="fas fa-expand"></i>
+                        </a>
+                    @else
+                        <a href="{{ $asset->asset }}" download class="footer-btn">
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    @endif
+                </div>
                 
-                <div class="footer-btn">
+                <div class="footer-btn" data-toggle="modal" data-target="#editAssetModal{{ $asset->id }}" style="cursor: pointer; background: #e2e8f0;">
                     <i class="fas fa-cog"></i>
                 </div>
             </div>
