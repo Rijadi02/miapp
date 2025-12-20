@@ -72,6 +72,11 @@ class AssetController extends Controller
 
     public function destroy(Asset $asset)
     {
+        // Delete related room connections first
+        \App\Models\RoomConnection::where('type', Asset::class)
+            ->where('connection_id', $asset->id)
+            ->delete();
+
         $asset->delete();
         return redirect()->back()->with('success', 'Asset deleted successfully!');
     }

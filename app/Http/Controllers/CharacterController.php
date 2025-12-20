@@ -99,6 +99,11 @@ class CharacterController extends Controller
 
     public function destroy(Character $character)
     {
+        // Delete related room connections first
+        \App\Models\RoomConnection::where('type', Character::class)
+            ->where('connection_id', $character->id)
+            ->delete();
+
         $character->delete();
         return redirect()->back()->with('success', 'Character deleted successfully!');
     }

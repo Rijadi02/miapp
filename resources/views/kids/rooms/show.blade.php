@@ -40,18 +40,20 @@
 
             <!-- Character Cards -->
             @foreach($room->connections->where('type', 'App\Models\Character') as $connection)
-                <div class="mr-4" style="flex: 0 0 160px;">
-                    <div class="card h-100 border-0 shadow-sm item-card" style="border-radius: 16px; overflow: hidden; transition: all 0.3s ease;">
-                        <div style="position: relative; padding-top: 100%;">
-                            <img src="{{ $connection->connection->thumbnail ?? '/img/placeholder-character.png' }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" alt="{{ $connection->connection->name }}">
-                        </div>
-                        <div class="card-body p-3">
-                            <h6 class="mb-0" style="font-weight: 700; font-size: 0.85rem; color: #111827; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                {{ $connection->connection->name }}
-                            </h6>
+                @if($connection->connection)
+                    <div class="mr-4" style="flex: 0 0 160px;">
+                        <div class="card h-100 border-0 shadow-sm item-card" style="border-radius: 16px; overflow: hidden; transition: all 0.3s ease;">
+                            <div style="position: relative; padding-top: 100%;">
+                                <img src="{{ $connection->connection->thumbnail ?? '/img/placeholder-character.png' }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" alt="{{ $connection->connection->name }}">
+                            </div>
+                            <div class="card-body p-3">
+                                <h6 class="mb-0" style="font-weight: 700; font-size: 0.85rem; color: #111827; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                    {{ $connection->connection->name }}
+                                </h6>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endif
             @endforeach
         </div>
     </div>
@@ -83,70 +85,72 @@
                 ];
             @endphp
             @foreach($room->connections->where('type', 'App\Models\Asset') as $connection)
-                @php
-                    $asset = $connection->connection;
-                    $config = $typeConfig[$asset->type] ?? ['bg' => '#f3f4f6', 'badge' => '#e5e7eb', 'icon' => 'fa-file'];
-                @endphp
-                <div class="mr-4" style="flex: 0 0 240px;"> <!-- Increased width for players -->
-                    <div class="card h-100 border-0 shadow-sm item-card" style="border-radius: 16px; overflow: hidden; transition: all 0.3s ease;">
-                        <div style="position: relative; padding-top: 60%; background-color: {{ $config['bg'] }};">
-                            @if($asset->type === 'image')
-                                <img src="{{ $asset->asset }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" alt="{{ $asset->title }}" data-toggle="modal" data-target="#imageModal{{ $asset->id }}">
-                            @elseif($asset->type === 'video')
-                                <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" muted>
-                                    <source src="{{ $asset->asset }}" type="video/mp4">
-                                </video>
-                                <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.2); cursor: pointer;" data-toggle="modal" data-target="#videoModal{{ $asset->id }}">
-                                    <i class="fas fa-play text-white fa-lg"></i>
+                @if($connection->connection)
+                    @php
+                        $asset = $connection->connection;
+                        $config = $typeConfig[$asset->type] ?? ['bg' => '#f3f4f6', 'badge' => '#e5e7eb', 'icon' => 'fa-file'];
+                    @endphp
+                    <div class="mr-4" style="flex: 0 0 240px;"> <!-- Increased width for players -->
+                        <div class="card h-100 border-0 shadow-sm item-card" style="border-radius: 16px; overflow: hidden; transition: all 0.3s ease;">
+                            <div style="position: relative; padding-top: 60%; background-color: {{ $config['bg'] }};">
+                                @if($asset->type === 'image')
+                                    <img src="{{ $asset->asset }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" alt="{{ $asset->title }}" data-toggle="modal" data-target="#imageModal{{ $asset->id }}">
+                                @elseif($asset->type === 'video')
+                                    <video style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" muted>
+                                        <source src="{{ $asset->asset }}" type="video/mp4">
+                                    </video>
+                                    <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.2); cursor: pointer;" data-toggle="modal" data-target="#videoModal{{ $asset->id }}">
+                                        <i class="fas fa-play text-white fa-lg"></i>
+                                    </div>
+                                @elseif($asset->type === 'audio')
+                                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                                        <i class="fas {{ $config['icon'] }} fa-2x" style="color: #10b981; opacity: 0.3;"></i>
+                                    </div>
+                                @else
+                                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                                        <i class="fas {{ $config['icon'] }} fa-2x" style="color: #10b981; opacity: 0.5;"></i>
+                                    </div>
+                                @endif
+                                <div class="badge-pill px-2 py-1" style="position: absolute; top: 12px; left: 12px; background: rgba(255,255,255,0.9); font-size: 0.65rem; font-weight: 700; color: #374151; backdrop-filter: blur(4px);">
+                                    {{ strtoupper($asset->type) }}
                                 </div>
-                            @elseif($asset->type === 'audio')
-                                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
-                                    <i class="fas {{ $config['icon'] }} fa-2x" style="color: #10b981; opacity: 0.3;"></i>
-                                </div>
-                            @else
-                                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
-                                    <i class="fas {{ $config['icon'] }} fa-2x" style="color: #10b981; opacity: 0.5;"></i>
-                                </div>
-                            @endif
-                            <div class="badge-pill px-2 py-1" style="position: absolute; top: 12px; left: 12px; background: rgba(255,255,255,0.9); font-size: 0.65rem; font-weight: 700; color: #374151; backdrop-filter: blur(4px);">
-                                {{ strtoupper($asset->type) }}
+                            </div>
+                            <div class="card-body p-3">
+                                <h6 class="mb-2" style="font-weight: 700; font-size: 0.85rem; color: #111827; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+                                    {{ $asset->title }}
+                                </h6>
+                                @if($asset->type === 'audio')
+                                    <audio controls style="width: 100%; height: 30px;">
+                                        <source src="{{ $asset->asset }}" type="audio/mpeg">
+                                    </audio>
+                                @elseif($asset->type === 'image' || $asset->type === 'pdf')
+                                    <a href="{{ $asset->asset }}" target="_blank" class="btn btn-sm btn-light btn-block" style="border-radius: 8px; font-weight: 600; font-size: 0.75rem;">View {{ ucfirst($asset->type) }}</a>
+                                @else
+                                    <a href="{{ $asset->asset }}" download class="btn btn-sm btn-light btn-block" style="border-radius: 8px; font-weight: 600; font-size: 0.75rem;">Download</a>
+                                @endif
                             </div>
                         </div>
-                        <div class="card-body p-3">
-                            <h6 class="mb-2" style="font-weight: 700; font-size: 0.85rem; color: #111827; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                {{ $asset->title }}
-                            </h6>
-                            @if($asset->type === 'audio')
-                                <audio controls style="width: 100%; height: 30px;">
-                                    <source src="{{ $asset->asset }}" type="audio/mpeg">
-                                </audio>
-                            @elseif($asset->type === 'image' || $asset->type === 'pdf')
-                                <a href="{{ $asset->asset }}" target="_blank" class="btn btn-sm btn-light btn-block" style="border-radius: 8px; font-weight: 600; font-size: 0.75rem;">View {{ ucfirst($asset->type) }}</a>
-                            @else
-                                <a href="{{ $asset->asset }}" download class="btn btn-sm btn-light btn-block" style="border-radius: 8px; font-weight: 600; font-size: 0.75rem;">Download</a>
-                            @endif
-                        </div>
                     </div>
-                </div>
 
-                <!-- Asset Modals (Video/Image) -->
-                @if($asset->type == 'video')
-                <div class="modal fade" id="videoModal{{ $asset->id }}" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                        <div class="modal-content bg-black border-0 overflow-hidden" style="border-radius: 24px;">
-                            <video controls class="w-100"><source src="{{ $asset->asset }}" type="video/mp4"></video>
+                    <!-- Asset Modals (Video/Image) -->
+                    @if($asset->type == 'video')
+                    <div class="modal fade" id="videoModal{{ $asset->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                            <div class="modal-content bg-black border-0 overflow-hidden" style="border-radius: 24px;">
+                                <video controls class="w-100"><source src="{{ $asset->asset }}" type="video/mp4"></video>
+                            </div>
                         </div>
                     </div>
-                </div>
-                @endif
-                @if($asset->type == 'image')
-                <div class="modal fade" id="imageModal{{ $asset->id }}" tabindex="-1" role="dialog" aria-hidden="true">
-                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                        <div class="modal-content border-0 overflow-hidden" style="border-radius: 24px; background: transparent;">
-                            <img src="{{ $asset->asset }}" class="w-100" style="border-radius: 24px;">
+                    @endif
+                    @if($asset->type == 'image')
+                    <div class="modal fade" id="imageModal{{ $asset->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                            <div class="modal-content border-0 overflow-hidden" style="border-radius: 24px; background: transparent;">
+                                <img src="{{ $asset->asset }}" class="w-100" style="border-radius: 24px;">
+                            </div>
                         </div>
                     </div>
-                </div>
+                    @endif
                 @endif
             @endforeach
         </div>
