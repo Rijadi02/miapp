@@ -80,7 +80,7 @@
         background-size: cover;
         background-position: center;
         border-radius: 32px;
-        height: 210px;
+        height: 300px;
         position: relative;
         overflow: hidden;
         transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
