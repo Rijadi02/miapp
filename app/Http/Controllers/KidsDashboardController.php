@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Room;
 use App\Models\User;
+use App\Models\RoomConnection;
+use App\Models\Character;
 
 class KidsDashboardController extends Controller
 {
@@ -13,6 +15,38 @@ class KidsDashboardController extends Controller
         $rooms = Room::with('creator')->latest()->get();
         $users = User::where('role', User::ROLE_KIDS)->get();
         return view('kids.dashboard', compact('rooms', 'users'));
+    }
+
+    public function show(Room $room)
+    {
+        $room->load(['connections.connection', 'creator']);
+        return view('kids.rooms.show', compact('room'));
+    }
+
+    public function connect(Request $request, Room $room)
+    {
+        $request->validate([
+            'character_ids' => 'required|array',
+            'character_ids.*' => 'exists:characters,id',
+        ]);
+
+        foreach ($request->character_ids as $characterId) {
+            // Check if already connected to avoid duplicates if necessary
+            $exists = $room->connections()
+                ->where('type', Character::class)
+                ->where('connection_id', $characterId)
+                ->exists();
+
+            if (!$exists) {
+                $room->connections()->create([
+                    'type' => Character::class,
+                    'connection_id' => $characterId,
+                    'assigned_by' => auth()->id(),
+                ]);
+            }
+        }
+
+        return redirect()->back()->with('success', 'Characters added to room successfully!');
     }
 
     public function store(Request $request)

@@ -4,7 +4,7 @@
 <div class="row">
     @foreach($rooms as $room)
     <div class="col-xl-3 col-md-6 mb-5">
-        <a href="#" class="item-card-link">
+        <a href="{{ route('rooms.show', $room) }}" class="item-card-link">
             <div class="item-card" style="background-image: url('{{ $room->thumbnail ?? 'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4' }}');">
                 <div class="item-overlay">
                     <div class="item-content">

@@ -18,6 +18,8 @@
             --kids-primary: #3b82f6;
             @elseif(Request::routeIs('assets.*'))
             --kids-primary: #a855f7;
+            @elseif(Request::routeIs('rooms.show'))
+            --kids-primary: #10b981;
             @else
             --kids-primary: #fb923c;
             @endif
@@ -41,6 +43,12 @@
                 radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.15) 0, transparent 50%),
                 radial-gradient(at 50% 50%, rgba(168, 85, 247, 0.1) 0, transparent 70%),
                 radial-gradient(at 0% 100%, rgba(168, 85, 247, 0.05) 0, transparent 50%);
+            @elseif(Request::routeIs('rooms.show'))
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.1) 0, transparent 50%), 
+                radial-gradient(at 100% 0%, rgba(16, 185, 129, 0.15) 0, transparent 50%),
+                radial-gradient(at 50% 50%, rgba(16, 185, 129, 0.1) 0, transparent 70%),
+                radial-gradient(at 0% 100%, rgba(16, 185, 129, 0.05) 0, transparent 50%);
             @else
             background-image: 
                 radial-gradient(at 0% 0%, rgba(251, 146, 60, 0.1) 0, transparent 50%), 

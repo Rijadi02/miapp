@@ -127,6 +127,13 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
     Route::get('assets', [AssetController::class, 'index'])->middleware('role:kids')->name('assets.index');
     Route::post('assets', [AssetController::class, 'store'])->middleware('role:kids')->name('assets.store');
 
+    // Room Show and Connections
+    Route::get('rooms/{room}', [App\Http\Controllers\KidsDashboardController::class, 'show'])->middleware('role:kids')->name('rooms.show');
+    Route::post('rooms/{room}/connect', [App\Http\Controllers\KidsDashboardController::class, 'connect'])->middleware('role:kids')->name('rooms.connect');
+    
+    // API for AJAX
+    Route::get('api/characters', [CharacterController::class, 'apiIndex'])->middleware('role:kids')->name('api.characters');
+
     Route::group(['middleware' => 'role:admin'], function() {
         Route::get('register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
         Route::post('register', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register.submit');

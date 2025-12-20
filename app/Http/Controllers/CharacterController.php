@@ -14,6 +14,11 @@ class CharacterController extends Controller
         return view('kids.characters.index', compact('characters'));
     }
 
+    public function apiIndex()
+    {
+        return response()->json(Character::latest()->get());
+    }
+
     public function store(Request $request)
     {
         $request->validate([
