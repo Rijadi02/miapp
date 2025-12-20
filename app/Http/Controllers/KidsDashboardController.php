@@ -86,6 +86,18 @@ class KidsDashboardController extends Controller
         return response()->json(['success' => true]);
     }
 
+    public function destroyEpisode(Episode $episode)
+    {
+        // Delete the room connection first
+        \App\Models\RoomConnection::where('connection_type', 'App\Models\Episode')
+            ->where('connection_id', $episode->id)
+            ->delete();
+
+        $episode->delete();
+
+        return redirect()->back()->with('success', 'Episodi u fshi me sukses!');
+    }
+
     public function store(Request $request)
     {
         $request->validate([

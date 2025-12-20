@@ -15,6 +15,30 @@
             </a>
         </div>
     </div>
+    
+    <!-- Delete Episode Modal -->
+    <div class="modal fade" id="deleteEpisodeModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 20px; overflow: hidden;">
+                <div class="modal-body p-5 text-center">
+                    <div class="mb-4" style="width: 80px; height: 80px; background: #fee2e2; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                        <i class="fas fa-trash-alt" style="font-size: 2rem; color: #ef4444;"></i>
+                    </div>
+                    <h4 class="font-weight-bold mb-2">Konfirmo Fshirjen</h4>
+                    <p class="text-muted mb-4">A jeni i sigurt që doni të fshini episodin <strong id="delete-episode-title"></strong>? Ky veprim nuk mund të zhbëhet.</p>
+                    
+                    <form id="delete-episode-form" action="" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-light px-4 py-2 mr-3" data-dismiss="modal" style="border-radius: 12px; font-weight: 600;">Anulo</button>
+                            <button type="submit" class="btn btn-danger px-4 py-2" style="border-radius: 12px; font-weight: 600; background: #ef4444; border: none;">Po, Fshije</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show mb-4" role="alert" style="border-radius: 12px; border: none; background-color: #ecfdf5; color: #047857;">
@@ -462,9 +486,9 @@
             
             expandable.slideToggle(300, function() {
                 if (expandable.is(':visible')) {
-                    btn.html('Mbyll <i class="fas fa-chevron-up ml-1"></i>');
+                    btn.html('<i class="fas fa-chevron-up"></i>');
                 } else {
-                    btn.html('Zgjero <i class="fas fa-chevron-down ml-1"></i>');
+                    btn.html('<i class="fas fa-chevron-down"></i>');
                 }
             });
         });
@@ -503,6 +527,16 @@
         $(document).on('change', '.episode-assigned', function() {
              // This is handled by input change above, but specific logic for dropdown trigger
              // Just ensuring logic flows into shared handler.
+        });
+
+        // Delete Episode Modal handling
+        $(document).on('click', '.delete-episode-btn', function() {
+            const id = $(this).data('id');
+            const title = $(this).data('title');
+            
+            $('#delete-episode-title').text(title);
+            $('#delete-episode-form').attr('action', `/admin/episodes/${id}`);
+            $('#deleteEpisodeModal').modal('show');
         });
     });
 </script>

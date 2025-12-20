@@ -137,6 +137,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
     Route::post('rooms/{room}/connect', [App\Http\Controllers\KidsDashboardController::class, 'connect'])->middleware('role:kids')->name('rooms.connect');
     Route::post('rooms/{room}/episodes', [App\Http\Controllers\KidsDashboardController::class, 'storeEpisode'])->middleware('role:kids')->name('rooms.episodes.store');
     Route::patch('episodes/{episode}', [App\Http\Controllers\KidsDashboardController::class, 'updateEpisode'])->middleware('role:kids')->name('episodes.update');
+    Route::delete('episodes/{episode}', [App\Http\Controllers\KidsDashboardController::class, 'destroyEpisode'])->middleware('role:kids')->name('episodes.destroy');
     
     // API for AJAX
     Route::get('api/characters', [CharacterController::class, 'apiIndex'])->middleware('role:kids')->name('api.characters');
