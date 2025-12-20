@@ -57,7 +57,7 @@ class KidsDashboardController extends Controller
             'title' => 'New Episode',
             'description' => 'Add text here',
             'text' => 'Add long text here',
-            'key' => 'EP-' . strtoupper(str_random(6)),
+            'key' => 'EP-' . strtoupper(\Illuminate\Support\Str::random(6)),
         ]);
 
         $room->connections()->create([
