@@ -41,8 +41,9 @@ class KidsDashboardController extends Controller
 
         foreach ($request->ids as $id) {
             $room->connections()->firstOrCreate([
-                'connection_type' => $modelClass,
+                'type' => $modelClass,
                 'connection_id' => $id,
+                'assigned_by' => auth()->id(),
             ]);
         }
 
@@ -67,8 +68,9 @@ class KidsDashboardController extends Controller
         ]);
 
         $room->connections()->create([
-            'connection_type' => 'App\Models\Episode',
+            'type' => 'App\Models\Episode',
             'connection_id' => $episode->id,
+            'assigned_by' => auth()->id(),
         ]);
 
         return response()->json(['success' => true]);
@@ -90,7 +92,7 @@ class KidsDashboardController extends Controller
     public function destroyEpisode(Episode $episode)
     {
         // Delete the room connection first
-        \App\Models\RoomConnection::where('connection_type', 'App\Models\Episode')
+        \App\Models\RoomConnection::where('type', 'App\Models\Episode')
             ->where('connection_id', $episode->id)
             ->delete();
 
