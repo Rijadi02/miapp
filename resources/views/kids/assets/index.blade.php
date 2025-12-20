@@ -5,96 +5,103 @@
     @foreach($assets as $asset)
     <div class="col-xl-3 col-md-6 mb-5">
         @php
-            $bgColors = [
-                'audio' => 'background: #eff6ff;', // Blue-ish
-                'video' => 'background: #fff7ed;', // Orange-ish
-                'pdf'   => 'background: #fdf2f8;', // Pink-ish
-                'text'  => 'background: #f0fdf4;', // Green-ish
-                'zip'   => 'background: #f5f3ff;'  // Purple-ish
+            $typeConfig = [
+                'audio' => ['bg' => '#eff6ff', 'badge' => '#dbeafe', 'icon' => 'fa-headphones'],
+                'video' => ['bg' => '#fff7ed', 'badge' => '#ffedd5', 'icon' => 'fa-play-circle'],
+                'pdf'   => ['bg' => '#fdf2f8', 'badge' => '#fce7f3', 'icon' => 'fa-file-pdf'],
+                'text'  => ['bg' => '#f0fdf4', 'badge' => '#dcfce7', 'icon' => 'fa-file-alt'],
+                'zip'   => ['bg' => '#f5f3ff', 'badge' => '#ede9fe', 'icon' => 'fa-file-archive'],
+                'image' => ['bg' => '#ecfeff', 'badge' => '#cffafe', 'icon' => 'fa-image']
             ];
-            $typeColors = [
-                'audio' => '#dbeafe',
-                'video' => '#ffedd5',
-                'pdf'   => '#fce7f3',
-                'text'  => '#dcfce7',
-                'zip'   => '#ede9fe'
-            ];
-            $bgColor = $bgColors[$asset->type] ?? 'background: #f3f4f6;';
-            $typeColor = $typeColors[$asset->type] ?? '#f3f4f6';
+            $config = $typeConfig[$asset->type] ?? ['bg' => '#f3f4f6', 'badge' => '#e5e7eb', 'icon' => 'fa-file'];
         @endphp
 
-        <div class="asset-card" style="{{ $bgColor }}">
-            <div class="asset-card-top p-4">
-                <span class="badge py-2 px-3 mb-4" style="background: {{ $typeColor }}; color: var(--kids-primary); border-radius: 12px; font-weight: 700; text-transform: uppercase; font-size: 0.75rem;">
+        <div class="asset-card">
+            <div class="asset-inner-box p-4" style="background-color: {{ $config['bg'] }};">
+                <span class="badge py-2 px-3 mb-4" style="background: {{ $config['badge'] }}; color: var(--kids-primary); border-radius: 12px; font-weight: 700; text-transform: uppercase; font-size: 0.75rem;">
                     {{ $asset->type }}
                 </span>
                 
-                <h3 class="asset-title mb-3">{{ $asset->title }}</h3>
-                <p class="asset-description">
+                <h3 class="asset-title mb-2">{{ $asset->title }}</h3>
+                <p class="asset-description mb-4">
                     {{ Str::words($asset->description, 10) }}
                 </p>
 
-                <div class="asset-preview mt-4">
+                <div class="asset-preview-area">
                     @if($asset->type == 'audio')
-                        <audio controls class="w-100" style="height: 35px;">
-                            <source src="{{ $asset->asset }}" type="audio/mpeg">
-                        </audio>
+                        <div class="audio-container p-3 bg-white shadow-sm" style="border-radius: 16px;">
+                            <audio controls class="w-100" style="height: 30px;">
+                                <source src="{{ $asset->asset }}" type="audio/mpeg">
+                            </audio>
+                        </div>
                     @elseif($asset->type == 'video')
-                        <div class="video-preview position-relative" style="height: 120px; border-radius: 16px; overflow: hidden; background: #000;">
-                            <video class="w-100 h-100" muted>
+                        <div class="video-preview position-relative bg-dark" style="height: 140px; border-radius: 20px; overflow: hidden;">
+                            <video class="w-100 h-100" muted style="object-fit: cover;">
                                 <source src="{{ $asset->asset }}" type="video/mp4">
                             </video>
-                            <div class="video-overlay" style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); cursor: pointer;" data-toggle="modal" data-target="#videoModal{{ $asset->id }}">
+                            <div class="video-play-overlay" data-toggle="modal" data-target="#videoModal{{ $asset->id }}">
                                 <i class="fas fa-play text-white fa-2x"></i>
                             </div>
                         </div>
+                    @elseif($asset->type == 'image')
+                        <div class="image-preview position-relative" style="height: 140px; border-radius: 20px; overflow: hidden; background: #fff; cursor: pointer;" data-toggle="modal" data-target="#imageModal{{ $asset->id }}">
+                            <img src="{{ $asset->asset }}" class="w-100 h-100" style="object-fit: cover;">
+                        </div>
                     @elseif($asset->type == 'pdf')
-                        <div class="pdf-preview text-center py-4" style="background: rgba(255,255,255,0.5); border-radius: 16px;">
+                        <div class="pdf-file-box">
                             <i class="fas fa-file-pdf fa-3x text-danger mb-2"></i>
                             <div class="small font-weight-bold">PDF Document</div>
                         </div>
-                    @elseif($asset->type == 'text')
-                        <div class="text-preview p-3" style="background: rgba(255,255,255,0.5); border-radius: 16px; height: 120px; overflow: hidden; font-size: 0.8rem;">
-                            <i class="fas fa-file-alt mr-2"></i> View Content
-                        </div>
-                    @elseif($asset->type == 'zip')
-                        <div class="zip-preview text-center py-4" style="background: rgba(255,255,255,0.5); border-radius: 16px;">
-                            <i class="fas fa-file-archive fa-3x text-warning mb-2"></i>
-                            <div class="small font-weight-bold">ZIP Archive</div>
+                    @else
+                        <div class="generic-file-box">
+                            <i class="fas {{ $config['icon'] }} fa-3x mb-2" style="color: var(--kids-primary); opacity: 0.5;"></i>
+                            <div class="small font-weight-bold">{{ strtoupper($asset->type) }} File</div>
                         </div>
                     @endif
                 </div>
             </div>
 
-            <div class="asset-card-bottom px-4 py-3 d-flex justify-content-between align-items-center bg-white" style="border-radius: 0 0 32px 32px;">
+            <div class="asset-footer px-4 py-3 d-flex justify-content-between align-items-center">
+                @php
+                    $actionText = 'Download';
+                    if($asset->type == 'pdf') $actionText = 'Open PDF';
+                    if($asset->type == 'image') $actionText = 'View Image';
+                @endphp
+                
+                <span class="footer-text font-weight-bold">{{ $actionText }}</span>
+                
                 @if($asset->type == 'pdf')
-                    <a href="{{ $asset->asset }}" target="_blank" class="asset-action-text font-weight-bold" style="color: #000; text-decoration: none;">Open PDF</a>
-                    <a href="{{ $asset->asset }}" target="_blank" class="btn-action">
+                    <a href="{{ $asset->asset }}" target="_blank" class="footer-btn">
                         <i class="fas fa-external-link-alt"></i>
                     </a>
-                @elseif($asset->type == 'zip')
-                    <a href="{{ $asset->asset }}" download class="asset-action-text font-weight-bold" style="color: #000; text-decoration: none;">Download ZIP</a>
-                    <a href="{{ $asset->asset }}" download class="btn-action">
-                        <i class="fas fa-download"></i>
+                @elseif($asset->type == 'image')
+                    <a href="#" data-toggle="modal" data-target="#imageModal{{ $asset->id }}" class="footer-btn">
+                        <i class="fas fa-expand"></i>
                     </a>
                 @else
-                    <span class="asset-action-text font-weight-bold" style="color: #000;">Download</span>
-                    <a href="{{ $asset->asset }}" download class="btn-action">
+                    <a href="{{ $asset->asset }}" download class="footer-btn">
                         <i class="fas fa-arrow-right"></i>
                     </a>
                 @endif
             </div>
         </div>
 
+        <!-- Modals -->
         @if($asset->type == 'video')
-        <!-- Video Modal -->
         <div class="modal fade" id="videoModal{{ $asset->id }}" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content bg-black border-0 overflow-hidden" style="border-radius: 24px;">
-                    <button type="button" class="close position-absolute p-3 text-white" data-dismiss="modal" style="right: 0; z-index: 10;">&times;</button>
-                    <video controls class="w-100">
-                        <source src="{{ $asset->asset }}" type="video/mp4">
-                    </video>
+                    <video controls class="w-100"><source src="{{ $asset->asset }}" type="video/mp4"></video>
+                </div>
+            </div>
+        </div>
+        @endif
+
+        @if($asset->type == 'image')
+        <div class="modal fade" id="imageModal{{ $asset->id }}" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content border-0 overflow-hidden" style="border-radius: 24px; background: transparent;">
+                    <img src="{{ $asset->asset }}" class="w-100" style="border-radius: 24px;">
                 </div>
             </div>
         </div>
@@ -105,9 +112,9 @@
     <!-- Add New Asset Card -->
     <div class="col-xl-3 col-md-6 mb-5">
         <a href="#" class="item-card-link" data-toggle="modal" data-target="#createAssetModal">
-            <div class="asset-card add-card" style="height: 100%; min-height: 480px; justify-content: center; align-items: center; display: flex;">
+            <div class="asset-card add-asset-card">
                 <div class="add-content text-primary text-center">
-                    <i class="fas fa-plus fa-3x mb-3"></i>
+                    <i class="fas fa-plus-circle fa-4x mb-3"></i>
                     <h3 class="asset-title mb-0" style="color: var(--kids-primary);">Add Asset</h3>
                 </div>
             </div>
@@ -118,7 +125,7 @@
 <!-- Create Asset Modal -->
 <div class="modal fade" id="createAssetModal" tabindex="-1" role="dialog" aria-labelledby="createAssetModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content border-0" style="border-radius: 24px; overflow: hidden;">
+        <div class="modal-content border-0" style="border-radius: 28px; overflow: hidden;">
             <div class="modal-body p-5">
                 <h2 class="font-weight-bold mb-4" style="font-family: 'Outfit', sans-serif;">New Asset</h2>
                 <form action="{{ route('assets.store') }}" method="POST" enctype="multipart/form-data">
@@ -138,6 +145,7 @@
                             <div class="form-group mb-4">
                                 <label class="small font-weight-bold text-uppercase text-muted">Type</label>
                                 <select name="type" class="form-control border-0 bg-light" style="border-radius: 12px; height: auto; padding: 1rem 1.5rem;">
+                                    <option value="image">Image</option>
                                     <option value="audio">Audio</option>
                                     <option value="video">Video</option>
                                     <option value="pdf">PDF</option>
@@ -154,7 +162,7 @@
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary btn-block py-3 font-weight-bold" style="border-radius: 16px; background: var(--kids-primary); border: none;">Upload Asset</button>
+                    <button type="submit" class="btn btn-primary btn-block py-3 font-weight-bold" style="border-radius: 16px; background: var(--kids-primary); border: none; font-size: 1.1rem;">Upload Asset</button>
                 </form>
             </div>
         </div>
@@ -163,40 +171,58 @@
 
 <style>
     .asset-card {
+        background: #fff;
         border-radius: 32px;
         height: 100%;
         min-height: 480px;
         display: flex;
         flex-direction: column;
         transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        border: 1px solid rgba(0,0,0,0.05);
+        box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+        overflow: hidden;
     }
 
     .asset-card:hover {
         transform: translateY(-12px);
-        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    }
+
+    .asset-inner-box {
+        margin: 12px;
+        border-radius: 24px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
     }
 
     .asset-title {
         font-family: 'Outfit', sans-serif;
-        font-size: 1.5rem;
+        font-size: 1.75rem;
         font-weight: 800;
         color: #000;
-        line-height: 1.2;
+        line-height: 1.1;
     }
 
     .asset-description {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         color: #64748b;
-        line-height: 1.5;
+        line-height: 1.4;
     }
 
-    .btn-action {
-        width: 45px;
-        height: 45px;
-        background: #f8fafc;
-        border-radius: 12px;
+    .asset-footer {
+        padding-bottom: 20px !important;
+    }
+
+    .footer-text {
+        font-size: 1.1rem;
+        color: #000;
+    }
+
+    .footer-btn {
+        width: 48px;
+        height: 48px;
+        background: #f1f5f9;
+        border-radius: 16px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -205,14 +231,38 @@
         text-decoration: none !important;
     }
 
-    .btn-action:hover {
+    .footer-btn:hover {
         background: #000;
         color: #fff;
     }
 
-    .add-card {
+    .video-play-overlay {
+        position: absolute; 
+        inset: 0; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        background: rgba(0,0,0,0.3); 
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .video-play-overlay:hover {
+        background: rgba(0,0,0,0.5);
+    }
+
+    .pdf-file-box, .generic-file-box {
+        background: rgba(255,255,255,0.6);
+        border-radius: 20px;
+        padding: 2.5rem 1rem;
+        text-align: center;
+    }
+
+    .add-asset-card {
         background: rgba(168, 85, 247, 0.05) !important;
-        border: 2px dashed rgba(168, 85, 247, 0.3) !important;
+        border: 2px dashed rgba(168, 85, 247, 0.2) !important;
+        justify-content: center;
+        align-items: center;
     }
 
     .item-card-link {
@@ -221,14 +271,6 @@
         height: 100%;
     }
 
-    /* Video player specific */
-    .video-preview video {
-        object-fit: cover;
-    }
-
-    /* Modal Black Bg */
-    .modal-content.bg-black {
-        background: #000;
-    }
+    .bg-black { background: #000; }
 </style>
 @endsection

@@ -17,7 +17,7 @@ class CreateAssetsTable extends Migration
             $table->id();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->enum('type', ['audio', 'video', 'pdf', 'text', 'zip']);
+            $table->enum('type', ['audio', 'video', 'pdf', 'text', 'zip', 'image']);
             $table->string('asset');
             $table->unsignedBigInteger('created_by');
             $table->timestamps();

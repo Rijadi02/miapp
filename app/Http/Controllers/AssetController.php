@@ -19,7 +19,7 @@ class AssetController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'type' => 'required|in:audio,video,pdf,text,zip',
+            'type' => 'required|in:audio,video,pdf,text,zip,image',
             'asset' => 'required|file|max:51200', // 50MB max
         ]);
 
