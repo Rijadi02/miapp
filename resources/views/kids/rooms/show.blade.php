@@ -72,24 +72,38 @@
             </div>
 
             <!-- Asset Cards -->
+            @php
+                $typeConfig = [
+                    'audio' => ['bg' => '#eff6ff', 'badge' => '#dbeafe', 'icon' => 'fa-headphones'],
+                    'video' => ['bg' => '#fff7ed', 'badge' => '#ffedd5', 'icon' => 'fa-play-circle'],
+                    'pdf'   => ['bg' => '#fdf2f8', 'badge' => '#fce7f3', 'icon' => 'fa-file-pdf'],
+                    'text'  => ['bg' => '#f0fdf4', 'badge' => '#dcfce7', 'icon' => 'fa-file-alt'],
+                    'zip'   => ['bg' => '#f5f3ff', 'badge' => '#ede9fe', 'icon' => 'fa-file-archive'],
+                    'image' => ['bg' => '#ecfeff', 'badge' => '#cffafe', 'icon' => 'fa-image']
+                ];
+            @endphp
             @foreach($room->connections->where('type', 'App\Models\Asset') as $connection)
+                @php
+                    $asset = $connection->connection;
+                    $config = $typeConfig[$asset->type] ?? ['bg' => '#f3f4f6', 'badge' => '#e5e7eb', 'icon' => 'fa-file'];
+                @endphp
                 <div class="mr-4" style="flex: 0 0 160px;">
                     <div class="card h-100 border-0 shadow-sm item-card" style="border-radius: 16px; overflow: hidden; transition: all 0.3s ease;">
-                        <div style="position: relative; padding-top: 100%;">
-                            @php
-                                $imageUrl = $connection->connection->asset;
-                                if ($connection->connection->type !== 'image') {
-                                    $imageUrl = '/img/placeholder-asset.png'; // Use a better generic icon placeholder if available
-                                }
-                            @endphp
-                            <img src="{{ $imageUrl }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" alt="{{ $connection->connection->title }}">
+                        <div style="position: relative; padding-top: 100%; background-color: {{ $config['bg'] }};">
+                            @if($asset->type === 'image')
+                                <img src="{{ $asset->asset }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" alt="{{ $asset->title }}">
+                            @else
+                                <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas {{ $config['icon'] }} fa-2x" style="color: #10b981; opacity: 0.5;"></i>
+                                </div>
+                            @endif
                             <div class="badge-pill px-2 py-1" style="position: absolute; top: 12px; left: 12px; background: rgba(255,255,255,0.9); font-size: 0.65rem; font-weight: 700; color: #374151; backdrop-filter: blur(4px);">
-                                {{ strtoupper($connection->connection->type) }}
+                                {{ strtoupper($asset->type) }}
                             </div>
                         </div>
                         <div class="card-body p-3">
                             <h6 class="mb-0" style="font-weight: 700; font-size: 0.85rem; color: #111827; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
-                                {{ $connection->connection->title }}
+                                {{ $asset->title }}
                             </h6>
                         </div>
                     </div>
@@ -229,16 +243,40 @@
                             selector.html('<div class="col-12 text-center py-5"><p class="text-muted">Nothing found.</p></div>');
                             return;
                         }
+
+                        const typeConfig = {
+                            'audio': { bg: '#eff6ff', icon: 'fa-headphones' },
+                            'video': { bg: '#fff7ed', icon: 'fa-play-circle' },
+                            'pdf':   { bg: '#fdf2f8', icon: 'fa-file-pdf' },
+                            'text':  { bg: '#f0fdf4', icon: 'fa-file-alt' },
+                            'zip':   { bg: '#f5f3ff', icon: 'fa-file-archive' },
+                            'image': { bg: '#ecfeff', icon: 'fa-image' }
+                        };
+
                         data.forEach(item => {
-                            let thumb = item.thumbnail || item.asset || '/img/placeholder-asset.png';
+                            let thumbHtml = '';
                             let name = item.name || item.title;
+                            let config = typeConfig[item.type] || { bg: '#f3f4f6', icon: 'fa-file' };
+
+                            if (modalId === 'addCharacterModal') {
+                                thumbHtml = `<img src="${item.thumbnail || '/img/placeholder-character.png'}" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">`;
+                            } else {
+                                if (item.type === 'image') {
+                                    thumbHtml = `<img src="${item.asset}" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">`;
+                                } else {
+                                    thumbHtml = `<div style="position: absolute; top:0; left:0; width:100%; height:100%; display: flex; align-items:center; justify-content:center; background-color: ${config.bg};">
+                                                    <i class="fas ${config.icon} fa-lg" style="color: #10b981; opacity: 0.5;"></i>
+                                                </div>`;
+                                }
+                            }
+
                             selector.append(`
                                 <div class="col-md-3 col-4">
                                     <label class="character-option w-100 mb-0">
                                         <input type="checkbox" name="ids[]" value="${item.id}">
                                         <div class="character-card-inner text-center p-2 h-100">
                                             <div style="position: relative; padding-top: 100%; border-radius: 12px; overflow: hidden; margin-bottom: 8px;">
-                                                <img src="${thumb}" style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;">
+                                                ${thumbHtml}
                                             </div>
                                             <div style="font-size: 0.75rem; font-weight: 700; color: #111827; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                                                 ${name}
