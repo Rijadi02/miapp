@@ -31,4 +31,9 @@ class Room extends Model
     {
         return $this->hasMany(Episode::class);
     }
+
+    public function connections()
+    {
+        return $this->hasMany(RoomConnection::class);
+    }
 }

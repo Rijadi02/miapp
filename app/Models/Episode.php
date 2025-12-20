@@ -13,11 +13,11 @@ class Episode extends Model
         'title',
         'description',
         'text',
-        'room_id',
+        'key',
     ];
 
-    public function room()
+    public function roomConnections()
     {
-        return $this->belongsTo(Room::class);
+        return $this->morphMany(RoomConnection::class, 'connection', 'type', 'connection_id');
     }
 }

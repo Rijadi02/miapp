@@ -18,10 +18,8 @@ class CreateEpisodesTable extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             $table->text('text');
-            $table->unsignedBigInteger('room_id');
+            $table->string('key')->nullable();
             $table->timestamps();
-
-            $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
         });
     }
 

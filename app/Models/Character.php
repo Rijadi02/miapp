@@ -22,4 +22,9 @@ class Character extends Model
     protected $casts = [
         'assets' => 'array'
     ];
+
+    public function roomConnections()
+    {
+        return $this->morphMany(RoomConnection::class, 'connection', 'type', 'connection_id');
+    }
 }
