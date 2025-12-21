@@ -132,6 +132,7 @@
                 <a href="{{ route('kids.dashboard') }}" class="category-link {{ Request::routeIs('kids.dashboard') ? 'active' : '' }}">Dashboard</a>
                 <a href="{{ route('characters.index') }}" class="category-link {{ Request::routeIs('characters.*') ? 'active' : '' }}">Characters</a>
                 <a href="{{ route('assets.index') }}" class="category-link {{ Request::routeIs('assets.*') ? 'active' : '' }}">Assets</a>
+                <a href="{{ route('keys.index') }}" class="category-link {{ Request::routeIs('keys.*') ? 'active' : '' }}">Keys</a>
             </div>
 
         </div>

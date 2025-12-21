@@ -19,13 +19,33 @@ class KidsDashboardController extends Controller
         return view('kids.dashboard', compact('rooms', 'users'));
     }
 
+    public function keys()
+    {
+        $users = User::where('role', User::ROLE_KIDS)->get();
+        return view('kids.keys', compact('users'));
+    }
+
+    public function updateKeys(Request $request, User $user)
+    {
+        $request->validate([
+            'keys' => 'nullable|array',
+            'keys.*' => 'string|max:255'
+        ]);
+
+        $user->update([
+            'keys' => $request->keys ?? []
+        ]);
+
+        return redirect()->back()->with('success', 'Keys updated successfully!');
+    }
+
     public function show(Room $room)
     {
         $characters = Character::latest()->get();
         $assets = Asset::whereNull('episode_id')->latest()->get(); // Only room assets
         // Filter only 'kids' users
         $users = User::where('role', User::ROLE_KIDS)->get();
-        
+
         $room->load(['connections.connection', 'creator']);
         return view('kids.rooms.show', compact('room', 'characters', 'assets', 'users'));
     }
@@ -83,9 +103,9 @@ class KidsDashboardController extends Controller
             'assigned_to' => 'nullable|exists:users,id',
             'promts' => 'nullable|string',
         ]);
-        
+
         $episode->update($request->only(['title', 'description', 'text', 'key', 'assigned_to', 'promts']));
-        
+
         return response()->json(['success' => true]);
     }
 

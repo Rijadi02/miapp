@@ -121,6 +121,8 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
 
     Route::get('dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->middleware('role:admin')->name('dashboard.index');
     Route::get('kids-dashboard', [App\Http\Controllers\KidsDashboardController::class, 'index'])->middleware('role:kids')->name('kids.dashboard');
+    Route::get('keys', [App\Http\Controllers\KidsDashboardController::class, 'keys'])->middleware('role:kids')->name('keys.index');
+    Route::patch('users/{user}/keys', [App\Http\Controllers\KidsDashboardController::class, 'updateKeys'])->middleware('role:kids')->name('users.keys.update');
     Route::post('rooms', [App\Http\Controllers\KidsDashboardController::class, 'store'])->middleware('role:kids')->name('rooms.store');
     Route::get('characters', [CharacterController::class, 'index'])->middleware('role:kids')->name('characters.index');
     Route::post('characters', [CharacterController::class, 'store'])->middleware('role:kids')->name('characters.store');
@@ -138,15 +140,15 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
     Route::post('rooms/{room}/episodes', [App\Http\Controllers\KidsDashboardController::class, 'storeEpisode'])->middleware('role:kids')->name('rooms.episodes.store');
     Route::patch('episodes/{episode}', [App\Http\Controllers\KidsDashboardController::class, 'updateEpisode'])->middleware('role:kids')->name('episodes.update');
     Route::delete('episodes/{episode}', [App\Http\Controllers\KidsDashboardController::class, 'destroyEpisode'])->middleware('role:kids')->name('episodes.destroy');
-    
+
     // API for AJAX
     Route::get('api/characters', [CharacterController::class, 'apiIndex'])->middleware('role:kids')->name('api.characters');
     Route::get('api/assets', [AssetController::class, 'apiIndex'])->middleware('role:kids')->name('api.assets');
 
-    Route::group(['middleware' => 'role:admin'], function() {
+    Route::group(['middleware' => 'role:admin'], function () {
         Route::get('register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
         Route::post('register', [App\Http\Controllers\Auth\RegisterController::class, 'register'])->name('register.submit');
-        
+
         Route::get('categories', [App\Http\Controllers\CategoryController::class, 'index'])->name('category.index');
         Route::post('categories/store', [App\Http\Controllers\CategoryController::class, 'store'])->name('category.store');
         Route::delete('categories/{category}', [App\Http\Controllers\CategoryController::class, 'destroy'])->name('category.destroy');
@@ -170,8 +172,8 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
         Route::post('contents/{chapter}/store', [App\Http\Controllers\ContentController::class, 'store'])->name('chapter.contents.store');
         Route::delete('contents/{content}', [App\Http\Controllers\ContentController::class, 'destroy'])->name('chapter.contents.destroy');
         Route::patch('contents/{content}/update', [App\Http\Controllers\ContentController::class, 'update'])->name('chapter.contents.update');
-    
-    Route::get('videos', [App\Http\Controllers\VideoController::class, 'index'])->name('video.index');
+
+        Route::get('videos', [App\Http\Controllers\VideoController::class, 'index'])->name('video.index');
         Route::post('videos/store', [App\Http\Controllers\VideoController::class, 'store'])->name('video.store');
         Route::delete('videos/{video}', [App\Http\Controllers\VideoController::class, 'destroy'])->name('video.destroy');
         Route::patch('videos/{video}/update', [App\Http\Controllers\VideoController::class, 'update'])->name('video.update');
@@ -277,7 +279,7 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth'], 'prefix' => 'adm
 
 Route::group(['middleware' => ['auth', 'role:kids,admin']], function () {
     // Routes accessible by BOTH kids and admin
-    Route::get('/kids-special', function() {
+    Route::get('/kids-special', function () {
         return "Welcome Kids and Admins!";
     })->name('kids.special');
 });
@@ -285,4 +287,3 @@ Route::group(['middleware' => ['auth', 'role:kids,admin']], function () {
 Route::group(['middleware' => ['auth', 'role:kids']], function () {
     // Routes accessible ONLY by kids (if any)
 });
-
