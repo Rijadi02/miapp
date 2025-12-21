@@ -7,9 +7,11 @@
         <a href="#" class="item-card-link" data-toggle="modal" data-target="#editKeysModal{{ $user->id }}">
             <div class="item-card" style="background-image: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(139, 92, 246, 0.1));">
                 <div class="item-overlay">
+                    <div class="user-avatar-overlay">
+                        <img src="{{ $user->profile_picture_url }}" alt="{{ $user->name }}" class="user-avatar-image">
+                    </div>
                     <div class="item-content">
                         <div class="d-flex align-items-center mb-3">
-                            <img src="{{ $user->profile_picture_url }}" alt="{{ $user->name }}" class="rounded-circle mr-3" style="width: 50px; height: 50px; object-fit: cover; border: 2px solid rgba(255,255,255,0.8);">
                             <div>
                                 <h3 class="item-title mb-0">{{ $user->name }}</h3>
                                 <p class="item-description mb-0">{{ $user->email }}</p>
@@ -126,6 +128,24 @@
         padding: 2rem;
     }
 
+    .user-avatar-overlay {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 3px solid rgba(255,255,255,0.8);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    .user-avatar-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
     .item-content {
         color: white;
     }
@@ -235,10 +255,11 @@ $(document).ready(function() {
         $('#error-alert-' + userId).addClass('d-none');
 
         $.ajax({
-            url: '{{ url("admin/users") }}/' + userId + '/keys',
-            method: 'PATCH',
+            url: '{{ route("users.keys.update", ":userId") }}'.replace(':userId', userId),
+            method: 'POST',
             data: {
                 keys: keys,
+                _method: 'PATCH',
                 _token: '{{ csrf_token() }}'
             },
             success: function(response) {
