@@ -36,6 +36,14 @@ class KidsDashboardController extends Controller
             'keys' => $request->keys ?? []
         ]);
 
+        if ($request->wantsJson()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Keys updated successfully!',
+                'keys' => $user->fresh()->keys
+            ]);
+        }
+
         return redirect()->back()->with('success', 'Keys updated successfully!');
     }
 
