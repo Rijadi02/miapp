@@ -54,22 +54,22 @@ class MetalsController extends Controller
         $data  = $response->json();
         $rates = $data['rates'] ?? [];
 
-        $usdXau = $rates['USDXAU'] ?? null; // oz of gold per 1 USD
-        $usdXag = $rates['USDXAG'] ?? null; // oz of silver per 1 USD
-        $usdEur = $rates['USDEUR'] ?? null; // EUR per 1 USD
+        $usdXau = $rates['USDXAU'] ?? null; // Price of 1oz Gold in USD
+        $usdXag = $rates['USDXAG'] ?? null; // Price of 1oz Silver in USD
+        $eurRate = $rates['EUR'] ?? null;    // EUR per 1 USD (e.g., 0.86)
 
-        if (!$usdXau || !$usdXag || !$usdEur || $usdXau == 0 || $usdXag == 0) {
+        if (!$usdXau || !$usdXag || !$eurRate || $usdXau == 0 || $usdXag == 0) {
             return response()->json([
-                'error' => 'Unexpected API response structure.',
+                'error' => 'Unexpected API response structure or missing rates.',
                 'raw'   => $data,
             ], 500);
         }
 
-        // 1 oz gold in EUR  = (1 / USDXAU) * USDEUR
-        $goldPriceEur   = (1 / $usdXau) * $usdEur;
+        // 1 oz gold in EUR  = (Price in USD) * (EUR per 1 USD)
+        $goldPriceEur   = $usdXau * $eurRate;
 
-        // 1 oz silver in EUR = (1 / USDXAG) * USDEUR
-        $silverPriceEur = (1 / $usdXag) * $usdEur;
+        // 1 oz silver in EUR = (Price in USD) * (EUR per 1 USD)
+        $silverPriceEur = $usdXag * $eurRate;
 
         $rawJson = json_encode($data);
 
