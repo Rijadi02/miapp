@@ -24,8 +24,10 @@ class MetalsController extends Controller
             return response()->json([
                 'json'         => json_decode($cached->json, true),
                 'price'        => (float) $cached->price,
+                '1g'           => (float) $cached->price_1g,
                 'silver_json'  => json_decode($cached->silver_json, true),
                 'silver_price' => (float) $cached->silver_price,
+                '1gs'          => (float) $cached->silver_price_1g,
                 'date'         => $cached->date,
             ]);
         }
@@ -57,28 +59,37 @@ class MetalsController extends Controller
             ], 500);
         }
 
+        // 1 troy ounce = 31.1034768 grams
+        $troyOzToGram = 31.1034768;
+
         // 1 oz gold in EUR  = (1 / USDXAU) * USDEUR
         $goldPriceEur   = (1 / $usdXau) * $usdEur;
+        $goldPrice1g    = $goldPriceEur / $troyOzToGram;
 
         // 1 oz silver in EUR = (1 / USDXAG) * USDEUR
         $silverPriceEur = (1 / $usdXag) * $usdEur;
+        $silverPrice1g  = $silverPriceEur / $troyOzToGram;
 
         $rawJson = json_encode($data);
 
         // Save to database (one row per day)
         $record = MetalsJson::create([
-            'json'         => $rawJson,
-            'price'        => $goldPriceEur,
-            'silver_json'  => $rawJson,    // same API call contains both metals
-            'silver_price' => $silverPriceEur,
-            'date'         => $today,
+            'json'            => $rawJson,
+            'price'           => $goldPriceEur,
+            'price_1g'        => $goldPrice1g,
+            'silver_json'     => $rawJson,
+            'silver_price'    => $silverPriceEur,
+            'silver_price_1g' => $silverPrice1g,
+            'date'            => $today,
         ]);
 
         return response()->json([
             'json'         => $data,
             'price'        => (float) $record->price,
+            '1g'           => (float) $record->price_1g,
             'silver_json'  => $data,
             'silver_price' => (float) $record->silver_price,
+            '1gs'          => (float) $record->silver_price_1g,
             'date'         => $record->date,
         ]);
     }

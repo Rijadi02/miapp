@@ -14,8 +14,10 @@ class MetalsJson extends Model
     protected $fillable = [
         'json',
         'price',
+        'price_1g',
         'silver_json',
         'silver_price',
+        'silver_price_1g',
         'date',
     ];
 }
