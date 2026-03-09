@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMetalsJsonTable extends Migration
+class CreateMetalsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -15,11 +15,11 @@ class CreateMetalsJsonTable extends Migration
     {
         Schema::create('metals_json', function (Blueprint $table) {
             $table->id();
-            $table->longText('json');           // Full raw JSON from MetalPriceAPI
-            $table->decimal('price', 18, 6);    // Gold price in EUR (1 troy oz)
-            $table->longText('silver_json');    // Full raw JSON (same response, kept for convenience)
-            $table->decimal('silver_price', 18, 6); // Silver price in EUR (1 troy oz)
-            $table->date('date')->unique();     // One record per day
+            $table->longText('json');
+            $table->decimal('price', 18, 6);
+            $table->longText('silver_json');
+            $table->decimal('silver_price', 18, 6);
+            $table->date('date')->unique();
             $table->timestamps();
         });
     }
