@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\API\GoldController;
+use App\Http\Controllers\API\MetalsController;
 use App\Http\Controllers\API\HomeController;
 use App\Http\Controllers\API\TimesController;
 use Illuminate\Http\Request;
@@ -80,5 +80,5 @@ Route::get('/article/views', [HomeController::class, 'article_views']);
 
 Route::get('/ads', [HomeController::class, 'ads']);
 
-// Gold price — cached per day, fetched from MetalPriceAPI on first request each day
-Route::get('/gold', [GoldController::class, 'getGold']);
+// Gold & Silver prices — cached per day, fetched from MetalPriceAPI on first request each day
+Route::get('/metals', [MetalsController::class, 'getMetals']);

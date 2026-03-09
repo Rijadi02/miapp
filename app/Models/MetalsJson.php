@@ -5,15 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class GoldJson extends Model
+class MetalsJson extends Model
 {
     use HasFactory;
 
-    protected $table = 'gold_json';
+    protected $table = 'metals_json';
 
     protected $fillable = [
         'json',
         'price',
+        'silver_json',
+        'silver_price',
         'date',
     ];
 }
